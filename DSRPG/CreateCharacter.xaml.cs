@@ -22,21 +22,35 @@ namespace DSRPG
         public CreateCharacter()
         {
             InitializeComponent();
+            Name.MaxLength = 10;
         }
 
-        private void Name_TouchEnter(object sender, TouchEventArgs e)
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Name_GotFocus(object sender, RoutedEventArgs e)
         {
             if(Name.Text == "Введите имя")
             {
                 Name.Text = "";
+                Name.Foreground = Brushes.Black;
             }
         }
 
-        private void Name_TouchLeave(object sender, TouchEventArgs e)
+        private void Name_LostFocus(object sender, RoutedEventArgs e)
         {
             if (Name.Text == "")
             {
                 Name.Text = "Введите имя";
+                Name.Foreground = Brushes.Gray;
             }
         }
     }

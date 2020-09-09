@@ -8,8 +8,8 @@
         Title="CreateCharacter" Height="450" Width="800">
     <Grid>
         <Label Content="Создание персонажа" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" Width="222" FontSize="22"/>
-        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="312,83,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="133" Foreground="Gray" TouchEnter="Name_TouchEnter" TouchLeave="Name_TouchLeave"/>
-        <Label Content="Имя персонажа:&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,55,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="312,83,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="133" Foreground="Gray" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus"/>
+        <Label Content="Имя персонажа:&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,55,0,0" VerticalAlignment="Top" Height="23"/>
         <ComboBox HorizontalAlignment="Left" Margin="312,137,0,0" VerticalAlignment="Top" Width="133" BorderBrush="White">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -18,9 +18,9 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <Label Content="Выберите класс:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,111,0,0" VerticalAlignment="Top" Width="101"/>
+        <Label Content="Выберите класс:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,111,0,0" VerticalAlignment="Top" Width="101" Height="26"/>
         <Label Content="Выберите пол:" HorizontalAlignment="Left" Margin="325,169,0,0" VerticalAlignment="Top" Width="101"/>
-        <RadioButton Content="Мужской&#xD;&#xA;" HorizontalAlignment="Left" Margin="302,195,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Мужской&#xD;&#xA;" HorizontalAlignment="Left" Margin="302,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <RadioButton Content="Женский" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="325,226,0,0" VerticalAlignment="Top" Width="101"/>
         <ComboBox HorizontalAlignment="Left" Margin="312,252,0,0" VerticalAlignment="Top" Width="133"/>
