@@ -29,5 +29,12 @@ namespace DSRPG
         {
             Environment.Exit(0);
         }
+
+        private void NewGameButt_Click(object sender, RoutedEventArgs e)
+        {
+            CreateCharacter createcharacter = new CreateCharacter();
+            createcharacter.Show();
+            this.Close();
+        }
     }
 }
