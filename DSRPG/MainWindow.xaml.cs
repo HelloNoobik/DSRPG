@@ -24,5 +24,10 @@ namespace DSRPG
         {
             InitializeComponent();
         }
+
+        private void ExitButt_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
