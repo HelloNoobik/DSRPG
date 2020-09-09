@@ -22,7 +22,6 @@ namespace DSRPG
         public CreateCharacter()
         {
             InitializeComponent();
-            Name.MaxLength = 10;
         }
 
 
@@ -51,6 +50,20 @@ namespace DSRPG
             {
                 Name.Text = "Введите имя";
                 Name.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Name.MaxLength = 10;
+        }
+
+        private void Name_PreviewKeyDown(object sender, KeyEventArgs e)
+        {//Тест
+            if (!Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) & e.Key != Key.Back | e.Key == Key.Space)
+            {
+                e.Handled = true;
+                MessageBox.Show("I only accept numbers, sorry. :(", "This textbox says...");
             }
         }
     }
