@@ -36,5 +36,12 @@ namespace DSRPG
             createcharacter.Show();
             this.Close();
         }
+
+        private void SettingsButt_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 settings = new Window1();
+            settings.Show();
+            this.Close();
+        }
     }
 }
