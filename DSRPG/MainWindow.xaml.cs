@@ -29,6 +29,14 @@ namespace DSRPG
             Settings.VolumeChanged += () => player.Volume = Settings.Volume;
         }
 
+        public MainWindow(Point point)
+        {
+            InitializeComponent();
+            this.ChangeLocation(point);
+            if (!Music) PlayMusic();
+            Settings.VolumeChanged += () => player.Volume = Settings.Volume;
+        }
+
         async void PlayMusic() 
         {
             Music = true;
@@ -56,14 +64,14 @@ namespace DSRPG
 
         private void NewGameButt_Click(object sender, RoutedEventArgs e)
         {
-            CreateCharacter createcharacter = new CreateCharacter();
+            CreateCharacter createcharacter = new CreateCharacter(this.GetLocation());
             createcharacter.Show();
             this.Close();
         }
 
         private void SettingsButt_Click(object sender, RoutedEventArgs e)
         {
-            Window1 settings = new Window1();
+            Window1 settings = new Window1(this.GetLocation());
             settings.Show();
             this.Close();
         }

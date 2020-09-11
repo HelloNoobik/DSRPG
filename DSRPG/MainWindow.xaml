@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="Manual">
     <Grid Background="Black">
         <Label x:Name="DsRPGKb" Content="DS RPG" HorizontalAlignment="Left" Margin="265,29,0,0" VerticalAlignment="Top" Height="84" Width="254" Foreground="White" FontFamily="Cambria Math" FontSize="72"/>
         <Button x:Name="NewGameButt" Content="New Game" HorizontalAlignment="Left" Margin="321,149,0,0" VerticalAlignment="Top" Width="134" Background="{x:Null}" Height="31" BorderBrush="{x:Null}" Click="NewGameButt_Click" Foreground="White" DragOver="NewGameButt_DragOver"/>

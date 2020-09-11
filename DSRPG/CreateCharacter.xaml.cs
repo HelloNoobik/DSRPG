@@ -19,8 +19,9 @@ namespace DSRPG
     /// </summary>
     public partial class CreateCharacter : Window
     {
-        public CreateCharacter()
+        public CreateCharacter(Point point)
         {
+            this.ChangeLocation(point);
             InitializeComponent();
         }
 
@@ -69,7 +70,7 @@ namespace DSRPG
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(this.GetLocation());
             mainWindow.Show();
             this.Close();
         }

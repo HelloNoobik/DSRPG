@@ -19,15 +19,17 @@ namespace DSRPG
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
+        public Window1(Point point)
         {
             InitializeComponent();
+            this.ChangeLocation(point);
             VolumeSlider.Value = Settings.Volume;
+            VolumeValueLabel.Content = $"{Math.Round(Settings.Volume * 100)} %";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(this.GetLocation());
             mainWindow.Show();
             this.Close();
         }
@@ -35,6 +37,7 @@ namespace DSRPG
         private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Settings.Volume = VolumeSlider.Value;
+            VolumeValueLabel.Content = $"{Math.Round(Settings.Volume * 100)} %";
         }
     }
 }
