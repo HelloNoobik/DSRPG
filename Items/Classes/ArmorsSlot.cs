@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Inventory.Enums;
+using InventoryDll.Enums;
 
-namespace Inventory.Classes
+namespace InventoryDll.Classes
 {
-    class ArmorsSlot
+    public class ArmorsSlot
     {
         public Item Armor { get; private set; }
         private ArmorsType Type { get; set; }

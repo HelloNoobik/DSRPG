@@ -49,9 +49,9 @@
     <Compile Include="Warrior.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Items\Inventory.csproj">
+    <ProjectReference Include="..\Items\InventoryDll.csproj">
       <Project>{056f53a5-ee79-40e9-9492-488903571159}</Project>
-      <Name>Inventory</Name>
+      <Name>InventoryDll</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

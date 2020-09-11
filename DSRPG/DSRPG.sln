@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSRPG", "DSRPG.csproj", "{4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character", "..\Character\Character.csproj", "{F9D65E6A-13B3-4464-B30E-EB984EE56043}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory", "..\Items\Inventory.csproj", "{056F53A5-EE79-40E9-9492-488903571159}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryDll", "..\Items\InventoryDll.csproj", "{056F53A5-EE79-40E9-9492-488903571159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

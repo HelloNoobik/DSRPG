@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InventoryDll;
 
 namespace Character
 {
@@ -18,6 +19,8 @@ namespace Character
         protected int Hp { get; private protected set; }
         protected int Mana { get; private protected set; }
         protected int Stamina { get; private protected set; }
+
+        protected Inventory Inventory = new Inventory();
 
         protected bool IsAlive() 
         {

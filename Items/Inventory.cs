@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Inventory.Enums;
-using Inventory.Classes;
+using InventoryDll.Enums;
+using InventoryDll.Classes;
 
-namespace Inventory
+namespace InventoryDll
 {
-    class Inventory
+    public class Inventory
     {
         public WeaponsSlot WeaponSlot { get; }
         public ArmorsSlot HeadArmor = new ArmorsSlot(ArmorsType.Helmet);

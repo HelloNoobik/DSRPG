@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventory.Enums
+namespace InventoryDll.Enums
 {
-    enum WeaponsType
+    public enum WeaponsType
     {
         Sword,
         Spear,
