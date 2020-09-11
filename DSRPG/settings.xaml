@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800">
+        Title="Settings" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="Black">
         <Label x:Name="MusicVolumeLb" Content="Music Volume" HorizontalAlignment="Left" Margin="152,68,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="148" FontSize="20"/>
         <Label x:Name="InProgressLb" Content="In Progress........" HorizontalAlignment="Left" Margin="343,68,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="148" FontSize="20"/>
