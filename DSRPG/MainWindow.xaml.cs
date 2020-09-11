@@ -23,6 +23,10 @@ namespace DSRPG
         public MainWindow()
         {
             InitializeComponent();
+            var player = new MediaPlayer();
+            player.MediaFailed += (s, e) => MessageBox.Show("Error");
+            player.Open(new Uri("C:/Users/slava/OneDrive/Рабочий стол/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.RelativeOrAbsolute));
+            player.Play();
         }
 
         private void ExitButt_Click(object sender, RoutedEventArgs e)
