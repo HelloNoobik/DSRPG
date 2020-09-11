@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSRPG", "DSRPG.csproj", "{472F6D53-0648-4CBE-803A-626D5B10C996}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character", "..\Character\Character.csproj", "{F9D65E6A-13B3-4464-B30E-EB984EE56043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory", "..\Items\Inventory.csproj", "{056F53A5-EE79-40E9-9492-488903571159}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{472F6D53-0648-4CBE-803A-626D5B10C996}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{472F6D53-0648-4CBE-803A-626D5B10C996}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{472F6D53-0648-4CBE-803A-626D5B10C996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D65E6A-13B3-4464-B30E-EB984EE56043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D65E6A-13B3-4464-B30E-EB984EE56043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D65E6A-13B3-4464-B30E-EB984EE56043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D65E6A-13B3-4464-B30E-EB984EE56043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056F53A5-EE79-40E9-9492-488903571159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056F53A5-EE79-40E9-9492-488903571159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056F53A5-EE79-40E9-9492-488903571159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056F53A5-EE79-40E9-9492-488903571159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
