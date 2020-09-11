@@ -33,7 +33,9 @@ namespace DSRPG
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            HistoryOfDS window = new HistoryOfDS(this.GetLocation());
+            window.Show();
+            this.Close();
         }
 
         private void Name_GotFocus(object sender, RoutedEventArgs e)
@@ -72,13 +74,6 @@ namespace DSRPG
         {
             MainWindow mainWindow = new MainWindow(this.GetLocation());
             mainWindow.Show();
-            this.Close();
-        }
-
-        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            HistoryOfDS window = new HistoryOfDS(this.GetLocation());
-            window.Show();
             this.Close();
         }
     }
