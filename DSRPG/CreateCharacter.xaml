@@ -6,26 +6,19 @@
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
         Title="CreateCharacter" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Background="Black">
         <Label Content="Создание персонажа" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" Width="222" FontSize="22"/>
-        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="312,83,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="133" Foreground="Gray" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" TextChanged="Name_TextChanged" PreviewKeyDown="Name_PreviewKeyDown"/>
-        <Label Content="Имя персонажа:&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,55,0,0" VerticalAlignment="Top" Height="23"/>
-        <ComboBox HorizontalAlignment="Left" Margin="312,137,0,0" VerticalAlignment="Top" Width="133" BorderBrush="White">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
-        <Label Content="Выберите класс:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,111,0,0" VerticalAlignment="Top" Width="101" Height="26"/>
-        <Label Content="Выберите пол:" HorizontalAlignment="Left" Margin="325,169,0,0" VerticalAlignment="Top" Width="101"/>
-        <RadioButton Content="Мужской&#xD;&#xA;" HorizontalAlignment="Left" Margin="302,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-        <RadioButton Content="Женский" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-        <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="325,226,0,0" VerticalAlignment="Top" Width="101"/>
-        <ComboBox HorizontalAlignment="Left" Margin="312,252,0,0" VerticalAlignment="Top" Width="133"/>
-        <Button Content="Принять" HorizontalAlignment="Left" Margin="288,302,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click"/>
-        <Button Content="Вернуться&#xD;&#xA;" HorizontalAlignment="Left" Margin="312,338,0,0" VerticalAlignment="Top" Width="133" Height="21" Click="Button_Click_1"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="312,83,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="133" Foreground="White" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" TextChanged="Name_TextChanged" PreviewKeyDown="Name_PreviewKeyDown" Background="{x:Null}" BorderBrush="White"/>
+        <Label Content="Имя персонажа:&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,55,0,0" VerticalAlignment="Top" Height="23" Foreground="White"/>
+        <ComboBox HorizontalAlignment="Left" Margin="312,137,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+        <Label Content="Выберите класс:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="325,111,0,0" VerticalAlignment="Top" Width="101" Height="26" Foreground="White"/>
+        <Label Content="Выберите пол:" HorizontalAlignment="Left" Margin="325,169,0,0" VerticalAlignment="Top" Width="101" Background="{x:Null}" Foreground="White"/>
+        <RadioButton Content="Мужской&#xD;&#xA;" HorizontalAlignment="Left" Margin="302,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Background="{x:Null}" Foreground="White"/>
+        <RadioButton Content="Женский" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Background="{x:Null}" Foreground="White"/>
+        <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="325,226,0,0" VerticalAlignment="Top" Width="101" Foreground="White"/>
+        <ComboBox HorizontalAlignment="Left" Margin="312,252,0,0" VerticalAlignment="Top" Width="133" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <Button Content="Принять" HorizontalAlignment="Left" Margin="288,302,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button Content="Вернуться&#xD;&#xA;" HorizontalAlignment="Left" Margin="312,338,0,0" VerticalAlignment="Top" Width="133" Height="21" Click="Button_Click_1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
 
     </Grid>
 </Window>
