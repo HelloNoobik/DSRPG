@@ -9,7 +9,7 @@ namespace DSRPG
 {
     static class Extension
     {
-        public static void ChangeLocation(this Window win,Point point) 
+        public static void SetLocation(this Window win,Point point) 
         {
             win.Left = point.X;
             win.Top = point.Y;

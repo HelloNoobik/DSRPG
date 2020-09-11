@@ -32,7 +32,7 @@ namespace DSRPG
         public MainWindow(Point point)
         {
             InitializeComponent();
-            this.ChangeLocation(point);
+            this.SetLocation(point);
             if (!Music) PlayMusic();
             Settings.VolumeChanged += () => player.Volume = Settings.Volume;
         }

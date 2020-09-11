@@ -17,7 +17,7 @@
         <RadioButton Content="Женский" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Background="{x:Null}" Foreground="White"/>
         <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="325,226,0,0" VerticalAlignment="Top" Width="101" Foreground="White"/>
         <ComboBox HorizontalAlignment="Left" Margin="312,252,0,0" VerticalAlignment="Top" Width="133" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}"/>
-        <Button Content="Принять" HorizontalAlignment="Left" Margin="288,302,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button Content="Принять" HorizontalAlignment="Left" Margin="288,302,0,0" VerticalAlignment="Top" Width="184" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" MouseLeftButtonDown="Button_MouseLeftButtonDown"/>
         <Button Content="Вернуться&#xD;&#xA;" HorizontalAlignment="Left" Margin="312,338,0,0" VerticalAlignment="Top" Width="133" Height="21" Click="Button_Click_1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
 
     </Grid>

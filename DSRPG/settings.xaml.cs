@@ -22,7 +22,7 @@ namespace DSRPG
         public Window1(Point point)
         {
             InitializeComponent();
-            this.ChangeLocation(point);
+            this.SetLocation(point);
             VolumeSlider.Value = Settings.Volume;
             VolumeValueLabel.Content = $"{Math.Round(Settings.Volume * 100)} %";
         }

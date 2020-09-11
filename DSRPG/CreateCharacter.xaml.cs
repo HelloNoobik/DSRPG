@@ -21,7 +21,7 @@ namespace DSRPG
     {
         public CreateCharacter(Point point)
         {
-            this.ChangeLocation(point);
+            this.SetLocation(point);
             InitializeComponent();
         }
 
@@ -72,6 +72,13 @@ namespace DSRPG
         {
             MainWindow mainWindow = new MainWindow(this.GetLocation());
             mainWindow.Show();
+            this.Close();
+        }
+
+        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            HistoryOfDS window = new HistoryOfDS(this.GetLocation());
+            window.Show();
             this.Close();
         }
     }
