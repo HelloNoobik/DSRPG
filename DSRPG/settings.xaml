@@ -8,8 +8,8 @@
         Title="Settings" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="Black">
         <Label x:Name="MusicVolumeLb" Content="Music Volume" HorizontalAlignment="Left" Margin="152,68,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="148" FontSize="20"/>
-        <Label x:Name="InProgressLb" Content="In Progress........" HorizontalAlignment="Left" Margin="343,68,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="148" FontSize="20"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="10,368,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.275,0.709" Height="41" Background="{x:Null}" Foreground="White" Click="Button_Click"/>
+        <Slider x:Name="VolumeSlider" HorizontalAlignment="Left" Margin="371,80,0,0" VerticalAlignment="Top" Width="295" Height="23"/>
 
     </Grid>
 </Window>
