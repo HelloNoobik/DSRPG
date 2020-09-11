@@ -40,7 +40,7 @@ namespace DSRPG
             if(Name.Text == "Введите имя")
             {
                 Name.Text = "";
-                Name.Foreground = Brushes.Black;
+                Name.Foreground = Brushes.White;
             }
         }
 
@@ -49,7 +49,7 @@ namespace DSRPG
             if (Name.Text == "")
             {
                 Name.Text = "Введите имя";
-                Name.Foreground = Brushes.Gray;
+                //Name.Foreground = Brushes.White;
             }
         }
 
