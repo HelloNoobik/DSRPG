@@ -22,6 +22,7 @@ namespace DSRPG
         public Window1()
         {
             InitializeComponent();
+            VolumeSlider.Value = Settings.Volume;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -29,6 +30,11 @@ namespace DSRPG
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Settings.Volume = VolumeSlider.Value;
         }
     }
 }

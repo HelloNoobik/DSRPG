@@ -21,26 +21,34 @@ namespace DSRPG
     public partial class MainWindow : Window
     {
         static bool Music;
+        static MediaPlayer player;
         public MainWindow()
         {
             InitializeComponent();
             if(!Music) PlayMusic();
+            Settings.VolumeChanged += () => player.Volume = Settings.Volume;
         }
 
         async void PlayMusic() 
         {
             Music = true;
+            player = new MediaPlayer();
             await Task.Run(() => 
             {
-                MediaPlayer player = new MediaPlayer();
-                player.MediaFailed += (s, e) => MessageBox.Show("Error");
-                player.Open(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
-                player.Volume = 0.1;
-                player.Play();
+                Dispatcher.Invoke(() => {
+                    player.MediaFailed += (s, e) => MessageBox.Show("Error");
+                    player.Open(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                    player.Volume = Settings.Volume;
+                    player.Play();
+                });
             });
 
         }
 
+        public void ChangeVolume(MediaPlayer player) 
+        {
+            player.Volume = Settings.Volume;
+        }
         private void ExitButt_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
