@@ -8,10 +8,100 @@
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="Manual">
     <Grid Background="Black">
         <Label x:Name="DsRPGKb" Content="DS RPG" HorizontalAlignment="Left" Margin="265,29,0,0" VerticalAlignment="Top" Height="84" Width="254" Foreground="White" FontFamily="Cambria Math" FontSize="72"/>
-        <Button x:Name="NewGameButt" Content="New Game" HorizontalAlignment="Left" Margin="321,149,0,0" VerticalAlignment="Top" Width="134" Background="{x:Null}" Height="31" BorderBrush="{x:Null}" Click="NewGameButt_Click" Foreground="White" DragOver="NewGameButt_DragOver"/>
-        <Button x:Name="LoadGameButt" Content="Load Game" HorizontalAlignment="Left" Margin="321,201,0,0" VerticalAlignment="Top" Width="133" Height="31" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-        <Button x:Name="SettingsButt" Content="Settings" HorizontalAlignment="Left" Margin="322,255,0,0" VerticalAlignment="Top" Width="133" Height="31" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" Click="SettingsButt_Click"/>
-        <Button x:Name="ExitButt" Content="Exit" HorizontalAlignment="Left" Margin="322,340,0,0" VerticalAlignment="Top" Width="133" Click="ExitButt_Click" Height="31" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
+        <StackPanel HorizontalAlignment="Left" Height="131" Margin="336,134,0,0" VerticalAlignment="Top" Width="100">
+            <Label x:Name="NewGameLb" Content="Новая игра" Foreground="White" MouseEnter="NewGame_MouseEnter" MouseLeave="NewGame_MouseLeave" MouseLeftButtonUp="NewGameLb_MouseLeftButtonUp"/>
+            <Label x:Name="LoadGameLb" Content="Загрузка игры" Foreground="White" MouseEnter="LoadGame_MouseEnter" MouseLeave="LoadGame_MouseLeave" MouseLeftButtonUp="LoadGameLb_MouseLeftButtonUp"/>
+            <Label x:Name="SettingsLb" Content="Настройки" Foreground="White" MouseEnter="Settings_MouseEnter" MouseLeave="Settings_MouseLeave" MouseLeftButtonUp="SettingsLb_MouseLeftButtonUp"/>
+            <Label x:Name="ExitLb" Content="Выход" Foreground="White" MouseEnter="Exit_MouseEnter" MouseLeave="Exit_MouseLeave" MouseLeftButtonUp="ExitLb_MouseLeftButtonUp"/>
+        </StackPanel>
 
     </Grid>
+
+    <Window.Resources>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2"
+                       SnapsToDevicePixels="true"
+                       Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                       StrokeDashArray="1 2"
+                       StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <SolidColorBrush x:Key="Button.Static.Background"
+                     Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border"
+                     Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background"
+                     Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border"
+                     Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background"
+                     Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border"
+                     Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background"
+                     Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border"
+                     Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground"
+                     Color="#FF838383" />
+
+        <Style x:Key="DefaultButtonStyle"
+           TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <!--<Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.MouseOver.Background}" />
+                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}" />
+              </Trigger>-->
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
 </Window>
+

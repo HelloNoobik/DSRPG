@@ -53,32 +53,68 @@ namespace DSRPG
 
         }
 
-        public void ChangeVolume(MediaPlayer player) 
+        private void NewGame_MouseEnter(object sender, MouseEventArgs e)
         {
-            player.Volume = Settings.Volume;
-        }
-        private void ExitButt_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
+            NewGameLb.Foreground = Brushes.Yellow;
         }
 
-        private void NewGameButt_Click(object sender, RoutedEventArgs e)
+        private void NewGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            NewGameLb.Foreground = Brushes.White;
+        }
+
+        private void LoadGame_MouseEnter(object sender, MouseEventArgs e)
+        {
+            LoadGameLb.Foreground = Brushes.Yellow;
+        }
+
+        private void LoadGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            LoadGameLb.Foreground = Brushes.White;
+        }
+
+        private void Settings_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SettingsLb.Foreground = Brushes.Yellow;
+        }
+
+        private void Settings_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SettingsLb.Foreground = Brushes.White;
+        }
+
+        private void Exit_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ExitLb.Foreground = Brushes.Yellow;
+        }
+
+        private void Exit_MouseLeave(object sender, MouseEventArgs e)
+        {
+           ExitLb.Foreground = Brushes.White;
+        }
+
+        private void NewGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             CreateCharacter createcharacter = new CreateCharacter(this.GetLocation());
             createcharacter.Show();
             this.Close();
         }
 
-        private void SettingsButt_Click(object sender, RoutedEventArgs e)
+        private void LoadGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SettingsLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Window1 settings = new Window1(this.GetLocation());
             settings.Show();
             this.Close();
         }
 
-        private void NewGameButt_DragOver(object sender, DragEventArgs e)
+        private void ExitLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            Environment.Exit(0);
         }
     }
 }
