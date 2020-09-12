@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="FirstLocation" Height="450" Width="800">
     <Grid>
-        <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/img/world.png" Stretch="UniformToFill"/>
+        <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/img/Lotrik.png" Stretch="UniformToFill"/>
         <Image x:Name="FirstLvl" HorizontalAlignment="Left" Height="51" Margin="390,70,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="1.608,0.483" Source="/DSRPG;component/img/lvl (2).png"/>
         <Image x:Name="SecondLvl" HorizontalAlignment="Left" Height="51" Margin="442,121,0,0" VerticalAlignment="Top" Width="48" Source="/DSRPG;component/img/noPass.png"/>
         <Image x:Name="ThirdLvl" HorizontalAlignment="Left" Height="51" Margin="491,183,0,0" VerticalAlignment="Top" Width="48" Source="/DSRPG;component/img/noPass.png"/>

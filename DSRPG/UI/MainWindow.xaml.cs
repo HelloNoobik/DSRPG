@@ -27,7 +27,7 @@ namespace DSRPG
             if (!Media.MainMenuMusicPlaying) 
             {
                 Media.MainMenuMusicPlaying = true;
-                Media.SetMusic(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                Media.SetMusic(new Uri("music/MainTheme.mp3", UriKind.Relative));
                 Media.PlayMusic();
             }
         }
@@ -38,7 +38,7 @@ namespace DSRPG
             if (!Media.MainMenuMusicPlaying)
             {
                 Media.MainMenuMusicPlaying = true;
-                Media.SetMusic(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                Media.SetMusic(new Uri("music/MainTheme.mp3", UriKind.Relative));
                 Media.PlayMusic();
             }
         }
