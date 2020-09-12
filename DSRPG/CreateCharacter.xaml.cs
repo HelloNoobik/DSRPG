@@ -27,7 +27,14 @@ namespace DSRPG
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            if(man.IsChecked == true)
+            {
+                MessageBox.Show("Вы выбрали man");
+            }
+            else
+            {
+                MessageBox.Show("Вы выбрали female");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,10 +44,10 @@ namespace DSRPG
 
         private void Name_GotFocus(object sender, RoutedEventArgs e)
         {
-            if(Name.Text == "Введите имя")
+            if (Name.Text == "Введите имя")
             {
                 Name.Text = "";
-                Name.Foreground = Brushes.Black;
+                Name.Foreground = Brushes.AntiqueWhite;
             }
         }
 
@@ -49,7 +56,7 @@ namespace DSRPG
             if (Name.Text == "")
             {
                 Name.Text = "Введите имя";
-                Name.Foreground = Brushes.Gray;
+                Name.Foreground = Brushes.White;
             }
         }
 
@@ -57,14 +64,37 @@ namespace DSRPG
         {
             Name.MaxLength = 10;
         }
-
-        private void Name_PreviewKeyDown(object sender, KeyEventArgs e)
-        {//Тест
-            if (!Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) & e.Key != Key.Back | e.Key == Key.Space)
+        //Типо есть реализация русского и английского языка
+        private void Name_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+          
+            char q = Convert.ToChar(e.Text);
+            string s = e.Text;
+            byte[] bytes = Encoding.GetEncoding(1251).GetBytes(s);
+            if (q <= 97 && q <= 64 && Convert.ToChar(s) <= 191 || q >= 123 && q >=91 && Convert.ToChar(s) <= 256)
             {
                 e.Handled = true;
-                MessageBox.Show("I only accept numbers, sorry. :(", "This textbox says...");
+                MessageBox.Show("Ввод только символов !","Ошибка");
             }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Warrior.IsSelected)
+                infoclasses.Text = "Инфа о Воине";
+            else if (archer.IsSelected)
+                infoclasses.Text = "Инфа о Лучнике";
+            else if (Paladin.IsSelected)
+                infoclasses.Text = "Инфа о Паладине";
+            else if (Mage.IsSelected)
+                infoclasses.Text = "Инфа о Маге";
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
         }
     }
 }
