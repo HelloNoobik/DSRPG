@@ -1,0 +1,19 @@
+﻿<Window x:Name="MapWindow" x:Class="DSRPG.WorldMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSRPG"
+        mc:Ignorable="d"
+        Title="DSRPG - Карта мира" MouseLeftButtonDown="MapWindow_MouseLeftButtonDown" MouseLeftButtonUp="MapWindow_MouseLeftButtonUp" MouseMove="MapWindow_MouseMove" MouseLeave="MapWindow_MouseLeave" ResizeMode="NoResize" Width="800" Height="400" Icon="/DSRPG;component/img/skewer.png" Closing="MapWindow_Closing">
+    <Grid>
+        <ScrollViewer x:Name="WorldMapView" HorizontalAlignment="Left" IsEnabled="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Top" Width="794" Height="371">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Label x:Name="Lotrik_button" Content="" HorizontalAlignment="Left" Margin="386,325,0,0" Width="247" BorderBrush="White" BorderThickness="2" Height="34" VerticalAlignment="Top" Panel.ZIndex="1"/>
+                <Image x:Name="MapImage" Source="/DSRPG;component/img/World.jpg" Stretch="None" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+            </Grid>
+        </ScrollViewer>
+        <Button x:Name="back" Content="Гл.Меню" HorizontalAlignment="Left" Margin="48,49,0,0" VerticalAlignment="Top" Width="87" PreviewMouseDown="back_PreviewMouseDown" Height="25" Background="Black" Foreground="White"/>
+    </Grid>
+
+</Window>
