@@ -63,8 +63,8 @@
     <Compile Include="UI\HistoryOfDS.xaml.cs">
       <DependentUpon>HistoryOfDS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
+    <Compile Include="UI\settings.xaml.cs">
+      <DependentUpon>settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\WorldMap.xaml.cs">
       <DependentUpon>WorldMap.xaml</DependentUpon>
@@ -96,7 +96,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UI\Settings.xaml">
+    <Page Include="UI\settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,11 +146,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="img\noPass.png" />
-    <Resource Include="img\Lotrik.png" />
-    <Resource Include="img\World.jpg" />
+    <Resource Include="img\world.png" />
+    <Resource Include="img\1488843929117336441.jpg" />
     <Resource Include="img\lvl %282%29.png" />
-    <Resource Include="img\Bonefire.png" />
-    <Content Include="music\MainTheme.mp3">
+    <Resource Include="img\skewer.png" />
+    <Content Include="music\Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_%28Inkompmusic.ru%29.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
