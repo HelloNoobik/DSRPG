@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="FirstLocation" Height="450" Width="800">
+        Title="DSRPG - Локация Первая" Height="450" Width="800" Icon="/DSRPG;component/img/skewer.png">
     <Grid>
         <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/img/world.png" Stretch="UniformToFill"/>
         <Image x:Name="FirstLvl" HorizontalAlignment="Left" Height="51" Margin="390,70,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="1.608,0.483" Source="/DSRPG;component/img/lvl (2).png"/>

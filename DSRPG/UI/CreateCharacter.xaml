@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="CreateCharacter" Height="450" Width="800" ResizeMode="NoResize">
+        Title="DSRPG - Создание Персонажа" Height="450" Width="800" ResizeMode="NoResize" Icon="/DSRPG;component/img/skewer.png">
     <Grid Background="Black">
         <Label Content="Создание персонажа" HorizontalAlignment="Left" Margin="268,10,0,0" VerticalAlignment="Top" Width="222" FontSize="22" Background="Black" Foreground="White"/>
         <TextBox x:Name="Name" BorderThickness="0" HorizontalAlignment="Left" Height="23" Margin="0,65,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="133" Foreground="White" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" TextChanged="Name_TextChanged" PreviewTextInput="Name_PreviewTextInput" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>

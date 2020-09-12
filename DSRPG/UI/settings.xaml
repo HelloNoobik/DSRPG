@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800" WindowStartupLocation="Manual" ResizeMode="NoResize">
+        Title="DSPRG - Настройки" Height="450" Width="800" WindowStartupLocation="Manual" ResizeMode="NoResize" Icon="/DSRPG;component/img/skewer.png">
     <Grid Background="Black">
         <Label x:Name="MusicVolumeLb" Content="Общая громкость" HorizontalAlignment="Left" Margin="86,53,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="191" FontSize="20"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="10,368,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.275,0.709" Height="41" Background="{x:Null}" Foreground="White" Click="Button_Click"/>
