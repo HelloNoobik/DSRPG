@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="DSRPG - Главное меню" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="Manual" Icon="/DSRPG;component/img/skewer.png">
     <Grid Background="Black">
-        <Label x:Name="DsRPGKb" Content="DS RPG" HorizontalAlignment="Left" Margin="265,29,0,0" VerticalAlignment="Top" Height="84" Width="254" Foreground="White" FontFamily="Cambria Math" FontSize="72"/>
-        <Label x:Name="ExitLb" Content="Выход" Foreground="White" MouseEnter="Exit_MouseEnter" MouseLeave="Exit_MouseLeave" MouseLeftButtonUp="ExitLb_MouseLeftButtonUp" Margin="325,272,325,105" FontSize="18"/>
-        <Label x:Name="SettingsLb" Content="Настройки" Foreground="White" MouseEnter="Settings_MouseEnter" MouseLeave="Settings_MouseLeave" MouseLeftButtonUp="SettingsLb_MouseLeftButtonUp" Margin="325,222,325,149" FontSize="18"/>
-        <Label x:Name="LoadGameLb" Content="Загрузка игры" Foreground="White" MouseEnter="LoadGame_MouseEnter" MouseLeave="LoadGame_MouseLeave" MouseLeftButtonUp="LoadGameLb_MouseLeftButtonUp" Margin="325,168,307,204" FontSize="18"/>
-        <Label x:Name="NewGameLb" Content="Новая игра" Foreground="White" MouseEnter="NewGame_MouseEnter" MouseLeave="NewGame_MouseLeave" MouseLeftButtonUp="NewGameLb_MouseLeftButtonUp" Margin="325,123,325,258" FontSize="18"/>
+        <Label x:Name="DsRPGKb" Content="DS RPG" HorizontalAlignment="Center" Margin="266,52,274,285" VerticalAlignment="Center" Height="84" Width="254" Foreground="White" FontFamily="Cambria Math" FontSize="72" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="ExitLb" Content="Выход" Foreground="White" MouseEnter="Exit_MouseEnter" MouseLeave="Exit_MouseLeave" MouseLeftButtonUp="ExitLb_MouseLeftButtonUp" Margin="314,346,322,35" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="40" Width="158"/>
+        <Label x:Name="SettingsLb" Content="Настройки" Foreground="White" MouseEnter="Settings_MouseEnter" MouseLeave="Settings_MouseLeave" MouseLeftButtonUp="SettingsLb_MouseLeftButtonUp" Margin="310,268,318,115" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="38" Width="166"/>
+        <Label x:Name="LoadGameLb" Content="Загрузка игры" Foreground="White" MouseEnter="LoadGame_MouseEnter" MouseLeave="LoadGame_MouseLeave" MouseLeftButtonUp="LoadGameLb_MouseLeftButtonUp" Margin="304,208,312,169" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="44" Width="178"/>
+        <Label x:Name="NewGameLb" Content="Новая игра" Foreground="White" MouseEnter="NewGame_MouseEnter" MouseLeave="NewGame_MouseLeave" MouseLeftButtonUp="NewGameLb_MouseLeftButtonUp" Margin="316,168,324,217" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="36" Width="154"/>
 
     </Grid>
 
