@@ -154,7 +154,9 @@
     <Resource Include="img\noPass_active.png" />
     <Resource Include="img\World.jpg" />
     <Resource Include="img\Lotrik.png" />
-    <Content Include="music\MainTheme.mp3" />
+    <Content Include="music\MainTheme.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
