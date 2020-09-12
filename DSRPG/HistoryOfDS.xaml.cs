@@ -31,5 +31,13 @@ namespace DSRPG
             this.Close();
             worldMap.Show();
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.ToString() == "Return") 
+            { 
+                //Пропуск кат сцены
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Core;
 
 namespace DSRPG
 {
@@ -23,8 +24,12 @@ namespace DSRPG
         {
             InitializeComponent();
             this.SetLocation(point);
-            VolumeSlider.Value = Settings.Volume;
-            VolumeValueLabel.Content = $"{Math.Round(Settings.Volume * 100)} %";
+            MasterVolumeSlider.Value = Settings.MasterVolume;
+            MasterVolumeLabel.Content = $"{Math.Round(Settings.MasterVolume * 100)} %";
+            MusicVolumeSlider.Value = Settings.MusicVolume;
+            MusicVolumeLabel.Content = $"{Math.Round(Settings.MusicVolume * 100)} %";
+            SoundVolumeSlider.Value = Settings.SoundVolume;
+            SoundVolumeLabel.Content = $"{Math.Round(Settings.SoundVolume * 100)} %";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,10 +39,22 @@ namespace DSRPG
             this.Close();
         }
 
-        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void MasterVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Settings.Volume = VolumeSlider.Value;
-            VolumeValueLabel.Content = $"{Math.Round(Settings.Volume * 100)} %";
+            Settings.MasterVolume = MasterVolumeSlider.Value;
+            MasterVolumeLabel.Content = $"{Math.Round(Settings.MasterVolume * 100)} %";
+        }
+
+        private void MusicVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Settings.MusicVolume = MusicVolumeSlider.Value;
+            MusicVolumeLabel.Content = $"{Math.Round(Settings.MusicVolume * 100)} %";
+        }
+
+        private void SoundVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Settings.SoundVolume = SoundVolumeSlider.Value;
+            SoundVolumeLabel.Content = $"{Math.Round(Settings.SoundVolume * 100)} %";
         }
     }
 }
