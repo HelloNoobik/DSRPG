@@ -142,6 +142,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="music\WorldOST.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="img\noPass.png" />
     <Resource Include="img\Lotrik.png" />
     <Resource Include="img\World.jpg" />

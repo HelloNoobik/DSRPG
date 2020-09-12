@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="WorldMap" MouseLeftButtonDown="MapWindow_MouseLeftButtonDown" MouseLeftButtonUp="MapWindow_MouseLeftButtonUp" MouseMove="MapWindow_MouseMove" MouseLeave="MapWindow_MouseLeave" ResizeMode="NoResize" Width="800" Height="400">
+        Title="WorldMap" MouseLeftButtonDown="MapWindow_MouseLeftButtonDown" MouseLeftButtonUp="MapWindow_MouseLeftButtonUp" MouseMove="MapWindow_MouseMove" MouseLeave="MapWindow_MouseLeave" ResizeMode="NoResize" Width="800" Height="400" Closing="MapWindow_Closing">
     <Grid>
         <ScrollViewer x:Name="WorldMapView" HorizontalAlignment="Left" IsEnabled="False" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Top" Width="794" Height="371">
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
