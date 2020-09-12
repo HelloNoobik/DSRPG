@@ -19,8 +19,9 @@ namespace DSRPG
     /// </summary>
     public partial class CreateCharacter : Window
     {
-        public CreateCharacter()
+        public CreateCharacter(Point point)
         {
+            this.SetLocation(point);
             InitializeComponent();
         }
 
@@ -39,7 +40,9 @@ namespace DSRPG
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            HistoryOfDS window = new HistoryOfDS(this.GetLocation());
+            window.Show();
+            this.Close();
         }
 
         private void Name_GotFocus(object sender, RoutedEventArgs e)
