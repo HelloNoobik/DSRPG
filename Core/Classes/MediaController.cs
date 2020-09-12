@@ -49,10 +49,16 @@ namespace Core.Classes
         public void PlayMusic() 
         {
             MusicPlayer.Play();
-            MusicPlayer.MediaEnded += (s, e) => { MusicPlayer.Play(); };
+            MusicPlayer.MediaEnded += (s, e) => { MusicPlayer.Position = new TimeSpan(0); };
         }
 
         public void StopMusic() 
+        {
+            MusicPlayer.Pause();
+            MusicPlayer.Position = new TimeSpan(0);
+        }
+
+        public void PauseMusic()
         {
             MusicPlayer.Pause();
         }

@@ -57,7 +57,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Level.cs" />
-    <Compile Include="Extension.cs" />
     <Compile Include="FirstLocation.xaml.cs">
       <DependentUpon>FirstLocation.xaml</DependentUpon>
     </Compile>
