@@ -31,7 +31,7 @@ namespace DSRPG
             if (!Media.WorldMusicPlaying)
             {
                 Media.WorldMusicPlaying = true;
-                Media.PlayMusic(new Uri("music/WorldOST.mp3", UriKind.Relative));
+                Media.PlayMusic("music/WorldOST.mp3");
             }
         }
 

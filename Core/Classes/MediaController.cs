@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
+using DSRPG;
 
 namespace Core.Classes
 {
@@ -16,9 +18,10 @@ namespace Core.Classes
         private MediaPlayer SoundPlayer;
         public bool MainMenuMusicPlaying = false;
         public bool WorldMusicPlaying = false;
+        private bool SoundPlayerBusy = false;
         #endregion
         #region Конструкторы
-        public MediaController() 
+        public MediaController()
         {
             MusicPlayer = new MediaPlayer();
             SoundPlayer = new MediaPlayer();
@@ -26,10 +29,12 @@ namespace Core.Classes
             Settings.MasterVolumeChanged += () => { UpdateVolume(); };
             Settings.MusicVolumeChanged += () => { UpdateMusicVolume(); };
             Settings.SoundVolumeChanged += () => { UpdateSoundVolume(); };
+            SoundPlayer.MediaOpened += (s,e) => { SoundPlayerBusy = true; };
+            SoundPlayer.MediaEnded += (s,e) => { SoundPlayerBusy = false; };
         }
         #endregion
         #region Методы
-        private void UpdateSoundVolume() 
+        private void UpdateSoundVolume()
         {
             SoundPlayer.Volume = Settings.SoundVolume * Settings.MasterVolume;
         }
@@ -45,16 +50,16 @@ namespace Core.Classes
             UpdateMusicVolume();
         }
 
-        public void PlayMusic(Uri path) 
+        public void PlayMusic(string path)
         {
             MusicPlayer.MediaFailed += (s, e) => { MessageBox.Show($"ПИЗДА ДОРОЖКЕ! {e.ErrorException}"); };
-            MusicPlayer.Open(path);
+            MusicPlayer.Open(new Uri(path, UriKind.Relative));
             MusicPlayer.Position = new TimeSpan(0);
             MusicPlayer.Play();
             MusicPlayer.MediaEnded += (s, e) => { MusicPlayer.Position = new TimeSpan(0); };
         }
 
-        public void StopMusic() 
+        public void StopMusic()
         {
             MusicPlayer.Pause();
             MusicPlayer.Position = new TimeSpan(0);
@@ -70,14 +75,18 @@ namespace Core.Classes
             MusicPlayer.Play();
         }
 
-        public void SetSound(Uri path) 
+        public void PlaySound(string path)
         {
-            SoundPlayer.Open(path);
-        }
-
-        public void PlaySound() 
-        {
-            SoundPlayer.Play();
+            if (!SoundPlayerBusy)
+            {
+                SoundPlayer.MediaFailed += (s, e) => { MessageBox.Show($"ПИЗДА ДОРОЖКЕ! {e.ErrorException}"); };
+                SoundPlayer.Open(new Uri(path, UriKind.Relative));
+                SoundPlayer.Play();
+            }
+            else 
+            {
+                //Херь если занят
+            }
         }
         #endregion
     }
