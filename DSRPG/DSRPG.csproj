@@ -58,6 +58,9 @@
     </ApplicationDefinition>
     <Compile Include="Classes\CanvasWithBitmap.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="FirstLocation.xaml.cs">
+      <DependentUpon>FirstLocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HistoryOfDS.xaml.cs">
       <DependentUpon>HistoryOfDS.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,10 @@
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
     <Page Include="CreateCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FirstLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,8 +140,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="noPass.png" />
+    <Resource Include="world.png" />
     <Resource Include="1488843929117336441.jpg" />
     <Resource Include="1488843929117336441.png" />
+    <Resource Include="lvl %282%29.png" />
     <Content Include="music\Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_%28Inkompmusic.ru%29.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
