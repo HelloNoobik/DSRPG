@@ -74,7 +74,7 @@ namespace DSRPG
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            MainWindow main = new MainWindow(this.GetLocation());
             main.Show();
             Close();
         }
