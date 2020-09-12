@@ -24,5 +24,12 @@ namespace DSRPG
             this.SetLocation(point);
             InitializeComponent();
         }
+
+        private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WorldMap world = new WorldMap(this.GetLocation());
+            world.Show();
+            Close();
+        }
     }
 }

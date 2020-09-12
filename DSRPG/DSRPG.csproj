@@ -148,6 +148,7 @@
     <Resource Include="1488843929117336441.jpg" />
     <Resource Include="1488843929117336441.png" />
     <Resource Include="lvl %282%29.png" />
+    <Resource Include="Bonefire.png" />
     <Content Include="music\Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_%28Inkompmusic.ru%29.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -16,5 +16,18 @@
         <Image x:Name="SixthLvl" HorizontalAlignment="Left" Height="51" Margin="332,161,0,0" VerticalAlignment="Top" Width="48" Source="noPass.png" RenderTransformOrigin="0.006,0.536"/>
         <Image x:Name="SeventhLvl" HorizontalAlignment="Left" Height="51" Margin="279,210,0,0" VerticalAlignment="Top" Width="48" Source="noPass.png"/>
         <Image x:Name="EightLvl" HorizontalAlignment="Left" Height="51" Margin="306,266,0,0" VerticalAlignment="Top" Width="48" Source="noPass.png" RenderTransformOrigin="-0.337,1.101"/>
+        <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="93" Background="Black" Foreground="White" Height="22" PreviewMouseDown="back_PreviewMouseDown"/>
+        <Image x:Name="image" Margin="409,302,341.6,84" >
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Setter Property="Source" Value="noPass.png" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="lvl (2).png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
     </Grid>
 </Window>
