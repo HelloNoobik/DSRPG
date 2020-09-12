@@ -142,12 +142,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\World.jpg" />
+    <Resource Include="img\Lotrik.png" />
     <Content Include="music\WorldOST.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="img\noPass.png" />
-    <Resource Include="img\world.png" />
-    <Resource Include="img\1488843929117336441.jpg" />
     <Resource Include="img\lvl %282%29.png" />
     <Resource Include="img\skewer.png" />
     <Content Include="music\Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_%28Inkompmusic.ru%29.mp3">
