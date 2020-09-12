@@ -13,6 +13,7 @@
                 <Image x:Name="MapImage" Source="1488843929117336441.jpg" Stretch="None" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
             </Grid>
         </ScrollViewer>
+        <Button x:Name="back" Content="Гл.Меню" HorizontalAlignment="Left" Margin="48,49,0,0" VerticalAlignment="Top" Width="87" PreviewMouseDown="back_PreviewMouseDown" Height="25" Background="Black" Foreground="White"/>
     </Grid>
 
 </Window>
