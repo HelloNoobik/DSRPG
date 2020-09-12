@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Core.Core;
 
 namespace DSRPG
 {
@@ -21,36 +22,26 @@ namespace DSRPG
     public partial class MainWindow : Window
     {
         static bool Music;
-        static MediaPlayer player;
         public MainWindow()
         {
             InitializeComponent();
-            if(!Music) PlayMusic();
-            Settings.VolumeChanged += () => player.Volume = Settings.Volume;
+            if (!Music) 
+            {
+                Music = true;
+                Media.SetMusic(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                Media.PlayMusic();
+            }
         }
-
         public MainWindow(Point point)
         {
             InitializeComponent();
             this.SetLocation(point);
-            if (!Music) PlayMusic();
-            Settings.VolumeChanged += () => player.Volume = Settings.Volume;
-        }
-
-        async void PlayMusic() 
-        {
-            Music = true;
-            player = new MediaPlayer();
-            await Task.Run(() => 
+            if (!Music)
             {
-                Dispatcher.Invoke(() => {
-                    player.MediaFailed += (s, e) => MessageBox.Show("Error");
-                    player.Open(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
-                    player.Volume = Settings.Volume;
-                    player.Play();
-                });
-            });
-
+                Music = true;
+                Media.SetMusic(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                Media.PlayMusic();
+            }
         }
 
         private void NewGame_MouseEnter(object sender, MouseEventArgs e)

@@ -64,7 +64,6 @@
     <Compile Include="HistoryOfDS.xaml.cs">
       <DependentUpon>HistoryOfDS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
     <Compile Include="settings.xaml.cs">
       <DependentUpon>settings.xaml</DependentUpon>
     </Compile>
@@ -137,6 +136,10 @@
     <ProjectReference Include="..\Character\Character.csproj">
       <Project>{f9d65e6a-13b3-4464-b30e-eb984ee56043}</Project>
       <Name>Character</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{13acfa80-9706-4fd6-a42e-1386556246e9}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
