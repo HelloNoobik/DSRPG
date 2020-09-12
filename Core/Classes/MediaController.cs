@@ -13,6 +13,7 @@ namespace Core.Classes
         #region Поля
         private MediaPlayer MusicPlayer;
         private MediaPlayer SoundPlayer;
+        public bool MainMenuMusicPlaying = false;
         #endregion
         #region Конструкторы
         public MediaController() 
