@@ -151,7 +151,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="img\lvl_active.png" />
-    <Resource Include="img\noPass_active.png" />
     <Resource Include="img\World.jpg" />
     <Resource Include="img\Lotrik.png" />
     <Content Include="music\MainTheme.mp3">
