@@ -37,8 +37,10 @@ namespace DSRPG
                 MousePrev = e.GetPosition(this);
             }
             if (LotrikRect.Contains(e.GetPosition(MapImage))) 
-            { 
-                //Переход на окно лотрика
+            {
+                FirstLocation window = new FirstLocation(this.GetLocation());
+                window.Show();
+                this.Close();
             }
         }
 

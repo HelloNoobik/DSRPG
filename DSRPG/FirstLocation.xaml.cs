@@ -19,8 +19,9 @@ namespace DSRPG
     /// </summary>
     public partial class FirstLocation : Window
     {
-        public FirstLocation()
+        public FirstLocation(Point point)
         {
+            this.SetLocation(point);
             InitializeComponent();
         }
     }
