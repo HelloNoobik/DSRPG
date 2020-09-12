@@ -119,5 +119,10 @@ namespace DSRPG
         {
             back.Foreground = Brushes.White;
         }
+
+        private void archer_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }

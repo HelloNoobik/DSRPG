@@ -17,21 +17,14 @@
         <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Width="101" Foreground="White"/>
         <TextBlock x:Name="infoclasses" HorizontalAlignment="Left" Margin="344,55,0,0" TextWrapping="Wrap" Text="Инфа о классах " VerticalAlignment="Top" Height="139" Width="440" Foreground="White"/>
         <TextBlock x:Name="infodar" HorizontalAlignment="Left" Margin="344,194,0,0" TextWrapping="Wrap" Text="Инфа о дарах" VerticalAlignment="Top" Height="216" Width="440" Foreground="White"/>
-        <ListBox x:Name="Class" HorizontalAlignment="Left" Height="101" Margin="0,114,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ListBox_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}">
-            <ListBoxItem x:Name="Warrior" BorderThickness="0" Content="Воин" Foreground="White" BorderBrush="{x:Null}">
-                <ListBoxItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="0"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </ListBoxItem.Background>
-            </ListBoxItem>
-            <ListBoxItem x:Name="archer" BorderThickness="0" Content="Лучник" Foreground="White"/>
-            <ListBoxItem x:Name="Paladin" BorderThickness="0" Content="Паладин" Foreground="White"/>
-            <ListBoxItem x:Name="Mage" BorderThickness="0" Content="Маг" Foreground="White"/>
+        <ListBox x:Name="Class"  BorderThickness="0"  Background="#00000000" BorderBrush="#00000000" HorizontalAlignment="Left" Height="101" Margin="0,114,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ListBox_SelectionChanged">
+            <ListBoxItem x:Name="archer" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Лучник" Foreground="White" MouseEnter="archer_MouseEnter" OpacityMask="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <ListBoxItem x:Name="Paladin" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Паладин" Foreground="White"/>
+            <ListBoxItem x:Name="Mage" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Маг" Foreground="White"/>
+            <ListBoxItem x:Name="Warrior"  BorderThickness="0"  Background="#00000000" BorderBrush="#00000000" Content="Воин" Foreground="White"/>
         </ListBox>
-        <ListBox x:Name="Gifts" HorizontalAlignment="Left" Height="50" Margin="5,266,0,0" VerticalAlignment="Top" Width="65" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-            <ListBoxItem Content="Дары"/>
+        <ListBox x:Name="Gifts" BorderThickness="0" HorizontalAlignment="Left" Height="50" Margin="2,266,0,0" VerticalAlignment="Top" Width="65" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+            <ListBoxItem Content="Дары" BorderThickness="0" />
         </ListBox>
         <Label Content="Label" HorizontalAlignment="Left" Margin="268,316,0,0" VerticalAlignment="Top"/>
         <Label x:Name="accept" Content="Принять" HorizontalAlignment="Left" Margin="-3,348,0,0" VerticalAlignment="Top" Width="84" Foreground="White" PreviewMouseDown="accept_PreviewMouseDown" MouseEnter="accept_MouseEnter" MouseLeave="accept_MouseLeave"/>
