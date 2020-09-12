@@ -23,6 +23,8 @@ namespace DSRPG
         {
             InitializeComponent();
             this.SetLocation(point);
+            MediaPlayer player = new MediaPlayer();
+            player.Open(new Uri(@"sampleMedia\xbox.wmv", UriKind.Relative));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

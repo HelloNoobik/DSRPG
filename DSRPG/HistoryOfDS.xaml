@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="HistoryOfDS" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Grid>
-        <MediaElement Source="" Margin="0,91,0,0"></MediaElement>
+        <MediaElement x:Name="Video" Source="" Margin="0,77,0,0"></MediaElement>
         <Button Content="Button" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>
