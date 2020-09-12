@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace DSRPG
 {
-    static class Extension
+    static public class Extension
     {
         public static void SetLocation(this Window win,Point point) 
         {

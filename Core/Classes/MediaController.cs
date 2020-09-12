@@ -55,6 +55,12 @@ namespace Core.Classes
         public void StopMusic() 
         {
             MusicPlayer.Pause();
+            MusicPlayer.Position = new TimeSpan(0);
+        }
+
+        public void PauseMusic()
+        {
+            MusicPlayer.Pause();
         }
 
         public void SetSound(Uri path) 

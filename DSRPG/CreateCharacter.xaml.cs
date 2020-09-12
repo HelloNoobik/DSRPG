@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Core.Core;
 
 namespace DSRPG
 {
@@ -88,6 +89,7 @@ namespace DSRPG
 
         private void accept_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            Media.StopMusic();
             HistoryOfDS history = new HistoryOfDS(this.GetLocation());
             history.Show();
             Close();
