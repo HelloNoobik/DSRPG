@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -14,6 +15,7 @@ namespace Core.Classes
         private MediaPlayer MusicPlayer;
         private MediaPlayer SoundPlayer;
         public bool MainMenuMusicPlaying = false;
+        public bool WorldMusicPlaying = false;
         #endregion
         #region Конструкторы
         public MediaController() 
@@ -43,12 +45,11 @@ namespace Core.Classes
             UpdateMusicVolume();
         }
 
-        public void SetMusic(Uri path) 
+        public void PlayMusic(Uri path) 
         {
+            MusicPlayer.MediaFailed += (s, e) => { MessageBox.Show($"ПИЗДА ДОРОЖКЕ! {e.ErrorException}"); };
             MusicPlayer.Open(path);
-        }
-        public void PlayMusic() 
-        {
+            MusicPlayer.Position = new TimeSpan(0);
             MusicPlayer.Play();
             MusicPlayer.MediaEnded += (s, e) => { MusicPlayer.Position = new TimeSpan(0); };
         }
@@ -62,6 +63,11 @@ namespace Core.Classes
         public void PauseMusic()
         {
             MusicPlayer.Pause();
+        }
+
+        public void ResumeMusic()
+        {
+            MusicPlayer.Play();
         }
 
         public void SetSound(Uri path) 

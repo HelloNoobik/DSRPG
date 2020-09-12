@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Core.Core;
 
 namespace DSRPG
 {
@@ -27,6 +28,11 @@ namespace DSRPG
         {
             this.SetLocation(point);
             InitializeComponent();
+            if (!Media.WorldMusicPlaying)
+            {
+                Media.WorldMusicPlaying = true;
+                Media.PlayMusic(new Uri("music/WorldOST.mp3", UriKind.Relative));
+            }
         }
 
         private void MapWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -38,6 +44,7 @@ namespace DSRPG
             }
             if (LotrikRect.Contains(e.GetPosition(MapImage))) 
             {
+                Media.StopMusic();
                 FirstLocation window = new FirstLocation(this.GetLocation());
                 window.Show();
                 this.Close();
@@ -77,6 +84,11 @@ namespace DSRPG
             MainWindow main = new MainWindow(this.GetLocation());
             main.Show();
             Close();
+        }
+
+        private void MapWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Media.WorldMusicPlaying = false;
         }
     }
 }
