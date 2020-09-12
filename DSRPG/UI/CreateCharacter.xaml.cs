@@ -90,6 +90,7 @@ namespace DSRPG
         private void accept_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             Media.StopMusic();
+            Media.MainMenuMusicPlaying = false;
             HistoryOfDS history = new HistoryOfDS(this.GetLocation());
             history.Show();
             Close();

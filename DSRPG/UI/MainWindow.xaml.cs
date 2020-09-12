@@ -21,14 +21,13 @@ namespace DSRPG
     /// </summary>
     public partial class MainWindow : Window
     {
-        static bool Music;
         public MainWindow()
         {
             InitializeComponent();
-            if (!Music) 
+            if (!Media.MainMenuMusicPlaying) 
             {
-                Music = true;
-                Media.SetMusic(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                Media.MainMenuMusicPlaying = true;
+                Media.SetMusic(new Uri("music/MainTheme.mp3", UriKind.Relative));
                 Media.PlayMusic();
             }
         }
@@ -36,10 +35,10 @@ namespace DSRPG
         {
             InitializeComponent();
             this.SetLocation(point);
-            if (!Music)
+            if (!Media.MainMenuMusicPlaying)
             {
-                Music = true;
-                Media.SetMusic(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                Media.MainMenuMusicPlaying = true;
+                Media.SetMusic(new Uri("music/MainTheme.mp3", UriKind.Relative));
                 Media.PlayMusic();
             }
         }
