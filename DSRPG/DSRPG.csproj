@@ -147,6 +147,7 @@
     <Resource Include="img\skewer.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\noPass_active.png" />
     <Content Include="music\WorldOST.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
