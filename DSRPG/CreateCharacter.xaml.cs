@@ -38,13 +38,6 @@ namespace DSRPG
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            HistoryOfDS window = new HistoryOfDS(this.GetLocation());
-            window.Show();
-            this.Close();
-        }
-
         private void Name_GotFocus(object sender, RoutedEventArgs e)
         {
             if (Name.Text == "Введите имя")
@@ -93,11 +86,38 @@ namespace DSRPG
                 infoclasses.Text = "Инфа о Маге";
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void accept_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            HistoryOfDS history = new HistoryOfDS(this.GetLocation());
+            history.Show();
+            Close();
+        }
+
+        private void accept_MouseEnter(object sender, MouseEventArgs e)
+        {
+            accept.Foreground = Brushes.Yellow;
+        }
+
+        private void accept_MouseLeave(object sender, MouseEventArgs e)
+        {
+            accept.Foreground = Brushes.White;
+        }
+
+        private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             MainWindow main = new MainWindow();
             main.Show();
             Close();
+        }
+
+        private void back_MouseEnter(object sender, MouseEventArgs e)
+        {
+            back.Foreground = Brushes.Yellow;
+        }
+
+        private void back_MouseLeave(object sender, MouseEventArgs e)
+        {
+            back.Foreground = Brushes.White;
         }
     }
 }
