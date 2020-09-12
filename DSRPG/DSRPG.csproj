@@ -147,11 +147,11 @@
     <Resource Include="img\skewer.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\noPass_active.png" />
     <Content Include="music\WorldOST.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="img\lvl_active.png" />
-    <Resource Include="img\noPass_active.png" />
     <Resource Include="img\World.jpg" />
     <Resource Include="img\Lotrik.png" />
     <Content Include="music\MainTheme.mp3">
