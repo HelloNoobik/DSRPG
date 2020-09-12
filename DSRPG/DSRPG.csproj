@@ -56,7 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\CanvasWithBitmap.cs" />
+    <Compile Include="Classes\Level.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="FirstLocation.xaml.cs">
       <DependentUpon>FirstLocation.xaml</DependentUpon>
