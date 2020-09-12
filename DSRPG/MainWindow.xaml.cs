@@ -20,21 +20,101 @@ namespace DSRPG
     /// </summary>
     public partial class MainWindow : Window
     {
+        static bool Music;
+        static MediaPlayer player;
         public MainWindow()
         {
             InitializeComponent();
+            if(!Music) PlayMusic();
+            Settings.VolumeChanged += () => player.Volume = Settings.Volume;
         }
 
-        private void ExitButt_Click(object sender, RoutedEventArgs e)
+        public MainWindow(Point point)
         {
-            Environment.Exit(0);
+            InitializeComponent();
+            this.SetLocation(point);
+            if (!Music) PlayMusic();
+            Settings.VolumeChanged += () => player.Volume = Settings.Volume;
         }
 
-        private void NewGameButt_Click(object sender, RoutedEventArgs e)
+        async void PlayMusic() 
         {
-            CreateCharacter createcharacter = new CreateCharacter();
+            Music = true;
+            player = new MediaPlayer();
+            await Task.Run(() => 
+            {
+                Dispatcher.Invoke(() => {
+                    player.MediaFailed += (s, e) => MessageBox.Show("Error");
+                    player.Open(new Uri("music/Shirrako - Dark Souls III Soundtrack OST - Main Menu Theme_(Inkompmusic.ru).mp3", UriKind.Relative));
+                    player.Volume = Settings.Volume;
+                    player.Play();
+                });
+            });
+
+        }
+
+        private void NewGame_MouseEnter(object sender, MouseEventArgs e)
+        {
+            NewGameLb.Foreground = Brushes.Yellow;
+        }
+
+        private void NewGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            NewGameLb.Foreground = Brushes.White;
+        }
+
+        private void LoadGame_MouseEnter(object sender, MouseEventArgs e)
+        {
+            LoadGameLb.Foreground = Brushes.Yellow;
+        }
+
+        private void LoadGame_MouseLeave(object sender, MouseEventArgs e)
+        {
+            LoadGameLb.Foreground = Brushes.White;
+        }
+
+        private void Settings_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SettingsLb.Foreground = Brushes.Yellow;
+        }
+
+        private void Settings_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SettingsLb.Foreground = Brushes.White;
+        }
+
+        private void Exit_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ExitLb.Foreground = Brushes.Yellow;
+        }
+
+        private void Exit_MouseLeave(object sender, MouseEventArgs e)
+        {
+           ExitLb.Foreground = Brushes.White;
+        }
+
+        private void NewGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            CreateCharacter createcharacter = new CreateCharacter(this.GetLocation());
             createcharacter.Show();
             this.Close();
+        }
+
+        private void LoadGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SettingsLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Window1 settings = new Window1(this.GetLocation());
+            settings.Show();
+            this.Close();
+        }
+
+        private void ExitLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
