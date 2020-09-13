@@ -40,7 +40,7 @@ namespace DSRPG
         {
             if (e.Key.ToString() == "Return") 
             {
-                Player.Stop();
+                Player.Close();
                 WorldMap worldMap = new WorldMap(this.GetLocation());
                 worldMap.Show();
                 this.Close();
@@ -53,7 +53,8 @@ namespace DSRPG
             timer.Tick += (s, ee) => 
             { 
                 Player.Opacity += 0.001;
-                if (Player.Opacity == 1.0) timer.Stop();
+                Skip.Opacity -= 0.001;
+                if (Player.Opacity == 1.0) timer.Stop(); 
             };
             Player.Opacity = 0.0;
             timer.Start();
@@ -67,6 +68,7 @@ namespace DSRPG
 
         private void media_MediaEnded(object sender, RoutedEventArgs e)
         {
+            Player.Close();
             WorldMap worldMap = new WorldMap(this.GetLocation());
             worldMap.Show();
             this.Close();

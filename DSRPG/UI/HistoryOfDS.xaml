@@ -8,5 +8,6 @@
         Title="DSRPG - История Дарк Соулс" KeyDown="Window_KeyDown" Icon="/DSRPG;component/img/skewer.png" Initialized="Window_Initialized" ResizeMode="NoResize" Width="800" Height="450" Background="Black">
     <Grid x:Name="Root">
         <MediaElement x:Name="Player" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="794" MediaEnded="media_MediaEnded"/>
+        <Label x:Name="Skip" Content="Нажмите ENTER  для пропуска...." HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Height="35" Width="281" FontSize="18"/>
     </Grid>
 </Window>

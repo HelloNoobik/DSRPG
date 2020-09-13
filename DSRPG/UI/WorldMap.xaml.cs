@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using static Core.Core;
 
 namespace DSRPG
@@ -24,6 +26,7 @@ namespace DSRPG
         static private bool MousePressed = false;
         static private Point MousePrev;
         static private Rect LotrikRect = new Rect(380, 324, 250, 40);
+        static private DispatcherTimer timer = new DispatcherTimer();
         public WorldMap(Point point)
         {
             this.SetLocation(point);
@@ -33,6 +36,14 @@ namespace DSRPG
                 Media.WorldMusicPlaying = true;
                 Media.PlayMusic("music/WorldOST.mp3");
             }
+            WorldMapView.Opacity = 0.0;
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Tick += (s, e) =>
+            {
+                WorldMapView.Opacity += 0.008;
+                if (WorldMapView.Opacity == 1.0) timer.Stop();
+            };
+            timer.Start();
         }
 
         private void MapWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
