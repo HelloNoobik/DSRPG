@@ -57,6 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Level.cs" />
+    <Compile Include="UI\FightArena.xaml.cs">
+      <DependentUpon>FightArena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\FirstLocation.xaml.cs">
       <DependentUpon>FirstLocation.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\CreateCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\FightArena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +154,7 @@
     <Resource Include="img\skewer.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\Throne_Of_Want.png" />
     <Content Include="sound\click.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -9,7 +9,7 @@
     <Grid>
         <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/img/Lotrik.png" Stretch="UniformToFill"/>
         <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="93" Background="Black" Foreground="White" Height="22" PreviewMouseDown="back_PreviewMouseDown"/>
-        <Image x:Name="Firstlvl" Margin="386,55,354.6,305" Width="52" Height="51">
+        <Image x:Name="Firstlvl" Margin="386,55,354.6,305" Width="52" Height="51" PreviewMouseDown="PreviewMouseDown">
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/lvl (2).png" />
@@ -21,7 +21,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Secondlvl" Margin="438,110,303.6,258"  Width="52" Height="51" >
+        <Image x:Name="Secondlvl" Margin="438,110,303.6,258"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
@@ -33,7 +33,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Thirdlvl" Margin="478,166,263.6,202"  Width="52" Height="51" >
+        <Image x:Name="Thirdlvl" Margin="478,166,263.6,202"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
@@ -45,7 +45,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Fourthlvl" Margin="426,218,315.6,151"  Width="52" Height="51" >
+        <Image x:Name="Fourthlvl" Margin="426,218,315.6,151"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
@@ -57,7 +57,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Fifthlvl" Margin="386,166,355.6,202"  Width="52" Height="51" >
+        <Image x:Name="Fifthlvl" Margin="386,166,355.6,202"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
@@ -69,7 +69,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Sixthlvl" Margin="329,158,412.6,211"  Width="52" Height="51" >
+        <Image x:Name="Sixthlvl" Margin="329,158,412.6,211"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
@@ -81,7 +81,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Seventhlvl" Margin="277,209,464.6,160"  Width="52" Height="51" >
+        <Image x:Name="Seventhlvl" Margin="277,209,464.6,160"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
@@ -93,7 +93,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="Eightlvl" Margin="300,265,441.6,104"  Width="52" Height="51" >
+        <Image x:Name="Eightlvl" Margin="300,265,441.6,104"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />

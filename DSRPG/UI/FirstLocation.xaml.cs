@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSRPG.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,14 @@ namespace DSRPG
         {
             WorldMap world = new WorldMap(this.GetLocation());
             world.Show();
+            Close();
+        }
+
+        private void  PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image img = (Image)sender;
+            FightArena figth = new FightArena(this.GetLocation());
+            figth.Show();
             Close();
         }
     }
