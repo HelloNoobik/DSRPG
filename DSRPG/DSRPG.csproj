@@ -154,7 +154,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="video\.gitattributes" />
-    <Content Include="video\frpg_opening.wmv">
+    <Content Include="video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="img\noPass_active.png" />
