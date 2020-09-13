@@ -16,6 +16,7 @@ namespace Core.Classes
         #region Поля
         private MediaPlayer MusicPlayer;
         private MediaPlayer SoundPlayer;
+        private MediaPlayer VideoPlayer;
         public bool MainMenuMusicPlaying = false;
         public bool WorldMusicPlaying = false;
         private bool SoundPlayerBusy = false;
@@ -83,6 +84,12 @@ namespace Core.Classes
                 SoundPlayer.Open(new Uri(path, UriKind.Relative));
                 SoundPlayer.Play();
             }
+        }
+
+        public void PlayVideo(string path) 
+        {
+            VideoPlayer.Open(new Uri(path, UriKind.Absolute));
+            VideoPlayer.Play();
         }
         #endregion
     }
