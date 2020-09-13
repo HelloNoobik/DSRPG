@@ -5,15 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="DSRPG - История о Дарк Соулс" Height="450" Width="800" KeyDown="Window_KeyDown" Icon="/DSRPG;component/img/skewer.png" AllowDrop="True" Initialized="Window_Initialized">
+        Title="DSRPG - История Дарк Соулс" KeyDown="Window_KeyDown" Icon="/DSRPG;component/img/skewer.png" Initialized="Window_Initialized" ResizeMode="NoResize" Width="800" Height="450">
     <Grid x:Name="Root">
-
-        <Button Content="Button" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button x:Name="Play" Content="Play" HorizontalAlignment="Left" Margin="63,389,0,0" VerticalAlignment="Top" Width="75" Click="Play_Click"/>
-        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="193,389,0,0" VerticalAlignment="Top" Width="75" Click="Stop_Click"/>
-        <Slider x:Name="slider1" HorizontalAlignment="Left" Margin="214,299,0,0" VerticalAlignment="Top" Width="330" Height="36" ValueChanged="slider1_ValueChanged"/>
-        <Slider x:Name="slider2" HorizontalAlignment="Left" Margin="687,303,0,0" VerticalAlignment="Top" Height="32" Width="97" Maximum="1" SmallChange="0.01" Value="1" ValueChanged="slider2_ValueChanged"/>
-        <Button x:Name="Pause" Content="Pause" HorizontalAlignment="Left" Margin="331,389,0,0" VerticalAlignment="Top" Width="75" Click="Pause_Click"/>
-        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="141" Margin="248,158,0,0" VerticalAlignment="Top" Width="330" Source="../music/frpg_opening.mp4"/>
+        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="794" Source="../music/frpg_opening.mp4" Margin="0,0,-0.4,0" MediaEnded="media_MediaEnded" AllowDrop="False" Stretch="UniformToFill"/>
     </Grid>
 </Window>
