@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="DSRPG - Главное меню" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="Manual" Icon="/DSRPG;component/img/skewer.png">
+        Title="DSRPG - Главное меню" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/DSRPG;component/img/skewer.png" Topmost="True" WindowStyle="ToolWindow">
     <Grid Background="Black">
         <Label x:Name="DsRPGKb" Content="DS RPG" HorizontalAlignment="Center" Margin="266,52,274,285" VerticalAlignment="Center" Height="84" Width="254" Foreground="White" FontFamily="Cambria Math" FontSize="72" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="ExitLb" Content="Выход" Foreground="White" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonUp="ExitLb_MouseLeftButtonUp" Margin="314,346,322,35" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="40" Width="158"/>

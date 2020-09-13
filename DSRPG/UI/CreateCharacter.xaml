@@ -5,29 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="DSRPG - Создание Персонажа" Height="450" Width="800" ResizeMode="NoResize" Icon="/DSRPG;component/img/skewer.png">
+        Title="DSRPG - Создание Персонажа" Height="450" Width="800" ResizeMode="NoResize" Icon="/DSRPG;component/img/skewer.png" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="ToolWindow">
     <Grid Background="Black">
-        <Label Content="Создание персонажа" HorizontalAlignment="Left" VerticalAlignment="Top" Width="222" FontSize="22" Background="Black" Foreground="White"/>
-        <TextBox x:Name="Name" BorderThickness="0" HorizontalAlignment="Left" Height="23" Margin="0,65,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Width="133" Foreground="White" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" TextChanged="Name_TextChanged" PreviewTextInput="Name_PreviewTextInput" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
-        <Label Content="Имя персонажа:&#xD;&#xA;" HorizontalAlignment="Left" Margin="-3,42,0,0" VerticalAlignment="Top" Height="23" Foreground="White"/>
-        <Label Content="Выберите класс:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,88,0,0" VerticalAlignment="Top" Width="101" Height="26" Foreground="White"/>
-        <Label Content="Выберите пол:" HorizontalAlignment="Left" Margin="2,194,0,0" VerticalAlignment="Top" Width="101" Foreground="White"/>
+        <Label Content="Создание персонажа" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Background="Black" Foreground="White"/>
+        <TextBox x:Name="Name" BorderThickness="0" HorizontalAlignment="Left" Margin="0,65,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Foreground="White" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" TextChanged="Name_TextChanged" PreviewTextInput="Name_PreviewTextInput" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+        <Label Content="Имя персонажа:&#xD;&#xA;" HorizontalAlignment="Left" Margin="-3,42,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Выберите класс:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,88,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Выберите пол:" HorizontalAlignment="Left" Margin="2,194,0,0" VerticalAlignment="Top" Foreground="White"/>
         <RadioButton x:Name="man" Content="Мужской&#xD;&#xA;" HorizontalAlignment="Left" Margin="5,220,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Foreground="White"/>
         <RadioButton x:Name="female" Content="Женский" HorizontalAlignment="Left" Margin="80,220,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Foreground="White"/>
-        <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Width="101" Foreground="White"/>
+        <Label Content="Выберите дар:" HorizontalAlignment="Left" Margin="0,240,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="infoclasses" HorizontalAlignment="Center" Margin="344,55,0,0" TextWrapping="Wrap" Text="Инфа о классах " Height="139" Width="440" Foreground="White" VerticalAlignment="Top"/>
         <TextBlock x:Name="infodar" HorizontalAlignment="Center" Margin="344,194,0,0" TextWrapping="Wrap" Text="Инфа о дарах" Height="216" Width="440" Foreground="White" VerticalAlignment="Top"/>
-        <ListBox x:Name="Class"  BorderThickness="0"  Background="#00000000" BorderBrush="#00000000" HorizontalAlignment="Left" Height="101" Margin="0,114,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="ListBox_SelectionChanged">
-            <ListBoxItem x:Name="archer" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Лучник" Foreground="White" OpacityMask="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <ListBoxItem x:Name="Paladin" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Паладин" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <ListBoxItem x:Name="Mage" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Маг" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <ListBoxItem x:Name="Warrior"  BorderThickness="0"  Background="#00000000" BorderBrush="#00000000" Content="Воин" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ListBox x:Name="Class"  BorderThickness="0"  Background="#00000000" BorderBrush="#00000000" HorizontalAlignment="Left" Margin="0,114,0,0" VerticalAlignment="Top" SelectionChanged="ListBox_SelectionChanged" VerticalContentAlignment="Top">
+            <ListBoxItem x:Name="archer" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Лучник" Foreground="White" OpacityMask="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
+            <ListBoxItem x:Name="Paladin" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Паладин" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
+            <ListBoxItem x:Name="Mage" BorderThickness="0" Background="#00000000" BorderBrush="#00000000" Content="Маг" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
+            <ListBoxItem x:Name="Warrior"  BorderThickness="0"  Background="#00000000" BorderBrush="#00000000" Content="Воин" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
         </ListBox>
-        <ListBox x:Name="Gifts" BorderThickness="0" HorizontalAlignment="Left" Height="50" Margin="2,266,0,0" VerticalAlignment="Top" Width="65" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-            <ListBoxItem Content="Дары" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <ListBox x:Name="Gifts" BorderThickness="0" HorizontalAlignment="Left" Margin="2,266,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Top">
+            <ListBoxItem Content="Дары" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Top" />
         </ListBox>
         <Label Content="Label" HorizontalAlignment="Left" Margin="268,316,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="accept" Content="Принять" HorizontalAlignment="Left" Margin="-3,348,0,0" VerticalAlignment="Top" Width="84" Foreground="White" PreviewMouseDown="accept_PreviewMouseDown" MouseEnter="accept_MouseEnter" MouseLeave="accept_MouseLeave"/>
-        <Label x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="-3,374,0,0" VerticalAlignment="Top" Width="96" PreviewMouseDown="back_PreviewMouseDown" Foreground="White" MouseEnter="back_MouseEnter" MouseLeave="back_MouseLeave"/>
+        <Label x:Name="accept" Content="Принять" HorizontalAlignment="Left" Margin="-3,348,0,0" VerticalAlignment="Top" Foreground="White" PreviewMouseDown="accept_PreviewMouseDown" MouseEnter="accept_MouseEnter" MouseLeave="accept_MouseLeave"  />
+        <Label x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="-3,374,0,0" VerticalAlignment="Top" PreviewMouseDown="back_PreviewMouseDown" Foreground="White" MouseEnter="back_MouseEnter" MouseLeave="back_MouseLeave"/>
     </Grid>
 </Window>

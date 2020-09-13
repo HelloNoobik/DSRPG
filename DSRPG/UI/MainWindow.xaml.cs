@@ -9,10 +9,13 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static Core.Core;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace DSRPG
 {
@@ -62,7 +65,6 @@ namespace DSRPG
             createcharacter.Show();
             this.Close();
         }
-
         private void LoadGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Media.PlaySound("sound/click.mp3");
