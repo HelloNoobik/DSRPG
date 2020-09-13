@@ -153,6 +153,8 @@
     <Content Include="sound\hover.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="video\.gitattributes" />
+    <Content Include="video\frpg_opening.wmv" />
     <Resource Include="img\noPass_active.png" />
     <Content Include="music\WorldOST.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
