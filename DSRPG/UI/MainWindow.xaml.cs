@@ -57,6 +57,7 @@ namespace DSRPG
 
         private void NewGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
             CreateCharacter createcharacter = new CreateCharacter(this.GetLocation());
             createcharacter.Show();
             this.Close();
@@ -64,11 +65,13 @@ namespace DSRPG
 
         private void LoadGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
 
         }
 
         private void SettingsLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
             Window1 settings = new Window1(this.GetLocation());
             settings.Show();
             this.Close();
@@ -76,6 +79,7 @@ namespace DSRPG
 
         private void ExitLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
             Environment.Exit(0);
         }
     }

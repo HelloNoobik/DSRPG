@@ -83,10 +83,6 @@ namespace Core.Classes
                 SoundPlayer.Open(new Uri(path, UriKind.Relative));
                 SoundPlayer.Play();
             }
-            else 
-            {
-                //Херь если занят
-            }
         }
         #endregion
     }
