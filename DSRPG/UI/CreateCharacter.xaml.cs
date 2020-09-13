@@ -24,6 +24,7 @@ namespace DSRPG
         {
             this.SetLocation(point);
             InitializeComponent();
+           
         }
 
 
@@ -68,7 +69,7 @@ namespace DSRPG
             char q = Convert.ToChar(e.Text);
             string s = e.Text;
             byte[] bytes = Encoding.GetEncoding(1251).GetBytes(s);
-            if (q <= 97 && q <= 64 && Convert.ToChar(s) <= 191 || q >= 123 && q >=91 && Convert.ToChar(s) <= 256)
+            if (q <= 97 && q <= 64 && Convert.ToChar(s) <= 191 || q >= 123 && q >= 91 && Convert.ToChar(s) <= 256)
             {
                 e.Handled = true;
                 MessageBox.Show("Ввод только символов !","Ошибка");
@@ -121,11 +122,6 @@ namespace DSRPG
         private void back_MouseLeave(object sender, MouseEventArgs e)
         {
             back.Foreground = Brushes.White;
-        }
-
-        private void archer_MouseEnter(object sender, MouseEventArgs e)
-        {
-            
         }
     }
 }
