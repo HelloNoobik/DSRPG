@@ -25,7 +25,7 @@ namespace Core
             set 
             {
                 musicVolume = value >= 0.0 && value <= 1.0 ? value : value > 1.0 ? 1.0 : 0.0;
-                MusicVolumeChanged();
+                MusicVolumeChanged?.Invoke();
             }
         }
         public static double SoundVolume
@@ -38,7 +38,7 @@ namespace Core
             set
             {
                 soundVolume = value >= 0.0 && value <= 1.0 ? value : value > 1.0 ? 1.0 : 0.0;
-                SoundVolumeChanged();
+                SoundVolumeChanged?.Invoke();
             }
         }
         public static double MasterVolume
@@ -51,7 +51,7 @@ namespace Core
             set
             {
                 masterVolume = value >= 0.0 && value <= 1.0 ? value : value > 1.0 ? 1.0 : 0.0;
-                MasterVolumeChanged();
+                MasterVolumeChanged?.Invoke();
             }
         }
 
@@ -65,7 +65,7 @@ namespace Core
             set
             {
                 videoVolume = value >= 0.0 && value <= 1.0 ? value : value > 1.0 ? 1.0 : 0.0;
-                VideoVolumeChanged();
+                VideoVolumeChanged?.Invoke();
             }
         }
         #endregion
