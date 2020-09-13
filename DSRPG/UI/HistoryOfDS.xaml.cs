@@ -47,6 +47,15 @@ namespace DSRPG
         }
         private void Window_Initialized(object sender, EventArgs e)
         {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Tick += (s, ee) => 
+            { 
+                Player.Opacity += 0.001;
+                if (Player.Opacity == 1.0) timer.Stop();
+            };
+            Player.Opacity = 0.0;
+            timer.Start();
             Player.Source = new Uri("video/DS_opening.mp4", UriKind.Relative);
             Player.Volume = Settings.VideoVolume;
             Player.Stretch = Stretch.Fill;

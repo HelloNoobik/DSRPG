@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="DSRPG - История Дарк Соулс" KeyDown="Window_KeyDown" Icon="/DSRPG;component/img/skewer.png" Initialized="Window_Initialized" ResizeMode="NoResize" Width="800" Height="450">
+        Title="DSRPG - История Дарк Соулс" KeyDown="Window_KeyDown" Icon="/DSRPG;component/img/skewer.png" Initialized="Window_Initialized" ResizeMode="NoResize" Width="800" Height="450" Background="Black">
     <Grid x:Name="Root">
         <MediaElement x:Name="Player" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="794" MediaEnded="media_MediaEnded"/>
     </Grid>
