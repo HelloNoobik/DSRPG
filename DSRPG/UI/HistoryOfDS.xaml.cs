@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using static Core.Core;
+using Core;
 
 namespace DSRPG
 {
@@ -45,10 +46,12 @@ namespace DSRPG
         }
         private void Window_Initialized(object sender, EventArgs e)
         {
-            VideoDrawing aVideoDrawing = new VideoDrawing();
-            aVideoDrawing.Rect = new Rect(0, 0, 700, 300);
-            aVideoDrawing.Player = Media.VideoPlayer;
-            Media.PlayVideo("video/frpg_opening.wmv");
+            Player.Source = new Uri("video/frpg_opening.wmv", UriKind.Relative);
+            Player.Volume = Settings.VideoVolume;
+            Player.Stretch = Stretch.Fill;
+            Player.LoadedBehavior = MediaState.Manual;
+            Player.UnloadedBehavior = MediaState.Manual;
+            Player.Play();
         }
 
         private void media_MediaEnded(object sender, RoutedEventArgs e)

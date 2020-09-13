@@ -30,6 +30,8 @@ namespace DSRPG
             MusicVolumeLabel.Content = $"{Math.Round(Settings.MusicVolume * 100)} %";
             SoundVolumeSlider.Value = Settings.SoundVolume;
             SoundVolumeLabel.Content = $"{Math.Round(Settings.SoundVolume * 100)} %";
+            VideoVolumeSlider.Value = Settings.VideoVolume;
+            VideoVolumeLabel.Content = $"{Math.Round(Settings.VideoVolume * 100)} %";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
