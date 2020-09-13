@@ -27,7 +27,7 @@ namespace DSRPG
             if (!Media.MainMenuMusicPlaying) 
             {
                 Media.MainMenuMusicPlaying = true;
-                Media.PlayMusic(new Uri("music/MainTheme.mp3", UriKind.Relative));
+                Media.PlayMusic("music/MainTheme.mp3");
             }
         }
         public MainWindow(Point point)
@@ -37,52 +37,27 @@ namespace DSRPG
             if (!Media.MainMenuMusicPlaying)
             {
                 Media.MainMenuMusicPlaying = true;
-                Media.PlayMusic(new Uri("music/MainTheme.mp3", UriKind.Relative));
+                Media.PlayMusic("music/MainTheme.mp3");
             }
         }
 
-        private void NewGame_MouseEnter(object sender, MouseEventArgs e)
+        private void MouseEnter(object sender, MouseEventArgs e)
         {
-            NewGameLb.Foreground = Brushes.Yellow;
+            Label label = (Label)sender;
+            label.Foreground = Brushes.Yellow;
+            Media.PlaySound("sound/hover.mp3");
         }
 
-        private void NewGame_MouseLeave(object sender, MouseEventArgs e)
+        private void MouseLeave(object sender, MouseEventArgs e)
         {
-            NewGameLb.Foreground = Brushes.White;
+            Label label = (Label)sender;
+            label.Foreground = Brushes.White;
         }
 
-        private void LoadGame_MouseEnter(object sender, MouseEventArgs e)
-        {
-            LoadGameLb.Foreground = Brushes.Yellow;
-        }
-
-        private void LoadGame_MouseLeave(object sender, MouseEventArgs e)
-        {
-            LoadGameLb.Foreground = Brushes.White;
-        }
-
-        private void Settings_MouseEnter(object sender, MouseEventArgs e)
-        {
-            SettingsLb.Foreground = Brushes.Yellow;
-        }
-
-        private void Settings_MouseLeave(object sender, MouseEventArgs e)
-        {
-            SettingsLb.Foreground = Brushes.White;
-        }
-
-        private void Exit_MouseEnter(object sender, MouseEventArgs e)
-        {
-            ExitLb.Foreground = Brushes.Yellow;
-        }
-
-        private void Exit_MouseLeave(object sender, MouseEventArgs e)
-        {
-           ExitLb.Foreground = Brushes.White;
-        }
 
         private void NewGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
             CreateCharacter createcharacter = new CreateCharacter(this.GetLocation());
             createcharacter.Show();
             this.Close();
@@ -90,11 +65,13 @@ namespace DSRPG
 
         private void LoadGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
 
         }
 
         private void SettingsLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
             Window1 settings = new Window1(this.GetLocation());
             settings.Show();
             this.Close();
@@ -102,6 +79,7 @@ namespace DSRPG
 
         private void ExitLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Media.PlaySound("sound/click.mp3");
             Environment.Exit(0);
         }
     }
