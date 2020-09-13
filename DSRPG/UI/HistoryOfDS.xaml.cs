@@ -39,6 +39,7 @@ namespace DSRPG
         {
             if (e.Key.ToString() == "Return") 
             {
+                Player.Stop();
                 WorldMap worldMap = new WorldMap(this.GetLocation());
                 worldMap.Show();
                 this.Close();
@@ -46,7 +47,7 @@ namespace DSRPG
         }
         private void Window_Initialized(object sender, EventArgs e)
         {
-            Player.Source = new Uri("video/frpg_opening.wmv", UriKind.Relative);
+            Player.Source = new Uri("video/DS_opening.mp4", UriKind.Relative);
             Player.Volume = Settings.VideoVolume;
             Player.Stretch = Stretch.Fill;
             Player.LoadedBehavior = MediaState.Manual;
