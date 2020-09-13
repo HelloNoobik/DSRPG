@@ -16,7 +16,7 @@ namespace Core.Classes
         #region Поля
         private MediaPlayer MusicPlayer;
         private MediaPlayer SoundPlayer;
-        private MediaPlayer VideoPlayer;
+        public MediaPlayer VideoPlayer {get; private set; }
         public bool MainMenuMusicPlaying = false;
         public bool WorldMusicPlaying = false;
         private bool SoundPlayerBusy = false;
@@ -26,10 +26,12 @@ namespace Core.Classes
         {
             MusicPlayer = new MediaPlayer();
             SoundPlayer = new MediaPlayer();
+            VideoPlayer = new MediaPlayer();
             UpdateVolume();
             Settings.MasterVolumeChanged += () => { UpdateVolume(); };
             Settings.MusicVolumeChanged += () => { UpdateMusicVolume(); };
             Settings.SoundVolumeChanged += () => { UpdateSoundVolume(); };
+            Settings.VideoVolumeChanged += () => { UpdateVideoVolume(); };
             SoundPlayer.MediaOpened += (s,e) => { SoundPlayerBusy = true; };
             SoundPlayer.MediaEnded += (s,e) => { SoundPlayerBusy = false; };
         }
@@ -38,6 +40,11 @@ namespace Core.Classes
         private void UpdateSoundVolume()
         {
             SoundPlayer.Volume = Settings.SoundVolume * Settings.MasterVolume;
+        }
+
+        private void UpdateVideoVolume()
+        {
+            VideoPlayer.Volume = Settings.VideoVolume * Settings.MasterVolume;
         }
 
         private void UpdateMusicVolume()
@@ -88,8 +95,13 @@ namespace Core.Classes
 
         public void PlayVideo(string path) 
         {
-            VideoPlayer.Open(new Uri(path, UriKind.Absolute));
+            VideoPlayer.Open(new Uri(path, UriKind.Relative));
             VideoPlayer.Play();
+        }
+
+        public void StopVideo() 
+        {
+            VideoPlayer.Stop();
         }
         #endregion
     }

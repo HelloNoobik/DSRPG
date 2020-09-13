@@ -6,7 +6,5 @@
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
         Title="DSRPG - История Дарк Соулс" KeyDown="Window_KeyDown" Icon="/DSRPG;component/img/skewer.png" Initialized="Window_Initialized" ResizeMode="NoResize" Width="800" Height="450">
-    <Grid x:Name="Root">
-        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="794" Source="../music/frpg_opening.mp4" Margin="0,0,-0.4,0" MediaEnded="media_MediaEnded" AllowDrop="False" Stretch="UniformToFill"/>
-    </Grid>
+    <Grid x:Name="Root"/>
 </Window>

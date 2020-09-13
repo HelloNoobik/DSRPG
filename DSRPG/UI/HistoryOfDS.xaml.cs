@@ -38,7 +38,6 @@ namespace DSRPG
         {
             if (e.Key.ToString() == "Return") 
             {
-                media.Stop();
                 WorldMap worldMap = new WorldMap(this.GetLocation());
                 worldMap.Show();
                 this.Close();
@@ -46,12 +45,10 @@ namespace DSRPG
         }
         private void Window_Initialized(object sender, EventArgs e)
         {
-            var frpg_opening = "video/frpg_opening.wmv";
-            media.Source = new Uri(frpg_opening,UriKind.Relative);
-            media.MediaFailed += (s, ee) => { MessageBox.Show(ee.ErrorException.ToString()); };
-            media.LoadedBehavior = MediaState.Manual;
-            media.UnloadedBehavior = MediaState.Manual;
-            media.Play(); 
+            VideoDrawing aVideoDrawing = new VideoDrawing();
+            aVideoDrawing.Rect = new Rect(0, 0, 700, 300);
+            aVideoDrawing.Player = Media.VideoPlayer;
+            Media.PlayVideo("video/frpg_opening.wmv");
         }
 
         private void media_MediaEnded(object sender, RoutedEventArgs e)

@@ -12,6 +12,7 @@ namespace Core
         private static double musicVolume = 0.1;
         private static double soundVolume = 0.1;
         private static double masterVolume = 0.1;
+        private static double videoVolume = 0.1;
         #endregion
         #region Свойства
         public static double MusicVolume 
@@ -53,6 +54,20 @@ namespace Core
                 MasterVolumeChanged();
             }
         }
+
+        public static double VideoVolume
+        {
+            get
+            {
+                return videoVolume;
+            }
+
+            set
+            {
+                videoVolume = value >= 0.0 && value <= 1.0 ? value : value > 1.0 ? 1.0 : 0.0;
+                VideoVolumeChanged();
+            }
+        }
         #endregion
         #region Делегаты и события
         public delegate void Changed();
@@ -60,6 +75,7 @@ namespace Core
         public static event Changed MusicVolumeChanged;
         public static event Changed SoundVolumeChanged;
         public static event Changed MasterVolumeChanged;
+        public static event Changed VideoVolumeChanged;
         #endregion
         #region Методы
         #endregion

@@ -56,5 +56,11 @@ namespace DSRPG
             Settings.SoundVolume = SoundVolumeSlider.Value;
             SoundVolumeLabel.Content = $"{Math.Round(Settings.SoundVolume * 100)} %";
         }
+
+        private void VideoVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Settings.VideoVolume = VideoVolumeSlider.Value;
+            VideoVolumeLabel.Content = $"{Math.Round(Settings.VideoVolume * 100)} %";
+        }
     }
 }
