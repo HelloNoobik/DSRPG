@@ -1,9 +1,7 @@
-﻿using DSRPG.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,94 +10,86 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
-using static Core.Core;
+using DSRPG.Core;
 
-namespace DSRPG
+namespace DSRPG.UI
 {
     /// <summary>
     /// Логика взаимодействия для WorldMap.xaml
     /// </summary>
-    public partial class WorldMap : Window
+    public partial class WorldMap : Page
     {
         static private bool MousePressed = false;
         static private Point MousePrev;
         static private Rect LotrikRect = new Rect(380, 324, 250, 40);
-        static private DispatcherTimer timer = new DispatcherTimer();
-        public WorldMap(Point point)
+        public WorldMap()
         {
-            this.SetLocation(point);
             InitializeComponent();
-            if (!Media.WorldMusicPlaying)
-            {
-                Media.WorldMusicPlaying = true;
-                Media.PlayMusic("music/WorldOST.mp3");
-            }
-            WorldMapView.Opacity = 0.0;
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
-            timer.Tick += (s, e) =>
-            {
-                WorldMapView.Opacity += 0.008;
-                if (WorldMapView.Opacity == 1.0) timer.Stop();
-            };
-            timer.Start();
         }
 
-        private void MapWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void MapPage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (!MousePressed) 
+            if (!MousePressed)
             {
                 MousePressed = true;
                 MousePrev = e.GetPosition(this);
             }
-            if (LotrikRect.Contains(e.GetPosition(MapImage))) 
+            if (LotrikRect.Contains(e.GetPosition(MapImage)))
             {
-                Media.StopMusic();
-                FirstLocation window = new FirstLocation(this.GetLocation());
-                window.Show();
-                this.Close();
+                Settings.Media.StopMusic();
+                Settings.Main.ChangeWindow(Pages.Lotrik);
             }
         }
 
-        private void MapWindow_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void MapPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MousePressed = false;
         }
 
-        private void MapWindow_MouseMove(object sender, MouseEventArgs e)
+        private void MapPage_MouseMove(object sender, MouseEventArgs e)
         {
             if (MousePressed)
             {
                 Point Mouse = e.GetPosition(null);
-                double X =  WorldMapView.HorizontalOffset + (MousePrev.X - Mouse.X);
+                double X = WorldMapView.HorizontalOffset + (MousePrev.X - Mouse.X);
                 double Y = WorldMapView.VerticalOffset + (MousePrev.Y - Mouse.Y);
                 WorldMapView.ScrollToVerticalOffset(Y);
                 WorldMapView.ScrollToHorizontalOffset(X);
                 MousePrev = Mouse;
             }
-            if (LotrikRect.Contains(e.GetPosition(MapImage))) 
+            if (LotrikRect.Contains(e.GetPosition(MapImage)))
             {
                 Lotrik_button.BorderBrush = Brushes.Yellow;
             }
             else Lotrik_button.BorderBrush = Brushes.White;
         }
 
-        private void MapWindow_MouseLeave(object sender, MouseEventArgs e)
+        private void MapPage_MouseLeave(object sender, MouseEventArgs e)
         {
             MousePressed = false;
         }
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow main = new MainWindow(this.GetLocation());
-            main.Show();
-            Close();
+            Settings.Main.ChangeWindow(Pages.Main);
         }
 
-        private void MapWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+
+        private void MapPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            Media.WorldMusicPlaying = false;
+            Settings.Media.WorldMusicPlaying = false;
+            Settings.Media.StopMusic();
+        }
+
+        private void MapPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!Settings.Media.WorldMusicPlaying)
+            {
+                Settings.Media.WorldMusicPlaying = true;
+                Settings.Media.PlayMusic("music/WorldOST.mp3");
+            }
         }
     }
 }

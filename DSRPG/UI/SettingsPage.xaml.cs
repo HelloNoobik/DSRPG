@@ -10,20 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Core;
+using DSRPG.Core;
 
-namespace DSRPG
+namespace DSRPG.UI
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для SettingsPage.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class SettingsPage : Page
     {
-        public Window1(Point point)
+        public SettingsPage()
         {
             InitializeComponent();
-            this.SetLocation(point);
             MasterVolumeSlider.Value = Settings.MasterVolume;
             MasterVolumeLabel.Content = $"{Math.Round(Settings.MasterVolume * 100)} %";
             MusicVolumeSlider.Value = Settings.MusicVolume;
@@ -36,9 +36,8 @@ namespace DSRPG
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(this.GetLocation());
-            mainWindow.Show();
-            this.Close();
+            Settings.Media.PlaySound("sound/click.mp3");
+            Settings.Main.ChangeWindow(Pages.Main);
         }
 
         private void MasterVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

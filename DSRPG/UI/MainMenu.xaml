@@ -1,0 +1,18 @@
+﻿<Page x:Class="DSRPG.UI.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI"
+      mc:Ignorable="d" 
+       d:DesignHeight="419" d:DesignWidth="792"
+      Title="MainMenu">
+
+    <Grid Background="Black">
+        <Label x:Name="DsRPGKb" Content="DS RPG" HorizontalAlignment="Center" Margin="266,52,274,285" VerticalAlignment="Center" Height="84" Width="254" Foreground="White" FontFamily="Cambria Math" FontSize="72" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="ExitLb" Content="Выход" Foreground="White" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonUp="ExitLb_MouseLeftButtonUp" Margin="318,332,316,47" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="40" Width="158"/>
+        <Label x:Name="SettingsLb" Content="Настройки" Foreground="White" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonUp="SettingsLb_MouseLeftButtonUp" Margin="314,254,312,127" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="38" Width="166"/>
+        <Label x:Name="LoadGameLb" Content="Загрузка игры" Foreground="White" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonUp="LoadGameLb_MouseLeftButtonUp" Margin="308,194,306,181" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="44" Width="178"/>
+        <Label x:Name="NewGameLb" Content="Новая игра" Foreground="White" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonUp="NewGameLb_MouseLeftButtonUp" Margin="320,154,318,229" FontSize="18" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="36" Width="154"/>
+    </Grid>
+</Page>

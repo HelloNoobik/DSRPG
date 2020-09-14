@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core
-{
+namespace DSRPG.Core
+{   
     public class Settings
     {
         #region Поля
@@ -13,16 +13,18 @@ namespace Core
         private static double soundVolume = 0.1;
         private static double masterVolume = 0.1;
         private static double videoVolume = 0.1;
+        public static PageController Main;
+        public static MediaController Media = new MediaController();
         #endregion
         #region Свойства
-        public static double MusicVolume 
+        public static double MusicVolume
         {
-            get 
+            get
             {
                 return musicVolume;
             }
 
-            set 
+            set
             {
                 musicVolume = value >= 0.0 && value <= 1.0 ? value : value > 1.0 ? 1.0 : 0.0;
                 MusicVolumeChanged?.Invoke();

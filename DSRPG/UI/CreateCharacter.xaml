@@ -1,11 +1,13 @@
-﻿<Window x:Class="DSRPG.CreateCharacter"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DSRPG"
-        mc:Ignorable="d"
-        Title="DSRPG - Создание Персонажа" Height="450" Width="800" ResizeMode="NoResize" Icon="/DSRPG;component/img/skewer.png" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="ToolWindow">
+﻿<Page x:Class="DSRPG.UI.CreateCharacter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI"
+      mc:Ignorable="d" 
+       d:DesignHeight="419" d:DesignWidth="792"
+      Title="CreateCharacter">
+
     <Grid Background="Black">
         <Label Content="Создание персонажа" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Background="Black" Foreground="White"/>
         <TextBox x:Name="Name" BorderThickness="0" HorizontalAlignment="Left" Margin="0,65,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Foreground="White" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus" TextChanged="Name_TextChanged" PreviewTextInput="Name_PreviewTextInput" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
@@ -30,4 +32,4 @@
         <Label x:Name="accept" Content="Принять" HorizontalAlignment="Left" Margin="-3,348,0,0" VerticalAlignment="Top" Foreground="White" PreviewMouseDown="accept_PreviewMouseDown" MouseEnter="accept_MouseEnter" MouseLeave="accept_MouseLeave"  />
         <Label x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="-3,374,0,0" VerticalAlignment="Top" PreviewMouseDown="back_PreviewMouseDown" Foreground="White" MouseEnter="back_MouseEnter" MouseLeave="back_MouseLeave"/>
     </Grid>
-</Window>
+</Page>

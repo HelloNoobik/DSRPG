@@ -10,27 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static Core.Core;
+using DSRPG.Core;
 
-namespace DSRPG
+namespace DSRPG.UI
 {
     /// <summary>
     /// Логика взаимодействия для CreateCharacter.xaml
     /// </summary>
-    public partial class CreateCharacter : Window
+    public partial class CreateCharacter : Page
     {
-        public CreateCharacter(Point point)
+        public CreateCharacter()
         {
-            this.SetLocation(point);
             InitializeComponent();
-           
         }
-
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            if(man.IsChecked == true)
+            if (man.IsChecked == true)
             {
                 MessageBox.Show("Вы выбрали man");
             }
@@ -65,14 +63,14 @@ namespace DSRPG
         //Типо есть реализация русского и английского языка
         private void Name_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-          
+
             char q = Convert.ToChar(e.Text);
             string s = e.Text;
             byte[] bytes = Encoding.GetEncoding(1251).GetBytes(s);
             if (q <= 97 && q <= 64 && Convert.ToChar(s) <= 191 || q >= 123 && q >= 91 && Convert.ToChar(s) <= 256)
             {
                 e.Handled = true;
-                MessageBox.Show("Ввод только символов !","Ошибка");
+                MessageBox.Show("Ввод только символов !", "Ошибка");
             }
         }
 
@@ -90,11 +88,9 @@ namespace DSRPG
 
         private void accept_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Media.StopMusic();
-            Media.MainMenuMusicPlaying = false;
-            HistoryOfDS history = new HistoryOfDS(this.GetLocation());
-            history.Show();
-            Close();
+            Settings.Main.ChangeWindow(Pages.Intro);
+            Settings.Media.MainMenuMusicPlaying = false;
+            Settings.Media.StopMusic();
         }
 
         private void accept_MouseEnter(object sender, MouseEventArgs e)
@@ -109,9 +105,7 @@ namespace DSRPG
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainWindow main = new MainWindow(this.GetLocation());
-            main.Show();
-            Close();
+            Settings.Main.ChangeWindow(Pages.Main);
         }
 
         private void back_MouseEnter(object sender, MouseEventArgs e)
