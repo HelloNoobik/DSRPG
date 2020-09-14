@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using DSRPG.Test;
+using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +41,10 @@ namespace DSRPG.GameLogic.Core
         private Page CreateCharacter;
         private Page Lotrik;
         private Page WorldMap;
+        private Page Test;
 
         private Page currentPage;
+     
         public Page CurrentPage
         {
             get
@@ -84,8 +87,9 @@ namespace DSRPG.GameLogic.Core
             CreateCharacter = new UI.CreateCharacter();
             Lotrik = new UI.Lotrik();
             WorldMap = new UI.WorldMap();
+            Test = new Test.InventoryPage();
 
-            CurrentPage = Main;
+            CurrentPage = Test;
 
             PageOpacity = 1.0;
         }

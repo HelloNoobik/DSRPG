@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace DSRPG.Test
+{
+    /// <summary>
+    /// Логика взаимодействия для InventoryPage.xaml
+    /// </summary>
+    public partial class InventoryPage : Page
+    {
+        static private Inventory inve = new Inventory();
+        public InventoryPage()
+        {
+            InitializeComponent();
+            
+            Point point = new Point(25,25);
+            for(int i = 0; i < inve.items.Count; i++)
+            {
+
+                Rectangle rect = new Rectangle();
+                rect.Name = $"Rect{i}";
+                rect.PreviewMouseLeftButtonDown += Click;
+                rect.MouseEnter += MouseEnter;
+                rect.MouseLeave += MouseLeave;
+                rect.Width = 50;
+                rect.Height = 50;
+                Canvas.SetLeft(rect, point.X);
+                Canvas.SetTop(rect, point.Y);
+                Window.Children.Add(rect);
+                //Image image = new Image();
+                image.Source = new BitmapImage(new Uri("C:/Users/Aes/Source/Repos/HelloNoobik/DSRPG/DSRPG/Resources/img/noPass_active.png", UriKind.Absolute));
+                image.Width = 50;
+                image.Height = 50;
+                Canvas.SetLeft(image, point.X);
+                Canvas.SetTop(image, point.Y);
+               // Window.Children.Add(image);
+                point.X += 75;
+                if(point.X >= 725)
+                {
+                    point.X = 25;
+                    point.Y += 75;
+                }
+            }
+        }
+        private void Click(object sender, MouseEventArgs e)
+        {
+            Rectangle rect = (Rectangle)sender;
+            MessageBox.Show($"{rect.Name}");
+        }
+        private void MouseEnter(object sender, MouseEventArgs e)
+        {
+            Rectangle rect = (Rectangle)sender;
+            rect.Stroke = Brushes.Yellow;
+        }
+        private void MouseLeave(object sender, MouseEventArgs e)
+        {
+            Rectangle rect = (Rectangle)sender;
+            rect.Stroke = Brushes.White;
+        }
+    }
+}
