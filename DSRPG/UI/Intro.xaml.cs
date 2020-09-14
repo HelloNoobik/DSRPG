@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using DSRPG.Core;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG.UI
 {
@@ -32,7 +32,7 @@ namespace DSRPG.UI
             if (e.Key.ToString() == "Return")
             {
                 Player.Close();
-                Settings.Main.ChangeWindow(Pages.WorldMap);
+                Settings.PageController.ChangeWindow(Pages.WorldMap);
                 Window.GetWindow(this).KeyDown -= Page_KeyDown;
             }
         }
@@ -40,12 +40,12 @@ namespace DSRPG.UI
         private void media_MediaEnded(object sender, RoutedEventArgs e)
         {
             Player.Close();
-            Settings.Main.ChangeWindow(Pages.WorldMap);
+            Settings.PageController.ChangeWindow(Pages.WorldMap);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Player.Source = new Uri("video/DS_opening.mp4", UriKind.Relative);
+            Player.Source = DSRPG.Resources.Links.Video.Intro;
             Player.Volume = Settings.VideoVolume;
             Player.Stretch = Stretch.Fill;
             Player.LoadedBehavior = MediaState.Manual;

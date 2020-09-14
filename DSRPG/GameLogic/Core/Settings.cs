@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSRPG.Core
+namespace DSRPG.GameLogic.Core
 {   
     public class Settings
     {
@@ -13,8 +13,8 @@ namespace DSRPG.Core
         private static double soundVolume = 0.1;
         private static double masterVolume = 0.1;
         private static double videoVolume = 0.1;
-        public static PageController Main;
-        public static MediaController Media = new MediaController();
+        public static PageController PageController;
+        public static MediaController MediaController = new MediaController();
         #endregion
         #region Свойства
         public static double MusicVolume

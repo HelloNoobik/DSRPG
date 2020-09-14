@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using DSRPG;
 
-namespace DSRPG.Core
+namespace DSRPG.GameLogic.Core
 {
     public class MediaController
     {
@@ -51,10 +51,10 @@ namespace DSRPG.Core
             UpdateMusicVolume();
         }
 
-        public void PlayMusic(string path)
+        public void PlayMusic(Uri path)
         {
             MusicPlayer.MediaFailed += (s, e) => { MessageBox.Show($"ПИЗДА ДОРОЖКЕ! {e.ErrorException}"); };
-            MusicPlayer.Open(new Uri(path, UriKind.Relative));
+            MusicPlayer.Open(path);
             MusicPlayer.Position = new TimeSpan(0);
             MusicPlayer.Play();
             MusicPlayer.MediaEnded += (s, e) => { MusicPlayer.Position = new TimeSpan(0); };
@@ -76,12 +76,12 @@ namespace DSRPG.Core
             MusicPlayer.Play();
         }
 
-        public void PlaySound(string path)
+        public void PlaySound(Uri path)
         {
             if (!SoundPlayerBusy)
             {
                 SoundPlayer.MediaFailed += (s, e) => { MessageBox.Show($"ПИЗДА ДОРОЖКЕ! {e.ErrorException}"); };
-                SoundPlayer.Open(new Uri(path, UriKind.Relative));
+                SoundPlayer.Open(path);
                 SoundPlayer.Play();
             }
         }

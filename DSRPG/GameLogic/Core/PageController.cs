@@ -23,7 +23,7 @@ namespace DSRPG
     }
 }
 
-namespace DSRPG.Core
+namespace DSRPG.GameLogic.Core
 {
     public class PageController : ViewModelBase, INotifyPropertyChanged
     {
@@ -81,7 +81,7 @@ namespace DSRPG.Core
             Intro = new UI.Intro();
             Settings = new UI.SettingsPage();
             BattleArena = new UI.BattleArena();
-            CreateCharacter = new UI.CreateCharacterBeta();
+            CreateCharacter = new UI.CreateCharacter();
             Lotrik = new UI.Lotrik();
             WorldMap = new UI.WorldMap();
 

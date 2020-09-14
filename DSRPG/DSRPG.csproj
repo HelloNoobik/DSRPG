@@ -70,10 +70,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Character\Character.cs" />
-    <Compile Include="Core\Extension.cs" />
-    <Compile Include="Core\MediaController.cs" />
-    <Compile Include="Core\Settings.cs" />
+    <Compile Include="GameLogic\Character\Character.cs" />
+    <Compile Include="GameLogic\Core\MediaController.cs" />
+    <Compile Include="GameLogic\Core\Settings.cs" />
+    <Compile Include="Resources\Links.cs" />
     <Compile Include="UI\BattleArena.xaml.cs">
       <DependentUpon>BattleArena.xaml</DependentUpon>
     </Compile>
@@ -82,9 +82,6 @@
     </Compile>
     <Compile Include="UI\CreateHeroPageUI\ClassPage.xaml.cs">
       <DependentUpon>ClassPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\CreateHeroPageUI\CreateCharacterBeta.xaml.cs">
-      <DependentUpon>CreateCharacterBeta.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CreateHeroPageUI\GenderPage.xaml.cs">
       <DependentUpon>GenderPage.xaml</DependentUpon>
@@ -110,7 +107,7 @@
     <Compile Include="UI\WorldMap.xaml.cs">
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CreateCharacterViewModel.cs" />
+    <Compile Include="GameLogic\ViewModel\CreateCharacterViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,7 +116,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\PageController.cs" />
+    <Compile Include="GameLogic\Core\PageController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -133,10 +130,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\CreateHeroPageUI\ClassPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\CreateHeroPageUI\CreateCharacterBeta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,29 +194,46 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\Lotrik.png" />
-    <Resource Include="img\lvl %282%29.png" />
-    <Resource Include="img\lvl_active.png" />
-    <Resource Include="img\noPass.png" />
-    <Resource Include="img\noPass_active.png" />
-    <Resource Include="img\skewer.png" />
-    <Resource Include="img\Throne_Of_Want.png" />
-    <Resource Include="img\World.jpg" />
+    <Resource Include="Resources\img\Lotrik.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\lvl %282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\lvl_active.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\noPass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\noPass_active.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\skewer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\Throne_Of_Want.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\World.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="music\MainTheme.mp3">
+    <Content Include="Resources\music\MainTheme.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="music\WorldOST.mp3">
+    <Content Include="Resources\music\WorldOST.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="sound\click.mp3">
+    <Content Include="Resources\sound\click.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="video\.gitattributes" />
-    <Content Include="video\DS_opening.mp4">
+    <Content Include="Resources\video\.gitattributes" />
+    <Content Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
