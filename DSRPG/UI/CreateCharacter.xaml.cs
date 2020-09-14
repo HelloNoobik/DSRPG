@@ -12,110 +12,99 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
+using DSRPG.GameLogic.ViewModel;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для CreateCharacter.xaml
-    /// </summary>
     public partial class CreateCharacter : Page
     {
+        static private CreateCharacterViewModel Model = new CreateCharacterViewModel();
+        static private Label activeLabel = null;
+        static private Label ActiveLabel
+        {
+            get
+            {
+                return activeLabel;
+            }
+
+            set
+            {
+                value.Foreground = Brushes.Yellow;
+                if (activeLabel != null) activeLabel.Foreground = Brushes.White;
+                activeLabel = value;
+            }
+        }
         public CreateCharacter()
         {
             InitializeComponent();
+            DataContext = Model;
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void NameLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (man.IsChecked == true)
-            {
-                MessageBox.Show("Вы выбрали man");
-            }
-            else
-            {
-                MessageBox.Show("Вы выбрали female");
-            }
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            ActiveLabel = (Label)sender;
+            Model.ChangePage("Name");
         }
 
-        private void Name_GotFocus(object sender, RoutedEventArgs e)
+        private void GenderLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (Name.Text == "Введите имя")
-            {
-                Name.Text = "";
-                Name.Foreground = Brushes.AntiqueWhite;
-            }
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            ActiveLabel = (Label)sender;
+            Model.ChangePage("Gender");
         }
 
-        private void Name_LostFocus(object sender, RoutedEventArgs e)
+        private void ClassLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (Name.Text == "")
-            {
-                Name.Text = "Введите имя";
-                Name.Foreground = Brushes.White;
-            }
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            ActiveLabel = (Label)sender;
+            Model.ChangePage("Class");
         }
 
-        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        private void GiftLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Name.MaxLength = 10;
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            ActiveLabel = (Label)sender;
+            Model.ChangePage("Gift");
         }
-        //Типо есть реализация русского и английского языка
-        private void Name_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
 
-            char q = Convert.ToChar(e.Text);
-            string s = e.Text;
-            byte[] bytes = Encoding.GetEncoding(1251).GetBytes(s);
-            if (q <= 97 && q <= 64 && Convert.ToChar(s) <= 191 || q >= 123 && q >= 91 && Convert.ToChar(s) <= 256)
+        private void MouseEnter(object sender, MouseEventArgs e)
+        {
+            if ((Label)sender != ActiveLabel)
             {
-                e.Handled = true;
-                MessageBox.Show("Ввод только символов !", "Ошибка");
+
+                Label label = (Label)sender;
+                label.Foreground = Brushes.Yellow;
             }
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MouseLeave(object sender, MouseEventArgs e)
         {
-            if (Warrior.IsSelected)
-                infoclasses.Text = "Инфа о Воине";
-            else if (archer.IsSelected)
-                infoclasses.Text = "Инфа о Лучнике";
-            else if (Paladin.IsSelected)
-                infoclasses.Text = "Инфа о Паладине";
-            else if (Mage.IsSelected)
-                infoclasses.Text = "Инфа о Маге";
+            if ((Label)sender != ActiveLabel)
+            {
+
+                Label label = (Label)sender;
+                label.Foreground = Brushes.White;
+            }
         }
 
-        private void accept_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void Submit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Main.ChangeWindow(Pages.Intro);
-            Settings.Media.MainMenuMusicPlaying = false;
-            Settings.Media.StopMusic();
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            if (Model.Check() != null)
+            {
+                Settings.MediaController.MainMenuMusicPlaying = false;
+                Settings.MediaController.StopMusic();
+                Settings.PageController.ChangeWindow(Pages.Intro);
+            }
+            else MessageBox.Show("Не все заполнено");
         }
 
-        private void accept_MouseEnter(object sender, MouseEventArgs e)
+        private void Cancel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            accept.Foreground = Brushes.Yellow;
-        }
-
-        private void accept_MouseLeave(object sender, MouseEventArgs e)
-        {
-            accept.Foreground = Brushes.White;
-        }
-
-        private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Settings.Main.ChangeWindow(Pages.Main);
-        }
-
-        private void back_MouseEnter(object sender, MouseEventArgs e)
-        {
-            back.Foreground = Brushes.Yellow;
-        }
-
-        private void back_MouseLeave(object sender, MouseEventArgs e)
-        {
-            back.Foreground = Brushes.White;
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            Settings.PageController.ChangeWindow(Pages.Main);
         }
     }
 }

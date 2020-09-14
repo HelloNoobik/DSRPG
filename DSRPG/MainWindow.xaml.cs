@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG
 {
@@ -23,8 +24,8 @@ namespace DSRPG
         public MainWindow()
         {
             InitializeComponent();
-            Core.Settings.Main = new Core.PageController();
-            DataContext = Core.Settings.Main;
+            Settings.PageController = new PageController();
+            DataContext = Settings.PageController;
         }
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG.UI
 {
@@ -38,8 +38,8 @@ namespace DSRPG.UI
             }
             if (LotrikRect.Contains(e.GetPosition(MapImage)))
             {
-                Settings.Media.StopMusic();
-                Settings.Main.ChangeWindow(Pages.Lotrik);
+                Settings.MediaController.StopMusic();
+                Settings.PageController.ChangeWindow(Pages.Lotrik);
             }
         }
 
@@ -73,22 +73,22 @@ namespace DSRPG.UI
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Main.ChangeWindow(Pages.Main);
+            Settings.PageController.ChangeWindow(Pages.Main);
         }
 
 
         private void MapPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            Settings.Media.WorldMusicPlaying = false;
-            Settings.Media.StopMusic();
+            Settings.MediaController.WorldMusicPlaying = false;
+            Settings.MediaController.StopMusic();
         }
 
         private void MapPage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!Settings.Media.WorldMusicPlaying)
+            if (!Settings.MediaController.WorldMusicPlaying)
             {
-                Settings.Media.WorldMusicPlaying = true;
-                Settings.Media.PlayMusic("music/WorldOST.mp3");
+                Settings.MediaController.WorldMusicPlaying = true;
+                Settings.MediaController.PlayMusic(DSRPG.Resources.Links.Music.World);
             }
         }
     }

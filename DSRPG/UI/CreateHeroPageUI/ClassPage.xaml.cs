@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG.UI.CreateHeroPageUI
 {
@@ -63,25 +63,25 @@ namespace DSRPG.UI.CreateHeroPageUI
 
         private void Warrior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Media.PlaySound("sound/click.mp3");
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             ActiveLabel = (Label)sender;
         }
 
         private void Paladin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Media.PlaySound("sound/click.mp3");
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             ActiveLabel = (Label)sender;
         }
 
         private void Archer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Media.PlaySound("sound/click.mp3");
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             ActiveLabel = (Label)sender;
         }
 
         private void Mage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Media.PlaySound("sound/click.mp3");
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             ActiveLabel = (Label)sender;
         }
 

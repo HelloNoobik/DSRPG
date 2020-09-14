@@ -10,8 +10,8 @@
 
 
     <Grid x:Name="Room" Margin="0,0,-6.4,0">
-        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/DSRPG;component/img/Throne_Of_Want.png" Width="1048" Height="488" Margin="-36,-41,-213.6,-28"/>
-        <Expander x:Name="Exp1" Header="Панель быстрого доступа" HorizontalAlignment="Left" Height="100" Margin="337,309,0,0" VerticalAlignment="Top" Width="435" Foreground="White" IsExpanded="True" FlowDirection="RightToLeft">
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/DSRPG;component/Resources/img/Throne_Of_Want.png" Width="1048" Height="488" Margin="-36,-41,-213.6,-28"/>
+        <Expander x:Name="Exp1" Header="Панель быстрого доступа" HorizontalAlignment="Left" Height="100" Margin="364,309,0,0" VerticalAlignment="Top" Width="424" Foreground="White" IsExpanded="True" FlowDirection="RightToLeft">
             <Grid x:Name="Panel" Margin="2,0,-1.6,0">
                 <Button Content="Slot0" HorizontalAlignment="Left" Margin="10,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Slot1" HorizontalAlignment="Left" Margin="93,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Foreground="White" Background="{x:Null}"/>

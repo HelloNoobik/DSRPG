@@ -11,7 +11,7 @@ using DSRPG.UI.CreateHeroPageUI;
 using System.Threading;
 using System.Windows;
 
-namespace DSRPG.ViewModel
+namespace DSRPG.GameLogic.ViewModel
 {
     class CreateCharacterViewModel : ViewModelBase, INotifyPropertyChanged
     {

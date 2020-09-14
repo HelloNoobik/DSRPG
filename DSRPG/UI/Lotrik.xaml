@@ -9,15 +9,15 @@
       Title="Lotrik">
 
     <Grid>
-        <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/img/Lotrik.png" Stretch="UniformToFill"/>
+        <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/Resources/img/Lotrik.png" Stretch="UniformToFill"/>
         <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="93" Background="Black" Foreground="White" Height="22" PreviewMouseDown="back_PreviewMouseDown"/>
         <Image x:Name="Firstlvl" Margin="386,55,354.6,305" Width="52" Height="51" PreviewMouseDown="PreviewMouseDown">
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/lvl (2).png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/lvl (2).png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/lvl_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/lvl_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -26,10 +26,10 @@
         <Image x:Name="Secondlvl" Margin="438,110,303.6,258"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -38,10 +38,10 @@
         <Image x:Name="Thirdlvl" Margin="478,166,263.6,202"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -50,10 +50,10 @@
         <Image x:Name="Fourthlvl" Margin="426,218,315.6,151"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -62,10 +62,10 @@
         <Image x:Name="Fifthlvl" Margin="386,166,355.6,202"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -74,10 +74,10 @@
         <Image x:Name="Sixthlvl" Margin="329,158,412.6,211"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -86,10 +86,10 @@
         <Image x:Name="Seventhlvl" Margin="277,209,464.6,160"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -98,10 +98,10 @@
         <Image x:Name="Eightlvl" Margin="300,265,441.6,104"  Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" >
             <Image.Style>
                 <Style TargetType="Image">
-                    <Setter Property="Source" Value="/DSRPG;component/img/noPass.png" />
+                    <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass.png" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Source" Value="/DSRPG;component/img/noPass_active.png" />
+                            <Setter Property="Source" Value="/DSRPG;component/Resources/img/noPass_active.png" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>

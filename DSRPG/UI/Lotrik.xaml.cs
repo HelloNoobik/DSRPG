@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG.UI
 {
@@ -28,12 +28,12 @@ namespace DSRPG.UI
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Main.ChangeWindow(Pages.WorldMap);
+            Settings.PageController.ChangeWindow(Pages.WorldMap);
         }
 
         private void PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Main.ChangeWindow(Pages.BattleArena);
+            Settings.PageController.ChangeWindow(Pages.BattleArena);
         }
     }
 }

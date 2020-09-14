@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
+using DSRPG.GameLogic.Core;
 
 namespace DSRPG.UI
 {
@@ -70,8 +70,8 @@ namespace DSRPG.UI
 
         private void BackLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Media.PlaySound("sound/click.mp3");
-            Settings.Main.ChangeWindow(Pages.Main);
+             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            Settings.PageController.ChangeWindow(Pages.Main);
         }
     }
 }
