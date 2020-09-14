@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSRPG"
         mc:Ignorable="d"
-        Title="DSRPG" Height="450" Width="800" Background="Black">
+        Title="DSRPG" Height="450" Width="800" Background="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow">
     <Grid>
-        <Frame x:Name="frame" Content="{Binding CurrentPage}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="792" Height="419" Opacity="{Binding PageOpacity}" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        <Frame x:Name="frame" Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
     </Grid>
 </Window>

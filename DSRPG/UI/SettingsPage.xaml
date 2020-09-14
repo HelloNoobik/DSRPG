@@ -10,7 +10,6 @@
 
     <Grid Background="Black">
         <Label x:Name="MusicVolumeLb" Content="Общая громкость" HorizontalAlignment="Left" Margin="86,53,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="191" FontSize="20"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="36,353,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.275,0.709" Height="41" Background="{x:Null}" Foreground="White" Click="Button_Click"/>
         <Slider x:Name="MasterVolumeSlider" HorizontalAlignment="Left" Margin="348,65,0,0" VerticalAlignment="Top" Width="295" Height="23" Maximum="1" LargeChange="0.1" SmallChange="0.01" ValueChanged="MasterVolumeSlider_ValueChanged"/>
         <Label x:Name="MasterVolumeLabel" Content="" HorizontalAlignment="Left" Margin="657,62,0,0" VerticalAlignment="Top" Width="62" Foreground="White"/>
         <Label x:Name="MusicVolumeLb_Copy" Content="Громкость музыки" HorizontalAlignment="Left" Margin="86,84,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="191" FontSize="20"/>
@@ -22,6 +21,7 @@
         <Label x:Name="MusicVolumeLb_Copy2" Content="Громкость роликов" HorizontalAlignment="Left" Margin="86,146,0,0" VerticalAlignment="Top" Foreground="White" Height="53" Width="191" FontSize="20"/>
         <Slider x:Name="VideoVolumeSlider" HorizontalAlignment="Left" Margin="348,158,0,0" VerticalAlignment="Top" Width="295" Height="23" Maximum="1" LargeChange="0.1" SmallChange="0.01" ValueChanged="VideoVolumeSlider_ValueChanged"/>
         <Label x:Name="VideoVolumeLabel" Content="" HorizontalAlignment="Left" Margin="657,155,0,0" VerticalAlignment="Top" Width="62" Foreground="White"/>
+        <Label x:Name="BackLabel" Content="Назад в меню" HorizontalAlignment="Left" Margin="312,334,0,0" VerticalAlignment="Top" Foreground="White" Width="178" Height="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" MouseEnter="BackLabel_MouseEnter" MouseLeave="BackLabel_MouseLeave" MouseLeftButtonDown="BackLabel_MouseLeftButtonDown"/>
 
     </Grid>
 </Page>

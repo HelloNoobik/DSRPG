@@ -1,0 +1,20 @@
+﻿<Page x:Class="DSRPG.UI.CreateHeroPageUI.ClassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI.CreateHeroPageUI"
+      mc:Ignorable="d"
+      d:DesignHeight="419" d:DesignWidth="282"
+      Title="ClassPage">
+
+    <Grid>
+        <Label Content="Выберите класс" HorizontalAlignment="Left" Margin="60,45,0,0" VerticalAlignment="Top" FontSize="20" Height="42" Width="175" Foreground="White"/>
+        <Label x:Name="Warrior" Content="Воин" HorizontalAlignment="Left" Margin="99,115,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Warrior_MouseLeftButtonDown"/>
+        <Label x:Name="Paladin" Content="Паладин" HorizontalAlignment="Left" Margin="102,154,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Paladin_MouseLeftButtonDown"/>
+        <Label x:Name="Archer" Content="Лучник" HorizontalAlignment="Left" Margin="102,193,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" RenderTransformOrigin="0.537,0.216" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Archer_MouseLeftButtonDown"/>
+        <Label x:Name="Mage" Content="Маг" HorizontalAlignment="Left" Margin="102,232,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" RenderTransformOrigin="0.537,0.216" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Mage_MouseLeftButtonDown"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,297,0,0" TextWrapping="Wrap" Text="Описание класса" VerticalAlignment="Top" Height="112" Width="151" Foreground="White"/>
+
+    </Grid>
+</Page>

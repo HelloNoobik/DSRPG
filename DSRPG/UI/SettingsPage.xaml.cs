@@ -34,12 +34,6 @@ namespace DSRPG.UI
             VideoVolumeLabel.Content = $"{Math.Round(Settings.VideoVolume * 100)} %";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Settings.Media.PlaySound("sound/click.mp3");
-            Settings.Main.ChangeWindow(Pages.Main);
-        }
-
         private void MasterVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Settings.MasterVolume = MasterVolumeSlider.Value;
@@ -62,6 +56,22 @@ namespace DSRPG.UI
         {
             Settings.VideoVolume = VideoVolumeSlider.Value;
             VideoVolumeLabel.Content = $"{Math.Round(Settings.VideoVolume * 100)} %";
+        }
+
+        private void BackLabel_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BackLabel.Foreground = Brushes.Yellow;
+        }
+
+        private void BackLabel_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BackLabel.Foreground = Brushes.White;
+        }
+
+        private void BackLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Settings.Media.PlaySound("sound/click.mp3");
+            Settings.Main.ChangeWindow(Pages.Main);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace DSRPG.UI
         {
             Label label = (Label)sender;
             label.Foreground = Brushes.Yellow;
-            Settings.Media.PlaySound("sound/hover.mp3");
+            
         }
 
         private void MouseLeave(object sender, MouseEventArgs e)

@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Character\Character.cs" />
     <Compile Include="Core\Extension.cs" />
     <Compile Include="Core\MediaController.cs" />
     <Compile Include="Core\Settings.cs" />
@@ -78,6 +79,21 @@
     </Compile>
     <Compile Include="UI\CreateCharacter.xaml.cs">
       <DependentUpon>CreateCharacter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\ClassPage.xaml.cs">
+      <DependentUpon>ClassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\CreateCharacterBeta.xaml.cs">
+      <DependentUpon>CreateCharacterBeta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\GenderPage.xaml.cs">
+      <DependentUpon>GenderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\GiftPage.xaml.cs">
+      <DependentUpon>GiftPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\NamePage.xaml.cs">
+      <DependentUpon>NamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Intro.xaml.cs">
       <DependentUpon>Intro.xaml</DependentUpon>
@@ -94,6 +110,7 @@
     <Compile Include="UI\WorldMap.xaml.cs">
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CreateCharacterViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,6 +129,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\CreateCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\ClassPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\CreateCharacterBeta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\GenderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\GiftPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\NamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,9 +218,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="sound\click.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sound\hover.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="video\.gitattributes" />

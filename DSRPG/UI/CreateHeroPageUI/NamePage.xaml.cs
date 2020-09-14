@@ -12,28 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
 
-namespace DSRPG.UI
+namespace DSRPG.UI.CreateHeroPageUI
 {
     /// <summary>
-    /// Логика взаимодействия для Lotrik.xaml
+    /// Логика взаимодействия для NamePage.xaml
     /// </summary>
-    public partial class Lotrik : Page
+    public partial class NamePage : Page
     {
-        public Lotrik()
+        public NamePage()
         {
             InitializeComponent();
         }
 
-        private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        public string GetResult()
         {
-            Settings.Main.ChangeWindow(Pages.WorldMap);
-        }
-
-        private void PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Settings.Main.ChangeWindow(Pages.BattleArena);
+            return Name.Text.ToString();
         }
     }
 }

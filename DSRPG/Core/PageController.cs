@@ -81,7 +81,7 @@ namespace DSRPG.Core
             Intro = new UI.Intro();
             Settings = new UI.SettingsPage();
             BattleArena = new UI.BattleArena();
-            CreateCharacter = new UI.CreateCharacter();
+            CreateCharacter = new UI.CreateCharacterBeta();
             Lotrik = new UI.Lotrik();
             WorldMap = new UI.WorldMap();
 
@@ -94,7 +94,7 @@ namespace DSRPG.Core
         {
             await Task.Factory.StartNew(() =>
             {
-                for (double i = 1.0; i > 0.0; i -= 0.01)
+                for (double i = 1.0; i > 0.0; i -= 0.1)
                 {
                     PageOpacity = i;
                     Thread.Sleep(10);
@@ -102,7 +102,7 @@ namespace DSRPG.Core
 
                 CurrentPage = page;
 
-                for (double i = 0.0; i < 1.0; i += 0.01)
+                for (double i = 0.0; i < 1.0; i += 0.1)
                 {
                     PageOpacity = i;
                     Thread.Sleep(10);
