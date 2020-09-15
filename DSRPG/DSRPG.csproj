@@ -73,7 +73,11 @@
     </ApplicationDefinition>
     <Compile Include="GameLogic\Core\MediaController.cs" />
     <Compile Include="GameLogic\Core\Settings.cs" />
+    <Compile Include="GameLogic\Hero\Archer.cs" />
     <Compile Include="GameLogic\Hero\HeroBase.cs" />
+    <Compile Include="GameLogic\Hero\Mage.cs" />
+    <Compile Include="GameLogic\Hero\Paladin.cs" />
+    <Compile Include="GameLogic\Hero\Warrior.cs" />
     <Compile Include="Resources\Links.cs" />
     <Compile Include="Test\Inventory.cs" />
     <Compile Include="Test\InventoryPage.xaml.cs">
