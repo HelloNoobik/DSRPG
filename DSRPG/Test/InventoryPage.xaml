@@ -11,7 +11,7 @@
     <Grid>
         <ScrollViewer HorizontalAlignment="Left" Height="440" VerticalAlignment="Top" Width="800">
             <Canvas x:Name="Window" Height="440" Width="800">
-                <Image x:Name="image" Height="100" Canvas.Left="232" Canvas.Top="233" Width="100"/>
+
             </Canvas>
 
         </ScrollViewer>

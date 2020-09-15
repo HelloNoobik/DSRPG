@@ -26,26 +26,28 @@ namespace DSRPG.Test
             InitializeComponent();
             
             Point point = new Point(25,25);
-            for(int i = 0; i < inve.items.Count; i++)
+            for(int i = 0; i < inve.GetCountItems(); i++)
             {
-
+                Item item = inve.GetItem(i);
                 Rectangle rect = new Rectangle();
-                rect.Name = $"Rect{i}";
+                rect.Name = item.Name;
                 rect.PreviewMouseLeftButtonDown += Click;
                 rect.MouseEnter += MouseEnter;
                 rect.MouseLeave += MouseLeave;
                 rect.Width = 50;
                 rect.Height = 50;
+                rect.Stroke = Brushes.White;
+                rect.Fill = Brushes.White;
                 Canvas.SetLeft(rect, point.X);
                 Canvas.SetTop(rect, point.Y);
                 Window.Children.Add(rect);
-                //Image image = new Image();
-                image.Source = new BitmapImage(new Uri("C:/Users/Aes/Source/Repos/HelloNoobik/DSRPG/DSRPG/Resources/img/noPass_active.png", UriKind.Absolute));
+                Image image = new Image();
+                image.Source = new BitmapImage(new Uri(item.Image, UriKind.Relative));
                 image.Width = 50;
                 image.Height = 50;
                 Canvas.SetLeft(image, point.X);
                 Canvas.SetTop(image, point.Y);
-               // Window.Children.Add(image);
+                Window.Children.Add(image);
                 point.X += 75;
                 if(point.X >= 725)
                 {
@@ -62,7 +64,7 @@ namespace DSRPG.Test
         private void MouseEnter(object sender, MouseEventArgs e)
         {
             Rectangle rect = (Rectangle)sender;
-            rect.Stroke = Brushes.Yellow;
+            rect.Stroke = Brushes.Red;
         }
         private void MouseLeave(object sender, MouseEventArgs e)
         {

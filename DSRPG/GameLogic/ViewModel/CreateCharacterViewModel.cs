@@ -115,7 +115,7 @@ namespace DSRPG.GameLogic.ViewModel
             });
         }
 
-        public Character Check() 
+        /*public Character Check() 
         {
             Character result = null;
             if (IsCorrect()) return new Character(Name.GetResult(), Class.GetResult(), Gender.GetResult(), Gift.GetResult());
@@ -126,6 +126,6 @@ namespace DSRPG.GameLogic.ViewModel
         {
             if (Name.GetResult().Length == 0 || Gender.GetResult().Length == 0 || Class.GetResult().Length == 0 || Gift.GetResult().Length == 0) return false;
             return true;
-        }
+        }*/
     }
 }

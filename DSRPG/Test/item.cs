@@ -12,7 +12,7 @@ namespace DSRPG.Test
     {
         item,armor,weapon,spell,other
     }
-    public class item
+    public class Item
     {
         private string name;
         private itemtype type;
@@ -57,7 +57,7 @@ namespace DSRPG.Test
                 count += value;
             }
         }
-        public item(string name,itemtype type,double weight,string image,int count = 1)
+        public Item(string name,itemtype type,double weight,string image,int count = 1)
         {
             this.name = name;
             this.type = type;
