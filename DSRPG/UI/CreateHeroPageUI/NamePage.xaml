@@ -10,7 +10,7 @@
 
     <Grid>
         <Label Content="Введите имя" HorizontalAlignment="Left" Margin="77,152,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
-        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="82,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="82,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="White" LostFocus="Name_LostFocus" GotFocus="Name_GotFocus" PreviewTextInput="Name_PreviewTextInput"/>
 
     </Grid>
 </Page>

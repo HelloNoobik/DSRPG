@@ -13,12 +13,19 @@ namespace DSRPG.GameLogic.Hero
         {
             name = "";
             health = 0;
+            health = UpHealth();
             mana = 0;
+            mana = UpMana();
+            energy = 0;
+            energy = UpEnergy();
+            damage = 0;
+            damage = UpDamage();
+            armor = 0;
+            armor = UpArmor();
             strength = 0;
             agility = 0;
             stamina = 0;
             intellect = 0;
-            armor = 0;
         }
     }
 }
