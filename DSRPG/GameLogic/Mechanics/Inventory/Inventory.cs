@@ -64,7 +64,7 @@ namespace DSRPG.GameLogic.Mechanics
                                 break;
                         }
                     }
-                    else if (atribute.Name == "iamge") image = atribute.Value;
+                    else if (atribute.Name == "image") image = atribute.Value;
                 }
                 items.Add(new Item(name, Type, image));
             }
@@ -114,6 +114,11 @@ namespace DSRPG.GameLogic.Mechanics
             {
                 MessageBox.Show("error");
             }
+            return items[index];
+        }
+
+        public Item GetItem(int index)
+        {
             return items[index];
         }
     }
