@@ -40,7 +40,7 @@ namespace DSRPG.GameLogic.Mobs
             set { armor = value; }
         }
 
-        public override string ToString() //Мож пойже пригодится
+        public override string ToString() //Мож пойже пригодится s
         {
             return base.ToString();
         }
