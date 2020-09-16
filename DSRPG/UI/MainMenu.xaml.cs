@@ -24,11 +24,7 @@ namespace DSRPG.UI
         public MainMenu()
         {
             InitializeComponent();
-            if (!Settings.MediaController.MainMenuMusicPlaying)
-            {
-                Settings.MediaController.MainMenuMusicPlaying = true;
-                Settings.MediaController.PlayMusic(DSRPG.Resources.Links.Music.Main);
-            }
+
         }
 
         private void MouseEnter(object sender, MouseEventArgs e)
@@ -66,6 +62,15 @@ namespace DSRPG.UI
         {
              Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             Environment.Exit(0);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!Settings.MediaController.MainMenuMusicPlaying)
+            {
+                Settings.MediaController.MainMenuMusicPlaying = true;
+                Settings.MediaController.PlayMusic(DSRPG.Resources.Links.Music.Main);
+            }
         }
     }
 }
