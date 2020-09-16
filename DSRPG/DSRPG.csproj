@@ -260,6 +260,12 @@
     <Resource Include="Resources\img\Items\Weapon\LongSword.png" />
     <Resource Include="Resources\img\Items\Weapon\Palash.png" />
     <Resource Include="Resources\img\Items\Weapon\ShortSword.png" />
+    <Resource Include="Data\db.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\Items.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Resources\music\MainTheme.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -19,85 +19,57 @@ namespace DSRPG.Test
         {
             db = new Dictionary<string, int>();
             items = new List<Item>();
+
             Load();
-            Save();
         }
-        BitmapImage = new BitmapImage
+
         private void Load() 
         {
-            int index = 0;
-            db.Add("Эстус", index++);
-            items.Add(new Item("Эстус", itemtype.item, 0.0, "/DSRPG;component/Resources/img/Items/Estus.png"));
-            db.Add("Человечность", index++);
-            items.Add(new Item("Человечность", itemtype.item, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Душа безымянного солдатаа", index++);
-            items.Add(new Item("Душа безымянного солдата", itemtype.item, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Небесное благословение", index++);
-            items.Add(new Item("Небесное благословение", itemtype.item, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Черная огненная бомба", index++);
-            items.Add(new Item("Черная огненная бомба", itemtype.item, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Огненная бомба", index++); 
-            items.Add(new Item("Огненная бомба", itemtype.item, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Кинжал", index++);
-            items.Add(new Item("Кинжал", itemtype.weapon, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Короткий меч", index++);
-            items.Add(new Item("Короткий меч", itemtype.weapon, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Длинный меч", index++); 
-            items.Add(new Item("Длинный меч", itemtype.weapon, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Палаш", index++);
-            items.Add(new Item("Палаш", itemtype.weapon, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Сет Вора", index++);
-            items.Add(new Item("Сет Вора", itemtype.armor, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Сет Воина", index++);
-            items.Add(new Item("Сет Воина", itemtype.armor, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Сет Волшебника", index++);
-            items.Add(new Item("Сет Волшебника", itemtype.armor, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-            db.Add("Сет Клирика", index++);
-            items.Add(new Item("Сет Клирика", itemtype.armor, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
-        }
-
-        private void Save() 
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("items");
-            xmlDoc.AppendChild(rootNode);
-            List<string> names = new List<string>();
-
-            foreach (Item item in items)
+            XmlDocument XMLdb = new XmlDocument();
+            XMLdb.Load("Data/db.xml");
+            XmlElement root = XMLdb.DocumentElement;
+            foreach (XmlNode node in root.ChildNodes) 
             {
-                names.Add(item.Name);
-                XmlNode userNode = xmlDoc.CreateElement("item");
-                XmlAttribute attribute = xmlDoc.CreateAttribute("name");
-                attribute.Value = item.Name;
-                userNode.Attributes.Append(attribute);
-                attribute = xmlDoc.CreateAttribute("itemtype");
-                attribute.Value = item.Type.ToString();
-                userNode.Attributes.Append(attribute);
-                attribute = xmlDoc.CreateAttribute("image");
-                attribute.Value = item.Image;
-                userNode.Attributes.Append(attribute);
-                rootNode.AppendChild(userNode);
-            }
-            xmlDoc.Save("Items.xml");
-
-            xmlDoc = new XmlDocument();
-            rootNode = xmlDoc.CreateElement("db");
-            xmlDoc.AppendChild(rootNode);
-
-            foreach (KeyValuePair<string,int> item in db)
-            {
-                XmlNode userNode = xmlDoc.CreateElement("KeyValuePair");
-                XmlAttribute attribute = xmlDoc.CreateAttribute("key");
-                attribute.Value = item.Key;
-                userNode.Attributes.Append(attribute);
-                attribute = xmlDoc.CreateAttribute("value");
-                attribute.Value = item.Value.ToString();
-                userNode.Attributes.Append(attribute);
-                rootNode.AppendChild(userNode);
+                string key = "";
+                int value = 0;
+                foreach (XmlAttribute atribute in node.Attributes) 
+                {
+                    if (atribute.Name == "key") key = atribute.Value;
+                    else if (atribute.Name == "value") value = Convert.ToInt32(atribute.Value);
+                }
+                db.Add(key, value);
             }
 
-            xmlDoc.Save("db.xml");
-            File.WriteAllLines("names.txt", names.ToArray());
+            XMLdb = new XmlDocument();
+            XMLdb.Load("Data/items.xml");
+            root = XMLdb.DocumentElement;
+            foreach (XmlNode node in root.ChildNodes)
+            {
+                string name = "";
+                itemtype Type = itemtype.other;
+                string image = "";
+                foreach (XmlAttribute atribute in node.Attributes)
+                {
+                    if (atribute.Name == "name") name = atribute.Value;
+                    else if (atribute.Name == "itemtype")
+                    {
+                        switch (atribute.Value)
+                        {
+                            case "item":
+                                Type = itemtype.item;
+                                break;
+                            case "weapon":
+                                Type = itemtype.weapon;
+                                break;
+                            case "armor":
+                                Type = itemtype.armor;
+                                break;
+                        }
+                    }
+                    else if (atribute.Name == "iamge") image = atribute.Value;
+                }
+                items.Add(new Item(name, Type, 0.0, image));
+            }
         }
 
         public void AddItem(string item, int count = 1) 
