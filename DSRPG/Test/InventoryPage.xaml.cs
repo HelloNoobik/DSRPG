@@ -23,11 +23,11 @@ namespace DSRPG.Test
         public InventoryPage()
         {
             InitializeComponent();
-            
+
             Point point = new Point(25,25);
             for(int i = 0; i < inve.GetCountItems(); i++)
             {
-                Item item = inve.GetItem(i);
+                /*Item item = inve.GetItem(i);
                 Rectangle rect = new Rectangle();
                 rect.Name = item.Name;
                 rect.PreviewMouseLeftButtonDown += Click;
@@ -52,7 +52,7 @@ namespace DSRPG.Test
                 {
                     point.X = 25;
                     point.Y += 75;
-                }
+                }*/
             }
         }
         private void Click(object sender, MouseEventArgs e)

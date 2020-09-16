@@ -70,7 +70,7 @@ namespace DSRPG.UI
 
         private void BackLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             Settings.PageController.ChangeWindow(Pages.Main);
         }
     }

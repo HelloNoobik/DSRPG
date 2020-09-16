@@ -234,7 +234,32 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\img\items\estus.png" />
+    <Resource Include="Resources\img\Items\AnotherHeal.png" />
+    <Resource Include="Resources\img\Items\Armor\MageBody.png" />
+    <Resource Include="Resources\img\Items\Armor\MageGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\MageHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\MageLegs.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinBody.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinLegs.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefBody.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefLegs.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorBody.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorPants.png" />
+    <Resource Include="Resources\img\Items\BlackBomb.png" />
+    <Resource Include="Resources\img\Items\Bomb.png" />
+    <Resource Include="Resources\img\Items\Estus.png" />
+    <Resource Include="Resources\img\Items\Humanity.png" />
+    <Resource Include="Resources\img\Items\Soul.png" />
+    <Resource Include="Resources\img\Items\Weapon\Dagger.png" />
+    <Resource Include="Resources\img\Items\Weapon\LongSword.png" />
+    <Resource Include="Resources\img\Items\Weapon\Palash.png" />
+    <Resource Include="Resources\img\Items\Weapon\ShortSword.png" />
     <Content Include="Resources\music\MainTheme.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
