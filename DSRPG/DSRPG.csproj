@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Costura.Fody.4.1.0\build\Costura.Fody.props" Condition="Exists('packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +40,9 @@
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -78,12 +84,12 @@
     <Compile Include="GameLogic\Hero\Mage.cs" />
     <Compile Include="GameLogic\Hero\Paladin.cs" />
     <Compile Include="GameLogic\Hero\Warrior.cs" />
+    <Compile Include="GameLogic\Mechanics\Inventory\Inventory.cs" />
+    <Compile Include="GameLogic\Mechanics\Inventory\Item.cs" />
     <Compile Include="Resources\Links.cs" />
-    <Compile Include="Test\Inventory.cs" />
-    <Compile Include="Test\InventoryPage.xaml.cs">
-      <DependentUpon>InventoryPage.xaml</DependentUpon>
+    <Compile Include="Test\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Test\item.cs" />
     <Compile Include="UI\BattleArena.xaml.cs">
       <DependentUpon>BattleArena.xaml</DependentUpon>
     </Compile>
@@ -131,7 +137,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Test\InventoryPage.xaml">
+    <Page Include="Test\TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,30 +214,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\img\Lotrik.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\lvl %282%29.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\lvl_active.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\noPass.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\noPass_active.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\skewer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\Throne_Of_Want.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\img\World.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resources\img\Lotrik.png" />
+    <Resource Include="Resources\img\lvl %282%29.png" />
+    <Resource Include="Resources\img\lvl_active.png" />
+    <Resource Include="Resources\img\noPass.png" />
+    <Resource Include="Resources\img\noPass_active.png" />
+    <Resource Include="Resources\img\skewer.png" />
+    <Resource Include="Resources\img\Throne_Of_Want.png" />
+    <Resource Include="Resources\img\World.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\Items\AnotherHeal.png" />
@@ -260,26 +250,34 @@
     <Resource Include="Resources\img\Items\Weapon\LongSword.png" />
     <Resource Include="Resources\img\Items\Weapon\Palash.png" />
     <Resource Include="Resources\img\Items\Weapon\ShortSword.png" />
-    <Resource Include="Data\db.xml">
+    <EmbeddedResource Include="Data\db.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\Items.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Items.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Resources\music\MainTheme.mp3">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\music\MainTheme.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\music\WorldOST.mp3">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\music\WorldOST.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\sound\click.mp3">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\sound\click.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Resources\video\.gitattributes" />
-    <Content Include="Resources\video\DS_opening.mp4">
+    <Resource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('packages\Fody.6.0.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Fody.6.0.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.0.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.4.1.0\build\Costura.Fody.props'))" />
+  </Target>
 </Project>

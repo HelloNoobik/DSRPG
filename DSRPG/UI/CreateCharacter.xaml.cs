@@ -92,6 +92,9 @@ namespace DSRPG.UI
         private void Submit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
              Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+             Settings.MediaController.MainMenuMusicPlaying = false;
+             Settings.MediaController.StopMusic();
+             Settings.PageController.ChangeWindow(Pages.Intro);
             /*if (Model.Check() != null)
             {
                 Settings.MediaController.MainMenuMusicPlaying = false;

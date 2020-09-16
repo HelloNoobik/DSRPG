@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Navigation;
 
-namespace DSRPG.Test
+namespace DSRPG.GameLogic.Mechanics
 {
-    public enum itemtype
+    public enum ItemType
     {
-        item,armor,weapon,spell,other
+        Item, Armor, Weapon, Spell, Other
     }
     public class Item
     {
         private string name;
-        private itemtype type;
-        private double weight;
+        private ItemType type;
         private int count;
         private string image;
 
@@ -30,17 +27,12 @@ namespace DSRPG.Test
             get { return name; }
         }
 
-        public itemtype Type
+        public ItemType Type
         {
             get
             {
                 return type;
             }
-        }
-
-        public double Weight
-        {
-            get { return weight; }
         }
 
         public int Count
@@ -53,15 +45,14 @@ namespace DSRPG.Test
                 {
                     count = 100;
                     return;
-                }  
+                }
                 count += value;
             }
         }
-        public Item(string name,itemtype type,double weight,string image,int count = 1)
+        public Item(string name, ItemType type, string image, int count = 0)
         {
             this.name = name;
             this.type = type;
-            this.weight = weight;
             this.image = image;
             Count = count;
         }

@@ -87,7 +87,7 @@ namespace DSRPG.GameLogic.Core
             CreateCharacter = new UI.CreateCharacter();
             Lotrik = new UI.Lotrik();
             WorldMap = new UI.WorldMap();
-            Test = new Test.InventoryPage();
+            Test = new Test.TestPage();
 
             CurrentPage = Test;
 
