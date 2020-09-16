@@ -108,6 +108,9 @@
     <Compile Include="UI\CreateHeroPageUI\NamePage.xaml.cs">
       <DependentUpon>NamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\HeroPage.xaml.cs">
+      <DependentUpon>HeroPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Intro.xaml.cs">
       <DependentUpon>Intro.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\CreateHeroPageUI\NamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\HeroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
