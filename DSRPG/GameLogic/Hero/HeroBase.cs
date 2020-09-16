@@ -74,17 +74,6 @@ namespace DSRPG.GameLogic.Hero
             get { return damage; }
             set { damage = value; }
         }
-        protected HeroBase()
-        {
-            Name = name;
-            Health = health;
-            Mana = mana;
-            Strength = strength;
-            Agility = agility;
-            Stamina = stamina;
-            Intellect = intellect;
-            Armor = armor;
-        }
 
 
         public int UpHealth()

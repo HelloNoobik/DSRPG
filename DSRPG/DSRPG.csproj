@@ -78,6 +78,7 @@
     <Compile Include="GameLogic\Hero\Mage.cs" />
     <Compile Include="GameLogic\Hero\Paladin.cs" />
     <Compile Include="GameLogic\Hero\Warrior.cs" />
+    <Compile Include="GameLogic\Mobs\Mobsbase.cs" />
     <Compile Include="Resources\Links.cs" />
     <Compile Include="Test\Inventory.cs" />
     <Compile Include="Test\InventoryPage.xaml.cs">
