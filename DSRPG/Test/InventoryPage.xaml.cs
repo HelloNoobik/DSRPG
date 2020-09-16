@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DSRPG.GameLogic.Hero;
 namespace DSRPG.Test
 {
     /// <summary>
@@ -39,14 +40,14 @@ namespace DSRPG.Test
                 rect.Fill = Brushes.White;
                 Canvas.SetLeft(rect, point.X);
                 Canvas.SetTop(rect, point.Y);
-                Window.Children.Add(rect);
+               // Window.Children.Add(rect);
                 Image image = new Image();
                 image.Source = new BitmapImage(new Uri(item.Image, UriKind.Relative));
                 image.Width = 50;
                 image.Height = 50;
                 Canvas.SetLeft(image, point.X);
                 Canvas.SetTop(image, point.Y);
-                Window.Children.Add(image);
+               // Window.Children.Add(image);
                 point.X += 75;
                 if(point.X >= 725)
                 {
@@ -69,6 +70,13 @@ namespace DSRPG.Test
         {
             Rectangle rect = (Rectangle)sender;
             rect.Stroke = Brushes.White;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Archer archer = new Archer();
+            if (archer.CheckDie()) MessageBox.Show("C");
+            if (archer.CheckNoneMana()) MessageBox.Show("0");
         }
     }
 }

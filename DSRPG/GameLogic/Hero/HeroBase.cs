@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DSRPG.GameLogic.Hero
@@ -69,6 +71,28 @@ namespace DSRPG.GameLogic.Hero
             Stamina = stamina;
             Intellect = intellect;
             Armor = armor;
+        }
+
+        public bool CheckDie()
+        {
+            if (health == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CheckNoneMana()
+        {
+            if (mana == 0) return true;
+            else return false;
+        }
+        
+        public void CheckResist()
+        {
+          //  int reset = damagemob * (1-(armor/100));
         }
         
         public override string ToString() //Мож пойже пригодится

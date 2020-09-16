@@ -10,9 +10,7 @@
 
     <Grid>
         <ScrollViewer HorizontalAlignment="Left" Height="440" VerticalAlignment="Top" Width="800">
-            <Canvas x:Name="Window" Height="440" Width="800">
-
-            </Canvas>
+            <Button Content="Button" Width="75" Click="Button_Click"/>
 
         </ScrollViewer>
     </Grid>
