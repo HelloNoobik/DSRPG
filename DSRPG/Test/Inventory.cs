@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml;
 
 namespace DSRPG.Test
 {
@@ -15,18 +17,67 @@ namespace DSRPG.Test
 
         public Inventory()
         {
-            items = new List<Item>();
             db = new Dictionary<string, int>();
-            index = 0;
-            AddItem(new Item("Эстус", itemtype.item, 0.0, "/DSRPG;component/Resources/img/items/estus.png"));
+            items = new List<Item>();
+
+            Load();
         }
 
-        public void AddItem(Item item, int count = 1) 
+        private void Load() 
+        {
+            XmlDocument XMLdb = new XmlDocument();
+            XMLdb.Load("Data/db.xml");
+            XmlElement root = XMLdb.DocumentElement;
+            foreach (XmlNode node in root.ChildNodes) 
+            {
+                string key = "";
+                int value = 0;
+                foreach (XmlAttribute atribute in node.Attributes) 
+                {
+                    if (atribute.Name == "key") key = atribute.Value;
+                    else if (atribute.Name == "value") value = Convert.ToInt32(atribute.Value);
+                }
+                db.Add(key, value);
+            }
+
+            XMLdb = new XmlDocument();
+            XMLdb.Load("Data/items.xml");
+            root = XMLdb.DocumentElement;
+            foreach (XmlNode node in root.ChildNodes)
+            {
+                string name = "";
+                itemtype Type = itemtype.other;
+                string image = "";
+                foreach (XmlAttribute atribute in node.Attributes)
+                {
+                    if (atribute.Name == "name") name = atribute.Value;
+                    else if (atribute.Name == "itemtype")
+                    {
+                        switch (atribute.Value)
+                        {
+                            case "item":
+                                Type = itemtype.item;
+                                break;
+                            case "weapon":
+                                Type = itemtype.weapon;
+                                break;
+                            case "armor":
+                                Type = itemtype.armor;
+                                break;
+                        }
+                    }
+                    else if (atribute.Name == "iamge") image = atribute.Value;
+                }
+                items.Add(new Item(name, Type, 0.0, image));
+            }
+        }
+
+        public void AddItem(string item, int count = 1) 
         {
             int id = 0;
-            if (db.TryGetValue(item.Name, out id))
+            if (db.TryGetValue(item, out id))
             {
-                return;
+                items[id].Count += count;
             }
             else 
             {
@@ -35,17 +86,16 @@ namespace DSRPG.Test
 
         }
 
-        public void RemoveItem(Item item, int count = 1)
+        public void RemoveItem(string item, int count = 1)
         {
-            int id = -1;
-            db.TryGetValue(item.Name, out id);
-            if (id == -1)
+            int id = 0;
+            if (db.TryGetValue(item, out id))
             {
-                return;
+                items[id].Count -= count;
             }
             else
             {
-                items[id].Count -= count;
+                MessageBox.Show("error");
             }
 
         }
@@ -55,8 +105,17 @@ namespace DSRPG.Test
             return items.Count();
         }
 
-        public Item GetItem(int index) 
+        public Item GetItem(string name) 
         {
+            int id = 0;
+            if (db.TryGetValue(name, out id))
+            {
+                return items[id];
+            }
+            else
+            {
+                MessageBox.Show("error");
+            }
             return items[index];
         }
     }
