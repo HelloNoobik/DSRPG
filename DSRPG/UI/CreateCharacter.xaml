@@ -1,0 +1,22 @@
+﻿<Page x:Class="DSRPG.UI.CreateCharacter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="419" d:DesignWidth="792"
+      Title="CreateCharacter">
+
+    <Grid Background="Black">
+        <Label x:Name="NameLabel" Content="Имя" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Foreground="White" VerticalContentAlignment="Center" FontSize="20" Width="169" MouseLeftButtonDown="NameLabel_MouseLeftButtonDown" MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
+        <Label x:Name="GenderLabel" Content="Пол" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Foreground="White" VerticalContentAlignment="Center" FontSize="20" Width="169" MouseLeftButtonDown="GenderLabel_MouseLeftButtonDown" MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
+        <Label x:Name="ClassLabel" Content="Класс" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Foreground="White" VerticalContentAlignment="Center" FontSize="20" Width="169" MouseLeftButtonDown="ClassLabel_MouseLeftButtonDown" MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
+        <Label x:Name="GiftLabel" Content="Погребальный дар" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Foreground="White" VerticalContentAlignment="Center" FontSize="20" Width="194" MouseLeftButtonDown="GiftLabel_MouseLeftButtonDown" MouseEnter="MouseEnter" MouseLeave="MouseLeave"/>
+        <Frame x:Name="MenuInfo" Content="{Binding CurrentPage}" HorizontalAlignment="Left" Height="419" Margin="209,0,0,0" VerticalAlignment="Top" Width="282" Opacity="{Binding PageOpacity}"/>
+        <Label x:Name="Submit" Content="Применить" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Height="38" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Submit_MouseLeftButtonDown" />
+        <Label x:Name="Cancel" Content="Назад" HorizontalAlignment="Left" Margin="10,343,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Height="38" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Cancel_MouseLeftButtonDown" />
+        <TextBlock HorizontalAlignment="Left" Margin="533,0,0,0" TextWrapping="Wrap" Text="Типо инфа о персонаже" VerticalAlignment="Top" Foreground="White" Height="419" Width="259"/>
+
+    </Grid>
+</Page>

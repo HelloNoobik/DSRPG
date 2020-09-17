@@ -89,7 +89,7 @@ namespace DSRPG.GameLogic.Core
             WorldMap = new UI.WorldMap();
             Test = new UI.HeroPage();
 
-            CurrentPage = Main;
+            CurrentPage = Test;
 
             PageOpacity = 1.0;
         }

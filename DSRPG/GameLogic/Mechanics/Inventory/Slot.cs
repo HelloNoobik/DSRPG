@@ -16,7 +16,6 @@ namespace DSRPG.GameLogic.Mechanics
     {
         private string name;
         private Image img;
-        private BitmapImage imgSource;
         private Rectangle rect;
         private Point point;
         private Size size;
@@ -69,8 +68,6 @@ namespace DSRPG.GameLogic.Mechanics
             this.point = point;
             this.size = size;
 
-            imgSource = img;
-
             this.img = new Image();
             this.img.Source = img;
             this.img.Height = size.Height;
@@ -116,20 +113,31 @@ namespace DSRPG.GameLogic.Mechanics
             rect.Stroke = color;
         }
 
+        public static Image DragDrop() 
+        {
+            return buf.img;
+        }
+
         private void MouseEnterImg(object sender, MouseEventArgs e) 
         {
             MouseEnter?.Invoke(this, e);
         }
 
+
+        private static Slot buf;
         private void MouseLeaveImg(object sender, MouseEventArgs e)
         {
+            if (mousePressed) 
+            {
+                mousePressed = false;
+                buf = this;
+            }
             MouseLeave?.Invoke(this, e);
         }
 
         private void MouseLeftButtonDownImg(object sender, MouseButtonEventArgs e)
         {
             mousePressed = true;
-            DragDrop.DoDragDrop(this.img, this, DragDropEffects.Move);
             MouseLeftMouseDown?.Invoke(this, e);
         }
 

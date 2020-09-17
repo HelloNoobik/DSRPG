@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -53,20 +52,6 @@ namespace DSRPG.UI
             Player.UnloadedBehavior = MediaState.Manual;
             Player.Play();
             Window.GetWindow(this).KeyDown += Page_KeyDown;
-            Animation();
-        }
-
-        private async void Animation() 
-        {
-            await Task.Factory.StartNew(() => 
-            {
-                Thread.Sleep(3000);
-                for (double i = 1.0; i > 0.0;i-= 0.01) 
-                {
-                    Dispatcher.Invoke(() => { Skip.Opacity = i; });
-                    Thread.Sleep(50);
-                }
-            });
         }
     }
 }

@@ -10,6 +10,6 @@
 
     <Grid x:Name="Root">
         <MediaElement x:Name="Player" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" MediaEnded="media_MediaEnded"/>
-        <Label x:Name="Skip" Content="Нажмите ENTER  для пропуска...." HorizontalAlignment="Left" Margin="24,319,0,0" VerticalAlignment="Top" Height="35" Width="281" FontSize="18"/>
+        <Label x:Name="Skip" Content="Нажмите ENTER  для пропуска...." HorizontalAlignment="Left" Margin="24,360,0,0" VerticalAlignment="Top" Height="35" Width="281" FontSize="18"/>
     </Grid>
 </Page>
