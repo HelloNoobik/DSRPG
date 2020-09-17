@@ -1,0 +1,15 @@
+﻿<Page x:Name="Page" x:Class="DSRPG.UI.Intro"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="419" d:DesignWidth="792"
+      Title="Intro" Loaded="Page_Loaded">
+
+    <Grid x:Name="Root">
+        <MediaElement x:Name="Player" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" MediaEnded="media_MediaEnded"/>
+        <Label x:Name="Skip" Content="Нажмите ENTER  для пропуска...." HorizontalAlignment="Left" Margin="24,319,0,0" VerticalAlignment="Top" Height="35" Width="281" FontSize="18"/>
+    </Grid>
+</Page>
