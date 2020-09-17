@@ -86,6 +86,7 @@
     <Compile Include="GameLogic\Hero\Warrior.cs" />
     <Compile Include="GameLogic\Mechanics\Inventory\Inventory.cs" />
     <Compile Include="GameLogic\Mechanics\Inventory\Item.cs" />
+    <Compile Include="GameLogic\Mechanics\Inventory\Slot.cs" />
     <Compile Include="Resources\Links.cs" />
     <Compile Include="Test\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
