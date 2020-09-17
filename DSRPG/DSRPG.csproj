@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Costura.Fody.4.1.0\build\Costura.Fody.props" Condition="Exists('packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{472F6D53-0648-4CBE-803A-626D5B10C996}</ProjectGuid>
+    <ProjectGuid>{99BD39F7-6360-4583-96F5-B043557303CC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DSRPG</RootNamespace>
     <AssemblyName>DSRPG</AssemblyName>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +38,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +77,59 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GameLogic\Core\MediaController.cs" />
+    <Compile Include="GameLogic\Core\Settings.cs" />
+    <Compile Include="GameLogic\Hero\Archer.cs" />
+    <Compile Include="GameLogic\Hero\HeroBase.cs" />
+    <Compile Include="GameLogic\Hero\Mage.cs" />
+    <Compile Include="GameLogic\Hero\Paladin.cs" />
+    <Compile Include="GameLogic\Hero\Warrior.cs" />
+    <Compile Include="GameLogic\Mechanics\Inventory\Inventory.cs" />
+    <Compile Include="GameLogic\Mechanics\Inventory\Item.cs" />
+    <Compile Include="GameLogic\Mechanics\Inventory\Slot.cs" />
+    <Compile Include="GameLogic\Mobs\Hollow.cs" />
+    <Compile Include="GameLogic\Mobs\Mobsbase.cs" />
+    <Compile Include="Resources\Links.cs" />
+    <Compile Include="Test\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BattleArena.xaml.cs">
+      <DependentUpon>BattleArena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateCharacter.xaml.cs">
+      <DependentUpon>CreateCharacter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\ClassPage.xaml.cs">
+      <DependentUpon>ClassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\GenderPage.xaml.cs">
+      <DependentUpon>GenderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\GiftPage.xaml.cs">
+      <DependentUpon>GiftPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateHeroPageUI\NamePage.xaml.cs">
+      <DependentUpon>NamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HeroPage.xaml.cs">
+      <DependentUpon>HeroPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Intro.xaml.cs">
+      <DependentUpon>Intro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Lotrik.xaml.cs">
+      <DependentUpon>Lotrik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WorldMap.xaml.cs">
+      <DependentUpon>WorldMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameLogic\ViewModel\CreateCharacterViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +138,63 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GameLogic\Core\PageController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Test\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BattleArena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateCharacter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\ClassPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\GenderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\GiftPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CreateHeroPageUI\NamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\HeroPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Intro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Lotrik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\WorldMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +214,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +223,71 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Lotrik.png" />
+    <Resource Include="Resources\img\lvl %282%29.png" />
+    <Resource Include="Resources\img\lvl_active.png" />
+    <Resource Include="Resources\img\noPass.png" />
+    <Resource Include="Resources\img\noPass_active.png" />
+    <Resource Include="Resources\img\skewer.png" />
+    <Resource Include="Resources\img\Throne_Of_Want.png" />
+    <Resource Include="Resources\img\World.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Items\AnotherHeal.png" />
+    <Resource Include="Resources\img\Items\Armor\MageBody.png" />
+    <Resource Include="Resources\img\Items\Armor\MageGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\MageHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\MageLegs.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinBody.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\PaladinLegs.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefBody.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\ThiefLegs.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorBody.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorGloves.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorHelmet.png" />
+    <Resource Include="Resources\img\Items\Armor\WarriorPants.png" />
+    <Resource Include="Resources\img\Items\BlackBomb.png" />
+    <Resource Include="Resources\img\Items\Bomb.png" />
+    <Resource Include="Resources\img\Items\Estus.png" />
+    <Resource Include="Resources\img\Items\Humanity.png" />
+    <Resource Include="Resources\img\Items\Soul.png" />
+    <Resource Include="Resources\img\Items\Weapon\Dagger.png" />
+    <Resource Include="Resources\img\Items\Weapon\LongSword.png" />
+    <Resource Include="Resources\img\Items\Weapon\Palash.png" />
+    <Resource Include="Resources\img\Items\Weapon\ShortSword.png" />
+    <EmbeddedResource Include="Data\db.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Items.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\music\MainTheme.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\music\WorldOST.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\sound\click.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Resources\video\.gitattributes" />
+    <EmbeddedResource Include="Resources\video\DS_opening.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('packages\Fody.6.0.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Fody.6.0.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.0.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.4.1.0\build\Costura.Fody.props'))" />
+  </Target>
 </Project>

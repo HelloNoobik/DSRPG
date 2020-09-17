@@ -1,0 +1,28 @@
+﻿<Page x:Class="DSRPG.UI.BattleArena"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI"
+      mc:Ignorable="d"
+      d:DesignHeight="419" d:DesignWidth="792"
+      Title="BattleArena" Width="792">
+
+
+    <Grid x:Name="Room" Margin="0,0,-6.4,0">
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/DSRPG;component/Resources/img/Throne_Of_Want.png" Width="1048" Height="488" Margin="-36,-41,-213.6,-28"/>
+        <Expander x:Name="Exp1" Header="Панель быстрого доступа" HorizontalAlignment="Left" Height="100" Margin="364,309,0,0" VerticalAlignment="Top" Width="424" Foreground="White" IsExpanded="True" FlowDirection="RightToLeft">
+            <Grid x:Name="Panel" Margin="2,0,-1.6,0">
+                <Button Content="Slot0" HorizontalAlignment="Left" Margin="10,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Slot1" HorizontalAlignment="Left" Margin="93,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Foreground="White" Background="{x:Null}"/>
+                <Button Content="Slot2" HorizontalAlignment="Left" Margin="176,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
+                <Button Content="Slot3" HorizontalAlignment="Left" Margin="259,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Foreground="White" Background="{x:Null}"/>
+                <Button Content="Slot4" HorizontalAlignment="Left" Margin="342,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
+            </Grid>
+        </Expander>
+        <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="10,307,0,0" VerticalAlignment="Top" Width="304" Foreground="White"/>
+      
+
+
+    </Grid>
+</Page>
