@@ -5,13 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DSRPG.UI"
       mc:Ignorable="d"
-      d:DesignHeight="419" d:DesignWidth="792"
-      Title="BattleArena" Width="792">
+      Title="BattleArena" Width="792" Height="419">
 
 
-    <Grid x:Name="Room" Margin="0,0,-6.4,0">
-        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/DSRPG;component/Resources/img/Throne_Of_Want.png" Width="1048" Height="488" Margin="-36,-41,-213.6,-28"/>
-        <Expander x:Name="Exp1" Header="Панель быстрого доступа" HorizontalAlignment="Left" Height="100" Margin="364,309,0,0" VerticalAlignment="Top" Width="424" Foreground="White" IsExpanded="True" FlowDirection="RightToLeft">
+    <Grid x:Name="Room">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Width="792" Source="/DSRPG;component/Resources/img/Arena.jpg" Margin="0,0,0,0.2" StretchDirection="DownOnly" Stretch="Fill"/>
+        <Expander x:Name="Exp1" Header="Панель быстрого доступа" HorizontalAlignment="Left" Height="100" Margin="353,309,0,0" VerticalAlignment="Top" Width="429" Foreground="White" IsExpanded="True" FlowDirection="RightToLeft">
             <Grid x:Name="Panel" Margin="2,0,-1.6,0">
                 <Button Content="Slot0" HorizontalAlignment="Left" Margin="10,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
                 <Button Content="Slot1" HorizontalAlignment="Left" Margin="93,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Foreground="White" Background="{x:Null}"/>
@@ -20,9 +27,18 @@
                 <Button Content="Slot4" HorizontalAlignment="Left" Margin="342,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
             </Grid>
         </Expander>
-        <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="10,307,0,0" VerticalAlignment="Top" Width="304" Foreground="White"/>
-      
-
-
+        <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="0,307,0,0" VerticalAlignment="Top" Width="363" Foreground="White"/>
+        <TextBlock x:Name="HpBar" Text="Hp Bar" Foreground="Red" Margin="200,9,534,394.2" HorizontalAlignment="Center" Width="49"/>
+        <TextBlock x:Name="ManaBar" Text="Mana Bar" Foreground="Blue" Margin="200,41,523,359.2" HorizontalAlignment="Center" Width="60" />
+        <TextBlock x:Name="EnergyBar" Text="Energy Bar" Foreground="Green" Margin="200,77,523,324.2" HorizontalAlignment="Center" Width="60"/>
+        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,9,0,0" Height="16"  Width="194" Background="Red"/>
+        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,44,0,0" Width="194" Height="16" Background="Blue"/>
+        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,79,0,0" Width="194" Height="16" Background="Green"/>
+        <TextBlock x:Name="HpBarMob" Text="Hp Bar" Foreground="Red" Margin="539,13,204,390.2" HorizontalAlignment="Center" Width="49"/>
+        <TextBlock x:Name="ManaBarMob" Text="Mana Bar" Foreground="Blue" Margin="528,47,204,353.2" HorizontalAlignment="Center" Width="60" />
+        <TextBlock x:Name="EnergyBarMob" Text="Energy Bar" Foreground="Green" Margin="523,77,209,324.2" HorizontalAlignment="Center" Width="60"/>
+        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,10,0,0" Height="16"  Width="194" Background="Red"/>
+        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,44,0,0" Width="194" Height="16" Background="Blue"/>
+        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,79,0,0" Width="194" Height="16" Background="Green"/>
     </Grid>
 </Page>

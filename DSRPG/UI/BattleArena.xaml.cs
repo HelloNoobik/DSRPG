@@ -25,5 +25,10 @@ namespace DSRPG.UI
         {
             InitializeComponent();
         }
+
+        private void ProgressBar_TextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }

@@ -230,7 +230,6 @@
     <Resource Include="Resources\img\noPass.png" />
     <Resource Include="Resources\img\noPass_active.png" />
     <Resource Include="Resources\img\skewer.png" />
-    <Resource Include="Resources\img\Throne_Of_Want.png" />
     <Resource Include="Resources\img\World.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +274,7 @@
     <EmbeddedResource Include="Resources\sound\click.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Resource Include="Resources\img\Arena.jpg" />
     <Content Include="Resources\video\.gitattributes" />
     <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

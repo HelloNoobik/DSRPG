@@ -17,7 +17,7 @@ using System.Windows.Controls;
         protected double armor;
         protected Image image;
         protected Point point;
-
+z
         public string Name
         {
             get { return name; }
