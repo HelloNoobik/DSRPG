@@ -51,6 +51,8 @@ namespace DSRPG.GameLogic.Mechanics
             }
         }
 
+        private bool mousePressed = false;
+
         private delegate void Changed();
         private event Changed PointChanged;
         private event Changed SizeChanged;
@@ -111,24 +113,37 @@ namespace DSRPG.GameLogic.Mechanics
             rect.Stroke = color;
         }
 
+        public static Image DragDrop() 
+        {
+            return buf.img;
+        }
 
         private void MouseEnterImg(object sender, MouseEventArgs e) 
         {
             MouseEnter?.Invoke(this, e);
         }
 
+
+        private static Slot buf;
         private void MouseLeaveImg(object sender, MouseEventArgs e)
         {
+            if (mousePressed) 
+            {
+                mousePressed = false;
+                buf = this;
+            }
             MouseLeave?.Invoke(this, e);
         }
 
         private void MouseLeftButtonDownImg(object sender, MouseButtonEventArgs e)
         {
+            mousePressed = true;
             MouseLeftMouseDown?.Invoke(this, e);
         }
 
         private void MouseLeftButtonUpImg(object sender, MouseButtonEventArgs e)
         {
+            mousePressed = false;
             MouseLeftMouseUp?.Invoke(this, e);
         }
     }

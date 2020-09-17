@@ -11,7 +11,7 @@
     <Grid>
         <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/Resources/img/Lotrik.png" Stretch="UniformToFill"/>
         <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="93" Background="Black" Foreground="White" Height="22" PreviewMouseDown="back_PreviewMouseDown"/>
-        <Image x:Name="Firstlvl" Margin="386,55,354.6,305" Width="52" Height="51" PreviewMouseDown="PreviewMouseDown">
+        <Image x:Name="Firstlvl" Margin="386,55,354.6,305" Width="52" Height="51" PreviewMouseDown="PreviewMouseDown" Unloaded="Firstlvl_Unloaded">
             <Image.Style>
                 <Style TargetType="Image">
                     <Setter Property="Source" Value="/DSRPG;component/Resources/img/lvl (2).png" />

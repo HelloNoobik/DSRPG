@@ -6,9 +6,4 @@
       xmlns:local="clr-namespace:DSRPG.Test"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="TestPage">
-
-    <Grid>
-        
-    </Grid>
-</Page>
+      Title="TestPage"/>

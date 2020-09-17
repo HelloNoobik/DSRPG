@@ -87,6 +87,8 @@
     <Compile Include="GameLogic\Mechanics\Inventory\Inventory.cs" />
     <Compile Include="GameLogic\Mechanics\Inventory\Item.cs" />
     <Compile Include="GameLogic\Mechanics\Inventory\Slot.cs" />
+    <Compile Include="GameLogic\Mobs\Hollow.cs" />
+    <Compile Include="GameLogic\Mobs\Mobsbase.cs" />
     <Compile Include="Resources\Links.cs" />
     <Compile Include="Test\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
@@ -274,9 +276,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="Resources\video\.gitattributes" />
-    <Resource Include="Resources\video\DS_opening.mp4">
+    <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

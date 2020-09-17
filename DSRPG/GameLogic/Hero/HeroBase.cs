@@ -26,17 +26,17 @@ namespace DSRPG.GameLogic.Hero
         public string Name
         {
             get { return name; }
-            protected set { name = value; }
+            set { name = value; }
         }
         public int Health
         {
             get { return health; }
-            protected set { health = value; }
+            set { health = value; }
         }
         public int Mana
         {
             get { return mana; }
-            protected set { mana = value; }
+            set { mana = value; }
         }
         
         public int Energy
@@ -47,27 +47,27 @@ namespace DSRPG.GameLogic.Hero
         public int Strength
         {
             get { return strength; }
-            protected set { strength = value; }
+            set { strength = value; }
         }
         public int Agility
         {
             get { return agility; }
-            protected set { agility = value; }
+            set { agility = value; }
         }
         public int Stamina
         {
             get { return stamina; }
-            protected set { stamina = value; }
+            set { stamina = value; }
         }
         public int Intellect
         {
             get { return intellect; }
-            protected set { intellect = value; }
+            set { intellect = value; }
         }
         public double Armor
         {
             get { return armor; }
-            protected set { armor = value; }
+            set { armor = value; }
         }
         public int Damage
         {

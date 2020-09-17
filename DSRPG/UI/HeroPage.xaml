@@ -39,7 +39,7 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="93,225,0,0" VerticalAlignment="Top" Width="50"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="163,225,0,0" VerticalAlignment="Top" Width="50"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="231,225,0,0" VerticalAlignment="Top" Width="50"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="305,225,0,0" VerticalAlignment="Top" Width="50"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="305,225,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Border_MouseEnter"/>
         <Label Content="Быстрые слоты" HorizontalAlignment="Left" Margin="142,195,0,0" VerticalAlignment="Top" Foreground="#FFD1CDCD"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="351,44,0,0" VerticalAlignment="Top" Width="50"/>
         <Label Foreground="#FFD1CDCD" Content="Броня" HorizontalAlignment="Left" Margin="354,13,0,0" VerticalAlignment="Top"/>

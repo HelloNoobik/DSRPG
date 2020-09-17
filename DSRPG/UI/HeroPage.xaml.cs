@@ -80,5 +80,14 @@ namespace DSRPG.UI
             double Y = ScrollInv.VerticalOffset - 200;
             ScrollInv.ScrollToVerticalOffset(Y);
         }
+
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        {
+         
+            //Border rect = (Border)sender;
+            //Image img = Slot.DragDrop();
+            //rect.Child = img.Clo;
+
+        }
     }
 }

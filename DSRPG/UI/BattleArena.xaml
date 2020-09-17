@@ -21,6 +21,7 @@
             </Grid>
         </Expander>
         <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="10,307,0,0" VerticalAlignment="Top" Width="304" Foreground="White"/>
+      
 
 
     </Grid>

@@ -20,6 +20,7 @@ namespace DSRPG.UI
     /// </summary>
     public partial class BattleArena : Page
     {
+       
         public BattleArena()
         {
             InitializeComponent();

@@ -35,5 +35,10 @@ namespace DSRPG.UI
         {
             Settings.PageController.ChangeWindow(Pages.BattleArena);
         }
+
+        private void Firstlvl_Unloaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
