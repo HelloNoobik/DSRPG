@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSRPG.GameLogic.Hero
+namespace DSRPG.Classes.Hero
 {
-    public class Archer:HeroBase
+    public class Warrior : HeroBase
     {
-        public Archer() 
-            : base()
+        public Warrior()
+            :base()
         {
             name = "";
             health = 0;
@@ -27,5 +27,6 @@ namespace DSRPG.GameLogic.Hero
             stamina = 0;
             intellect = 0;
         }
+
     }
 }

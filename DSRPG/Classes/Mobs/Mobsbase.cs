@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
-/*namespace DSRPG.GameLogic.Mobs
+/*namespace DSRPG.Classes
 {
-    public class Hollow
+    public  class Mobsbase
     {
-
         protected string name;
         protected int health;
         protected int mana;
@@ -19,7 +17,7 @@ using System.Windows.Media.Imaging;
         protected double armor;
         protected Image image;
         protected Point point;
-
+z
         public string Name
         {
             get { return name; }
@@ -52,15 +50,18 @@ using System.Windows.Media.Imaging;
             set { point = value; }
         }
 
-        public Hollow(Point point, Grid grid)
+        protected Mobsbase(Point point)
         {
-            this.image = new Image();
+            this.image = new  Image();
             this.Point = point;
             this.image.Width = 200;
             this.image.Height = 200;
-            this.image.Margin = new Thickness(100, 100, 0, 0);
-            image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/Items/Armor/ThiefHelmet.png", UriKind.Relative));
-            grid.Children.Add(image);
+            this.image.Margin = new Thickness(this.point.X, this.point.Y, 0, 0);
+
+        }
+        public override string ToString() //Мож пойже пригодится s
+        {
+            return base.ToString();
         }
     }
 }*/

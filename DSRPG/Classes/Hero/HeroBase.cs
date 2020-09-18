@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DSRPG.GameLogic.Hero
+namespace DSRPG.Classes.Hero
 {
     public abstract class HeroBase
     {
