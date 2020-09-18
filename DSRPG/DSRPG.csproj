@@ -90,6 +90,7 @@
     <Compile Include="GameLogic\Mobs\Hollow.cs" />
     <Compile Include="GameLogic\Mobs\Mobsbase.cs" />
     <Compile Include="Resources\Links.cs" />
+    <Compile Include="Test\Level.cs" />
     <Compile Include="Test\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>

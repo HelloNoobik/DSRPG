@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-/*namespace DSRPG.GameLogic.Mobs
+namespace DSRPG.GameLogic.Mobs
 {
-    public  class Mobsbase
+    public class Mobsbase
     {
         protected string name;
         protected int health;
         protected int mana;
         protected int damage;
         protected double armor;
-        protected Image image;
-        protected Point point;
-z
         public string Name
         {
             get { return name; }
@@ -44,24 +41,9 @@ z
             set { armor = value; }
         }
 
-        public Point Point
-        {
-            get { return point; }
-            set { point = value; }
-        }
-
-        protected Mobsbase(Point point)
-        {
-            this.image = new  Image();
-            this.Point = point;
-            this.image.Width = 200;
-            this.image.Height = 200;
-            this.image.Margin = new Thickness(this.point.X, this.point.Y, 0, 0);
-
-        }
         public override string ToString() //Мож пойже пригодится s
         {
             return base.ToString();
         }
     }
-}*/
+}

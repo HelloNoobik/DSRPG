@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DSRPG.GameLogic.Core;
+using DSRPG.GameLogic.Mobs;
+using DSRPG.Test;
 
 namespace DSRPG.UI
 {
@@ -24,6 +26,7 @@ namespace DSRPG.UI
         public Lotrik()
         {
             InitializeComponent();
+            
         }
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -33,12 +36,7 @@ namespace DSRPG.UI
 
         private void PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.PageController.ChangeWindow(Pages.BattleArena);
-        }
-
-        private void Firstlvl_Unloaded(object sender, RoutedEventArgs e)
-        {
-
+            MessageBox.Show("123");
         }
     }
 }
