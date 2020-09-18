@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSRPG.GameLogic.Hero
+namespace DSRPG.Classes.Hero
 {
-    public class Mage:HeroBase
+    public class Archer:HeroBase
     {
-        public Mage()
+        public Archer() 
             : base()
         {
             name = "";

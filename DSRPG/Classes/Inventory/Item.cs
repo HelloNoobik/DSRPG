@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSRPG.GameLogic.Mechanics
+namespace DSRPG.Classes
 {
     public enum ItemType
     {

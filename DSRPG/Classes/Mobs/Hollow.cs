@@ -5,16 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
-namespace DSRPG.GameLogic.Mobs
+/*namespace DSRPG.Classes
 {
-    public class Mobsbase
+    public class Hollow
     {
+
         protected string name;
         protected int health;
         protected int mana;
         protected int damage;
         protected double armor;
+        protected Image image;
+        protected Point point;
+
         public string Name
         {
             get { return name; }
@@ -41,9 +46,21 @@ namespace DSRPG.GameLogic.Mobs
             set { armor = value; }
         }
 
-        public override string ToString() //Мож пойже пригодится s
+        public Point Point
         {
-            return base.ToString();
+            get { return point; }
+            set { point = value; }
+        }
+
+        public Hollow(Point point, Grid grid)
+        {
+            this.image = new Image();
+            this.Point = point;
+            this.image.Width = 200;
+            this.image.Height = 200;
+            this.image.Margin = new Thickness(100, 100, 0, 0);
+            image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/Items/Armor/ThiefHelmet.png", UriKind.Relative));
+            grid.Children.Add(image);
         }
     }
-}
+}*/

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using DSRPG.GameLogic.Mechanics;
+using DSRPG.Classes;
 
 namespace DSRPG.UI
 {

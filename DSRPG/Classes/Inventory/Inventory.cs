@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
 
-namespace DSRPG.GameLogic.Mechanics
+namespace DSRPG.Classes
 {
     public class Inventory
     {
