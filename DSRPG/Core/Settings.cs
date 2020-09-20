@@ -15,11 +15,14 @@ namespace DSRPG.Core
         private static double soundVolume = 0.1;
         private static double masterVolume = 0.1;
         private static double videoVolume = 0.1;
-        public static PageController PageController;
-        public static MediaController MediaController = new MediaController();
+
+        public static PageController PageController = new PageController();
+        public static MediaController MediaController;
+
         public static HeroBase Hero;
 
         public static LotrikViewModel Lotrik;
+        private static int positionInCompaign = 0;
         #endregion
         #region Свойства
         public static double MusicVolume
@@ -75,6 +78,21 @@ namespace DSRPG.Core
                 VideoVolumeChanged?.Invoke();
             }
         }
+
+        public static int PositionInCompaign
+        {
+            get
+            {
+                return positionInCompaign;
+            }
+
+            set
+            {
+                if (value < 0 || value > 8) return;
+                positionInCompaign = value;
+                PositionChanged?.Invoke();
+            }
+        }
         #endregion
         #region Делегаты и события
         public delegate void Changed();
@@ -83,6 +101,7 @@ namespace DSRPG.Core
         public static event Changed SoundVolumeChanged;
         public static event Changed MasterVolumeChanged;
         public static event Changed VideoVolumeChanged;
+        public static event Changed PositionChanged;
         #endregion
         #region Методы
         #endregion

@@ -42,6 +42,7 @@ namespace DSRPG.Core
         private Page CreateCharacter;
         private Page Lotrik;
         private Page WorldMap;
+        private Page Load;
         private Page Test;
 
         private Page currentPage;
@@ -88,9 +89,10 @@ namespace DSRPG.Core
             CreateCharacter = new UI.CreateCharacter();
             Lotrik = new UI.Lotrik();
             WorldMap = new UI.WorldMap();
+            Load = new UI.Load();
             Test = null;
 
-            CurrentPage = Main;
+            CurrentPage = Load;
 
             PageOpacity = 1.0;
         }
@@ -130,7 +132,7 @@ namespace DSRPG.Core
                     _page = Settings;
                     break;
                 case Pages.BattleArena:
-                    BattleArena = new BattleArena();
+                    BattleArena = new UI.BattleArena();
                     _page = BattleArena;
                     break;
                 case Pages.CreateCharacter:

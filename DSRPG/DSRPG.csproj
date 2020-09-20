@@ -77,11 +77,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Arena\Battle.cs" />
+    <Compile Include="Classes\Company\Level.xaml.cs">
+      <DependentUpon>Level.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Mobs\Thief.cs" />
     <Compile Include="Core\MediaController.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Classes\Hero\Archer.cs" />
@@ -123,6 +124,9 @@
     <Compile Include="UI\Intro.xaml.cs">
       <DependentUpon>Intro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Load.xaml.cs">
+      <DependentUpon>Load.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Lotrik.xaml.cs">
       <DependentUpon>Lotrik.xaml</DependentUpon>
     </Compile>
@@ -139,6 +143,10 @@
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\ViewModel\CreateCharacterViewModel.cs" />
+    <Page Include="Classes\Company\Level.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Classes\Inventory\Slot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Intro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Load.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,14 +304,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <Resource Include="Resources\img\Arena.jpg" />
-    <Resource Include="Resources\img\mobs\Thief.png" />
-    <Resource Include="Resources\img\mobs\boss anatolii.png" />
-    <Resource Include="Resources\img\mobs\funny knight.png" />
-    <Resource Include="Resources\img\mobs\gyndir.png" />
-    <Resource Include="Resources\img\mobs\kapra.png" />
-    <Resource Include="Resources\img\mobs\knight.png" />
-    <Resource Include="Resources\img\mobs\logan.png" />
-    <Resource Include="Resources\img\mobs\red.png" />
     <Content Include="Resources\video\.gitattributes" />
     <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
