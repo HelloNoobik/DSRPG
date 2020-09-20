@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using DSRPG.Classes;
+using DSRPG.Classes.Hero;
 
 namespace DSRPG.UI
 {
@@ -22,72 +24,68 @@ namespace DSRPG.UI
     /// </summary>
     public partial class HeroPage : Page
     {
-        private static Inventory inv = new Inventory();
-        public HeroPage()
+        public HeroPage(HeroBase hero)
         {
             InitializeComponent();
-            LoadInventory();
+            DataContext = hero;
+            hero.Health = 100;
+            Check(hero);
+            //LoadInventory();
         }
 
-        private void LoadInventory() 
+        private async void Check(HeroBase hero) 
         {
-            Point point = new Point(10, 15);
-            for (int i = 0; i < inv.GetCountItems(); i++) 
+            await Task.Factory.StartNew(() => 
             {
-                Slot slot = new Slot(inv.GetItem(i).Name, new Point(point.X, point.Y), new Size(50, 50), new BitmapImage(new Uri(inv.GetItem(i).Image, UriKind.Relative)), InventoryWindow);
-                point.X += slot.Size.Width + 10;
-
-                slot.MouseEnter += Slot_MouseEnter;
-                slot.MouseLeave += Slot_MouseLeave;
-
-                if (point.X == 250)
+                for (int i = 0; i < 1000; i++) 
                 {
-                    if (point.Y == InventoryWindow.Height - 65)
-                    {
-                        point.Y += 30 + slot.Size.Height;
-                        point.X = 10;
-                        InventoryWindow.Height += 200;
-                    }
-                    else 
-                    {
-                        point.X = 10;
-                        point.Y += slot.Size.Height + 10;      
-                    }
+                    hero.Health = i;
+                    Thread.Sleep(10);
                 }
-            }
+            });
         }
 
-        private void Slot_MouseEnter(object sender, MouseEventArgs e) 
-        {
-            Slot slot = (Slot)sender;
-            slot.ChangeBorder(Brushes.Yellow);
-        }
+        //private void LoadInventory()
+        //{
+        //    Point point = new Point(10, 15);
+        //    for (int i = 0; i < inv.GetCountItems(); i++)
+        //    {
+        //        Slot slot = new Slot(inv.GetItem(i), this);
+        //        slot.Location = point;
 
-        private void Slot_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Slot slot = (Slot)sender;
-            slot.ChangeBorder(Brushes.White);
-        }
+        //        point.X += slot.Width + 10;
+
+        //        if (point.X == 250)
+        //        {
+        //            if (point.Y == InventoryWindow.Height - 65)
+        //            {
+        //                point.Y += 30 + slot.Height;
+        //                point.X = 10;
+        //                InventoryWindow.Height += 200;
+        //            }
+        //            else
+        //            {
+        //                point.X = 10;
+        //                point.Y += slot.Height + 10;
+        //            }
+        //        }
+        //    }
+        //}
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
             double Y = ScrollInv.VerticalOffset + 200;
             ScrollInv.ScrollToVerticalOffset(Y);
         }
-
         private void prev_Click(object sender, RoutedEventArgs e)
         {
             double Y = ScrollInv.VerticalOffset - 200;
             ScrollInv.ScrollToVerticalOffset(Y);
         }
 
-        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-         
-            //Border rect = (Border)sender;
-            //Image img = Slot.DragDrop();
-            //rect.Child = img.Clo;
-
+            Core.Settings.Lotrik.ChangePage("Hide");
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Management.Instrumentation;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,8 +12,15 @@ using System.Windows.Controls;
 
 namespace DSRPG.Classes.Hero
 {
-    public abstract class HeroBase
+    public abstract class HeroBase : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         protected string name;
         protected int health;
         protected int mana;
@@ -26,53 +35,53 @@ namespace DSRPG.Classes.Hero
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value; OnPropertyChanged(); }
         }
         public int Health
         {
             get { return health; }
-            set { health = value; }
+            set { health = value; OnPropertyChanged(); }
         }
         public int Mana
         {
             get { return mana; }
-            set { mana = value; }
+            set { mana = value; OnPropertyChanged(); }
         }
         
         public int Energy
         {
             get { return energy; }
-            set { energy = value; }
+            set { energy = value; OnPropertyChanged(); }
         }
         public int Strength
         {
             get { return strength; }
-            set { strength = value; }
+            set { strength = value; OnPropertyChanged(); }
         }
         public int Agility
         {
             get { return agility; }
-            set { agility = value; }
+            set { agility = value; OnPropertyChanged(); }
         }
         public int Stamina
         {
             get { return stamina; }
-            set { stamina = value; }
+            set { stamina = value; OnPropertyChanged(); }
         }
         public int Intellect
         {
             get { return intellect; }
-            set { intellect = value; }
+            set { intellect = value; OnPropertyChanged(); }
         }
         public double Armor
         {
             get { return armor; }
-            set { armor = value; }
+            set { armor = value; OnPropertyChanged(); }
         }
         public int Damage
         {
             get { return damage; }
-            set { damage = value; }
+            set { damage = value; OnPropertyChanged(); }
         }
 
 

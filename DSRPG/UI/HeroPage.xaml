@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DSRPG.UI"
+      xmlns:local="clr-namespace:DSRPG.UI" xmlns:classes="clr-namespace:DSRPG.Classes"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="700"
       Title="HeroPage">
@@ -18,36 +18,38 @@
                 <Label Content="Здоровье" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
                 <Label Content="Мана" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                 <Label Content="Энергия" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
-                <Label Content="Здоровье" HorizontalAlignment="Left" Margin="78,61,0,0" VerticalAlignment="Top"/>
-                <Label Content="Мана" HorizontalAlignment="Left" Margin="80,92,0,0" VerticalAlignment="Top"/>
-                <Label Content="Энергия" HorizontalAlignment="Left" Margin="80,123,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Health}" HorizontalAlignment="Left" Margin="78,61,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Mana}" HorizontalAlignment="Left" Margin="80,92,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Energy}" HorizontalAlignment="Left" Margin="80,123,0,0" VerticalAlignment="Top"/>
                 <Label Content="Сила" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top"/>
                 <Label Content="Ловкость" HorizontalAlignment="Left" Margin="169,41,0,0" VerticalAlignment="Top"/>
                 <Label Content="Интеллект" HorizontalAlignment="Left" Margin="169,72,0,0" VerticalAlignment="Top"/>
-                <Label Content="??" HorizontalAlignment="Left" Margin="169,103,0,0" VerticalAlignment="Top"/>
-                <Label Content="Сила" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
-                <Label Content="Ловкость" HorizontalAlignment="Left" Margin="241,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="Интеллект" HorizontalAlignment="Left" Margin="241,72,0,0" VerticalAlignment="Top"/>
-                <Label Content="??" HorizontalAlignment="Left" Margin="241,103,0,0" VerticalAlignment="Top" Width="85"/>
-                <Label Content="Имя" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Броня" HorizontalAlignment="Left" Margin="169,103,0,0" VerticalAlignment="Top"/>
+                <Label Content="Атака" HorizontalAlignment="Left" Margin="169,134,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Strength}" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Agility}" HorizontalAlignment="Left" Margin="241,41,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Intellect}" HorizontalAlignment="Left" Margin="241,72,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top"/>
                 <Label Content="Класс" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-                <Label Content="Класс" HorizontalAlignment="Left" Margin="62,36,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="ClassLabel" Content="Класс" HorizontalAlignment="Left" Margin="62,36,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Armor}" HorizontalAlignment="Left" Margin="218,103,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Damage}" HorizontalAlignment="Left" Margin="215,134,0,0" VerticalAlignment="Top"/>
 
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="26,225,0,0" VerticalAlignment="Top" Width="50"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="93,225,0,0" VerticalAlignment="Top" Width="50"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="163,225,0,0" VerticalAlignment="Top" Width="50"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="231,225,0,0" VerticalAlignment="Top" Width="50"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="305,225,0,0" VerticalAlignment="Top" Width="50" MouseEnter="Border_MouseEnter"/>
         <Label Content="Быстрые слоты" HorizontalAlignment="Left" Margin="142,195,0,0" VerticalAlignment="Top" Foreground="#FFD1CDCD"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="351,44,0,0" VerticalAlignment="Top" Width="50"/>
         <Label Foreground="#FFD1CDCD" Content="Броня" HorizontalAlignment="Left" Margin="354,13,0,0" VerticalAlignment="Top"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="351,140,0,0" VerticalAlignment="Top" Width="50"/>
         <Label Foreground="#FFD1CDCD" Content="Оружие" HorizontalAlignment="Left" Margin="349,109,0,0" VerticalAlignment="Top"/>
         <Label Foreground="#FFD1CDCD" Content="Инвентарь" HorizontalAlignment="Left" Margin="510,18,0,0" VerticalAlignment="Top"/>
         <Button x:Name="prev" Content="&lt;" HorizontalAlignment="Left" Margin="426,255,0,0" VerticalAlignment="Top" Width="40" Click="prev_Click"/>
         <Button x:Name="next" Content="&gt;" HorizontalAlignment="Left" Margin="636,255,0,0" VerticalAlignment="Top" Width="40" Click="next_Click"/>
-
+        <classes:Slot x:Name="slot1"  HorizontalAlignment="Left" Height="50" Margin="44,225,0,0" VerticalAlignment="Top" Width="50"/>
+        <classes:Slot x:Name="slot2"  HorizontalAlignment="Left" Height="50" Margin="104,225,0,0" VerticalAlignment="Top" Width="50"/>
+        <classes:Slot x:Name="slot3"  HorizontalAlignment="Left" Height="50" Margin="164,225,0,0" VerticalAlignment="Top" Width="50"/>
+        <classes:Slot x:Name="slot4"  HorizontalAlignment="Left" Height="50" Margin="224,225,0,0" VerticalAlignment="Top" Width="50"/>
+        <classes:Slot x:Name="slot5"  HorizontalAlignment="Left" Height="50" Margin="284,225,0,0" VerticalAlignment="Top" Width="50"/>
+        <classes:Slot x:Name="Weapon"  HorizontalAlignment="Left" Height="50" Margin="351,140,0,0" VerticalAlignment="Top" Width="50"/>
+        <classes:Slot x:Name="Armor"  HorizontalAlignment="Left" Height="50" Margin="351,44,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="615,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Page>

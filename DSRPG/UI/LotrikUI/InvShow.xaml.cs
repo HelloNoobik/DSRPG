@@ -12,20 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Core;
 
-namespace DSRPG
+namespace DSRPG.UI.LotrikUI
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для InvShow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InvShow : Page
     {
-        public MainWindow()
+        public InvShow()
         {
             InitializeComponent();
-            Settings.PageController = new PageController();
-            DataContext = Settings.PageController;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Core.Settings.Lotrik.ChangePage("Show");
         }
     }
 }

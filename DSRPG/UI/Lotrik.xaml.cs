@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.GameLogic.Core;
+using DSRPG.Classes.Hero;
+using DSRPG.Core;
 
 namespace DSRPG.UI
 {
@@ -22,8 +23,10 @@ namespace DSRPG.UI
     public partial class Lotrik : Page
     {
         public Lotrik()
-        {
+        {  
             InitializeComponent();
+            Core.Settings.Lotrik = new Core.ViewModel.LotrikViewModel(this);
+            DataContext = Core.Settings.Lotrik;
         }
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
