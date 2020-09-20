@@ -8,10 +8,9 @@ namespace DSRPG.Classes.Hero
 {
     public class Paladin : HeroBase
     {
-        public Paladin() 
-            : base()
+        public Paladin(string name, string gender, string _class, string gift) 
+            : base(name,gender,_class)
         {
-            name = "";
             health = 0;
             health = UpHealth();
             mana = 0;

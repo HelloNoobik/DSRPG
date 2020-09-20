@@ -24,25 +24,10 @@ namespace DSRPG.UI
     /// </summary>
     public partial class HeroPage : Page
     {
-        public HeroPage(HeroBase hero)
+        public HeroPage()
         {
             InitializeComponent();
-            DataContext = hero;
-            hero.Health = 100;
-            Check(hero);
             //LoadInventory();
-        }
-
-        private async void Check(HeroBase hero) 
-        {
-            await Task.Factory.StartNew(() => 
-            {
-                for (int i = 0; i < 1000; i++) 
-                {
-                    hero.Health = i;
-                    Thread.Sleep(10);
-                }
-            });
         }
 
         //private void LoadInventory()
@@ -86,6 +71,11 @@ namespace DSRPG.UI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Core.Settings.Lotrik.ChangePage("Hide");
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = Core.Settings.Hero;
         }
     }
 }

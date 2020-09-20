@@ -79,7 +79,7 @@ namespace DSRPG.Core.ViewModel
         {
             lotrik = page;
             Hide = new UI.LotrikUI.InvShow();
-            Show = new UI.HeroPage(new Archer());
+            Show = new UI.HeroPage();
 
             FramePosition = new Thickness(46, 373, 0, -254);
             PageOpacity = 1.0;

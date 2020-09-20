@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DSRPG.Classes.Hero;
+using DSRPG.Core.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +17,9 @@ namespace DSRPG.Core
         private static double videoVolume = 0.1;
         public static PageController PageController;
         public static MediaController MediaController = new MediaController();
+        public static HeroBase Hero;
 
-        public static DSRPG.Core.ViewModel.LotrikViewModel Lotrik;
+        public static LotrikViewModel Lotrik;
         #endregion
         #region Свойства
         public static double MusicVolume

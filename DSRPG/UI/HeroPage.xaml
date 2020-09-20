@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DSRPG.UI" xmlns:classes="clr-namespace:DSRPG.Classes"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="700"
-      Title="HeroPage">
+      Title="HeroPage" Loaded="Page_Loaded">
 
     <Grid Background="#FF363636">
         <ScrollViewer x:Name="ScrollInv" HorizontalAlignment="Left" Height="200" Margin="426,49,0,0" VerticalAlignment="Top" Width="250" Background="#FF767676" VerticalScrollBarVisibility="Hidden">
@@ -18,22 +18,22 @@
                 <Label Content="Здоровье" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
                 <Label Content="Мана" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                 <Label Content="Энергия" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Health}" HorizontalAlignment="Left" Margin="78,61,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Mana}" HorizontalAlignment="Left" Margin="80,92,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Energy}" HorizontalAlignment="Left" Margin="80,123,0,0" VerticalAlignment="Top"/>
-                <Label Content="Сила" HorizontalAlignment="Left" Margin="169,10,0,0" VerticalAlignment="Top"/>
-                <Label Content="Ловкость" HorizontalAlignment="Left" Margin="169,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="Интеллект" HorizontalAlignment="Left" Margin="169,72,0,0" VerticalAlignment="Top"/>
-                <Label Content="Броня" HorizontalAlignment="Left" Margin="169,103,0,0" VerticalAlignment="Top"/>
-                <Label Content="Атака" HorizontalAlignment="Left" Margin="169,134,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Strength}" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Agility}" HorizontalAlignment="Left" Margin="241,41,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Intellect}" HorizontalAlignment="Left" Margin="241,72,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Health}" HorizontalAlignment="Left" Margin="89,65,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Mana}" HorizontalAlignment="Left" Margin="89,96,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Energy}" HorizontalAlignment="Left" Margin="89,127,0,0" VerticalAlignment="Top"/>
+                <Label Content="Сила" HorizontalAlignment="Left" Margin="169,7,0,0" VerticalAlignment="Top"/>
+                <Label Content="Ловкость" HorizontalAlignment="Left" Margin="169,38,0,0" VerticalAlignment="Top"/>
+                <Label Content="Интеллект" HorizontalAlignment="Left" Margin="169,69,0,0" VerticalAlignment="Top"/>
+                <Label Content="Броня" HorizontalAlignment="Left" Margin="169,100,0,0" VerticalAlignment="Top"/>
+                <Label Content="Атака" HorizontalAlignment="Left" Margin="169,131,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Strength}" HorizontalAlignment="Left" Margin="251,7,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Agility}" HorizontalAlignment="Left" Margin="251,45,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Intellect}" HorizontalAlignment="Left" Margin="251,69,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="89,14,0,0" VerticalAlignment="Top"/>
                 <Label Content="Класс" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="ClassLabel" Content="Класс" HorizontalAlignment="Left" Margin="62,36,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Armor}" HorizontalAlignment="Left" Margin="218,103,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Damage}" HorizontalAlignment="Left" Margin="215,134,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Class}" HorizontalAlignment="Left" Margin="89,40,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Armor}" HorizontalAlignment="Left" Margin="251,100,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Damage}" HorizontalAlignment="Left" Margin="251,131,0,0" VerticalAlignment="Top"/>
 
             </Grid>
         </Border>

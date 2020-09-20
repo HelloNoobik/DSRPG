@@ -8,10 +8,9 @@ namespace DSRPG.Classes.Hero
 {
     public class Archer:HeroBase
     {
-        public Archer() 
-            : base()
+        public Archer(string name,string gender, string _class, string gift) 
+            : base(name,gender,_class)
         {
-            name = "";
             health = 0;
             health = UpHealth();
             mana = 0;

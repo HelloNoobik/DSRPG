@@ -22,6 +22,8 @@ namespace DSRPG.Classes.Hero
         }
 
         protected string name;
+        protected string _class;
+        protected string gender;
         protected int health;
         protected int mana;
         protected int energy;
@@ -36,6 +38,18 @@ namespace DSRPG.Classes.Hero
         {
             get { return name; }
             set { name = value; OnPropertyChanged(); }
+        }
+
+        public string Class
+        {
+            get { return _class; }
+            set { _class = value; OnPropertyChanged(); }
+        }
+
+        public string Gender
+        {
+            get { return gender; }
+            set { gender = value; OnPropertyChanged(); }
         }
         public int Health
         {
@@ -84,6 +98,12 @@ namespace DSRPG.Classes.Hero
             set { damage = value; OnPropertyChanged(); }
         }
 
+        public HeroBase(string name, string gender, string _class) 
+        {
+            Name = name;
+            Class = _class;
+            Gender = gender;
+        }
 
         public int UpHealth()
         {
