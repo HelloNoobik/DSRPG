@@ -50,10 +50,13 @@ namespace DSRPG.Classes.Arena
             (sender as Button).IsEnabled = false;
             Random rand = new Random();
             int par = Convert.ToInt32(rand.Next(1, 10));
-            if(par >= 7)
+            if(par >= 0)
             {
                 MessageBox.Show("Вы пробежали потеряв здоровье");
                 Hero.Health -= 20;
+                Settings.PositionInCompaign++;
+                Settings.PageController.ChangeWindow(Pages.Lotrik);
+
             }
             else
             {
@@ -71,6 +74,7 @@ namespace DSRPG.Classes.Arena
             if(par >=8)
             {
                 MessageBox.Show("Вы сбежали");
+                Settings.PageController.ChangeWindow(Pages.Lotrik);
             }
             else
             {
