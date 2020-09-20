@@ -132,7 +132,6 @@ namespace DSRPG.Core
                     _page = Settings;
                     break;
                 case Pages.BattleArena:
-                    BattleArena = new UI.BattleArena();
                     _page = BattleArena;
                     break;
                 case Pages.CreateCharacter:
