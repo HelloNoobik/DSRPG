@@ -78,6 +78,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Arena\Battle.cs" />
+    <Compile Include="Classes\Company\Level.xaml.cs">
+      <DependentUpon>Level.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
