@@ -107,6 +107,7 @@
                 </Style>
             </Image.Style>
         </Image>
+        <Frame x:Name="heropage" Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="300" Margin="{Binding FramePosition}" VerticalAlignment="Top" Width="700"/>
 
 
 

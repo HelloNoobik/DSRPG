@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using DSRPG.UI.CreateHeroPageUI;
 using System.Threading;
 using System.Windows;
+using DSRPG.Classes.Hero;
 
 namespace DSRPG.GameLogic.ViewModel
 {
@@ -115,17 +116,35 @@ namespace DSRPG.GameLogic.ViewModel
             });
         }
 
-        /*public Character Check() 
+        public HeroBase Check() 
         {
-            Character result = null;
-            if (IsCorrect()) return new Character(Name.GetResult(), Class.GetResult(), Gender.GetResult(), Gift.GetResult());
-            return result; 
+            if (IsCorrect()) 
+            {
+                string name = Name.GetResult();
+                string gender = Gender.GetResult();
+                string _class = Class.GetResult();
+                string gift = Gift.GetResult();
+                switch (Class.GetResult()) 
+                {
+                    case "Воин":
+                        return new Warrior(name,gender,_class, gift);
+                    case "Паладин":
+                        return new Paladin(name, gender, _class, gift);
+                    case "Лучник":
+                        return new Archer(name, gender, _class, gift);
+                    case "Маг":
+                        return new Mage(name, gender, _class, gift);
+                    default:
+                        return null;
+                }
+            }
+            return null;
         }
 
         private bool IsCorrect() 
         {
             if (Name.GetResult().Length == 0 || Gender.GetResult().Length == 0 || Class.GetResult().Length == 0 || Gift.GetResult().Length == 0) return false;
             return true;
-        }*/
+        }
     }
 }

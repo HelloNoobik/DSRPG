@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DSRPG.GameLogic.ViewModel;
-using DSRPG.GameLogic.Core;
+using DSRPG.Core;
+using DSRPG.Classes.Hero;
 
 namespace DSRPG.UI
 {
@@ -91,22 +92,21 @@ namespace DSRPG.UI
 
         private void Submit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
-             Settings.MediaController.MainMenuMusicPlaying = false;
-             Settings.MediaController.StopMusic();
-             Settings.PageController.ChangeWindow(Pages.Intro);
-            /*if (Model.Check() != null)
+            Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            HeroBase Hero = Model.Check();
+            if (Hero != null)
             {
+                Settings.Hero = Hero;
                 Settings.MediaController.MainMenuMusicPlaying = false;
                 Settings.MediaController.StopMusic();
                 Settings.PageController.ChangeWindow(Pages.Intro);
             }
-            else MessageBox.Show("Не все заполнено");*/
+            else MessageBox.Show("Не все заполнено");
         }
 
         private void Cancel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             Settings.PageController.ChangeWindow(Pages.Main);
         }
     }

@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Inventory\Slot.xaml.cs">
+      <DependentUpon>Slot.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\MediaController.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Classes\Hero\Archer.cs" />
@@ -86,9 +89,9 @@
     <Compile Include="Classes\Hero\Warrior.cs" />
     <Compile Include="Classes\Inventory\Inventory.cs" />
     <Compile Include="Classes\Inventory\Item.cs" />
-    <Compile Include="Classes\Inventory\Slot.cs" />
     <Compile Include="Classes\Mobs\Hollow.cs" />
     <Compile Include="Classes\Mobs\Mobsbase.cs" />
+    <Compile Include="Core\ViewModel\LotrikViewModel.cs" />
     <Compile Include="Resources\Links.cs" />
     <Compile Include="Test\Level.cs" />
     <Compile Include="Test\TestPage.xaml.cs">
@@ -121,6 +124,9 @@
     <Compile Include="UI\Lotrik.xaml.cs">
       <DependentUpon>Lotrik.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\LotrikUI\InvShow.xaml.cs">
+      <DependentUpon>InvShow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -131,6 +137,10 @@
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\ViewModel\CreateCharacterViewModel.cs" />
+    <Page Include="Classes\Inventory\Slot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -181,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Lotrik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LotrikUI\InvShow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

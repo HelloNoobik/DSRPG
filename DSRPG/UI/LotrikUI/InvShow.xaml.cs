@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,31 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.Test;
 
-namespace DSRPG.UI
+namespace DSRPG.UI.LotrikUI
 {
     /// <summary>
-    /// Логика взаимодействия для BattleArena.xaml
+    /// Логика взаимодействия для InvShow.xaml
     /// </summary>
-    public partial class BattleArena : Page
+    public partial class InvShow : Page
     {
-        public BattleArena()
+        public InvShow()
         {
             InitializeComponent();
         }
 
-        private void ProgressBar_TextInput(object sender, TextCompositionEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Room_Unloaded(object sender, RoutedEventArgs e)
-        {
-          //  if (level.CheckdDieMobs() == true)
-            {
-
-            }
+            Core.Settings.Lotrik.ChangePage("Show");
         }
     }
 }

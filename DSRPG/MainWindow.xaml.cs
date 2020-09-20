@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DSRPG.GameLogic.Core;
+using DSRPG.Core;
 
 namespace DSRPG
 {

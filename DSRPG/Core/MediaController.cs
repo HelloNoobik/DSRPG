@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using DSRPG;
 
-namespace DSRPG.GameLogic.Core
+namespace DSRPG.Core
 {
     public class MediaController
     {

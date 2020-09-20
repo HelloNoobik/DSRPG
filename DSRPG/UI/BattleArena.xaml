@@ -40,6 +40,6 @@
         <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,10,0,0" Height="16"  Width="194" Background="Red"/>
         <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,44,0,0" Width="194" Height="16" Background="Blue"/>
         <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,79,0,0" Width="194" Height="16" Background="Green"/>
-        <Button x:Name="hp" Content="Button" HorizontalAlignment="Left" Margin="411,207,0,0" VerticalAlignment="Top" Width="75" Click="hp_Click"/>
+        <Button x:Name="hp" Content="Button" HorizontalAlignment="Left" Margin="411,207,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>
