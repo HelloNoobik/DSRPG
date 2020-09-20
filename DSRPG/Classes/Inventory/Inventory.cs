@@ -10,18 +10,18 @@ namespace DSRPG.Classes
 {
     public class Inventory
     {
+        private static List<Item> _items = new List<Item>();
+        private static Dictionary<string, int> _db = new Dictionary<string, int>();
         private List<Item> items;
         private Dictionary<string, int> db;
         private int index;
 
         public Inventory()
         {
-            db = new Dictionary<string, int>();
-            items = new List<Item>();
-
-            Load();
+            db = _db;
+            items = _items;
         }
-        private void Load()
+        public static void Load()
         {
             XmlDocument XMLdb = new XmlDocument();
             XMLdb.Load("Data/db.xml");
@@ -35,7 +35,7 @@ namespace DSRPG.Classes
                     if (atribute.Name == "key") key = atribute.Value;
                     else if (atribute.Name == "value") value = Convert.ToInt32(atribute.Value);
                 }
-                db.Add(key, value);
+                _db.Add(key, value);
             }
 
             XMLdb = new XmlDocument();
@@ -66,7 +66,7 @@ namespace DSRPG.Classes
                     }
                     else if (atribute.Name == "image") image = atribute.Value;
                 }
-                items.Add(new Item(name, Type, image));
+                _items.Add(new Item(name, Type, image));
             }
         }
 

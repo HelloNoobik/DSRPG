@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Company\Level.xaml.cs">
+      <DependentUpon>Level.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,9 @@
     <Compile Include="UI\Intro.xaml.cs">
       <DependentUpon>Intro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Load.xaml.cs">
+      <DependentUpon>Load.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Lotrik.xaml.cs">
       <DependentUpon>Lotrik.xaml</DependentUpon>
     </Compile>
@@ -137,6 +143,10 @@
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\ViewModel\CreateCharacterViewModel.cs" />
+    <Page Include="Classes\Company\Level.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Classes\Inventory\Slot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Intro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Load.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

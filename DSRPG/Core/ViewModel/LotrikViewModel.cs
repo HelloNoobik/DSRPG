@@ -93,11 +93,11 @@ namespace DSRPG.Core.ViewModel
             {
                 case "Show":
                     _page = Show;
-                    lotrik.back.Visibility = Visibility.Hidden;
+                    //lotrik.back.Visibility = Visibility.Hidden;
                     break;
                 case "Hide":
                     _page = Hide;
-                    lotrik.back.Visibility = Visibility.Visible;
+                    //lotrik.back.Visibility = Visibility.Visible;
                     break;
                 default:
                     MessageBox.Show("Окно не найдено!");

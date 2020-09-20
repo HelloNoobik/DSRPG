@@ -109,5 +109,13 @@ namespace DSRPG.UI
             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             Settings.PageController.ChangeWindow(Pages.Main);
         }
+
+        private void Submit_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Settings.Hero = new Archer("debug","debug","debug","debug");
+            Settings.MediaController.MainMenuMusicPlaying = false;
+            Settings.MediaController.StopMusic();
+            Settings.PageController.ChangeWindow(Pages.Intro);
+        }
     }
 }
