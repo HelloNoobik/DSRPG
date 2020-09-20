@@ -27,19 +27,54 @@
                 <Button Content="Slot4" HorizontalAlignment="Left" Margin="342,10,0,-0.4" VerticalAlignment="Top" Width="78" Height="68" Background="{x:Null}" Foreground="White"/>
             </Grid>
         </Expander>
-        <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="0,307,0,0" VerticalAlignment="Top" Width="363" Foreground="White"/>
-        <TextBlock x:Name="HpBar" Text="Hp Bar" Foreground="Red" Margin="200,9,534,394.2" HorizontalAlignment="Center" Width="49"/>
+        <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="0,307,0,0" VerticalAlignment="Top" Width="353" Foreground="White">
+            <Grid HorizontalAlignment="Left" Height="85" Margin="0,0,-1.8,-5" VerticalAlignment="Top" Width="353">
+                <Button x:Name="dmg" Content="Удар" Margin="0,10,289,54"/>
+                <Button Content="Защита" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="75" Height="21"/>
+                <Button x:Name="run" Content="Сбежать" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="64"/>
+                <Button x:Name="runthought" Content="Пробежать" HorizontalAlignment="Left" Margin="69,36,0,0" VerticalAlignment="Top" Width="75"/>
+            </Grid>
+        </GroupBox>
+        <TextBlock x:Name="HpBar" Text="Hp Bar" Foreground="Red"  Margin="200,9,534,394.2" HorizontalAlignment="Center" Width="49"/>
         <TextBlock x:Name="ManaBar" Text="Mana Bar" Foreground="Blue" Margin="200,41,523,359.2" HorizontalAlignment="Center" Width="60" />
         <TextBlock x:Name="EnergyBar" Text="Energy Bar" Foreground="Green" Margin="200,77,523,324.2" HorizontalAlignment="Center" Width="60"/>
-        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,9,0,0" Height="16"  Width="194" Background="Red"/>
-        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,44,0,0" Width="194" Height="16" Background="Blue"/>
-        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,79,0,0" Width="194" Height="16" Background="Green"/>
+        <ProgressBar x:Name="hpbar" Value="{Binding Health}" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,9,0,0" Height="16"  Width="194" Background="Transparent" Foreground="Red"/>
+        <ProgressBar x:Name="manabar" Value="{Binding Mana}" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,44,0,0" Width="194" Height="16" Background="Transparent" Foreground="Blue"/>
+        <ProgressBar x:Name="energybar" Value="{Binding Energy}"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5,79,0,0" Width="194" Height="16" Background="Transparent" Foreground="Green" />
         <TextBlock x:Name="HpBarMob" Text="Hp Bar" Foreground="Red" Margin="539,13,204,390.2" HorizontalAlignment="Center" Width="49"/>
         <TextBlock x:Name="ManaBarMob" Text="Mana Bar" Foreground="Blue" Margin="528,47,204,353.2" HorizontalAlignment="Center" Width="60" />
         <TextBlock x:Name="EnergyBarMob" Text="Energy Bar" Foreground="Green" Margin="523,77,209,324.2" HorizontalAlignment="Center" Width="60"/>
-        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,10,0,0" Height="16"  Width="194" Background="Red"/>
-        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,44,0,0" Width="194" Height="16" Background="Blue"/>
-        <ProgressBar HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,79,0,0" Width="194" Height="16" Background="Green"/>
-        <Button x:Name="hp" Content="Button" HorizontalAlignment="Left" Margin="411,207,0,0" VerticalAlignment="Top" Width="75"/>
+        <ProgressBar x:Name="Mobhp"  Value="{Binding Health}"  HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,10,0,0" Height="16"  Width="194" Background="Transparent" Foreground="Red" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <ProgressBar x:Name="Mobmana"  Value="{Binding Mana}" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,44,0,0" Width="194" Height="16" Background="Transparent" Foreground="Blue" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <ProgressBar x:Name="Mobenergy"  Value="{Binding Energy}" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="588,79,0,0" Width="194" Height="16" Background="Transparent" Foreground="Green" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+        <Button x:Name="hp" Content="Button" HorizontalAlignment="Left" Margin="411,207,0,0" VerticalAlignment="Top" Width="75" Click="hp_Click"/>
+        <Image HorizontalAlignment="Left" Height="200" Margin="588,109,0,0" VerticalAlignment="Top" Width="200"/>
     </Grid>
 </Page>

@@ -11,20 +11,22 @@ namespace DSRPG.Classes.Hero
         public Warrior(string name, string gender, string _class, string gift)
             :base(name, gender, _class)
         {
-            health = 0;
+            strength = 10;
+            agility = 5;
+            stamina = 8;
+            intellect = 2;
+
+
+            health = 80;
             health = UpHealth();
-            mana = 0;
+            mana = 20;
             mana = UpMana();
-            energy = 0;
+            energy = 20;
             energy = UpEnergy();
-            damage = 0;
+            damage = 7;
             damage = UpDamage();
-            armor = 0;
+            armor = 0.07;
             armor = UpArmor();
-            strength = 0;
-            agility = 0;
-            stamina = 0;
-            intellect = 0;
         }
 
     }

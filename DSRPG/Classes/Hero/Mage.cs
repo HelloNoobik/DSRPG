@@ -11,20 +11,23 @@ namespace DSRPG.Classes.Hero
         public Mage(string name, string gender, string _class, string gift)
             : base(name, gender, _class)
         {
-            health = 0;
+
+            strength = 4;
+            agility = 4;
+            stamina = 4;
+            intellect = 12;
+
+
+            health = 60;
             health = UpHealth();
-            mana = 0;
+            mana = 100;
             mana = UpMana();
-            energy = 0;
+            energy = 20;
             energy = UpEnergy();
-            damage = 0;
+            damage = 6;
             damage = UpDamage();
-            armor = 0;
+            armor = 0.03;
             armor = UpArmor();
-            strength = 0;
-            agility = 0;
-            stamina = 0;
-            intellect = 0;
         }
     }
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Management.Instrumentation;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -122,15 +124,16 @@ namespace DSRPG.Classes.Hero
             {
                 energy = energy + (agility * 1);
             }
+            else
+            {
+                energy = energy + agility;
+            }
             return energy;
         } // если число кратно 3 а то есть каждые 3 очка повышается энергия от ловкости
 
         public int UpDamage()
         {
-            if(strength % 2 == 0)
-            {
-                damage = damage + (strength * 1);
-            }
+            damage = damage + (strength/4);
             return damage;
         } // если число кратно 2 а то есть каждые 2 очка повышается дамага от силы
 
@@ -143,6 +146,7 @@ namespace DSRPG.Classes.Hero
         {
             if (health == 0)
             {
+                MessageBox.Show("Вы умерли");
                 return true;
             }
             else
@@ -156,10 +160,6 @@ namespace DSRPG.Classes.Hero
             else return false;
         } // чек на отсуствие маны
         
-        public void CheckResist()
-        {
-          // int reset = damagemob * (1-(armor/100));
-        } // доделать 
 
         
         public override string ToString() //Мож пойже пригодится

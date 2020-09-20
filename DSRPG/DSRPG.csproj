@@ -77,9 +77,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Arena\Battle.cs" />
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Mobs\Thief.cs" />
     <Compile Include="Core\MediaController.cs" />
     <Compile Include="Core\Settings.cs" />
     <Compile Include="Classes\Hero\Archer.cs" />
@@ -290,6 +292,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <Resource Include="Resources\img\Arena.jpg" />
+    <Resource Include="Resources\img\mobs\Thief.png" />
+    <Resource Include="Resources\img\mobs\boss anatolii.png" />
+    <Resource Include="Resources\img\mobs\funny knight.png" />
+    <Resource Include="Resources\img\mobs\gyndir.png" />
+    <Resource Include="Resources\img\mobs\kapra.png" />
+    <Resource Include="Resources\img\mobs\knight.png" />
+    <Resource Include="Resources\img\mobs\logan.png" />
+    <Resource Include="Resources\img\mobs\red.png" />
     <Content Include="Resources\video\.gitattributes" />
     <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

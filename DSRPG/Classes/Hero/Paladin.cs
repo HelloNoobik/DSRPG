@@ -11,20 +11,22 @@ namespace DSRPG.Classes.Hero
         public Paladin(string name, string gender, string _class, string gift) 
             : base(name,gender,_class)
         {
-            health = 0;
+
+            strength = 15;
+            agility = 10;
+            stamina = 10;
+            intellect = 10;
+
+            health = 100;
             health = UpHealth();
-            mana = 0;
+            mana = 50;
             mana = UpMana();
-            energy = 0;
+            energy = 20;
             energy = UpEnergy();
-            damage = 0;
+            damage = 10;
             damage = UpDamage();
-            armor = 0;
+            armor = 0.09;
             armor = UpArmor();
-            strength = 0;
-            agility = 0;
-            stamina = 0;
-            intellect = 0;
         }
     }
 }

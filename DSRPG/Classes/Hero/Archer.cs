@@ -11,20 +11,22 @@ namespace DSRPG.Classes.Hero
         public Archer(string name,string gender, string _class, string gift) 
             : base(name,gender,_class)
         {
-            health = 0;
+            strength = 8;
+            agility = 8;
+            stamina = 8;
+            intellect = 5;
+
+
+            health = 60;
             health = UpHealth();
-            mana = 0;
+            mana = 60;
             mana = UpMana();
-            energy = 0;
+            energy = 20;
             energy = UpEnergy();
-            damage = 0;
+            damage = 13;
             damage = UpDamage();
-            armor = 0;
+            armor = 0.05;
             armor = UpArmor();
-            strength = 0;
-            agility = 0;
-            stamina = 0;
-            intellect = 0;
         }
     }
 }

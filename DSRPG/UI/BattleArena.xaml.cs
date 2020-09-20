@@ -13,7 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DSRPG.Classes.Hero;
+using DSRPG.Core;
 using DSRPG.Test;
+using DSRPG.Classes;
+using DSRPG.Classes.Mobs;
+using DSRPG.Classes.Arena;
 
 namespace DSRPG.UI
 {
@@ -22,9 +27,11 @@ namespace DSRPG.UI
     /// </summary>
     public partial class BattleArena : Page
     {
+        static private Battle battle;
         public BattleArena()
         {
             InitializeComponent();
+            battle = new Battle(new Thief(this), this);
         }
 
         private void ProgressBar_TextInput(object sender, TextCompositionEventArgs e)
@@ -38,6 +45,16 @@ namespace DSRPG.UI
             {
 
             }
+        }
+
+        private void hp_Click(object sender, RoutedEventArgs e)
+        {
+            battle.Hero.Health--;
+            battle.Hero.Mana--;
+            battle.Hero.Energy--;
+            battle.Mob.Health--;
+            battle.Mob.Mana--;
+            battle.Mob.Energy--;
         }
     }
 }
