@@ -36,7 +36,7 @@ namespace DSRPG.UI
 
         private void PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("123");
+            Settings.PageController.ChangeWindow(Pages.BattleArena);
         }
     }
 }

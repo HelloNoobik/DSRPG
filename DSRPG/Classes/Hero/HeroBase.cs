@@ -7,11 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using static DSRPG.Test.Level;
 
 namespace DSRPG.Classes.Hero
 {
     public abstract class HeroBase
     {
+        public event Event Dead;
         protected string name;
         protected int health;
         protected int mana;
@@ -31,7 +33,11 @@ namespace DSRPG.Classes.Hero
         public int Health
         {
             get { return health; }
-            set { health = value; }
+            set 
+            {
+                health = value;
+                if(health == 0) Dead?.Invoke();
+            }
         }
         public int Mana
         {
