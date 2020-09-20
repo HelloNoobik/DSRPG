@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSRPG.GameLogic.Mobs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DSRPG.GameLogic.Core;
+using DSRPG.Test;
 
 namespace DSRPG.UI
 {
@@ -20,7 +23,6 @@ namespace DSRPG.UI
     /// </summary>
     public partial class BattleArena : Page
     {
-       
         public BattleArena()
         {
             InitializeComponent();
@@ -29,6 +31,14 @@ namespace DSRPG.UI
         private void ProgressBar_TextInput(object sender, TextCompositionEventArgs e)
         {
 
+        }
+
+        private void Room_Unloaded(object sender, RoutedEventArgs e)
+        {
+          //  if (level.CheckdDieMobs() == true)
+            {
+
+            }
         }
     }
 }

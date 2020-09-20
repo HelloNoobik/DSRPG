@@ -1,4 +1,5 @@
 ﻿using DSRPG.Test;
+using DSRPG.UI;
 using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ namespace DSRPG.Core
             Main = new UI.MainMenu();
             Intro = new UI.Intro();
             Settings = new UI.SettingsPage();
-            BattleArena = new UI.BattleArena();
+            BattleArena = null;
             CreateCharacter = new UI.CreateCharacter();
             Lotrik = new UI.Lotrik();
             WorldMap = new UI.WorldMap();
@@ -143,6 +144,5 @@ namespace DSRPG.Core
             }
             SlowOpacity(_page);
         }
-
     }
 }
