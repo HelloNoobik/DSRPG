@@ -42,7 +42,13 @@ namespace DSRPG.Classes.Arena
             arena.dmg.Click += Dmg_Click;
             arena.run.Click += Run_Click;
             arena.runthought.Click += Runthought_Click;
+            arena.Unloaded += Arena_Unloaded;
 
+        }
+
+        private void Arena_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Settings.Hero = Hero;
         }
 
         private void Runthought_Click(object sender, RoutedEventArgs e)
