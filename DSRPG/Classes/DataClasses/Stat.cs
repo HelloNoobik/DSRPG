@@ -34,13 +34,14 @@ namespace DSRPG.Classes.DataClasses
             get { return current; }
             set 
             {
-                OnPropertyChanged();
                 if (value > max)
                 {
                     current = max;
+                    OnPropertyChanged();
                     return;
                 }
                 current = value;
+                OnPropertyChanged();
                 if (current <= 0)
                 {
                     Empty?.Invoke();
@@ -61,6 +62,12 @@ namespace DSRPG.Classes.DataClasses
         public void Reset()
         {
             Current = max;
+        }
+
+        public void FullReset()
+        {
+            Current = max;
+            _base = max;
         }
 
         public Stat(int current)

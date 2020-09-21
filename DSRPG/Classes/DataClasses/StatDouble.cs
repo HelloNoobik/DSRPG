@@ -57,6 +57,13 @@ namespace DSRPG.Classes.DataClasses
             Current = max;
         }
 
+        public void FullReset()
+        {
+            Current = max;
+            _base = max;
+        }
+
+
         public StatDouble(double current)
         {
             this.current = current;

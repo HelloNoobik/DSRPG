@@ -116,15 +116,17 @@ namespace DSRPG.Classes.Hero
 
         private void Inv_ArmorChanged()
         {
+            armor.Max = armor.Base;
             Armor item = inv.GetItem(inv.Armor) as Armor;
-            armor.Max = armor.Base += item.Defence;
+            armor.Max = armor.Base + item.Defence;
             armor.Reset();
         }
 
         private void Inv_WeaponChanged()
         {
+            damage.Max = damage.Base;
             Weapon item = inv.GetItem(inv.Weapon) as Weapon;
-            damage.Max = damage.Base += item.Damage;
+            damage.Max = damage.Base + item.Damage;
             damage.Reset();
         }
 
@@ -143,11 +145,11 @@ namespace DSRPG.Classes.Hero
             damage.Max += (strength / 4);
             armor.Max += (strength * 0.1) / 100;
 
-            damage.Reset();
-            armor.Reset();
-            health.Reset();
-            mana.Reset();
-            energy.Reset();
+            damage.FullReset();
+            armor.FullReset();
+            health.FullReset();
+            mana.FullReset();
+            energy.FullReset();
 
         }
         public bool CheckDie()
