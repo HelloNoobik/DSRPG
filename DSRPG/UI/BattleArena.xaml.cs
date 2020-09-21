@@ -19,6 +19,8 @@ using DSRPG.Test;
 using DSRPG.Classes;
 using DSRPG.Classes.Mobs;
 using DSRPG.Classes.Arena;
+using System.Windows.Media.Animation;
+using System.Configuration;
 
 namespace DSRPG.UI
 {
@@ -58,11 +60,66 @@ namespace DSRPG.UI
 
         private void slot_click(object sender,MouseButtonEventArgs e)
         {
+            Random rand = new Random();
+            Slot slot = sender as Slot;
+            Item item = slot.GetItem();
+            if (item == null) return;
+            if (item.Count == 0) return;
+            switch (item.Name)
+            {
+                case "Эстус":
+                    battle.Hero.Health.Current += 30;
+                    Core.Settings.Hero.inv.RemoveItem(item.Name,1);
+                    break;
+                case "Человечность":
+                    battle.Hero.Health.Reset();
+                    Core.Settings.Hero.inv.RemoveItem(item.Name,1);
+                    break;
+                case "Небесное благословение":
+                    battle.Hero.Health.Current += 50;
+                    Core.Settings.Hero.inv.RemoveItem(item.Name, 1);
+                    break;
+                case "Черная огненная бомба":
+                    battle.Mob.Health -= rand.Next(40,60);
+                    Core.Settings.Hero.inv.RemoveItem(item.Name, 1);
+                    break;
+                case "Огненная бомба":
+                    battle.Mob.Health -= rand.Next(20,30);
+                    Core.Settings.Hero.inv.RemoveItem(item.Name, 1);
+                    break;
+                default:
+                    break;
 
+            }
+            
         }
         private void BattleArena_load(object sender,RoutedEventArgs e)
         {
-             
+            if(Core.Settings.Hero.inv.Slot1 != -1)
+            {
+                Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot1);
+                Slot0.SetSlot(item);
+            }
+            if(Core.Settings.Hero.inv.Slot2 != -1)
+            {
+                Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot2);
+                Slot1.SetSlot(item);
+            }
+            if (Core.Settings.Hero.inv.Slot3 != -1)
+            {
+                Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot3);
+                Slot2.SetSlot(item);
+            }
+            if (Core.Settings.Hero.inv.Slot4 != -1)
+            {
+                Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot4);
+                Slot3.SetSlot(item);
+            }
+            if (Core.Settings.Hero.inv.Slot5 != -1)
+            {
+                Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot5);
+                Slot4.SetSlot(item);
+            }
         }
     }
 }

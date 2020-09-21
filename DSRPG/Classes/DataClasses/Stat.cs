@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,13 +33,19 @@ namespace DSRPG.Classes.DataClasses
         {
             get { return current; }
             set 
-            { 
-                current = value; 
-                if(current <= 0)
+            {
+                OnPropertyChanged();
+                if (value > max)
+                {
+                    current = max;
+                    return;
+                }
+                current = value;
+                if (current <= 0)
                 {
                     Empty?.Invoke();
                 }
-                OnPropertyChanged();
+
             }
         }
 
