@@ -175,6 +175,20 @@ namespace DSRPG.Classes
             slot.SlotChanged += Slot_SlotChanged;
         }
 
+        public void SetSlot(Item item)
+        {
+            image.Source = new BitmapImage(new Uri(item.Image,UriKind.Relative));
+            label.Content = item.Count;
+            this.item = item;
+
+            item.ItemChanged += Item_ItemChanged;
+        }
+
+        private void Item_ItemChanged()
+        {
+            label.Content = Core.Settings.Hero.inv.GetItem(index).Count;
+        }
+
         private void Slot_SlotChanged(Slot slot)
         {
             label.Content = slot.label.Content;
