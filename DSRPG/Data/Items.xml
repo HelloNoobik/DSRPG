@@ -5,12 +5,12 @@
   <item name="Небесное благословение" itemtype="item" image="/DSRPG;component/Resources/img/Items/AnotherHeal.png" />
   <item name="Черная огненная бомба" itemtype="item" image="/DSRPG;component/Resources/img/Items/BlackBomb.png" />
   <item name="Огненная бомба" itemtype="item" image="/DSRPG;component/Resources/img/Items/Bomb.png" />
-  <item name="Кинжал" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/Dagger.png" />
-  <item name="Короткий меч" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/ShortSword.png" />
-  <item name="Длинный меч" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/LongSword.png" />
-  <item name="Палаш" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/Palash.png" />
-  <item name="Сет Вора" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/ThiefHelmet.png" />
-  <item name="Сет Воина" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/WarriorHelmet.png" />
-  <item name="Сет Волшебника" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/MageHelmet.png" />
-  <item name="Сет Клирика" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/PaladinHelmet.png" />
+  <item name="Кинжал" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/Dagger.png" damage="10"/>
+  <item name="Короткий меч" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/ShortSword.png" damage="20" />
+  <item name="Длинный меч" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/LongSword.png" damage="30" />
+  <item name="Палаш" itemtype="weapon" image="/DSRPG;component/Resources/img/Items/Weapon/Palash.png" damage="50" />
+  <item name="Сет Вора" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/ThiefHelmet.png" defence="0,25"/>
+  <item name="Сет Воина" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/WarriorHelmet.png" defence="0,3"/>
+  <item name="Сет Волшебника" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/MageHelmet.png" defence="0,1"/>
+  <item name="Сет Клирика" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/PaladinHelmet.png" defence="0,4"/>
 </items>

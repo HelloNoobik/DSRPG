@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DSRPG.Classes.DataClasses
 {
-    public class Stat : INotifyPropertyChanged
+    public class StatDouble : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
@@ -16,25 +16,25 @@ namespace DSRPG.Classes.DataClasses
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        private int max;
-        private int current;
-        private int _base;
+        private double max;
+        private double current;
+        private double _base;
 
-        public int Max
+        public double Max
         {
             get { return max; }
-            set 
+            set
             {
                 max = value;
             }
         }
-        public int Current
+        public double Current
         {
             get { return current; }
-            set 
-            { 
-                current = value; 
-                if(current <= 0)
+            set
+            {
+                current = value;
+                if (current <= 0)
                 {
                     Empty?.Invoke();
                 }
@@ -42,12 +42,13 @@ namespace DSRPG.Classes.DataClasses
             }
         }
 
-        public int Base
+        public double Base
         {
             get { return _base; }
             set
             {
                 _base = value;
+                OnPropertyChanged();
             }
         }
 
@@ -56,7 +57,7 @@ namespace DSRPG.Classes.DataClasses
             Current = max;
         }
 
-        public Stat(int current)
+        public StatDouble(double current)
         {
             this.current = current;
             max = current;
@@ -65,6 +66,6 @@ namespace DSRPG.Classes.DataClasses
 
         public delegate void Event();
         public event Event Empty;
-        
+
     }
 }

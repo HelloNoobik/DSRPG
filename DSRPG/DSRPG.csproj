@@ -82,9 +82,12 @@
       <DependentUpon>Level.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\DataClasses\Stat.cs" />
+    <Compile Include="Classes\DataClasses\StatDouble.cs" />
+    <Compile Include="Classes\Inventory\Armor.cs" />
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Inventory\Weapon.cs" />
     <Compile Include="Classes\Mobs\Thief.cs" />
     <Compile Include="Core\MediaController.cs" />
     <Compile Include="Core\Settings.cs" />

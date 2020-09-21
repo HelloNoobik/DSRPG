@@ -14,13 +14,13 @@
         </ScrollViewer>
         <Border BorderBrush="White" Background="#FF767676" BorderThickness="1" HorizontalAlignment="Left" Height="180" Margin="10,10,0,0" VerticalAlignment="Top" Width="323">
             <Grid>
-                <Label Content="Имя" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Label Content="Здоровье" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-                <Label Content="Мана" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
-                <Label Content="Энергия" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Hp" Content="{Binding Current}" HorizontalAlignment="Left" Margin="89,65,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Mana" Content="{Binding Current}" HorizontalAlignment="Left" Margin="89,96,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="Energy" Content="{Binding Current}" HorizontalAlignment="Left" Margin="89,127,0,0" VerticalAlignment="Top"/>
+                <Label Content="Имя" HorizontalAlignment="Left" Margin="4,3,0,0" VerticalAlignment="Top"/>
+                <Label Content="Здоровье" HorizontalAlignment="Left" Margin="4,54,0,0" VerticalAlignment="Top"/>
+                <Label Content="Мана" HorizontalAlignment="Left" Margin="4,85,0,0" VerticalAlignment="Top"/>
+                <Label Content="Энергия" HorizontalAlignment="Left" Margin="4,116,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Hp" Content="{Binding Current}" HorizontalAlignment="Left" Margin="83,58,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Mana" Content="{Binding Current}" HorizontalAlignment="Left" Margin="83,89,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Energy" Content="{Binding Current}" HorizontalAlignment="Left" Margin="83,120,0,0" VerticalAlignment="Top"/>
                 <Label Content="Сила" HorizontalAlignment="Left" Margin="169,7,0,0" VerticalAlignment="Top"/>
                 <Label Content="Ловкость" HorizontalAlignment="Left" Margin="169,38,0,0" VerticalAlignment="Top"/>
                 <Label Content="Интеллект" HorizontalAlignment="Left" Margin="169,69,0,0" VerticalAlignment="Top"/>
@@ -29,11 +29,13 @@
                 <Label Content="{Binding Strength}" HorizontalAlignment="Left" Margin="251,7,0,0" VerticalAlignment="Top"/>
                 <Label Content="{Binding Agility}" HorizontalAlignment="Left" Margin="251,45,0,0" VerticalAlignment="Top"/>
                 <Label Content="{Binding Intellect}" HorizontalAlignment="Left" Margin="251,69,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="89,14,0,0" VerticalAlignment="Top"/>
-                <Label Content="Класс" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Class}" HorizontalAlignment="Left" Margin="89,40,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Armor}" HorizontalAlignment="Left" Margin="251,100,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Damage}" HorizontalAlignment="Left" Margin="251,131,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="83,7,0,0" VerticalAlignment="Top"/>
+                <Label Content="Класс" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Class}" HorizontalAlignment="Left" Margin="83,33,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="armor" Content="{Binding Current}" HorizontalAlignment="Left" Margin="251,100,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="damage" Content="{Binding Current}" HorizontalAlignment="Left" Margin="251,131,0,0" VerticalAlignment="Top"/>
+                <Label Content="Выносливость&#xD;&#xA;" HorizontalAlignment="Left" Margin="4,147,0,0" VerticalAlignment="Top"/>
+                <Label Content="{Binding Stamina}" HorizontalAlignment="Left" Margin="97,147,0,0" VerticalAlignment="Top"/>
 
             </Grid>
         </Border>

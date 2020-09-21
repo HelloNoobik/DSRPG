@@ -21,8 +21,8 @@ namespace DSRPG.Classes.Hero
             health = new Stat(60);
             mana = new Stat(60);
             energy = new Stat(20);
-            damage = 13;
-            armor = 0.05;
+            damage = new Stat(13);
+            armor = new StatDouble(0.05);
 
             CalcStats();
 

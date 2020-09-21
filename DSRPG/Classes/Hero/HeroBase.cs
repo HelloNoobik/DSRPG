@@ -34,8 +34,8 @@ namespace DSRPG.Classes.Hero
         protected int agility;
         protected int stamina;
         protected int intellect;
-        protected double armor;
-        protected int damage;
+        protected StatDouble armor;
+        protected Stat damage;
         public Inventory inv;
 
         public string Name
@@ -91,12 +91,12 @@ namespace DSRPG.Classes.Hero
             get { return intellect; }
             set { intellect = value; OnPropertyChanged(); }
         }
-        public double Armor
+        public StatDouble Armor
         {
             get { return armor; }
             set { armor = value; OnPropertyChanged(); }
         }
-        public int Damage
+        public Stat Damage
         {
             get { return damage; }
             set { damage = value; OnPropertyChanged(); }
@@ -109,8 +109,24 @@ namespace DSRPG.Classes.Hero
             Name = name;
             Class = _class;
             Gender = gender;
+
+            inv.WeaponChanged += Inv_WeaponChanged;
+            inv.ArmorChanged += Inv_ArmorChanged;
         }
 
+        private void Inv_ArmorChanged()
+        {
+            Armor item = inv.GetItem(inv.Armor) as Armor;
+            armor.Max = armor.Base += item.Defence;
+            armor.Reset();
+        }
+
+        private void Inv_WeaponChanged()
+        {
+            Weapon item = inv.GetItem(inv.Weapon) as Weapon;
+            damage.Max = damage.Base += item.Damage;
+            damage.Reset();
+        }
 
         public void CalcStats()
         {
@@ -124,8 +140,11 @@ namespace DSRPG.Classes.Hero
             {
                 energy.Max = energy.Max + agility;
             }
-            damage = damage + (strength / 4);
-            armor = armor + (strength * 0.1) / 100;
+            damage.Max += (strength / 4);
+            armor.Max += (strength * 0.1) / 100;
+
+            damage.Reset();
+            armor.Reset();
             health.Reset();
             mana.Reset();
             energy.Reset();

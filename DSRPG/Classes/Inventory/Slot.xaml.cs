@@ -113,14 +113,6 @@ namespace DSRPG.Classes
             }
         }
 
-        public Slot(int index):this()
-        {
-            Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.GetSlot(index));
-            image.Source = new BitmapImage(new Uri(item.Image,UriKind.Relative));
-            label.Content = item.Count;
-
-        }
-
         private void Slot_ItemChanged()
         {
             this.item = Core.Settings.Hero.inv.GetItem(index);
@@ -133,35 +125,35 @@ namespace DSRPG.Classes
             if (this.item.Type == ItemType.Armor)
             {
                 page.Armor.SetSlot(this.Clone());
-                Core.Settings.Hero.inv.SetSlot(6, index);
+                Core.Settings.Hero.inv.Armor = index;
             }
             else if (this.item.Type == ItemType.Weapon)
             {
                 page.Weapon.SetSlot(this.Clone());
-                Core.Settings.Hero.inv.SetSlot(5, index);
+                Core.Settings.Hero.inv.Weapon = index;
             }
             else
             {
                 switch (name)
                 {
                     case "Слот 1":
-                        Core.Settings.Hero.inv.SetSlot(0, index);
+                        Core.Settings.Hero.inv.Slot1 = index;
                         page.slot1.SetSlot(this.Clone());
                         break;
                     case "Слот 2":
-                        Core.Settings.Hero.inv.SetSlot(1, index);
+                        Core.Settings.Hero.inv.Slot2 = index;
                         page.slot2.SetSlot(this.Clone());
                         break;
                     case "Слот 3":
-                        Core.Settings.Hero.inv.SetSlot(2, index);
+                        Core.Settings.Hero.inv.Slot3 = index;
                         page.slot3.SetSlot(this.Clone());
                         break;
                     case "Слот 4":
-                        Core.Settings.Hero.inv.SetSlot(3, index);
+                        Core.Settings.Hero.inv.Slot4 = index;
                         page.slot4.SetSlot(this.Clone());
                         break;
                     case "Слот 5":
-                        Core.Settings.Hero.inv.SetSlot(4, index);
+                        Core.Settings.Hero.inv.Slot5 = index;
                         page.slot5.SetSlot(this.Clone());
                         break;
                     default:

@@ -1,12 +1,7 @@
-﻿using DSRPG.Test;
-using DSRPG.UI;
+﻿using DSRPG.UI;
 using GalaSoft.MvvmLight;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -29,12 +24,14 @@ namespace DSRPG.Core
 {
     public class PageController : ViewModelBase, INotifyPropertyChanged
     {
+        #region Event PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-
+        #endregion
+        #region Поля
         private Page Main;
         private Page Intro;
         private Page Settings;
@@ -46,7 +43,10 @@ namespace DSRPG.Core
         private Page Test;
 
         private Page currentPage;
-     
+
+        private double pageOpacity;
+        #endregion
+        #region Свойства
         public Page CurrentPage
         {
             get
@@ -61,8 +61,6 @@ namespace DSRPG.Core
                 OnPropertyChanged();
             }
         }
-
-        private double pageOpacity;
         public double PageOpacity
         {
             get
@@ -78,8 +76,8 @@ namespace DSRPG.Core
                 OnPropertyChanged();
             }
         }
-
-
+        #endregion
+        #region Конструкторы
         public PageController()
         {
             Main = new UI.MainMenu();
@@ -96,7 +94,8 @@ namespace DSRPG.Core
 
             PageOpacity = 1.0;
         }
-
+        #endregion
+        #region Методы
         private async void SlowOpacity(Page page)
         {
             await Task.Factory.StartNew(() =>
@@ -147,5 +146,6 @@ namespace DSRPG.Core
             }
             SlowOpacity(_page);
         }
+        #endregion
     }
 }

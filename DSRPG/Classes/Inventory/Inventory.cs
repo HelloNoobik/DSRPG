@@ -18,6 +18,89 @@ namespace DSRPG.Classes
 
         private int[] slots;
 
+        public delegate void Changed();
+        public event Changed WeaponChanged;
+        public event Changed ArmorChanged;
+
+        public int Weapon
+        {
+            get 
+            {
+                return slots[5];
+            }
+            set 
+            {
+                slots[5] = value;
+                WeaponChanged?.Invoke();
+            }
+        }
+        public int Armor
+        {
+            get
+            {
+                return slots[6];
+            }
+            set
+            {
+                slots[6] = value;
+                ArmorChanged?.Invoke();
+            }
+        }
+        public int Slot5
+        {
+            get
+            {
+                return slots[4];
+            }
+            set
+            {
+                slots[4] = value;
+            }
+        }
+        public int Slot4
+        {
+            get
+            {
+                return slots[3];
+            }
+            set
+            {
+                slots[3] = value;
+            }
+        }
+        public int Slot3
+        {
+            get
+            {
+                return slots[2];
+            }
+            set
+            {
+                slots[2] = value;
+            }
+        }
+        public int Slot2
+        {
+            get
+            {
+                return slots[1];
+            }
+            set
+            {
+                slots[1] = value;
+            }
+        }
+        public int Slot1
+        {
+            get
+            {
+                return slots[0];
+            }
+            set
+            {
+                slots[0] = value;
+            }
+        }
         public Inventory()
         {
             slots = new int[7] {-1,-1,-1,-1,-1,-1,-1};
@@ -49,6 +132,8 @@ namespace DSRPG.Classes
                 string name = "";
                 ItemType Type = ItemType.Other;
                 string image = "";
+                int damage = 0;
+                double defence = 0.1;
                 foreach (XmlAttribute atribute in node.Attributes)
                 {
                     if (atribute.Name == "name") name = atribute.Value;
@@ -68,8 +153,13 @@ namespace DSRPG.Classes
                         }
                     }
                     else if (atribute.Name == "image") image = atribute.Value;
+                    else if (atribute.Name == "damage") damage = Convert.ToInt32(atribute.Value);
+                    else if (atribute.Name == "defence") defence = Convert.ToDouble(atribute.Value);
                 }
-                _items.Add(new Item(name, Type, image));
+                if(Type == ItemType.Armor) _items.Add(new Armor(name, image, defence));
+                else if(Type == ItemType.Weapon) _items.Add(new Weapon(name, image, damage));
+                else _items.Add(new Item(name, Type, image));
+
             }
         }
 
@@ -104,17 +194,6 @@ namespace DSRPG.Classes
         public int[] GetSlots() 
         {
             return slots;
-        }
-
-        public int GetSlot(int index) 
-        {
-            if (index < 0 || index > slots.Length) return -2;
-            return slots[index];
-        }
-
-        public void SetSlot(int index, int itemId) 
-        {
-            slots[index] = itemId;
         }
 
         public int GetCountItems()

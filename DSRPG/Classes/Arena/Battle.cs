@@ -112,11 +112,11 @@ namespace DSRPG.Classes.Arena
 
         public void CheckResist()
         {
-            Hero.Health.Current -= Convert.ToInt32(Mob.Damage * (1 - Hero.Armor));
+            Hero.Health.Current -= Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
         }
         public void Mobresist()
         {
-            Mob.Health -= Convert.ToInt32(Hero.Damage * (1 - Mob.Armor));
+            Mob.Health -= Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
         }
     }
 }

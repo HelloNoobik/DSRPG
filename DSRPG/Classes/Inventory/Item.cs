@@ -13,10 +13,10 @@ namespace DSRPG.Classes
 
     public class Item
     {
-        private string name;
-        private ItemType type;
-        private int count;
-        private string image;
+        protected string name;
+        protected ItemType type;
+        protected int count;
+        protected string image;
 
         public delegate void Changed();
         public event Changed ItemChanged;
@@ -58,6 +58,13 @@ namespace DSRPG.Classes
         {
             this.name = name;
             this.type = type;
+            this.image = image;
+            Count = count;
+        }
+
+        public Item(string name, string image, int count = 0)
+        {
+            this.name = name;
             this.image = image;
             Count = count;
         }

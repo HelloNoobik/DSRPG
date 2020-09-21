@@ -81,6 +81,8 @@ namespace DSRPG.UI
             Hp.DataContext = Core.Settings.Hero.Health;
             Mana.DataContext = Core.Settings.Hero.Mana;
             Energy.DataContext = Core.Settings.Hero.Energy;
+            damage.DataContext = Core.Settings.Hero.Damage;
+            armor.DataContext = Core.Settings.Hero.Armor;
             LoadInventory();
             DataContext = Core.Settings.Hero;
         }
