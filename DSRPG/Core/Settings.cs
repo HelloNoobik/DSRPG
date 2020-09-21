@@ -23,6 +23,8 @@ namespace DSRPG.Core
 
         public static LotrikViewModel Lotrik;
         private static int positionInCompaign = 0;
+
+        private static bool heroPageIsOpened = false;
         #endregion
         #region Свойства
         public static double MusicVolume
@@ -93,6 +95,20 @@ namespace DSRPG.Core
                 PositionChanged?.Invoke();
             }
         }
+
+        public static bool HeroPageIsOpened 
+        {
+            get 
+            {
+                return heroPageIsOpened;
+            }
+
+            set 
+            {
+                heroPageIsOpened = value;
+                HeroPageStateChanged?.Invoke();
+            }
+        }
         #endregion
         #region Делегаты и события
         public delegate void Changed();
@@ -102,6 +118,7 @@ namespace DSRPG.Core
         public static event Changed MasterVolumeChanged;
         public static event Changed VideoVolumeChanged;
         public static event Changed PositionChanged;
+        public static event Changed HeroPageStateChanged;
         #endregion
         #region Методы
         #endregion

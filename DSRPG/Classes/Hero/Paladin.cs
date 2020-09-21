@@ -27,6 +27,9 @@ namespace DSRPG.Classes.Hero
             damage = UpDamage();
             armor = 0.09;
             armor = UpArmor();
+
+            inv.AddItem("Сет Клирика", 1);
+            inv.AddItem("Кинжал", 1);
         }
     }
 }

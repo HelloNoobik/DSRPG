@@ -35,6 +35,7 @@ namespace DSRPG.Classes.Hero
         protected int intellect;
         protected double armor;
         protected int damage;
+        public Inventory inv;
 
         public string Name
         {
@@ -102,6 +103,8 @@ namespace DSRPG.Classes.Hero
 
         public HeroBase(string name, string gender, string _class) 
         {
+            inv = new Inventory();
+            inv.AddItem("Эстус", 3);
             Name = name;
             Class = _class;
             Gender = gender;

@@ -85,6 +85,20 @@ namespace DSRPG.Classes.Company
 
             Update();
             Core.Settings.PositionChanged += Update;
+            Core.Settings.HeroPageStateChanged += Settings_HeroPageStateChanged;
+        }
+
+        private void Settings_HeroPageStateChanged()
+        {
+            if (Core.Settings.HeroPageIsOpened) 
+            {
+                Visibility = Visibility.Hidden;
+            }
+            else 
+            {
+                Visibility = Visibility.Visible;
+            }
+
         }
 
         private void Update()

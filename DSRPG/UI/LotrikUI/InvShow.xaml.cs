@@ -27,6 +27,7 @@ namespace DSRPG.UI.LotrikUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Core.Settings.HeroPageIsOpened = true;
             Core.Settings.Lotrik.ChangePage("Show");
         }
     }

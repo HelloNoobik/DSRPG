@@ -27,35 +27,37 @@ namespace DSRPG.UI
         public HeroPage()
         {
             InitializeComponent();
-            //LoadInventory();
         }
 
-        //private void LoadInventory()
-        //{
-        //    Point point = new Point(10, 15);
-        //    for (int i = 0; i < inv.GetCountItems(); i++)
-        //    {
-        //        Slot slot = new Slot(inv.GetItem(i), this);
-        //        slot.Location = point;
+        private void LoadInventory()
+        {
+            Inventory inv = Core.Settings.Hero.inv;
+            Point point = new Point(10, 15);
+            for (int i = 0; i < inv.GetCountItems(); i++)
+            {
+                if (inv.GetItem(i).Count <= 0) continue;
+                Slot slot = new Slot(i, this);
+                slot.Location = point;
 
-        //        point.X += slot.Width + 10;
+                point.X += slot.Width + 10;
 
-        //        if (point.X == 250)
-        //        {
-        //            if (point.Y == InventoryWindow.Height - 65)
-        //            {
-        //                point.Y += 30 + slot.Height;
-        //                point.X = 10;
-        //                InventoryWindow.Height += 200;
-        //            }
-        //            else
-        //            {
-        //                point.X = 10;
-        //                point.Y += slot.Height + 10;
-        //            }
-        //        }
-        //    }
-        //}
+                if (point.X == 250)
+                {
+                    if (point.Y == InventoryWindow.Height - 65)
+                    {
+                        point.Y += 30 + slot.Height;
+                        point.X = 10;
+                        InventoryWindow.Height += 200;
+                    }
+                    else
+                    {
+                        point.X = 10;
+                        point.Y += slot.Height + 10;
+                    }
+                }
+            }
+            Core.Settings.Hero.inv = inv; 
+        }
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
@@ -70,12 +72,30 @@ namespace DSRPG.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Core.Settings.HeroPageIsOpened = false;
             Core.Settings.Lotrik.ChangePage("Hide");
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadInventory();
             DataContext = Core.Settings.Hero;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string result = "";
+            foreach (int index in Core.Settings.Hero.inv.GetSlots()) 
+            {
+                if (index == -1) 
+                { 
+                    result += $"{index} - Слот пуст {Environment.NewLine}";
+                    continue;
+                }
+                Item item = Core.Settings.Hero.inv.GetItem(index);
+                result += $"{index} - {item.Name} - {item.Count}{Environment.NewLine}";
+            }
+            MessageBox.Show(result);
         }
     }
 }

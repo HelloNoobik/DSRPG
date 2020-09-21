@@ -10,12 +10,16 @@ namespace DSRPG.Classes
     {
         Item, Armor, Weapon, Spell, Other
     }
+
     public class Item
     {
         private string name;
         private ItemType type;
         private int count;
         private string image;
+
+        public delegate void Changed();
+        public event Changed ItemChanged;
 
 
         public string Image
@@ -41,12 +45,13 @@ namespace DSRPG.Classes
             set
             {
                 if (count >= 100) return;
-                if (count + value > 100)
+                if (value > 100)
                 {
                     count = 100;
                     return;
                 }
-                count += value;
+                count = value;
+                ItemChanged?.Invoke();
             }
         }
         public Item(string name, ItemType type, string image, int count = 0)

@@ -27,6 +27,9 @@ namespace DSRPG.Classes.Hero
             damage = UpDamage();
             armor = 0.05;
             armor = UpArmor();
+
+            inv.AddItem("Сет Вора", 1);
+            inv.AddItem("Кинжал", 1);
         }
     }
 }

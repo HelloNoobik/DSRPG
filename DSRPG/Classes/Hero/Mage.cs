@@ -28,6 +28,9 @@ namespace DSRPG.Classes.Hero
             damage = UpDamage();
             armor = 0.03;
             armor = UpArmor();
+
+            inv.AddItem("Сет Волшебника", 1);
+            inv.AddItem("Кинжал", 1);
         }
     }
 }

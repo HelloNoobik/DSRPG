@@ -27,6 +27,9 @@ namespace DSRPG.Classes.Hero
             damage = UpDamage();
             armor = 0.07;
             armor = UpArmor();
+
+            inv.AddItem("Сет Воина", 1);
+            inv.AddItem("Короткий меч", 1);
         }
 
     }
