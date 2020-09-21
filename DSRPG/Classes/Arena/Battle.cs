@@ -26,12 +26,12 @@ namespace DSRPG.Classes.Arena
             this.Mob = mob;
             this.Hero = Settings.Hero;
             this.arena = arena;
-            arena.hpbar.DataContext = Hero;
-            arena.manabar.DataContext = Hero;
-            arena.energybar.DataContext = Hero;
-            arena.hpbar.Maximum = Hero.Health;
-            arena.manabar.Maximum = Hero.Mana;
-            arena.energybar.Maximum = Hero.Energy;
+            arena.hpbar.DataContext = Hero.Health;
+            arena.manabar.DataContext = Hero.Mana;
+            arena.energybar.DataContext = Hero.Energy;
+            arena.hpbar.Maximum = Hero.Health.Max;
+            arena.manabar.Maximum = Hero.Mana.Max;
+            arena.energybar.Maximum = Hero.Energy.Max;
             arena.Mobhp.DataContext = Mob;
             arena.Mobmana.DataContext = Mob;
             arena.Mobenergy.DataContext = Mob;
@@ -59,7 +59,7 @@ namespace DSRPG.Classes.Arena
             if(par >= 0)
             {
                 MessageBox.Show("Вы пробежали потеряв здоровье");
-                Hero.Health -= 20;
+                Hero.Health.Current -= 20;
                 Settings.PositionInCompaign++;
                 Settings.PageController.ChangeWindow(Pages.Lotrik);
 
@@ -67,7 +67,7 @@ namespace DSRPG.Classes.Arena
             else
             {
                 MessageBox.Show("Вам не удалось пробежать");
-                Hero.Health /= 2;
+                Hero.Health.Current /= 2;
                 Mobdmg();
             }
         }
@@ -85,7 +85,7 @@ namespace DSRPG.Classes.Arena
             else
             {
                 MessageBox.Show("Вы не сбежали");
-                Hero.Health /= 2;
+                Hero.Health.Current /= 2;
                 Mobdmg();
             }
         }
@@ -112,7 +112,7 @@ namespace DSRPG.Classes.Arena
 
         public void CheckResist()
         {
-            Hero.Health -= Convert.ToInt32(Mob.Damage * (1 - Hero.Armor));
+            Hero.Health.Current -= Convert.ToInt32(Mob.Damage * (1 - Hero.Armor));
         }
         public void Mobresist()
         {

@@ -81,6 +81,7 @@
     <Compile Include="Classes\Company\Level.xaml.cs">
       <DependentUpon>Level.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DataClasses\Stat.cs" />
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>

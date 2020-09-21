@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSRPG.Classes.DataClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,13 @@ namespace DSRPG.Classes.Hero
             intellect = 2;
 
 
-            health = 80;
-            health = UpHealth();
-            mana = 20;
-            mana = UpMana();
-            energy = 20;
-            energy = UpEnergy();
+            health = new Stat(80);
+            mana = new Stat(20);
+            energy = new Stat(20);
             damage = 7;
-            damage = UpDamage();
             armor = 0.07;
-            armor = UpArmor();
+
+            CalcStats();
 
             inv.AddItem("Сет Воина", 1);
             inv.AddItem("Короткий меч", 1);

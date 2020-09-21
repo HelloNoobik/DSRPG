@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSRPG.Classes.DataClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,13 @@ namespace DSRPG.Classes.Hero
             stamina = 10;
             intellect = 10;
 
-            health = 100;
-            health = UpHealth();
-            mana = 50;
-            mana = UpMana();
-            energy = 20;
-            energy = UpEnergy();
+            health = new Stat(100);
+            mana = new Stat(50);
+            energy = new Stat(20);
             damage = 10;
-            damage = UpDamage();
             armor = 0.09;
-            armor = UpArmor();
+
+            CalcStats();
 
             inv.AddItem("Сет Клирика", 1);
             inv.AddItem("Кинжал", 1);

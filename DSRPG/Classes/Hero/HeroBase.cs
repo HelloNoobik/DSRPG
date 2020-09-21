@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using DSRPG.Classes.DataClasses;
 
 namespace DSRPG.Classes.Hero
 {
@@ -26,9 +27,9 @@ namespace DSRPG.Classes.Hero
         protected string name;
         protected string _class;
         protected string gender;
-        protected int health;
-        protected int mana;
-        protected int energy;
+        protected Stat health;
+        protected Stat mana;
+        protected Stat energy;
         protected int strength;
         protected int agility;
         protected int stamina;
@@ -54,18 +55,18 @@ namespace DSRPG.Classes.Hero
             get { return gender; }
             set { gender = value; OnPropertyChanged(); }
         }
-        public int Health
+        public Stat Health
         {
             get { return health; }
             set { health = value; OnPropertyChanged(); }
         }
-        public int Mana
+        public Stat Mana
         {
             get { return mana; }
             set { mana = value; OnPropertyChanged(); }
         }
         
-        public int Energy
+        public Stat Energy
         {
             get { return energy; }
             set { energy = value; OnPropertyChanged(); }
@@ -110,44 +111,29 @@ namespace DSRPG.Classes.Hero
             Gender = gender;
         }
 
-        public int UpHealth()
-        {
-            health = health + (stamina * 5);
-            return health;
-        } // хп больше от стамины
-        public int UpMana()
-        {
-            mana = mana + (intellect * 5);
-            return mana;
-        } // маны больше от интелекта
 
-        public int UpEnergy()
+        public void CalcStats()
         {
+            health.Max = health.Max + (stamina * 5);
+            mana.Max = mana.Max + (intellect * 5);
             if(agility % 3 == 0)
             {
-                energy = energy + (agility * 1);
+                energy.Max = energy.Max + (agility * 1);
             }
             else
             {
-                energy = energy + agility;
+                energy.Max = energy.Max + agility;
             }
-            return energy;
-        } // если число кратно 3 а то есть каждые 3 очка повышается энергия от ловкости
+            damage = damage + (strength / 4);
+            armor = armor + (strength * 0.1) / 100;
+            health.Reset();
+            mana.Reset();
+            energy.Reset();
 
-        public int UpDamage()
-        {
-            damage = damage + (strength/4);
-            return damage;
-        } // если число кратно 2 а то есть каждые 2 очка повышается дамага от силы
-
-        public double UpArmor()
-        {
-            armor = armor + ((strength * 0.1)/100);
-            return armor;
-        }  // повышение армора от силы 
+        }
         public bool CheckDie()
         {
-            if (health == 0)
+            if (health.Current == 0)
             {
                 MessageBox.Show("Вы умерли");
                 return true;
@@ -159,12 +145,12 @@ namespace DSRPG.Classes.Hero
         }  // чек на смерть
         public bool CheckNoneMana()
         {
-            if (mana == 0) return true;
+            if (mana.Current == 0) return true;
             else return false;
         } // чек на отсуствие маны
-        
 
-        
+
+
         public override string ToString() //Мож пойже пригодится
         {
             return base.ToString();

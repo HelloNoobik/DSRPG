@@ -32,6 +32,8 @@ namespace DSRPG.UI
         {
             InitializeComponent();
             battle = new Battle(new Thief(this), this);
+            
+            
         }
 
         private void ProgressBar_TextInput(object sender, TextCompositionEventArgs e)
@@ -41,20 +43,26 @@ namespace DSRPG.UI
 
         private void Room_Unloaded(object sender, RoutedEventArgs e)
         {
-          //  if (level.CheckdDieMobs() == true)
-            {
 
-            }
         }
 
         private void hp_Click(object sender, RoutedEventArgs e)
         {
-            battle.Hero.Health--;
-            battle.Hero.Mana--;
-            battle.Hero.Energy--;
+            battle.Hero.Health.Current--;
+            battle.Hero.Mana.Current--;
+            battle.Hero.Energy.Current--;
             battle.Mob.Health--;
             battle.Mob.Mana--;
             battle.Mob.Energy--;
+        }
+
+        private void slot_click(object sender,MouseButtonEventArgs e)
+        {
+
+        }
+        private void BattleArena_load(object sender,RoutedEventArgs e)
+        {
+             
         }
     }
 }
