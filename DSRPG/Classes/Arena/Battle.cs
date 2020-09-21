@@ -56,7 +56,7 @@ namespace DSRPG.Classes.Arena
             (sender as Button).IsEnabled = false;
             Random rand = new Random();
             int par = Convert.ToInt32(rand.Next(1, 10));
-            if(par >= 0)
+            if(par >= 7)
             {
                 MessageBox.Show("Вы пробежали потеряв здоровье");
                 Hero.Health.Current -= 20;

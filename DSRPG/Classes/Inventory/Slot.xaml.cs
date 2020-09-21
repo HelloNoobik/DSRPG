@@ -118,6 +118,7 @@ namespace DSRPG.Classes
             Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.GetSlot(index));
             image.Source = new BitmapImage(new Uri(item.Image,UriKind.Relative));
             label.Content = item.Count;
+
         }
 
         private void Slot_ItemChanged()
