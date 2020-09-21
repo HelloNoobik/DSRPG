@@ -18,9 +18,9 @@
                 <Label Content="Здоровье" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
                 <Label Content="Мана" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                 <Label Content="Энергия" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Health}" HorizontalAlignment="Left" Margin="89,65,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Mana}" HorizontalAlignment="Left" Margin="89,96,0,0" VerticalAlignment="Top"/>
-                <Label Content="{Binding Energy}" HorizontalAlignment="Left" Margin="89,127,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Hp" Content="{Binding Current}" HorizontalAlignment="Left" Margin="89,65,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Mana" Content="{Binding Current}" HorizontalAlignment="Left" Margin="89,96,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="Energy" Content="{Binding Current}" HorizontalAlignment="Left" Margin="89,127,0,0" VerticalAlignment="Top"/>
                 <Label Content="Сила" HorizontalAlignment="Left" Margin="169,7,0,0" VerticalAlignment="Top"/>
                 <Label Content="Ловкость" HorizontalAlignment="Left" Margin="169,38,0,0" VerticalAlignment="Top"/>
                 <Label Content="Интеллект" HorizontalAlignment="Left" Margin="169,69,0,0" VerticalAlignment="Top"/>

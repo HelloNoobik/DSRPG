@@ -78,6 +78,9 @@ namespace DSRPG.UI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Hp.DataContext = Core.Settings.Hero.Health;
+            Mana.DataContext = Core.Settings.Hero.Mana;
+            Energy.DataContext = Core.Settings.Hero.Energy;
             LoadInventory();
             DataContext = Core.Settings.Hero;
         }
