@@ -112,25 +112,35 @@ namespace DSRPG.Classes
             Source = new BitmapImage(new Uri(this.item.Image, UriKind.Relative));
             canvas.Children.Add(this);
 
-            cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : this.FindResource("ItemMenu") as ContextMenu;
+            cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : item.Type == ItemType.Item ? this.FindResource("ItemMenu") as ContextMenu : this.FindResource("UsableMenu") as ContextMenu;
             cm.PlacementTarget = this;
 
             MouseRightButtonDown += Slot_MouseRightButtonDown;
 
-            if (item.Type == ItemType.Weapon || item.Type == ItemType.Armor) 
+            if (item.Type == ItemType.Weapon || item.Type == ItemType.Armor)
             {
                 MenuItem menuItem = cm.Items[0] as MenuItem;
                 menuItem.Click += (s, ee) => { Wear(); };
             }
-            else
+            else if (item.Type == ItemType.Item)
             {
                 MenuItem menu = cm.Items[0] as MenuItem;
-                for (int i = 0; i < menu.Items.Count; i++) 
+                for (int i = 0; i < menu.Items.Count; i++)
                 {
                     MenuItem menuItem = menu.Items[i] as MenuItem;
                     menuItem.Click += (s, ee) => { Wear(menuItem.Header.ToString()); };
                 }
             }
+            else 
+            {
+                MenuItem menuItem = cm.Items[0] as MenuItem;
+                menuItem.Click += (s, ee) => { Use(); };
+            }
+        }
+
+        private void Use() 
+        {
+            MessageBox.Show("Вжух и готово");
         }
 
         private void Slot_ItemChanged()
@@ -227,7 +237,8 @@ namespace DSRPG.Classes
 
         private void Image_MouseEnter(object sender, MouseEventArgs e)
         {
-            BorderBrush = Brushes.Yellow;
+            if (item != null) BorderBrush = Brushes.Yellow;
+            else BorderBrush = Brushes.Red;
         }
     }
 }

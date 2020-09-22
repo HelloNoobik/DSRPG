@@ -21,6 +21,11 @@
                 <MenuItem Header="Слот 5"/>
             </MenuItem>
         </ContextMenu>
+
+        <ContextMenu x:Key="UsableMenu">
+            <MenuItem Header="Использовать" >
+            </MenuItem>
+        </ContextMenu>
     </UserControl.Resources>
 
     <Grid x:Name="grid">

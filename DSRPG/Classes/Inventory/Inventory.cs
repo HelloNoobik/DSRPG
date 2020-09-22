@@ -150,6 +150,9 @@ namespace DSRPG.Classes
                             case "armor":
                                 Type = ItemType.Armor;
                                 break;
+                            case "other":
+                                Type = ItemType.Other;
+                                break;
                         }
                     }
                     else if (atribute.Name == "image") image = atribute.Value;

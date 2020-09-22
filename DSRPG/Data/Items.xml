@@ -1,7 +1,7 @@
 <items>
   <item name="Эстус" itemtype="item" image="/DSRPG;component/Resources/img/Items/Estus.png" />
   <item name="Человечность" itemtype="item" image="/DSRPG;component/Resources/img/Items/Humanity.png" />
-  <item name="Душа безымянного солдата" itemtype="item" image="/DSRPG;component/Resources/img/Items/Soul.png" />
+  <item name="Душа безымянного солдата" itemtype="other" image="/DSRPG;component/Resources/img/Items/Soul.png" />
   <item name="Небесное благословение" itemtype="item" image="/DSRPG;component/Resources/img/Items/AnotherHeal.png" />
   <item name="Черная огненная бомба" itemtype="item" image="/DSRPG;component/Resources/img/Items/BlackBomb.png" />
   <item name="Огненная бомба" itemtype="item" image="/DSRPG;component/Resources/img/Items/Bomb.png" />

@@ -61,8 +61,7 @@ namespace DSRPG.UI
         private void slot_click(object sender,MouseButtonEventArgs e)
         {
             Random rand = new Random();
-            Slot slot = sender as Slot;
-            Item item = slot.GetItem();
+            Item item = (sender as Slot).GetItem();
             if (item == null) return;
             if (item.Count == 0) return;
             switch (item.Name)
@@ -91,16 +90,23 @@ namespace DSRPG.UI
                     break;
 
             }
+            Update();
+
             
         }
         private void BattleArena_load(object sender,RoutedEventArgs e)
         {
-            if(Core.Settings.Hero.inv.Slot1 != -1)
+            Update();
+        }
+
+        private void Update()
+        {
+            if (Core.Settings.Hero.inv.Slot1 != -1)
             {
                 Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot1);
                 Slot0.SetSlot(item);
             }
-            if(Core.Settings.Hero.inv.Slot2 != -1)
+            if (Core.Settings.Hero.inv.Slot2 != -1)
             {
                 Item item = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Slot2);
                 Slot1.SetSlot(item);
