@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,8 +17,15 @@ using System.Windows.Shapes;
 
 namespace DSRPG.Classes
 {
-    public partial class Slot : UserControl
+    public partial class Slot : UserControl, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         private Image image;
         private int index;
         private Item item;
@@ -43,6 +52,12 @@ namespace DSRPG.Classes
                 Canvas.SetTop(this, value.Y);
             }
         }
+
+        public Visibility CountVisibility 
+        {
+            get { return label.Visibility; }
+            set { label.Visibility = value; OnPropertyChanged(); }
+        }
         public Slot()
         {
             InitializeComponent();
@@ -61,7 +76,11 @@ namespace DSRPG.Classes
             image.Width = Width;
             grid.Children.Add(image);
 
+
+            Binding bind = new Binding("CountVisibility");
+
             label = new Label();
+            label.SetBinding(Label.VisibilityProperty,bind);
             label.HorizontalAlignment = HorizontalAlignment.Right;
             label.VerticalAlignment = VerticalAlignment.Bottom;
             label.Margin = new Thickness(0,0,0,-8);
@@ -83,6 +102,7 @@ namespace DSRPG.Classes
 
         public Slot(int index, UI.HeroPage page) : this()
         {
+
             Core.Settings.Hero.inv.GetItem(index).ItemChanged += Slot_ItemChanged;
             this.item = Core.Settings.Hero.inv.GetItem(index);
             label.Content = item.Count;
@@ -169,6 +189,7 @@ namespace DSRPG.Classes
 
         public void SetSlot(Slot slot) 
         {
+            CountVisibility = slot.item.Type == ItemType.Armor || slot.item.Type == ItemType.Weapon ? Visibility.Hidden : Visibility.Visible;
             image.Source = slot.image.Source;
             label.Content = slot.label.Content;
             item = slot.item;

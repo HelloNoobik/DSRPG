@@ -17,6 +17,7 @@ namespace DSRPG
         CreateCharacter,
         Lotrik,
         WorldMap,
+        BoneFire,
     }
 }
 
@@ -41,6 +42,7 @@ namespace DSRPG.Core
         private Page WorldMap;
         private Page Load;
         private Page Test;
+        private Page BoneFire;
 
         private Page currentPage;
 
@@ -89,6 +91,7 @@ namespace DSRPG.Core
             WorldMap = new UI.WorldMap();
             Load = new UI.Load();
             Test = null;
+            BoneFire = new UI.BoneFirePage();
 
             CurrentPage = Load;
 
@@ -142,6 +145,9 @@ namespace DSRPG.Core
                     break;
                 case Pages.WorldMap:
                     _page = WorldMap;
+                    break;
+                case Pages.BoneFire:
+                    _page = BoneFire;
                     break;
             }
             SlowOpacity(_page);

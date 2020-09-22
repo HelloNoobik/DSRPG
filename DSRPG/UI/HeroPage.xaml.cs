@@ -31,6 +31,7 @@ namespace DSRPG.UI
 
         private void LoadInventory()
         {
+            InventoryWindow.Children.Clear();
             Inventory inv = Core.Settings.Hero.inv;
             Point point = new Point(10, 15);
             for (int i = 0; i < inv.GetCountItems(); i++)

@@ -1,0 +1,17 @@
+﻿<Page x:Class="DSRPG.UI.BoneFireUI.TraderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI.BoneFireUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="352"
+      Title="TraderPage">
+
+    <Grid>
+        <Label x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="BuyString" Content="Label" HorizontalAlignment="Left" Margin="25,59,0,0" VerticalAlignment="Top" Foreground="White" Width="176"/>
+        <Label x:Name="Buy" Content="Купить" HorizontalAlignment="Left" Margin="206,59,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+    </Grid>
+</Page>

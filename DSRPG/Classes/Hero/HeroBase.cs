@@ -37,6 +37,8 @@ namespace DSRPG.Classes.Hero
         protected StatDouble armor;
         protected Stat damage;
         public Inventory inv;
+        private int estusCount = 3;
+        private int souls = 10000000;
 
         public string Name
         {
@@ -100,6 +102,12 @@ namespace DSRPG.Classes.Hero
         {
             get { return damage; }
             set { damage = value; OnPropertyChanged(); }
+        }
+
+        public int Souls 
+        {
+            get { return souls; }
+            set { souls = value; OnPropertyChanged(); }
         }
 
         public HeroBase(string name, string gender, string _class) 
@@ -170,7 +178,17 @@ namespace DSRPG.Classes.Hero
             else return false;
         } // чек на отсуствие маны
 
+        public void Rest() 
+        {
+            if (inv.GetItem(0).Count < estusCount) 
+            {
+                inv.AddItem("Эстус", estusCount - inv.GetItem(0).Count);
+            }
 
+            Health.Reset();
+            Mana.Reset();
+            Energy.Reset();
+        }
 
         public override string ToString() //Мож пойже пригодится
         {
