@@ -185,9 +185,10 @@ namespace DSRPG.Classes.Hero
 
         public bool CheckDie()
         {
-            if (health.Current == 0)
+            if (Health.Current == 0)
             {
                 MessageBox.Show("Вы умерли");
+                Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
                 return true;
             }
             else

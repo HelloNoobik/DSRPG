@@ -32,6 +32,8 @@
                 <Button Content="Защита" HorizontalAlignment="Left" Margin="69,10,0,0" VerticalAlignment="Top" Width="75" Height="21"/>
                 <Button x:Name="run" Content="Сбежать" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="64"/>
                 <Button x:Name="runthought" Content="Пробежать" HorizontalAlignment="Left" Margin="69,36,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button x:Name="superdmg" Content="Супер-удар" Margin="0,60,209,4" IsEnabled="False" />
+                <TextBox x:Name="Log" Margin="149,10,10,4" TextWrapping="Wrap"/>
             </Grid>
         </GroupBox>
         <TextBlock x:Name="HpBar" Text="Hp Bar" Foreground="Red"  Margin="200,9,534,394.2" HorizontalAlignment="Center" Width="49"/>

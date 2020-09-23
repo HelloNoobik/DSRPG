@@ -16,11 +16,13 @@ namespace DSRPG.Classes.Mobs
         {
             health = 100;
             mana = 20;
-            energy = 20;
+            energy = 0;
             damage = 10;
+            armor = 0;
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/Thief.png",UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588,20,0,0);
+            UpThief();
             CheckDieMob();
         }
     }

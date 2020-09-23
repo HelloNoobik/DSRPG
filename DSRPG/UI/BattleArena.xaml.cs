@@ -35,7 +35,6 @@ namespace DSRPG.UI
             InitializeComponent();
             battle = new Battle(new Thief(this), this);
 
-
         }
 
         private void hp_Click(object sender, RoutedEventArgs e)

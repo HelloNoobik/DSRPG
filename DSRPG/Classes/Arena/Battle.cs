@@ -14,6 +14,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Threading;
+using DSRPG.Classes.Mobs;
+using System.Runtime.Remoting.Channels;
+
 namespace DSRPG.Classes.Arena
 {
     public class Battle
@@ -44,6 +47,9 @@ namespace DSRPG.Classes.Arena
             arena.run.Click += Run_Click;
             arena.runthought.Click += Runthought_Click;
             arena.Unloaded += Arena_Unloaded;
+            arena.superdmg.Click += Superdmg_Click;
+
+            arena.Log.TextChanged += Log_TextChanged;
 
             arena.Slot0.MouseLeftButtonDown += slot_click;
             arena.Slot1.MouseLeftButtonDown += slot_click;
@@ -51,6 +57,17 @@ namespace DSRPG.Classes.Arena
             arena.Slot3.MouseLeftButtonDown += slot_click;
             arena.Slot4.MouseLeftButtonDown += slot_click;
         }
+
+        private void Log_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void Superdmg_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Arena_Loaded(object sender, RoutedEventArgs e)
         {
             LoadSlots();
@@ -129,7 +146,7 @@ namespace DSRPG.Classes.Arena
             (sender as Button).IsEnabled = false;
             Random rand = new Random();
             int par = Convert.ToInt32(rand.Next(1, 10));
-            if(par >= 7)
+            if (par >= 7)
             {
                 MessageBox.Show("Вы пробежали потеряв здоровье");
                 Hero.Health.Current -= 20;
@@ -139,8 +156,9 @@ namespace DSRPG.Classes.Arena
             }
             else
             {
-                MessageBox.Show("Вам не удалось пробежать");
-                Hero.Health.Current /= 2;
+                int damage = Hero.Health.Current / 2;
+                Hero.Health.Current -= damage;
+                arena.Log.Text += $"Вы не пробежали и в ответ получили {damage} урона\n";
                 Mobdmg();
             }
         }
@@ -148,43 +166,51 @@ namespace DSRPG.Classes.Arena
         {
             (sender as Button).IsEnabled = false;
             Random rand = new Random();
-            int par = Convert.ToInt32(rand.Next(1,10));
-            if(par >=8)
+            int par = Convert.ToInt32(rand.Next(1, 10));
+            if (par >= 8)
             {
                 MessageBox.Show("Вы сбежали");
                 Settings.PageController.ChangeWindow(Pages.Lotrik);
             }
             else
             {
-                MessageBox.Show("Вы не сбежали");
-                Hero.Health.Current /= 2;
+                int damage = Hero.Health.Current / 2;
+                Hero.Health.Current -= damage;
+                arena.Log.Text += $"Вы не сбежали и получили в спину {damage} урона\n";
                 Mobdmg();
             }
         }
         private void Dmg_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-           
             Mobdmg();
             Herodmg();
         }
         private void Herodmg()
         {
-            MessageBox.Show("Ваш ход");
+            arena.Log.Text += $"\nВаш ход,\n\n";
             Mobresist();
         }
         private void Mobdmg()
         {
-            MessageBox.Show("Ход врага");
+            arena.Log.Text += $"\nХод врага,\n\n";
             Thread.Sleep(1000);
             CheckResist();
         }
         private void CheckResist()
         {
-            Hero.Health.Current -= Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
+            int damage = Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
+
+            Hero.Health.Current -= damage;
+            Mob.UpThief();
+            arena.Log.Text += $"Противник нанёс {damage} урона\n";
         }
         private void Mobresist()
         {
-            Mob.Health -= Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
+            int damage = Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
+            Mob.Health -= damage;
+            Mob.CheckDieMob();
+            Hero.CheckDie();
+            arena.Log.Text += $"Вы нанесли {damage} урона\n";
         }
     }
 }
