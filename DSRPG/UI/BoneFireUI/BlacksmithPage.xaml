@@ -10,8 +10,6 @@
 
     <Grid>
         <Label x:Name="WeaponString" Content="" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Foreground="White" Width="205"/>
-        <Label x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Foreground="White" Width="57"/>
         <Label x:Name="WeaponUpgrade" Content="Улучшить оружие" HorizontalAlignment="Left" Margin="234,60,0,0" VerticalAlignment="Top" Foreground="White" Width="108"/>
-
     </Grid>
 </Page>

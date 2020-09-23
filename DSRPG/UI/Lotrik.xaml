@@ -7,12 +7,12 @@
       xmlns:Company="clr-namespace:DSRPG.Classes.Company" xmlns:Classes="clr-namespace:DSRPG.Classes" x:Class="DSRPG.UI.Lotrik"
       mc:Ignorable="d" 
       d:DesignHeight="419" d:DesignWidth="792"
-      Title="Lotrik">
+      Title="Lotrik" Loaded="Page_Loaded">
 
     <Grid x:Name="grid">
         <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/Resources/img/Lotrik.png" Stretch="UniformToFill"/>
         <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="93" Background="Black" Foreground="White" Height="22" PreviewMouseDown="back_PreviewMouseDown"/>
-            <Frame x:Name="heropage" Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="300" Margin="{Binding FramePosition}" VerticalAlignment="Top" Width="700"/>
+        <Frame x:Name="heropage" Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="300" Margin="{Binding FramePosition}" VerticalAlignment="Top" Width="700"/>
         <Button Content="Rjvcsdgsdgsasdsd" Click="Button_Click_2" HorizontalAlignment="Left" Margin="123,252,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>

@@ -77,18 +77,12 @@ namespace DSRPG.Core.ViewModel
             page.Back.Click += Back_Click;
 
             Blacksmith.Loaded += Blacksmith_Loaded;
-            Blacksmith.Back.MouseEnter += label_MouseEnter;
-            Blacksmith.Back.MouseLeave += label_MouseLeave;
-            Blacksmith.Back.MouseLeftButtonDown += BlacksmithBack_MouseLeftButtonDown;
 
             Blacksmith.WeaponUpgrade.MouseEnter += label_MouseEnter;
             Blacksmith.WeaponUpgrade.MouseLeave += label_MouseLeave;
             Blacksmith.WeaponUpgrade.MouseLeftButtonDown += WeaponUpgrade_MouseLeftButtonDown;
 
             Trader.Loaded += Trader_Loaded;
-            Trader.Back.MouseEnter += label_MouseEnter;
-            Trader.Back.MouseLeave += label_MouseLeave;
-            Trader.Back.MouseLeftButtonDown += TraderBack_MouseLeftButtonDown;
 
             Trader.Buy.MouseEnter += label_MouseEnter;
             Trader.Buy.MouseLeave += label_MouseLeave;
@@ -107,20 +101,15 @@ namespace DSRPG.Core.ViewModel
         private void Trader_Loaded(object sender, RoutedEventArgs e)
         {
             Trader.BuyCost = rand.Next(52, 162);
-            Trader.BuyString.Content = $"Могу предложить рандомную фигню за {Trader.BuyCost} душ";
+            Trader.BuyString.Content = $"Могу предложить {Environment.NewLine}рандомную фигню за {Trader.BuyCost} единицы душ";
         }
 
         private void Blacksmith_Loaded(object sender, RoutedEventArgs e)
         {
             Blacksmith.WeaponCost = rand.Next(52, 162);
-
-            Blacksmith.WeaponString.Content = $"Прокачка оружия будет стоить {Blacksmith.WeaponCost} душ";
+            Blacksmith.WeaponString.Content = $"Прокачка оружия будет стоить {Environment.NewLine}{Blacksmith.WeaponCost} единицы душ";
         }
 
-        private void TraderBack_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            CurrentPage = null;
-        }
 
         private void WeaponUpgrade_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

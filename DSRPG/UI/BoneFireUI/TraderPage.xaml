@@ -9,7 +9,6 @@
       Title="TraderPage">
 
     <Grid>
-        <Label x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="BuyString" Content="Label" HorizontalAlignment="Left" Margin="25,59,0,0" VerticalAlignment="Top" Foreground="White" Width="176"/>
         <Label x:Name="Buy" Content="Купить" HorizontalAlignment="Left" Margin="206,59,0,0" VerticalAlignment="Top" Foreground="White"/>
 

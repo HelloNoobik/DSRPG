@@ -16,6 +16,26 @@
         <Frame Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="200" Margin="220,10,0,0" VerticalAlignment="Top" Width="352" BorderBrush="White" BorderThickness="1,1,1,1"/>
         <Label x:Name="souls" Content="{Binding Souls}" Foreground="White" HorizontalAlignment="Left" Margin="277,215,0,0" VerticalAlignment="Top" Width="136"/>
         <Label Content="Души - " HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Margin="220,215,0,0"/>
+        <Border x:Name="LevelUp" HorizontalAlignment="Left" Height="172" Margin="395,237,0,0" VerticalAlignment="Top" Width="382" BorderBrush="White" BorderThickness="1">
+            <Grid Height="172" Width="382">
+                <Label Content="Сила" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="Выносливость" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="Ловкость" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="Интеллект" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="0" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="0" HorizontalAlignment="Left" Margin="201,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="0" HorizontalAlignment="Left" Margin="201,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="0" HorizontalAlignment="Left" Margin="201,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="-" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="+" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="-" HorizontalAlignment="Left" Margin="260,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="+" HorizontalAlignment="Left" Margin="290,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="-" HorizontalAlignment="Left" Margin="260,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="+" HorizontalAlignment="Left" Margin="290,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="-" HorizontalAlignment="Left" Margin="260,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label Content="+" HorizontalAlignment="Left" Margin="290,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+            </Grid>
+        </Border>
 
     </Grid>
 </Page>

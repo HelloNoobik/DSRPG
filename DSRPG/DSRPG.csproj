@@ -78,6 +78,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Arena\Battle.cs" />
+    <Compile Include="Classes\Company\BoneFire.xaml.cs">
+      <DependentUpon>BoneFire.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Company\Level.xaml.cs">
       <DependentUpon>Level.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <DependentUpon>WorldMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core\ViewModel\CreateCharacterViewModel.cs" />
+    <Page Include="Classes\Company\BoneFire.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Classes\Company\Level.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
