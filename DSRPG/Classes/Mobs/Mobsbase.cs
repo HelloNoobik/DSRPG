@@ -81,6 +81,7 @@ namespace DSRPG.Classes
             if (health == 0)
             {
                 MessageBox.Show("Вы прошли");
+                Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
                 return true;
             }
             else
