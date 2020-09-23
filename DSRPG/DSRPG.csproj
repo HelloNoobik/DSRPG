@@ -88,6 +88,13 @@
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Inventory\Weapon.cs" />
+    <Compile Include="Classes\Mobs\Anatolii.cs" />
+    <Compile Include="Classes\Mobs\FunnyKnight.cs" />
+    <Compile Include="Classes\Mobs\Gyndir.cs" />
+    <Compile Include="Classes\Mobs\Kapra.cs" />
+    <Compile Include="Classes\Mobs\Knight.cs" />
+    <Compile Include="Classes\Mobs\Logan.cs" />
+    <Compile Include="Classes\Mobs\Red.cs" />
     <Compile Include="Classes\Mobs\Thief.cs" />
     <Compile Include="Core\MediaController.cs" />
     <Compile Include="Core\Settings.cs" />

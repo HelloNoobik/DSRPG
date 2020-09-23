@@ -76,6 +76,19 @@ namespace DSRPG.Classes
             image.Height = 200;
         }
 
+        public bool CheckDieMob()
+        {
+            if (health == 0)
+            {
+                MessageBox.Show("Вы прошли");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public override string ToString() //Мож пойже пригодится s
         {
             return base.ToString();
