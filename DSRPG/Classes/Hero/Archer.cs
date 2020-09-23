@@ -13,7 +13,7 @@ namespace DSRPG.Classes.Hero
             : base(name,gender,_class)
         {
             strength = 8;
-            agility = 8;
+            agility = 0;
             stamina = 8;
             intellect = 5;
 

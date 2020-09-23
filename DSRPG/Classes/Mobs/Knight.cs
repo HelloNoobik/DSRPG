@@ -13,13 +13,41 @@ namespace DSRPG.Classes.Mobs
     {
         public Knight(BattleArena arena) : base(arena)
         {
-            health = 300;
-            mana = 100;
-            energy = 40;
-            damage = 30;
+            health = 150;
+            mana = 0;
+            energy = 0;
+            damage = 13;
+            armor = 0;
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/knight.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
         }
+        public override string UpMob()
+        {
+            energy += 10;
+            if(energy == 30)
+            {
+                armor = 0.5;
+                damage = 0;
+                return "Рыцарь становится в защитную стойку!";
+
+            }
+            if(energy == 50)
+            {
+                armor = 0;
+                damage = 13;
+                return "Рыцарь вышел из защитной стойки!";
+            }
+            if (energy == 100)
+            {
+                damage += 50;
+                energy -= 100;
+                return "Рыцарь в ярости!";
+            }
+            Random rand = new Random();
+            string[] result = new string[] { "Рыцарь отдаёт честь", "Рыцарь признаёт в вас достойного врага", "Рыцарь показывать жест" };
+            return result[rand.Next(0, result.Length)] + "\n";
+        }
+
     }
 }
