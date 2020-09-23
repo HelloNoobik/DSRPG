@@ -26,8 +26,8 @@ namespace DSRPG.Classes.Hero
 
             CalcStats();
 
-            inv.AddItem("Сет Вора", 1);
-            inv.AddItem("Кинжал", 1);
+            Inv.AddItem("Сет Вора", 1);
+            Inv.AddItem("Кинжал", 1);
         }
     }
 }

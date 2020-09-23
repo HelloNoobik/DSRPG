@@ -26,8 +26,8 @@ namespace DSRPG.Classes.Hero
 
             CalcStats();
 
-            inv.AddItem("Сет Воина", 1);
-            inv.AddItem("Короткий меч", 1);
+            Inv.AddItem("Сет Воина", 1);
+            Inv.AddItem("Короткий меч", 1);
         }
 
     }

@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DSRPG.UI"
       mc:Ignorable="d"
-      Title="BattleArena" Width="792" Height="419" Loaded="BattleArena_load">
+      Title="BattleArena" Width="792" Height="419">
 
 
-    <Grid x:Name="Room" Unloaded="Room_Unloaded">
+    <Grid x:Name="Room">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0"/>
@@ -20,11 +20,11 @@
         <Image HorizontalAlignment="Left" Width="792" Source="/DSRPG;component/Resources/img/Arena.jpg" Margin="0,0,0,0.2" StretchDirection="DownOnly" Stretch="Fill"/>
         <Expander x:Name="Exp1" Header="Панель быстрого доступа" HorizontalAlignment="Left" Height="100" Margin="462,309,0,0" VerticalAlignment="Top" Width="320" Foreground="White" IsExpanded="True" FlowDirection="RightToLeft">
             <Grid x:Name="Panel" Margin="2,0,-111,0">
-                <Classes:Slot x:Name="Slot0"  Margin="10,10,366.6,17" MouseLeftButtonDown="slot_click"/>
-                <Classes:Slot x:Name="Slot1" Margin="65,10,311.6,17" MouseLeftButtonDown="slot_click"/>
-                <Classes:Slot x:Name="Slot2" Margin="120,10,256.6,17" MouseLeftButtonDown="slot_click"/>
-                <Classes:Slot x:Name="Slot3" Margin="175,10,201.6,17" MouseLeftButtonDown="slot_click"/>
-                <Classes:Slot x:Name="Slot4" Margin="230,10,146.6,17" MouseLeftButtonDown="slot_click"/>
+                <Classes:Slot x:Name="Slot0"  Margin="10,10,366.6,17"/>
+                <Classes:Slot x:Name="Slot1" Margin="65,10,311.6,17"/>
+                <Classes:Slot x:Name="Slot2" Margin="120,10,256.6,17"/>
+                <Classes:Slot x:Name="Slot3" Margin="175,10,201.6,17"/>
+                <Classes:Slot x:Name="Slot4" Margin="230,10,146.6,17"/>
             </Grid>
         </Expander>
         <GroupBox Header="Интерфейс" HorizontalAlignment="Left" Height="102" Margin="0,307,0,0" VerticalAlignment="Top" Width="353" Foreground="White">
@@ -74,7 +74,6 @@
                 </TransformGroup>
             </ProgressBar.RenderTransform>
         </ProgressBar>
-        <Button x:Name="hp" Content="Button" HorizontalAlignment="Left" Margin="411,207,0,0" VerticalAlignment="Top" Width="75" Click="hp_Click"/>
         <Image HorizontalAlignment="Left" Height="200" Margin="588,109,0,0" VerticalAlignment="Top" Width="200"/>
     </Grid>
 </Page>

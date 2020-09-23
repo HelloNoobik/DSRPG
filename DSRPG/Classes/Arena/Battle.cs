@@ -39,18 +39,85 @@ namespace DSRPG.Classes.Arena
             arena.Mobmana.Maximum = Mob.Mana;
             arena.Mobenergy.Maximum = Mob.Energy;
 
+            arena.Loaded += Arena_Loaded;
             arena.dmg.Click += Dmg_Click;
             arena.run.Click += Run_Click;
             arena.runthought.Click += Runthought_Click;
             arena.Unloaded += Arena_Unloaded;
 
+            arena.Slot0.MouseLeftButtonDown += slot_click;
+            arena.Slot1.MouseLeftButtonDown += slot_click;
+            arena.Slot2.MouseLeftButtonDown += slot_click;
+            arena.Slot3.MouseLeftButtonDown += slot_click;
+            arena.Slot4.MouseLeftButtonDown += slot_click;
         }
+        private void Arena_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Core.Settings.Hero.Inv.Slot1 != -1)
+            {
+                Item item = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Slot1);
+                arena.Slot0.SetSlot(item);
+            }
+            if (Core.Settings.Hero.Inv.Slot2 != -1)
+            {
+                Item item = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Slot2);
+                arena.Slot1.SetSlot(item);
+            }
+            if (Core.Settings.Hero.Inv.Slot3 != -1)
+            {
+                Item item = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Slot3);
+                arena.Slot2.SetSlot(item);
+            }
+            if (Core.Settings.Hero.Inv.Slot4 != -1)
+            {
+                Item item = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Slot4);
+                arena.Slot3.SetSlot(item);
+            }
+            if (Core.Settings.Hero.Inv.Slot5 != -1)
+            {
+                Item item = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Slot5);
+                arena.Slot4.SetSlot(item);
+            }
+        }
+        private void slot_click(object sender, MouseButtonEventArgs e)
+        {
+            Random rand = new Random();
+            Slot slot = sender as Slot;
+            Item item = slot.GetItem();
+            if (item == null) return;
+            if (item.Count == 0) return;
+            switch (item.Name)
+            {
+                case "Эстус":
+                    Hero.Health.Current += 30;
+                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                    break;
+                case "Человечность":
+                    Hero.Health.Reset();
+                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                    break;
+                case "Небесное благословение":
+                    Hero.Health.Current += 50;
+                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                    break;
+                case "Черная огненная бомба":
+                    Mob.Health -= rand.Next(40, 60);
+                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                    break;
+                case "Огненная бомба":
+                    Mob.Health -= rand.Next(20, 30);
+                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                    break;
+                default:
+                    break;
 
+            }
+
+        }
         private void Arena_Unloaded(object sender, RoutedEventArgs e)
         {
             Settings.Hero = Hero;
         }
-
         private void Runthought_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).IsEnabled = false;
@@ -71,7 +138,6 @@ namespace DSRPG.Classes.Arena
                 Mobdmg();
             }
         }
-
         private void Run_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).IsEnabled = false;
@@ -89,32 +155,28 @@ namespace DSRPG.Classes.Arena
                 Mobdmg();
             }
         }
-
         private void Dmg_Click(object sender, System.Windows.RoutedEventArgs e)
         {
            
             Mobdmg();
             Herodmg();
         }
-    
-        public void Herodmg()
+        private void Herodmg()
         {
             MessageBox.Show("Ваш ход");
             Mobresist();
         }
-
-        public void Mobdmg()
+        private void Mobdmg()
         {
             MessageBox.Show("Ход врага");
             Thread.Sleep(1000);
             CheckResist();
         }
-
-        public void CheckResist()
+        private void CheckResist()
         {
             Hero.Health.Current -= Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
         }
-        public void Mobresist()
+        private void Mobresist()
         {
             Mob.Health -= Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
         }

@@ -31,7 +31,7 @@ namespace DSRPG.UI
 
         private void LoadInventory()
         {
-            Inventory inv = Core.Settings.Hero.inv;
+            Inventory inv = Core.Settings.Hero.Inv;
             Point point = new Point(10, 15);
             for (int i = 0; i < inv.GetCountItems(); i++)
             {
@@ -56,7 +56,7 @@ namespace DSRPG.UI
                     }
                 }
             }
-            Core.Settings.Hero.inv = inv; 
+            Core.Settings.Hero.Inv = inv; 
         }
 
         private void next_Click(object sender, RoutedEventArgs e)
@@ -90,14 +90,14 @@ namespace DSRPG.UI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string result = "";
-            foreach (int index in Core.Settings.Hero.inv.GetSlots()) 
+            foreach (int index in Core.Settings.Hero.Inv.GetSlots()) 
             {
                 if (index == -1) 
                 { 
                     result += $"{index} - Слот пуст {Environment.NewLine}";
                     continue;
                 }
-                Item item = Core.Settings.Hero.inv.GetItem(index);
+                Item item = Core.Settings.Hero.Inv.GetItem(index);
                 result += $"{index} - {item.Name} - {item.Count}{Environment.NewLine}";
             }
             MessageBox.Show(result);

@@ -27,8 +27,8 @@ namespace DSRPG.Classes.Hero
 
             CalcStats();
 
-            inv.AddItem("Сет Волшебника", 1);
-            inv.AddItem("Кинжал", 1);
+            Inv.AddItem("Сет Волшебника", 1);
+            Inv.AddItem("Кинжал", 1);
         }
     }
 }
