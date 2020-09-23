@@ -140,9 +140,33 @@ namespace DSRPG.Classes.Hero
 
         public void CalcStats()
         {
+            UpdateStats();
+            FullResetStats();
+        }
+
+        private void FullResetStats()
+        {
+            damage.FullReset();
+            armor.FullReset();
+            health.FullReset();
+            mana.FullReset();
+            energy.FullReset();
+        }
+
+        private void ResetStats()
+        {
+            damage.FullReset();
+            armor.FullReset();
+            health.FullReset();
+            mana.FullReset();
+            energy.FullReset();
+        }
+
+        public void UpdateStats()
+        {
             health.Max = health.Max + (stamina * 5);
             mana.Max = mana.Max + (intellect * 5);
-            if(agility % 3 == 0)
+            if (agility % 3 == 0)
             {
                 energy.Max = energy.Max + (agility * 1);
             }
@@ -152,14 +176,9 @@ namespace DSRPG.Classes.Hero
             }
             damage.Max += (strength / 4);
             armor.Max += (strength * 0.1) / 100;
-
-            damage.FullReset();
-            armor.FullReset();
-            health.FullReset();
-            mana.FullReset();
-            energy.FullReset();
-
+            ResetStats();
         }
+
         public bool CheckDie()
         {
             if (health.Current == 0)

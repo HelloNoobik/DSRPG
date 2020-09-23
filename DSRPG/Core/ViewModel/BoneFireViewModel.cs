@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using DSRPG.Classes;
+using System.Windows.Data;
 
 namespace DSRPG.Core.ViewModel
 {
@@ -151,6 +152,85 @@ namespace DSRPG.Core.ViewModel
         {
             page.DataContext = this;
             page.souls.DataContext = Core.Settings.Hero;
+
+            page.strLabel.DataContext = Core.Settings.Hero;
+            page.agiLabel.DataContext = Core.Settings.Hero;
+            page.staLabel.DataContext = Core.Settings.Hero;
+            page.intLabel.DataContext = Core.Settings.Hero;
+
+            page.intPlus.MouseLeftButtonDown += IntPlus_MouseLeftButtonDown;
+            page.intMinus.MouseLeftButtonDown += IntMinus_MouseLeftButtonDown;
+            page.strMinus.MouseLeftButtonDown += StrMinus_MouseLeftButtonDown;
+            page.strPlus.MouseLeftButtonDown += StrPlus_MouseLeftButtonDown;
+            page.agiMinus.MouseLeftButtonDown += AgiMinus_MouseLeftButtonDown;
+            page.agiPlus.MouseLeftButtonDown += AgiPlus_MouseLeftButtonDown;
+            page.staMinus.MouseLeftButtonDown += StaMinus_MouseLeftButtonDown;
+            page.staPlus.MouseLeftButtonDown += StaPlus_MouseLeftButtonDown;
+
+            page.intPlus.MouseEnter += label_MouseEnter;
+            page.intPlus.MouseLeave += label_MouseLeave;
+            page.intMinus.MouseEnter += label_MouseEnter;
+            page.intMinus.MouseLeave += label_MouseLeave;
+            page.strPlus.MouseEnter += label_MouseEnter;
+            page.strPlus.MouseLeave += label_MouseLeave;
+            page.strMinus.MouseEnter += label_MouseEnter;
+            page.strMinus.MouseLeave += label_MouseLeave;
+            page.agiPlus.MouseEnter += label_MouseEnter;
+            page.agiPlus.MouseLeave += label_MouseLeave;
+            page.agiMinus.MouseEnter += label_MouseEnter;
+            page.agiMinus.MouseLeave += label_MouseLeave;
+            page.staPlus.MouseEnter += label_MouseEnter;
+            page.staPlus.MouseLeave += label_MouseLeave;
+            page.staMinus.MouseEnter += label_MouseEnter;
+            page.staMinus.MouseLeave += label_MouseLeave;
+        }
+
+        private void StaPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Stamina++;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void StaMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Stamina--;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void AgiPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Agility++;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void AgiMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Agility--;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void StrPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Strength++;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void StrMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Strength--;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void IntMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Intellect--;
+            Core.Settings.Hero.UpdateStats();
+        }
+
+        private void IntPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Core.Settings.Hero.Intellect++;
+            Core.Settings.Hero.UpdateStats();
         }
 
         private void Trader_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

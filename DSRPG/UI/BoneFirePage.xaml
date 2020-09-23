@@ -9,8 +9,8 @@
       Title="BoneFirePage">
 
     <Grid Background="Black">
-        <Image x:Name="Blacksmith" Source="/DSRPG;component/Resources/img/npc/Blacksmith.png" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
-        <Image x:Name="Trader" Source="/DSRPG;component/Resources/img/npc/Shop.png" HorizontalAlignment="Left" Height="200" Margin="582,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <Image x:Name="Blacksmith" Source="/DSRPG;component/Resources/img/npc/Blacksmith.png" HorizontalAlignment="Left" Height="200" Margin="582,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <Image x:Name="Trader" Source="/DSRPG;component/Resources/img/npc/Shop.png" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="Rest" Content="Отдохнуть" HorizontalAlignment="Left" Margin="136,325,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="136,370,0,0" VerticalAlignment="Top" Width="75"/>
         <Frame Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="200" Margin="220,10,0,0" VerticalAlignment="Top" Width="352" BorderBrush="White" BorderThickness="1,1,1,1"/>
@@ -22,18 +22,18 @@
                 <Label Content="Выносливость" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
                 <Label Content="Ловкость" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
                 <Label Content="Интеллект" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="0" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="0" HorizontalAlignment="Left" Margin="201,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="0" HorizontalAlignment="Left" Margin="201,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="0" HorizontalAlignment="Left" Margin="201,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="-" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="+" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="-" HorizontalAlignment="Left" Margin="260,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="+" HorizontalAlignment="Left" Margin="290,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="-" HorizontalAlignment="Left" Margin="260,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="+" HorizontalAlignment="Left" Margin="290,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="-" HorizontalAlignment="Left" Margin="260,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-                <Label Content="+" HorizontalAlignment="Left" Margin="290,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="strLabel" Content="{Binding Strength}" HorizontalAlignment="Left" Margin="201,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="staLabel" Content="{Binding Stamina}" HorizontalAlignment="Left" Margin="201,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="agiLabel" Content="{Binding Agility}" HorizontalAlignment="Left" Margin="201,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="intLabel" Content="{Binding Intellect}" HorizontalAlignment="Left" Margin="201,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="strMinus" Content="-" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="strPlus" Content="+" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="staMinus" Content="-" HorizontalAlignment="Left" Margin="260,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="staPlus" Content="+" HorizontalAlignment="Left" Margin="290,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="agiMinus" Content="-" HorizontalAlignment="Left" Margin="260,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="agiPlus" Content="+" HorizontalAlignment="Left" Margin="290,88,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="intMinus" Content="-" HorizontalAlignment="Left" Margin="260,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+                <Label x:Name="intPlus" Content="+" HorizontalAlignment="Left" Margin="290,133,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
             </Grid>
         </Border>
 
