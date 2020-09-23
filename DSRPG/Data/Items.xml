@@ -13,4 +13,9 @@
   <item name="Сет Воина" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/WarriorHelmet.png" defence="0,3"/>
   <item name="Сет Волшебника" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/MageHelmet.png" defence="0,1"/>
   <item name="Сет Клирика" itemtype="armor" image="/DSRPG;component/Resources/img/Items/Armor/PaladinHelmet.png" defence="0,4"/>
+  <item name="Стрела души" itemtype="spell" image="/DSRPG;component/Resources/img/Items/Spells/spell1.png" cost="10" intRequire="0"/>
+  <item name="Тяжелая стрела души" itemtype="spell" image="/DSRPG;component/Resources/img/Items/Spells/spell2.png" cost="20" intRequire="0"/>
+  <item name="Большая стрела души" itemtype="spell" image="/DSRPG;component/Resources/img/Items/Spells/spell3.png" cost="30" intRequire="0"/>
+  <item name="Большая тяжелая стрела души" itemtype="spell" image="/DSRPG;component/Resources/img/Items/Spells/spell4.png" cost="40" intRequire="0"/>
+  <item name="Копье души" itemtype="spell" image="/DSRPG;component/Resources/img/Items/Spells/spell5.png" cost="50" intRequire="0"/>
 </items>

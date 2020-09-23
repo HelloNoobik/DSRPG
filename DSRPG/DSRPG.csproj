@@ -90,6 +90,7 @@
     <Compile Include="Classes\Inventory\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Inventory\Spell.cs" />
     <Compile Include="Classes\Inventory\Weapon.cs" />
     <Compile Include="Classes\Mobs\Anatolii.cs" />
     <Compile Include="Classes\Mobs\FunnyKnight.cs" />
@@ -356,6 +357,12 @@
     <Resource Include="Resources\img\mobs\red.png" />
     <Resource Include="Resources\img\npc\Blacksmith.png" />
     <Resource Include="Resources\img\npc\Shop.png" />
+    <Resource Include="Resources\img\Items\Spells\spell1.png" />
+    <Resource Include="Resources\img\Items\Spells\spell2.png" />
+    <Resource Include="Resources\img\Items\Spells\spell3.png" />
+    <Resource Include="Resources\img\Items\Spells\spell4.png" />
+    <Resource Include="Resources\img\Items\Spells\spell5.png" />
+    <Resource Include="Resources\img\bonefire.png" />
     <Content Include="Resources\video\.gitattributes" />
     <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

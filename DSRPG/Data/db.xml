@@ -13,4 +13,9 @@
   <KeyValuePair key="Сет Воина" value="11" />
   <KeyValuePair key="Сет Волшебника" value="12" />
   <KeyValuePair key="Сет Клирика" value="13" />
+  <KeyValuePair key="Стрела души" value="14" />
+  <KeyValuePair key="Тяжелая стрела души" value="15" />
+  <KeyValuePair key="Большая стрела души" value="16" />
+  <KeyValuePair key="Большая тяжелая стрела души" value="17" />
+  <KeyValuePair key="Копье души" value="18" />
 </db>

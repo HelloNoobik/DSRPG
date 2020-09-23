@@ -96,18 +96,18 @@ namespace DSRPG.Core.ViewModel
             {
                 Core.Settings.Hero.Souls -= Trader.BuyCost;
                 Core.Settings.Hero.Inv.GetRandomItem();
+                Trader.BuyCost = Convert.ToInt32(Trader.BuyCost * 1.1);
+                Trader.BuyString.Content = $"Могу предложить {Environment.NewLine}рандомную фигню за {Environment.NewLine}{Trader.BuyCost} единицы душ";
             }
         }
 
         private void Trader_Loaded(object sender, RoutedEventArgs e)
         {
-            Trader.BuyCost = rand.Next(52, 162);
-            Trader.BuyString.Content = $"Могу предложить {Environment.NewLine}рандомную фигню за {Trader.BuyCost} единицы душ";
+            Trader.BuyString.Content = $"Могу предложить {Environment.NewLine}рандомную фигню за {Environment.NewLine}{Trader.BuyCost} единицы душ";
         }
 
         private void Blacksmith_Loaded(object sender, RoutedEventArgs e)
         {
-            Blacksmith.WeaponCost = rand.Next(52, 162);
             Blacksmith.WeaponString.Content = $"Прокачка оружия будет стоить {Environment.NewLine}{Blacksmith.WeaponCost} единицы душ";
         }
 
@@ -120,6 +120,8 @@ namespace DSRPG.Core.ViewModel
                 weapon.Damage += rand.Next(1, 10);
                 Core.Settings.Hero.Souls -= Blacksmith.WeaponCost;
                 Core.Settings.Hero.Inv.WeaponUpgrade(weapon);
+                Blacksmith.WeaponCost = Convert.ToInt32(Blacksmith.WeaponCost * 1.3);
+                Blacksmith.WeaponString.Content = $"Прокачка оружия будет стоить {Environment.NewLine}{Blacksmith.WeaponCost} единицы душ";
             }
         }
 
