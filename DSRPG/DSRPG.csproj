@@ -363,6 +363,7 @@
     <Resource Include="Resources\img\Items\Spells\spell4.png" />
     <Resource Include="Resources\img\Items\Spells\spell5.png" />
     <Resource Include="Resources\img\bonefire.png" />
+    <Resource Include="Resources\img\boss.png" />
     <Content Include="Resources\video\.gitattributes" />
     <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

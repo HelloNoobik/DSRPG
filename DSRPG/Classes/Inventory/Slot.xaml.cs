@@ -114,7 +114,7 @@ namespace DSRPG.Classes
             canvas.Children.Add(this);
 
 
-            cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : item.Type == ItemType.Item ? this.FindResource("ItemMenu") as ContextMenu : this.FindResource("UsableMenu") as ContextMenu;
+            cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : item.Type == ItemType.Item || item.Type == ItemType.Spell ? this.FindResource("ItemMenu") as ContextMenu : this.FindResource("UsableMenu") as ContextMenu;
             cm.PlacementTarget = this;
 
             MouseRightButtonDown += Slot_MouseRightButtonDown;
@@ -142,7 +142,7 @@ namespace DSRPG.Classes
 
         private void Use() 
         {
-            MessageBox.Show("Вжух и готово");
+            MessageBox.Show($"{item.Type.ToString()}");
         }
 
         private void Slot_ItemChanged()
