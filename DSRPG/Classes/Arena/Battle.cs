@@ -53,6 +53,11 @@ namespace DSRPG.Classes.Arena
         }
         private void Arena_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadSlots();
+        }
+
+        private void LoadSlots()
+        {
             if (Core.Settings.Hero.Inv.Slot1 != -1)
             {
                 Item item = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Slot1);
@@ -79,6 +84,7 @@ namespace DSRPG.Classes.Arena
                 arena.Slot4.SetSlot(item);
             }
         }
+
         private void slot_click(object sender, MouseButtonEventArgs e)
         {
             Random rand = new Random();
@@ -112,7 +118,7 @@ namespace DSRPG.Classes.Arena
                     break;
 
             }
-
+            LoadSlots();
         }
         private void Arena_Unloaded(object sender, RoutedEventArgs e)
         {

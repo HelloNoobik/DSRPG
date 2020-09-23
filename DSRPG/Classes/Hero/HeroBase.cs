@@ -98,6 +98,10 @@ namespace DSRPG.Classes.Hero
             get { return armor; }
             set { armor = value; OnPropertyChanged(); }
         }
+        public string ArmorStr
+        {
+            get { return $"{armor.Max * 100} %"; }
+        }
         public Stat Damage
         {
             get { return damage; }
@@ -155,27 +159,27 @@ namespace DSRPG.Classes.Hero
 
         private void ResetStats()
         {
-            damage.FullReset();
-            armor.FullReset();
-            health.FullReset();
-            mana.FullReset();
-            energy.FullReset();
+            damage.Reset();
+            armor.Reset();
+            health.Reset();
+            mana.Reset();
+            energy.Reset();
         }
 
         public void UpdateStats()
         {
-            health.Max = health.Max + (stamina * 5);
-            mana.Max = mana.Max + (intellect * 5);
+            health.Max =  100 + (stamina * 5);
+            mana.Max = 50 + (intellect * 5);
             if (agility % 3 == 0)
             {
-                energy.Max = energy.Max + (agility * 1);
+                energy.Max = 40 +  (agility * 1);
             }
             else
             {
-                energy.Max = energy.Max + agility;
+                energy.Max = 40 + agility;
             }
-            damage.Max += (strength / 4);
-            armor.Max += (strength * 0.1) / 100;
+            damage.Max = 10 + (strength / 4);
+            armor.Max = 0.01 + (strength * 0.1) / 100;
             ResetStats();
         }
 

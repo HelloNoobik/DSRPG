@@ -53,6 +53,7 @@ namespace DSRPG.Classes
             }
         }
 
+
         public Visibility CountVisibility 
         {
             get { return label.Visibility; }
@@ -112,6 +113,7 @@ namespace DSRPG.Classes
             Source = new BitmapImage(new Uri(this.item.Image, UriKind.Relative));
             canvas.Children.Add(this);
 
+
             cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : item.Type == ItemType.Item ? this.FindResource("ItemMenu") as ContextMenu : this.FindResource("UsableMenu") as ContextMenu;
             cm.PlacementTarget = this;
 
@@ -146,7 +148,7 @@ namespace DSRPG.Classes
         private void Slot_ItemChanged()
         {
             this.item = Core.Settings.Hero.Inv.GetItem(index);
-            label.Content = item.Count;
+            this.label.Content = item.Count;
             SlotChanged?.Invoke(this);
         }
 
@@ -209,15 +211,8 @@ namespace DSRPG.Classes
         public void SetSlot(Item item)
         {
             image.Source = new BitmapImage(new Uri(item.Image,UriKind.Relative));
-            label.Content = item.Count;
             this.item = item;
-
-            item.ItemChanged += Item_ItemChanged;
-        }
-
-        private void Item_ItemChanged()
-        {
-            label.Content = Core.Settings.Hero.Inv.GetItem(index).Count;
+            label.Content = item.Count;
         }
 
         private void Slot_SlotChanged(Slot slot)

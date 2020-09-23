@@ -14,7 +14,6 @@ namespace DSRPG.Classes
         private static Dictionary<string, int> _db = new Dictionary<string, int>();
         private List<Item> items;
         private Dictionary<string, int> db;
-        private int index;
 
         private int[] slots;
 
@@ -101,6 +100,7 @@ namespace DSRPG.Classes
                 slots[0] = value;
             }
         }
+
         public Inventory()
         {
             slots = new int[7] { -1, -1, -1, -1, -1, -1, -1 };
@@ -229,8 +229,8 @@ namespace DSRPG.Classes
             else
             {
                 MessageBox.Show("error");
+                return null;
             }
-            return items[index];
         }
 
         public Item GetItem(int index)

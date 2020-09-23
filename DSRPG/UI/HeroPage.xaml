@@ -32,7 +32,7 @@
                 <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="83,7,0,0" VerticalAlignment="Top"/>
                 <Label Content="Класс" HorizontalAlignment="Left" Margin="4,29,0,0" VerticalAlignment="Top"/>
                 <Label Content="{Binding Class}" HorizontalAlignment="Left" Margin="83,33,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="armor" Content="{Binding Current}" HorizontalAlignment="Left" Margin="251,100,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="armor" Content="{Binding ArmorStr}" HorizontalAlignment="Left" Margin="251,100,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="damage" Content="{Binding Current}" HorizontalAlignment="Left" Margin="251,131,0,0" VerticalAlignment="Top"/>
                 <Label Content="Выносливость&#xD;&#xA;" HorizontalAlignment="Left" Margin="4,147,0,0" VerticalAlignment="Top"/>
                 <Label Content="{Binding Stamina}" HorizontalAlignment="Left" Margin="97,147,0,0" VerticalAlignment="Top"/>
