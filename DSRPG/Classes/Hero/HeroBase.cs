@@ -36,7 +36,7 @@ namespace DSRPG.Classes.Hero
         protected int intellect;
         protected StatDouble armor;
         protected Stat damage;
-        public Inventory inv;
+        public Inventory Inv;
         private int estusCount = 3;
         private int souls = 10000000;
 
@@ -112,20 +112,20 @@ namespace DSRPG.Classes.Hero
 
         public HeroBase(string name, string gender, string _class) 
         {
-            inv = new Inventory();
-            inv.AddItem("Эстус", 3);
+            Inv = new Inventory();
+            Inv.AddItem("Эстус", 3);
             Name = name;
             Class = _class;
             Gender = gender;
 
-            inv.WeaponChanged += Inv_WeaponChanged;
-            inv.ArmorChanged += Inv_ArmorChanged;
+            Inv.WeaponChanged += Inv_WeaponChanged;
+            Inv.ArmorChanged += Inv_ArmorChanged;
         }
 
         private void Inv_ArmorChanged()
         {
             armor.Max = armor.Base;
-            Armor item = inv.GetItem(inv.Armor) as Armor;
+            Armor item = Inv.GetItem(Inv.Armor) as Armor;
             armor.Max = armor.Base + item.Defence;
             armor.Reset();
         }
@@ -133,7 +133,7 @@ namespace DSRPG.Classes.Hero
         private void Inv_WeaponChanged()
         {
             damage.Max = damage.Base;
-            Weapon item = inv.GetItem(inv.Weapon) as Weapon;
+            Weapon item = Inv.GetItem(Inv.Weapon) as Weapon;
             damage.Max = damage.Base + item.Damage;
             damage.Reset();
         }
@@ -180,9 +180,9 @@ namespace DSRPG.Classes.Hero
 
         public void Rest() 
         {
-            if (inv.GetItem(0).Count < estusCount) 
+            if (Inv.GetItem(0).Count < estusCount) 
             {
-                inv.AddItem("Эстус", estusCount - inv.GetItem(0).Count);
+                Inv.AddItem("Эстус", estusCount - Inv.GetItem(0).Count);
             }
 
             Health.Reset();

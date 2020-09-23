@@ -9,8 +9,8 @@
       Title="BoneFirePage">
 
     <Grid Background="Black">
-        <Border x:Name="Blacksmith" Background="White" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
-        <Border x:Name="Trader" Background="White" HorizontalAlignment="Left" Height="200" Margin="582,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <Image x:Name="Blacksmith" Source="/DSRPG;component/Resources/img/npc/Blacksmith.png" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
+        <Image x:Name="Trader" Source="/DSRPG;component/Resources/img/npc/Shop.png" HorizontalAlignment="Left" Height="200" Margin="582,10,0,0" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="Rest" Content="Отдохнуть" HorizontalAlignment="Left" Margin="136,325,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="136,370,0,0" VerticalAlignment="Top" Width="75"/>
         <Frame Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="200" Margin="220,10,0,0" VerticalAlignment="Top" Width="352" BorderBrush="White" BorderThickness="1,1,1,1"/>

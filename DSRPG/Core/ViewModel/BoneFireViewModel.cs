@@ -100,7 +100,7 @@ namespace DSRPG.Core.ViewModel
             if (Core.Settings.Hero.Souls >= Trader.BuyCost) 
             {
                 Core.Settings.Hero.Souls -= Trader.BuyCost;
-                Core.Settings.Hero.inv.GetRandomItem();
+                Core.Settings.Hero.Inv.GetRandomItem();
             }
         }
 
@@ -124,12 +124,12 @@ namespace DSRPG.Core.ViewModel
 
         private void WeaponUpgrade_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (Core.Settings.Hero.inv.Weapon != -1 && Core.Settings.Hero.Souls >= Blacksmith.WeaponCost) 
+            if (Core.Settings.Hero.Inv.Weapon != -1 && Core.Settings.Hero.Souls >= Blacksmith.WeaponCost) 
             {
-                Weapon weapon = Core.Settings.Hero.inv.GetItem(Core.Settings.Hero.inv.Weapon) as Weapon;
+                Weapon weapon = Core.Settings.Hero.Inv.GetItem(Core.Settings.Hero.Inv.Weapon) as Weapon;
                 weapon.Damage += rand.Next(1, 10);
                 Core.Settings.Hero.Souls -= Blacksmith.WeaponCost;
-                Core.Settings.Hero.inv.WeaponUpgrade(weapon);
+                Core.Settings.Hero.Inv.WeaponUpgrade(weapon);
             }
         }
 

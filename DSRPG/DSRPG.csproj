@@ -347,8 +347,8 @@
     <Resource Include="Resources\img\mobs\knight.png" />
     <Resource Include="Resources\img\mobs\logan.png" />
     <Resource Include="Resources\img\mobs\red.png" />
-    <Resource Include="Resources\Blacksmith.png" />
-    <Resource Include="Resources\Shop.png" />
+    <Resource Include="Resources\img\npc\Blacksmith.png" />
+    <Resource Include="Resources\img\npc\Shop.png" />
     <Content Include="Resources\video\.gitattributes" />
     <EmbeddedResource Include="Resources\video\DS_opening.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

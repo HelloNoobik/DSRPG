@@ -60,7 +60,7 @@ namespace DSRPG.UI
 
         private void ExitLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
             Environment.Exit(0);
         }
 
