@@ -24,11 +24,11 @@ namespace DSRPG.Classes
 
         public int Weapon
         {
-            get 
+            get
             {
                 return slots[5];
             }
-            set 
+            set
             {
                 slots[5] = value;
                 WeaponChanged?.Invoke();
@@ -103,7 +103,7 @@ namespace DSRPG.Classes
         }
         public Inventory()
         {
-            slots = new int[7] {-1,-1,-1,-1,-1,-1,-1};
+            slots = new int[7] { -1, -1, -1, -1, -1, -1, -1 };
             db = _db;
             items = _items;
         }
@@ -150,14 +150,17 @@ namespace DSRPG.Classes
                             case "armor":
                                 Type = ItemType.Armor;
                                 break;
+                            case "other":
+                                Type = ItemType.Other;
+                                break;
                         }
                     }
                     else if (atribute.Name == "image") image = atribute.Value;
                     else if (atribute.Name == "damage") damage = Convert.ToInt32(atribute.Value);
                     else if (atribute.Name == "defence") defence = Convert.ToDouble(atribute.Value);
                 }
-                if(Type == ItemType.Armor) _items.Add(new Armor(name, image, defence));
-                else if(Type == ItemType.Weapon) _items.Add(new Weapon(name, image, damage));
+                if (Type == ItemType.Armor) _items.Add(new Armor(name, image, defence));
+                else if (Type == ItemType.Weapon) _items.Add(new Weapon(name, image, damage));
                 else _items.Add(new Item(name, Type, image));
 
             }
@@ -177,6 +180,12 @@ namespace DSRPG.Classes
 
         }
 
+        public void WeaponUpgrade(Item item)
+        {
+            items[Weapon] = item;
+            Weapon = Weapon;
+        }
+
         public void RemoveItem(string item, int count = 1)
         {
             int id = 0;
@@ -191,9 +200,18 @@ namespace DSRPG.Classes
 
         }
 
-        public int[] GetSlots() 
+        public int[] GetSlots()
         {
             return slots;
+        }
+
+        public void GetRandomItem() 
+        {
+            Random rand = new Random();
+            int id = rand.Next(0, items.Count);
+            {
+                items[id].Count++;
+            }
         }
 
         public int GetCountItems()

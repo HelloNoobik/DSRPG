@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,8 +17,15 @@ using System.Windows.Shapes;
 
 namespace DSRPG.Classes
 {
-    public partial class Slot : UserControl
+    public partial class Slot : UserControl, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         private Image image;
         private int index;
         private Item item;
@@ -43,6 +52,12 @@ namespace DSRPG.Classes
                 Canvas.SetTop(this, value.Y);
             }
         }
+
+        public Visibility CountVisibility 
+        {
+            get { return label.Visibility; }
+            set { label.Visibility = value; OnPropertyChanged(); }
+        }
         public Slot()
         {
             InitializeComponent();
@@ -61,7 +76,11 @@ namespace DSRPG.Classes
             image.Width = Width;
             grid.Children.Add(image);
 
+
+            Binding bind = new Binding("CountVisibility");
+
             label = new Label();
+            label.SetBinding(Label.VisibilityProperty,bind);
             label.HorizontalAlignment = HorizontalAlignment.Right;
             label.VerticalAlignment = VerticalAlignment.Bottom;
             label.Margin = new Thickness(0,0,0,-8);
@@ -83,8 +102,9 @@ namespace DSRPG.Classes
 
         public Slot(int index, UI.HeroPage page) : this()
         {
-            Core.Settings.Hero.Inv.GetItem(index).ItemChanged += Slot_ItemChanged;
-            this.item = Core.Settings.Hero.Inv.GetItem(index);
+
+            Core.Settings.Hero.inv.GetItem(index).ItemChanged += Slot_ItemChanged;
+            this.item = Core.Settings.Hero.inv.GetItem(index);
             label.Content = item.Count;
             this.index = index;
             this.canvas = page.InventoryWindow;
@@ -92,30 +112,40 @@ namespace DSRPG.Classes
             Source = new BitmapImage(new Uri(this.item.Image, UriKind.Relative));
             canvas.Children.Add(this);
 
-            cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : this.FindResource("ItemMenu") as ContextMenu;
+            cm = item.Type == ItemType.Weapon || item.Type == ItemType.Armor ? this.FindResource("WearbleMenu") as ContextMenu : item.Type == ItemType.Item ? this.FindResource("ItemMenu") as ContextMenu : this.FindResource("UsableMenu") as ContextMenu;
             cm.PlacementTarget = this;
 
             MouseRightButtonDown += Slot_MouseRightButtonDown;
 
-            if (item.Type == ItemType.Weapon || item.Type == ItemType.Armor) 
+            if (item.Type == ItemType.Weapon || item.Type == ItemType.Armor)
             {
                 MenuItem menuItem = cm.Items[0] as MenuItem;
                 menuItem.Click += (s, ee) => { Wear(); };
             }
-            else
+            else if (item.Type == ItemType.Item)
             {
                 MenuItem menu = cm.Items[0] as MenuItem;
-                for (int i = 0; i < menu.Items.Count; i++) 
+                for (int i = 0; i < menu.Items.Count; i++)
                 {
                     MenuItem menuItem = menu.Items[i] as MenuItem;
                     menuItem.Click += (s, ee) => { Wear(menuItem.Header.ToString()); };
                 }
             }
+            else 
+            {
+                MenuItem menuItem = cm.Items[0] as MenuItem;
+                menuItem.Click += (s, ee) => { Use(); };
+            }
+        }
+
+        private void Use() 
+        {
+            MessageBox.Show("Вжух и готово");
         }
 
         private void Slot_ItemChanged()
         {
-            this.item = Core.Settings.Hero.Inv.GetItem(index);
+            this.item = Core.Settings.Hero.inv.GetItem(index);
             label.Content = item.Count;
             SlotChanged?.Invoke(this);
         }
@@ -125,35 +155,35 @@ namespace DSRPG.Classes
             if (this.item.Type == ItemType.Armor)
             {
                 page.Armor.SetSlot(this.Clone());
-                Core.Settings.Hero.Inv.Armor = index;
+                Core.Settings.Hero.inv.Armor = index;
             }
             else if (this.item.Type == ItemType.Weapon)
             {
                 page.Weapon.SetSlot(this.Clone());
-                Core.Settings.Hero.Inv.Weapon = index;
+                Core.Settings.Hero.inv.Weapon = index;
             }
             else
             {
                 switch (name)
                 {
                     case "Слот 1":
-                        Core.Settings.Hero.Inv.Slot1 = index;
+                        Core.Settings.Hero.inv.Slot1 = index;
                         page.slot1.SetSlot(this.Clone());
                         break;
                     case "Слот 2":
-                        Core.Settings.Hero.Inv.Slot2 = index;
+                        Core.Settings.Hero.inv.Slot2 = index;
                         page.slot2.SetSlot(this.Clone());
                         break;
                     case "Слот 3":
-                        Core.Settings.Hero.Inv.Slot3 = index;
+                        Core.Settings.Hero.inv.Slot3 = index;
                         page.slot3.SetSlot(this.Clone());
                         break;
                     case "Слот 4":
-                        Core.Settings.Hero.Inv.Slot4 = index;
+                        Core.Settings.Hero.inv.Slot4 = index;
                         page.slot4.SetSlot(this.Clone());
                         break;
                     case "Слот 5":
-                        Core.Settings.Hero.Inv.Slot5 = index;
+                        Core.Settings.Hero.inv.Slot5 = index;
                         page.slot5.SetSlot(this.Clone());
                         break;
                     default:
@@ -169,6 +199,7 @@ namespace DSRPG.Classes
 
         public void SetSlot(Slot slot) 
         {
+            CountVisibility = slot.item.Type == ItemType.Armor || slot.item.Type == ItemType.Weapon ? Visibility.Hidden : Visibility.Visible;
             image.Source = slot.image.Source;
             label.Content = slot.label.Content;
             item = slot.item;
@@ -186,7 +217,7 @@ namespace DSRPG.Classes
 
         private void Item_ItemChanged()
         {
-            label.Content = Core.Settings.Hero.Inv.GetItem(index).Count;
+            label.Content = Core.Settings.Hero.inv.GetItem(index).Count;
         }
 
         private void Slot_SlotChanged(Slot slot)
@@ -206,7 +237,8 @@ namespace DSRPG.Classes
 
         private void Image_MouseEnter(object sender, MouseEventArgs e)
         {
-            BorderBrush = Brushes.Yellow;
+            if (item != null) BorderBrush = Brushes.Yellow;
+            else BorderBrush = Brushes.Red;
         }
     }
 }

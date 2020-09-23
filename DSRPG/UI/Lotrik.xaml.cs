@@ -64,5 +64,10 @@ namespace DSRPG.UI
         {
             Settings.PositionInCompaign--;
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Settings.PageController.ChangeWindow(Pages.BoneFire);
+        }
     }
 }

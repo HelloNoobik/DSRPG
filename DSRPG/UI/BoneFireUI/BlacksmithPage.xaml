@@ -1,0 +1,17 @@
+﻿<Page x:Class="DSRPG.UI.BoneFireUI.BlacksmithPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI.BoneFireUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="352"
+      Title="BlacksmithPage">
+
+    <Grid>
+        <Label x:Name="WeaponString" Content="" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Foreground="White" Width="205"/>
+        <Label x:Name="Back" Content="Назад" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Foreground="White" Width="57"/>
+        <Label x:Name="WeaponUpgrade" Content="Улучшить оружие" HorizontalAlignment="Left" Margin="234,60,0,0" VerticalAlignment="Top" Foreground="White" Width="108"/>
+
+    </Grid>
+</Page>

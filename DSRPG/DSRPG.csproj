@@ -100,6 +100,7 @@
     <Compile Include="Classes\Inventory\Item.cs" />
     <Compile Include="Classes\Mobs\Hollow.cs" />
     <Compile Include="Classes\Mobs\Mobsbase.cs" />
+    <Compile Include="Core\ViewModel\BoneFireViewModel.cs" />
     <Compile Include="Core\ViewModel\LotrikViewModel.cs" />
     <Compile Include="Resources\Links.cs" />
     <Compile Include="Test\Level.cs" />
@@ -108,6 +109,15 @@
     </Compile>
     <Compile Include="UI\BattleArena.xaml.cs">
       <DependentUpon>BattleArena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BoneFirePage.xaml.cs">
+      <DependentUpon>BoneFirePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BoneFireUI\BlacksmithPage.xaml.cs">
+      <DependentUpon>BlacksmithPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BoneFireUI\TraderPage.xaml.cs">
+      <DependentUpon>TraderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\CreateCharacter.xaml.cs">
       <DependentUpon>CreateCharacter.xaml</DependentUpon>
@@ -175,6 +185,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\BattleArena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BoneFirePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BoneFireUI\BlacksmithPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\BoneFireUI\TraderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

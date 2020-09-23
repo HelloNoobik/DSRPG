@@ -36,7 +36,9 @@ namespace DSRPG.Classes.Hero
         protected int intellect;
         protected StatDouble armor;
         protected Stat damage;
-        public Inventory Inv;
+        public Inventory inv;
+        private int estusCount = 3;
+        private int souls = 10000000;
 
         public string Name
         {
@@ -102,22 +104,28 @@ namespace DSRPG.Classes.Hero
             set { damage = value; OnPropertyChanged(); }
         }
 
+        public int Souls 
+        {
+            get { return souls; }
+            set { souls = value; OnPropertyChanged(); }
+        }
+
         public HeroBase(string name, string gender, string _class) 
         {
-            Inv = new Inventory();
-            Inv.AddItem("Эстус", 3);
+            inv = new Inventory();
+            inv.AddItem("Эстус", 3);
             Name = name;
             Class = _class;
             Gender = gender;
 
-            Inv.WeaponChanged += Inv_WeaponChanged;
-            Inv.ArmorChanged += Inv_ArmorChanged;
+            inv.WeaponChanged += Inv_WeaponChanged;
+            inv.ArmorChanged += Inv_ArmorChanged;
         }
 
         private void Inv_ArmorChanged()
         {
             armor.Max = armor.Base;
-            Armor item = Inv.GetItem(Inv.Armor) as Armor;
+            Armor item = inv.GetItem(inv.Armor) as Armor;
             armor.Max = armor.Base + item.Defence;
             armor.Reset();
         }
@@ -125,7 +133,7 @@ namespace DSRPG.Classes.Hero
         private void Inv_WeaponChanged()
         {
             damage.Max = damage.Base;
-            Weapon item = Inv.GetItem(Inv.Weapon) as Weapon;
+            Weapon item = inv.GetItem(inv.Weapon) as Weapon;
             damage.Max = damage.Base + item.Damage;
             damage.Reset();
         }
@@ -170,7 +178,17 @@ namespace DSRPG.Classes.Hero
             else return false;
         } // чек на отсуствие маны
 
+        public void Rest() 
+        {
+            if (inv.GetItem(0).Count < estusCount) 
+            {
+                inv.AddItem("Эстус", estusCount - inv.GetItem(0).Count);
+            }
 
+            Health.Reset();
+            Mana.Reset();
+            Energy.Reset();
+        }
 
         public override string ToString() //Мож пойже пригодится
         {
