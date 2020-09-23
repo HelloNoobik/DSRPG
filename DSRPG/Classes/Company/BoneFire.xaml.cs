@@ -21,19 +21,19 @@ namespace DSRPG.Classes.Company
     public partial class BoneFire : UserControl
     {
         private Image image;
-
+        private bool active = true;
         public BoneFire()
         {
             InitializeComponent();
         }
 
-        public BoneFire(Point point,UI.Lotrik lotrik) :this()
+        public BoneFire(UI.Lotrik lotrik) :this()
         {
-            Width = 40;
-            Height = 40;
-            VerticalAlignment = VerticalAlignment.Top;
-            HorizontalAlignment = HorizontalAlignment.Left;
-            Margin = new Thickness(point.X, point.Y, 0, 0);
+            Width = 200;
+            Height = 200;
+            VerticalAlignment = VerticalAlignment.Center;
+            HorizontalAlignment = HorizontalAlignment.Center;
+            Margin = new Thickness(400, 0, 0, 0);
 
             image = new Image();
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/skewer.png",UriKind.Relative));
@@ -44,8 +44,30 @@ namespace DSRPG.Classes.Company
             image.Height = Height;
             grid.Children.Add(image);
 
-
             lotrik.grid.Children.Add(this);
+
+            Core.Settings.PositionChanged += Settings_PositionChanged;
+            MouseLeftButtonDown += BoneFire_MouseLeftButtonDown;
+        }
+
+        private void BoneFire_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Core.Settings.PageController.ChangeWindow(Pages.BoneFire);
+        }
+
+        private void Settings_PositionChanged()
+        {
+            int pos = Core.Settings.PositionInCompaign;
+            if (pos == 0 || pos  == 3 || pos == 6)
+            {
+                Opacity = 1.0;
+                Visibility = Visibility.Visible;
+            }
+            else 
+            {
+                Opacity = 0.5;
+                Visibility = Visibility.Hidden;
+            }
         }
     }
 }

@@ -88,6 +88,32 @@ namespace DSRPG.Core.ViewModel
             Trader.Buy.MouseEnter += label_MouseEnter;
             Trader.Buy.MouseLeave += label_MouseLeave;
             Trader.Buy.MouseLeftButtonDown += Buy_MouseLeftButtonDown;
+
+            page.intPlus.MouseLeftButtonDown += IntPlus_MouseLeftButtonDown;
+            page.intMinus.MouseLeftButtonDown += IntMinus_MouseLeftButtonDown;
+            page.strMinus.MouseLeftButtonDown += StrMinus_MouseLeftButtonDown;
+            page.strPlus.MouseLeftButtonDown += StrPlus_MouseLeftButtonDown;
+            page.agiMinus.MouseLeftButtonDown += AgiMinus_MouseLeftButtonDown;
+            page.agiPlus.MouseLeftButtonDown += AgiPlus_MouseLeftButtonDown;
+            page.staMinus.MouseLeftButtonDown += StaMinus_MouseLeftButtonDown;
+            page.staPlus.MouseLeftButtonDown += StaPlus_MouseLeftButtonDown;
+
+            page.intPlus.MouseEnter += label_MouseEnter;
+            page.intPlus.MouseLeave += label_MouseLeave;
+            page.intMinus.MouseEnter += label_MouseEnter;
+            page.intMinus.MouseLeave += label_MouseLeave;
+            page.strPlus.MouseEnter += label_MouseEnter;
+            page.strPlus.MouseLeave += label_MouseLeave;
+            page.strMinus.MouseEnter += label_MouseEnter;
+            page.strMinus.MouseLeave += label_MouseLeave;
+            page.agiPlus.MouseEnter += label_MouseEnter;
+            page.agiPlus.MouseLeave += label_MouseLeave;
+            page.agiMinus.MouseEnter += label_MouseEnter;
+            page.agiMinus.MouseLeave += label_MouseLeave;
+            page.staPlus.MouseEnter += label_MouseEnter;
+            page.staPlus.MouseLeave += label_MouseLeave;
+            page.staMinus.MouseEnter += label_MouseEnter;
+            page.staMinus.MouseLeave += label_MouseLeave;
         }
 
         private void Buy_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -97,17 +123,20 @@ namespace DSRPG.Core.ViewModel
                 Core.Settings.Hero.Souls -= Trader.BuyCost;
                 Core.Settings.Hero.Inv.GetRandomItem();
                 Trader.BuyCost = Convert.ToInt32(Trader.BuyCost * 1.1);
+                Core.Settings.TradeCost = Convert.ToInt32(Core.Settings.TradeCost * 1.1);
                 Trader.BuyString.Content = $"Могу предложить {Environment.NewLine}рандомную фигню за {Environment.NewLine}{Trader.BuyCost} единицы душ";
             }
         }
 
         private void Trader_Loaded(object sender, RoutedEventArgs e)
         {
+            Trader.BuyCost = Core.Settings.TradeCost;
             Trader.BuyString.Content = $"Могу предложить {Environment.NewLine}рандомную фигню за {Environment.NewLine}{Trader.BuyCost} единицы душ";
         }
 
         private void Blacksmith_Loaded(object sender, RoutedEventArgs e)
         {
+            Blacksmith.WeaponCost = Core.Settings.BlacksmithCost;
             Blacksmith.WeaponString.Content = $"Прокачка оружия будет стоить {Environment.NewLine}{Blacksmith.WeaponCost} единицы душ";
         }
 
@@ -121,6 +150,7 @@ namespace DSRPG.Core.ViewModel
                 Core.Settings.Hero.Souls -= Blacksmith.WeaponCost;
                 Core.Settings.Hero.Inv.WeaponUpgrade(weapon);
                 Blacksmith.WeaponCost = Convert.ToInt32(Blacksmith.WeaponCost * 1.3);
+                Core.Settings.BlacksmithCost = Convert.ToInt32(Core.Settings.BlacksmithCost * 1.3);
                 Blacksmith.WeaponString.Content = $"Прокачка оружия будет стоить {Environment.NewLine}{Blacksmith.WeaponCost} единицы душ";
             }
         }
@@ -159,32 +189,6 @@ namespace DSRPG.Core.ViewModel
             page.agiLabel.DataContext = Core.Settings.Hero;
             page.staLabel.DataContext = Core.Settings.Hero;
             page.intLabel.DataContext = Core.Settings.Hero;
-
-            page.intPlus.MouseLeftButtonDown += IntPlus_MouseLeftButtonDown;
-            page.intMinus.MouseLeftButtonDown += IntMinus_MouseLeftButtonDown;
-            page.strMinus.MouseLeftButtonDown += StrMinus_MouseLeftButtonDown;
-            page.strPlus.MouseLeftButtonDown += StrPlus_MouseLeftButtonDown;
-            page.agiMinus.MouseLeftButtonDown += AgiMinus_MouseLeftButtonDown;
-            page.agiPlus.MouseLeftButtonDown += AgiPlus_MouseLeftButtonDown;
-            page.staMinus.MouseLeftButtonDown += StaMinus_MouseLeftButtonDown;
-            page.staPlus.MouseLeftButtonDown += StaPlus_MouseLeftButtonDown;
-
-            page.intPlus.MouseEnter += label_MouseEnter;
-            page.intPlus.MouseLeave += label_MouseLeave;
-            page.intMinus.MouseEnter += label_MouseEnter;
-            page.intMinus.MouseLeave += label_MouseLeave;
-            page.strPlus.MouseEnter += label_MouseEnter;
-            page.strPlus.MouseLeave += label_MouseLeave;
-            page.strMinus.MouseEnter += label_MouseEnter;
-            page.strMinus.MouseLeave += label_MouseLeave;
-            page.agiPlus.MouseEnter += label_MouseEnter;
-            page.agiPlus.MouseLeave += label_MouseLeave;
-            page.agiMinus.MouseEnter += label_MouseEnter;
-            page.agiMinus.MouseLeave += label_MouseLeave;
-            page.staPlus.MouseEnter += label_MouseEnter;
-            page.staPlus.MouseLeave += label_MouseLeave;
-            page.staMinus.MouseEnter += label_MouseEnter;
-            page.staMinus.MouseLeave += label_MouseLeave;
         }
 
         private void StaPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

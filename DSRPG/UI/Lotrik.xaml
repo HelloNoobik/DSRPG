@@ -13,6 +13,5 @@
         <Image x:Name="background" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="/DSRPG;component/Resources/img/Lotrik.png" Stretch="UniformToFill"/>
         <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="176,111,0,0" VerticalAlignment="Top" Width="93" Background="Black" Foreground="White" Height="22" PreviewMouseDown="back_PreviewMouseDown"/>
         <Frame x:Name="heropage" Content="{Binding CurrentPage}" Opacity="{Binding PageOpacity}" HorizontalAlignment="Left" Height="300" Margin="{Binding FramePosition}" VerticalAlignment="Top" Width="700"/>
-        <Button Content="Rjvcsdgsdgsasdsd" Click="Button_Click_2" HorizontalAlignment="Left" Margin="123,252,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>

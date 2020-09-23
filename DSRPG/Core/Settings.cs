@@ -20,6 +20,8 @@ namespace DSRPG.Core
         public static MediaController MediaController;
 
         public static HeroBase Hero;
+        public static int TradeCost = 100;
+        public static int BlacksmithCost = 200;
 
         public static LotrikViewModel Lotrik;
         private static int positionInCompaign = 0;

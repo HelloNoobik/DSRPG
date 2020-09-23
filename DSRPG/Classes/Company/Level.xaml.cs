@@ -104,7 +104,13 @@ namespace DSRPG.Classes.Company
         private void Update()
         {
             int pos = Core.Settings.PositionInCompaign;
-            if (index < pos || index > pos + 1)
+            if (index == 7)
+            {
+                Opacity = pos == 7 ? 1.0 : 0.5;
+                Visibility = Visibility.Visible;
+                image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/boss.png", UriKind.Relative));
+            }
+            else if (index < pos || index > pos + 1)
             {
                 if (index < pos)
                 {
@@ -122,7 +128,7 @@ namespace DSRPG.Classes.Company
                 Visibility = Visibility.Visible;
                 if (index == pos - 1)
                 {
-                    
+
                     Opacity = 0.7;
                     image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/lvl (2).png", UriKind.Relative));
                 }
@@ -131,12 +137,12 @@ namespace DSRPG.Classes.Company
                     Opacity = 1.0;
                     image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/lvl (2).png", UriKind.Relative));
                 }
-                else 
+                else
                 {
                     Opacity = 0.7;
                     image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/noPass.png", UriKind.Relative));
                 }
-            } 
+            }
         }
     }
 }

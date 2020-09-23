@@ -34,18 +34,29 @@ namespace DSRPG.UI
             new Point(277,209),
             new Point(300,265),
         };
-        static private List<Point> pointsBonefiers = new List<Point>()
-        {
-            new Point(0,0),
-            new Point(0,0),
-            new Point(0,0),
-        };
+
+
+        static private BoneFire bonefire;
         static private List<Level> levels = new List<Level>();
-        static private List<BoneFire> bonefiers = new List<BoneFire>();
 
         public Lotrik()
         {  
             InitializeComponent();
+
+            Core.Settings.Lotrik = new Core.ViewModel.LotrikViewModel(this);
+            DataContext = Core.Settings.Lotrik;
+
+            for (int i = 0; i < pointsLvl.Count; i++)
+            {
+                Level level = new Level(i, pointsLvl[i], this);
+                levels.Add(level);
+            }
+
+            bonefire = new BoneFire(this);
+            Core.Settings.HeroPageStateChanged += () =>
+            {
+                    bonefire.Visibility = Core.Settings.HeroPageIsOpened ? Visibility.Hidden : Visibility.Visible;
+            };
         }
 
         private void back_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -63,28 +74,10 @@ namespace DSRPG.UI
             Settings.PositionInCompaign--;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Settings.PageController.ChangeWindow(Pages.BoneFire);
-        }
-
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Core.Settings.Lotrik = new Core.ViewModel.LotrikViewModel(this);
-            DataContext = Core.Settings.Lotrik;
 
 
-            for (int i = 0; i < pointsLvl.Count; i++)
-            {
-                Level level = new Level(i, pointsLvl[i], this);
-                levels.Add(level);
-            }
-
-            for (int i = 0; i < pointsBonefiers.Count; i++)
-            {
-                BoneFire bonefire = new BoneFire(pointsBonefiers[i], this);
-                bonefiers.Add(bonefire);
-            }
         }
     }
 }
