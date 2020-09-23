@@ -134,6 +134,8 @@ namespace DSRPG.Classes
                 string image = "";
                 int damage = 0;
                 double defence = 0.1;
+                int cost = 0;
+                int intRequire = 0;
                 foreach (XmlAttribute atribute in node.Attributes)
                 {
                     if (atribute.Name == "name") name = atribute.Value;
@@ -153,14 +155,20 @@ namespace DSRPG.Classes
                             case "other":
                                 Type = ItemType.Other;
                                 break;
+                            case "spell":
+                                Type = ItemType.Spell;
+                                break;
                         }
                     }
                     else if (atribute.Name == "image") image = atribute.Value;
                     else if (atribute.Name == "damage") damage = Convert.ToInt32(atribute.Value);
                     else if (atribute.Name == "defence") defence = Convert.ToDouble(atribute.Value);
+                    else if (atribute.Name == "cost") cost = Convert.ToInt32(atribute.Value);
+                    else if (atribute.Name == "intRequire") intRequire = Convert.ToInt32(atribute.Value);
                 }
                 if (Type == ItemType.Armor) _items.Add(new Armor(name, image, defence));
                 else if (Type == ItemType.Weapon) _items.Add(new Weapon(name, image, damage));
+                else if (Type == ItemType.Spell) _items.Add(new Spell(name, cost, intRequire, image));
                 else _items.Add(new Item(name, Type, image));
 
             }
