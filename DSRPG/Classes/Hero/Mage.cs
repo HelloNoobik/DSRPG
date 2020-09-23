@@ -29,6 +29,7 @@ namespace DSRPG.Classes.Hero
 
             Inv.AddItem("Сет Волшебника", 1);
             Inv.AddItem("Кинжал", 1);
+            Inv.AddItem("Стрела души", 1);
         }
     }
 }

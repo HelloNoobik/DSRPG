@@ -21,7 +21,9 @@ namespace DSRPG.Classes
         public Spell(string name,int cost, int intRequire,string image, int count = 0) : base(name, image, count)
         {
             this.cost = cost;
-            this.intRequire = intRequire; 
+            this.intRequire = intRequire;
+            type = ItemType.Spell;
         }
+        
     }
 }

@@ -109,31 +109,56 @@ namespace DSRPG.Classes.Arena
             Item item = slot.GetItem();
             if (item == null) return;
             if (item.Count == 0) return;
-            switch (item.Name)
+            if(item.Type == ItemType.Spell)
             {
-                case "Эстус":
-                    Hero.Health.Current += 30;
-                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
-                    break;
-                case "Человечность":
-                    Hero.Health.Reset();
-                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
-                    break;
-                case "Небесное благословение":
-                    Hero.Health.Current += 50;
-                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
-                    break;
-                case "Черная огненная бомба":
-                    Mob.Health -= rand.Next(40, 60);
-                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
-                    break;
-                case "Огненная бомба":
-                    Mob.Health -= rand.Next(20, 30);
-                    Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
-                    break;
-                default:
-                    break;
-
+                if (Hero.Mana.Current < (item as Spell).Cost) return;
+                switch (item.Name)
+                {
+                    case "Стрела души":
+                        Mob.Health -= 25;
+                        break;
+                    case "Тяжелая стрела души":
+                        Mob.Health -= 45;
+                        break;
+                    case "Большая стрела души":
+                        Mob.Health -= 55;
+                        break;
+                    case "Большая тяжелая стрела души":
+                        Mob.Health -= 65;
+                        break;
+                    case "Копье души":
+                        Mob.Health -= 75;
+                        break;
+                }
+                Hero.Mana.Current -= (item as Spell).Cost;
+            }
+            else
+            {
+                switch (item.Name)
+                {
+                    case "Эстус":
+                        Hero.Health.Current += 30;
+                        Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                        break;
+                    case "Человечность":
+                        Hero.Health.Reset();
+                        Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                        break;
+                    case "Небесное благословение":
+                        Hero.Health.Current += 50;
+                        Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                        break;
+                    case "Черная огненная бомба":
+                        Mob.Health -= rand.Next(40, 60);
+                        Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                        break;
+                    case "Огненная бомба":
+                        Mob.Health -= rand.Next(20, 30);
+                        Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
+                        break;
+                    default:
+                        break;
+                }
             }
             LoadSlots();
         }

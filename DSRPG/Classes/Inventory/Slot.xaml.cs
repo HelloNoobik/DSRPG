@@ -124,7 +124,7 @@ namespace DSRPG.Classes
                 MenuItem menuItem = cm.Items[0] as MenuItem;
                 menuItem.Click += (s, ee) => { Wear(); };
             }
-            else if (item.Type == ItemType.Item)
+            else if (item.Type == ItemType.Item || item.Type == ItemType.Spell)
             {
                 MenuItem menu = cm.Items[0] as MenuItem;
                 for (int i = 0; i < menu.Items.Count; i++)
