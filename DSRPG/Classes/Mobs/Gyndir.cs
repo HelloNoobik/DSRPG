@@ -21,6 +21,7 @@ namespace DSRPG.Classes.Mobs
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/gyndir.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
+            cost = 50000;
         }
         public override string UpMob()
         {
@@ -46,7 +47,22 @@ namespace DSRPG.Classes.Mobs
                 energy = 0;
                 energy += 30;
             }
-            return "Гундир босс ";
+            return "Гундир босс\n";
+        }
+
+        public override bool CheckDieMob()
+        {
+            if (Health <= 0)
+            {
+                Core.Settings.Stats.BossKills ++;
+                Core.Settings.PositionInCompaign++;
+                Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

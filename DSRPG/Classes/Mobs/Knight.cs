@@ -21,6 +21,7 @@ namespace DSRPG.Classes.Mobs
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/knight.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
+            cost = 5000;
         }
         public override string UpMob()
         {
@@ -29,20 +30,25 @@ namespace DSRPG.Classes.Mobs
             {
                 armor = 0.5;
                 damage = 0;
-                return "Рыцарь становится в защитную стойку!";
+                return "Рыцарь становится в защитную стойку!\n";
 
             }
             if(energy == 50)
             {
                 armor = 0;
                 damage = 13;
-                return "Рыцарь вышел из защитной стойки!";
+                return "Рыцарь вышел из защитной стойки!\n";
             }
             if (energy == 100)
             {
-                damage += 50;
-                energy -= 100;
-                return "Рыцарь в ярости!";
+                damage = 50;
+                return "Рыцарь в ярости!\n";
+            }
+            if(energy == 120)
+            {
+                damage = 0;
+                energy -= 120;
+                return "Рыцарь выдохся!\n";
             }
             Random rand = new Random();
             string[] result = new string[] { "Рыцарь отдаёт честь", "Рыцарь признаёт в вас достойного врага", "Рыцарь показывать жест" };

@@ -34,6 +34,7 @@ namespace DSRPG.Classes.DataClasses
             get { return current; }
             set 
             {
+                if (value < current) Decrease?.Invoke(current - value);
                 if (value > max)
                 {
                     current = max;
@@ -76,9 +77,10 @@ namespace DSRPG.Classes.DataClasses
             max = current;
             _base = current;
         }
-
+        public delegate void EventInt(int damage);
         public delegate void Event();
         public event Event Empty;
+        public event EventInt Decrease;
         
     }
 }

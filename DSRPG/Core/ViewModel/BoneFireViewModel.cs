@@ -193,50 +193,90 @@ namespace DSRPG.Core.ViewModel
 
         private void StaPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Stamina++;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost) 
+            {
+                Core.Settings.Hero.Stamina++;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void StaMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Stamina--;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Stamina--;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void AgiPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Agility++;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Agility++;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void AgiMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Agility--;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Agility--;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void StrPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Strength++;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Strength++;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void StrMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Strength--;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Strength--;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void IntMinus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Intellect--;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Intellect--;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void IntPlus_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Core.Settings.Hero.Intellect++;
-            Core.Settings.Hero.UpdateStats();
+            if (Core.Settings.Hero.Souls >= Core.Settings.UpgradeCost)
+            {
+                Core.Settings.Hero.Intellect++;
+                Core.Settings.Hero.Souls -= Core.Settings.UpgradeCost;
+                Core.Settings.Hero.ReCaclCost();
+                Core.Settings.Hero.UpdateStats();
+            }
         }
 
         private void Trader_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

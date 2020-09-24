@@ -23,6 +23,7 @@ namespace DSRPG.Classes.Mobs
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/Thief.png",UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588,20,0,0);
+            cost = 1000;
         }
         public override string UpMob()
         {
@@ -36,8 +37,13 @@ namespace DSRPG.Classes.Mobs
             if (Energy == 100)
             {
                 Damage = 50;
-                Damage -= 100;
                 return "Вор в Ярости !\n";
+            }
+            if(Energy == 120)
+            {
+                Damage = 0;
+                Energy -= 120;
+                return "Вор ослаб !\n";
             }
             Random rand = new Random();
             string[] result = new string[] {"Вор ехидно улыбается","Вор ухмыляется","Вор смеётся над вашей беспомощностью"};

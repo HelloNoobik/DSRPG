@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSRPG.Classes.Mobs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace DSRPG.Classes.Company
 {
     public partial class Level : UserControl
     {
+
         private Image image;
         private UI.Lotrik page;
         private int index;

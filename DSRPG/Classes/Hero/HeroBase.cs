@@ -60,7 +60,10 @@ namespace DSRPG.Classes.Hero
         public Stat Health
         {
             get { return health; }
-            set { health = value; OnPropertyChanged(); }
+            set 
+            {
+                health = value; OnPropertyChanged();
+            }
         }
         public Stat Mana
         {
@@ -111,7 +114,20 @@ namespace DSRPG.Classes.Hero
         public int Souls 
         {
             get { return souls; }
-            set { souls = value; OnPropertyChanged(); }
+            set 
+            {
+                if(souls > value)
+                {
+                    int soul = souls - value;
+                    Core.Settings.Stats.SoulsSpent += soul;
+                }
+                else
+                {
+                    int soul = value - souls;
+                    Core.Settings.Stats.SoulsEarned++;
+                }
+                souls = value; OnPropertyChanged();
+            }
         }
 
         public HeroBase(string name, string gender, string _class) 
@@ -157,6 +173,11 @@ namespace DSRPG.Classes.Hero
             energy.FullReset();
         }
 
+        public void ReCaclCost()
+        {
+            Core.Settings.UpgradeCost = Convert.ToInt32(0.0068 * Math.Pow(strength + agility + stamina + intellect, 3) - 0.06 * Math.Pow(strength + agility + stamina + intellect, 2) + 17.1 * (strength + agility + stamina + intellect) + 639);
+        }
+
         private void ResetStats()
         {
             damage.Reset();
@@ -188,6 +209,7 @@ namespace DSRPG.Classes.Hero
         {
             if (Health.Current <= 0)
             {
+                Core.Settings.Stats.DeathCount++;
                 MessageBox.Show("Вы умерли");
                 Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
                 return true;

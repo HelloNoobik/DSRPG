@@ -1,4 +1,6 @@
-﻿using DSRPG.Classes.Hero;
+﻿using DSRPG.Classes;
+using DSRPG.Classes.Hero;
+using DSRPG.Classes.Mobs;
 using DSRPG.Core.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,7 @@ namespace DSRPG.Core
         public static HeroBase Hero;
         public static int TradeCost = 100;
         public static int BlacksmithCost = 200;
+        public static int UpgradeCost = 639;
 
         public static LotrikViewModel Lotrik;
         private static int positionInCompaign = 0;
@@ -125,6 +128,18 @@ namespace DSRPG.Core
         public static event Changed HeroPageStateChanged;
         #endregion
         #region Методы
+        public static Mobsbase GetMob(int level, UI.BattleArena arena) 
+        {
+            if (level == 0) return new Thief(arena);
+            else if (level == 1) return new Knight(arena);
+            else if (level == 2) return new Red(arena);
+            else if (level == 3) return new Logan(arena);
+            else if (level == 4) return new Kapra(arena);
+            else if (level == 5) return new FunnyKnight(arena);
+            else if (level == 6) return new Anatolii(arena);
+            else if (level == 7) return new Gyndir(arena);
+            return null;
+        }
         #endregion
     }
 }

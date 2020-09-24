@@ -33,7 +33,7 @@ namespace DSRPG.UI
         public BattleArena()
         {
             InitializeComponent();
-            battle = new Battle(new Kapra(this), this);
+            battle = new Battle(Core.Settings.GetMob(Core.Settings.PositionInCompaign,this), this);
 
         }
 

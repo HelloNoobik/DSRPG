@@ -30,6 +30,19 @@ namespace DSRPG.Classes
         protected double armor;
         protected Image image;
         protected BattleArena page;
+        protected int cost;
+
+
+
+
+
+
+        public int Cost
+        {
+            get { return cost; }
+            set { cost = value; OnPropertyChanged(); }
+        }
+
         public string Name
         {
             get { return name; }
@@ -40,9 +53,15 @@ namespace DSRPG.Classes
             get { return health; }
             set 
             {
+              
+                if(health > value)
+                {
+                    int damage = health - value;
+                    Core.Settings.Stats.DamageGiven += damage;
+                }
                 health = value;
                 OnPropertyChanged();
-                //if(health == 0) Dead?.Invoke();
+                
             }
 
         }
@@ -76,10 +95,12 @@ namespace DSRPG.Classes
             image.Height = 200;
         }
 
-        public bool CheckDieMob()
+        public virtual bool CheckDieMob()
         {
             if (Health <= 0)
             {
+                Core.Settings.Hero.Souls += Cost;
+                Core.Settings.Stats.Kills++;
                 Core.Settings.PositionInCompaign++;
                 Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
                 return true;

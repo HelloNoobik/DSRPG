@@ -22,6 +22,7 @@ namespace DSRPG.Classes.Mobs
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/red.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
+            cost = 7000;
         }
         public override string UpMob()
         {
@@ -38,9 +39,10 @@ namespace DSRPG.Classes.Mobs
             if (energy == 110)
             {
                 health += 1000;
-                return "Вам ....";
+                energy -= 110;
+                return "Вам ....\n";
             }
-            return "Вторженец копит силы !";
+            return "Вторженец копит силы !\n";
         }
     }
 }

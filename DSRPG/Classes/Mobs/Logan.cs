@@ -21,6 +21,7 @@ namespace DSRPG.Classes.Mobs
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/logan.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
+            cost = 7000;
         }
         public override string UpMob()
         {
@@ -28,23 +29,23 @@ namespace DSRPG.Classes.Mobs
             if(energy == 20)
             {
                 energy = 110;
-                return "Логан повышает себе энергию !";
+                return "Логан повышает себе энергию !\n";
             }
             if(energy == 140)
             {
                 damage += 50;
-                return "Логан тратит свою энергию на повышение урона !";
+                return "Логан тратит свою энергию на повышение урона !\n";
             }
             if(energy == 160)
             {
                 armor = 1;
-                return "Логан тратит свою энергию на поглощения урона !";
+                return "Логан тратит свою энергию на поглощения урона !\n";
             }
             if(energy == 180)
             {
                 armor = 0;
                 energy = 0;
-                return "Логан сбросил силы своей энергии !";
+                return "Логан сбросил силы своей энергии !\n";
             }
             return "Логан копит энергию !";
         }

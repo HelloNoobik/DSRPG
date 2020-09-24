@@ -21,6 +21,7 @@ namespace DSRPG.Classes.Mobs
             image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/kapra.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
+            cost = 10000;
         }
         public override string UpMob()
         {
@@ -28,33 +29,33 @@ namespace DSRPG.Classes.Mobs
             {
                 damage = 50;
                 energy = 180;
-                return "Дабл урон!";
+                return "Дабл урон!\n";
             }
             if(energy == 180)
             {
                 damage = 50;
                 energy = 130;
-                return "Дабл урон!";
+                return "Дабл урон!\n";
             }
             if(energy == 130)
             {
                 damage = 0;
                 armor = 0.5;
                 energy = 50;
-                return "Дабл понижение урона";
+                return "Дабл понижение урона\n";
             }
             if(energy == 50)
             {
                 damage = 100;
                 armor = 0.2;
                 energy = 0;
-                return "Дабл безысходности !";
+                return "Дабл безысходности !\n";
             }
             if(energy == 0)
             {
                 armor = 0;
                 damage = 0;
-                return "Дабл без сил !";
+                return "Дабл без сил !\n";
             }
             return "Ничего";
         }

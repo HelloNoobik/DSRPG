@@ -24,7 +24,8 @@ namespace DSRPG.Classes.Arena
         public Mobsbase Mob;
         public HeroBase Hero;
         private BattleArena arena;
-        public Battle(Mobsbase mob, BattleArena arena)
+
+        public Battle(Mobsbase mob,BattleArena arena)
         {
             this.Mob = mob;
             this.Hero = Settings.Hero;
@@ -56,23 +57,44 @@ namespace DSRPG.Classes.Arena
             arena.Slot2.MouseLeftButtonDown += slot_click;
             arena.Slot3.MouseLeftButtonDown += slot_click;
             arena.Slot4.MouseLeftButtonDown += slot_click;
+
+            Hero.Health.Decrease += Health_Decrease;
+        }
+
+        private void Health_Decrease(int damage)
+        {
+            Core.Settings.Stats.DamageTaken += damage;
         }
 
         private void Def_Click(object sender, RoutedEventArgs e)
         {
+            arena.Log.Clear();
+            arena.Log.Text += $"Вы можете повысить защиту только до 40%\n";
 
+            if (Hero.Energy.Current >= 10)
+            {
+                Hero.Armor.Current += 0.1;
+                Hero.Energy.Current -= 10;
+                Mobdmg();
+                if (Hero.Armor.Current >= 0.5)
+                {
+                    Hero.Armor.Current = Hero.Armor.Base;
+                    arena.Log.Text += $"Защита достигла предела(сброс брони до базовой)\n";
+                }
+            }
         }
 
         private void Superdmg_Click(object sender, EventArgs e)
         {
-            if(Hero.Energy.Current == 50)
+            arena.Log.Clear();
+            if (Hero.Energy.Current >= 50)
             {
-                (sender as Button).IsEnabled = true;
                 int damage = Hero.Damage.Current + 40;
                 Mob.Health -= damage;
+                Hero.Energy.Current -= 50;
+                Mobdmg();
                 arena.Log.Text += $"Супер удар нанёс урона {damage}\n";
             }
-            Hero.Energy.Current = 0;
         }
 
         private void Arena_Loaded(object sender, RoutedEventArgs e)
@@ -171,6 +193,7 @@ namespace DSRPG.Classes.Arena
             }
             else
             {
+                arena.Log.Clear();
                 int damage = Hero.Health.Current / 2;
                 Hero.Health.Current -= damage;
                 arena.Log.Text += $"Вы не пробежали и в ответ получили {damage} урона\n";
@@ -189,6 +212,7 @@ namespace DSRPG.Classes.Arena
             }
             else
             {
+                arena.Log.Clear();
                 int damage = Hero.Health.Current / 2;
                 Hero.Health.Current -= damage;
                 arena.Log.Text += $"Вы не сбежали и получили в спину {damage} урона\n";
@@ -197,25 +221,28 @@ namespace DSRPG.Classes.Arena
         }
         private void Dmg_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Hero.Energy.Current += 10;
+            arena.Log.Clear();
+            Hero.Armor.Current = Hero.Armor.Base;
             Mobdmg();
+            Hero.Energy.Current += 10;
             Herodmg();
         }
         private void Herodmg()
         {
-            arena.Log.Text += $"\nВаш ход,\n\n";
+            arena.Log.Text += $"Ваш ход:\n";
             Mobresist();
         }
         private void Mobdmg()
         {
-            arena.Log.Text += $"\nХод врага,\n\n";
+            
+            arena.Log.Text += $"Ход врага:\n";
             Thread.Sleep(1000);
             CheckResist();
         }
         private void CheckResist()
         {
-            int damage = Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
             arena.Log.Text += Mob.UpMob();
+            int damage = Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
             Hero.Health.Current -= damage;
             arena.Log.Text += $"Противник нанёс {damage} урона\n";
         }
@@ -223,7 +250,7 @@ namespace DSRPG.Classes.Arena
         {
             int damage = Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
             Mob.Health -= damage;
-            if (Hero.CheckDie()) ;
+            if (Hero.CheckDie());
             else
             {
                 Mob.CheckDieMob();
