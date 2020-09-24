@@ -26,7 +26,6 @@ namespace DSRPG.Core
             command.Parameters.AddWithValue("Name", stats.Name);
             connection.Open();
             object result = command.ExecuteScalar();
-            connection.Close();
             if (result != null)
             {
                 UpdateData(stats);
@@ -35,7 +34,7 @@ namespace DSRPG.Core
             {
                 WriteData(stats);
             }
-            
+            connection.Close();
         }
 
         private void WriteData(Statistics stats)
@@ -52,17 +51,14 @@ namespace DSRPG.Core
             command.Parameters.AddWithValue("Damage_Given", stats.DamageGiven);
             command.Parameters.AddWithValue("Damage_Taken", stats.DamageTaken);
             command.Parameters.AddWithValue("Number_of_boss_deaths", stats.BossKills);
-            connection.Open();
             command.ExecuteNonQuery();
-            connection.Close();
         }
 
         private void UpdateData(Statistics stats) 
         {
             command = new OleDbCommand();
             command.Connection = connection;
-            command.CommandText = "UPDATE Record SET Kills = ?, Deaths = ?, Souls_Received = ?, Souls_Spent = ?, Progress = ?,Damage_Given = ?,Damage_Taken = ?,Number_of_boss_deaths = ? Where Name = ?";
-            command.Parameters.AddWithValue("Name", stats.Name);
+            command.CommandText = "UPDATE Record SET Kills = ?, Deaths = ?, Souls_Received = ?, Souls_Spent = ?, Progress = ?,Damage_Given = ?,Damage_Taken = ?,Number_of_boss_deaths = ? WHERE Name = ?";
             command.Parameters.AddWithValue("Kills", stats.Kills);
             command.Parameters.AddWithValue("Deaths", stats.DeathCount);
             command.Parameters.AddWithValue("Souls_Received", stats.SoulsEarned);
@@ -71,9 +67,8 @@ namespace DSRPG.Core
             command.Parameters.AddWithValue("Damage_Given", stats.DamageGiven);
             command.Parameters.AddWithValue("Damage_Taken", stats.DamageTaken);
             command.Parameters.AddWithValue("Number_of_boss_deaths", stats.BossKills);
-            connection.Open();
+            command.Parameters.AddWithValue("Name", stats.Name);
             command.ExecuteNonQuery();
-            connection.Close();
         }
 
     }

@@ -23,13 +23,13 @@ namespace DSRPG.Core
         {
             Name = "";
             Kills = 999;
-            SoulsSpent = 0;
-            SoulsEarned = 0;
-            Progress = 0;
-            DeathCount = 0;
-            DamageGiven = 0;
-            DamageTaken = 0;
-            BossKills = 0;
+            SoulsSpent = 888;
+            SoulsEarned = 777;
+            Progress = 666;
+            DeathCount = 555;
+            DamageGiven = 444;
+            DamageTaken = 333;
+            BossKills = 222;
         }
     }
 }
