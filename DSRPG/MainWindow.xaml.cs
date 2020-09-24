@@ -27,5 +27,15 @@ namespace DSRPG
             Settings.PageController = new PageController();
             DataContext = Settings.PageController;
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (Settings.Hero != null) 
+            { 
+                Settings.Stats.Name = Settings.Hero.Name;
+                Settings.Stats.Progress = Settings.PositionInCompaign;
+                Settings.DB.SendData(Settings.Stats);      
+            }
+        }
     }
 }

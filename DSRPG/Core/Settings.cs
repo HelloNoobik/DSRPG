@@ -25,6 +25,8 @@ namespace DSRPG.Core
 
         public static LotrikViewModel Lotrik;
         private static int positionInCompaign = 0;
+        public static Statistics Stats = new Statistics();
+        public static DataBase DB = new DataBase();
 
         private static bool heroPageIsOpened = false;
         #endregion

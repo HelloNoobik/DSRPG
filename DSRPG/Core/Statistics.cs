@@ -22,7 +22,7 @@ namespace DSRPG.Core
         public Statistics() 
         {
             Name = "";
-            Kills = 0;
+            Kills = 999;
             SoulsSpent = 0;
             SoulsEarned = 0;
             Progress = 0;
