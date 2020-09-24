@@ -13,13 +13,50 @@ namespace DSRPG.Classes.Mobs
     {
         public Kapra(BattleArena arena) : base(arena)
         {
-            health = 240;
+            health = 300;
             mana = 50;
-            energy = 40;
-            damage = 20;
-            image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/knight.png", UriKind.Relative));
+            energy = 200;
+            damage = 0;
+            armor = 0.07;
+            image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/mobs/kapra.png", UriKind.Relative));
             page.Room.Children.Add(image);
             image.Margin = new Thickness(588, 20, 0, 0);
+        }
+        public override string UpMob()
+        {
+            if(energy == 200)
+            {
+                damage = 50;
+                energy = 180;
+                return "Дабл урон!";
+            }
+            if(energy == 180)
+            {
+                damage = 50;
+                energy = 130;
+                return "Дабл урон!";
+            }
+            if(energy == 130)
+            {
+                damage = 0;
+                armor = 0.5;
+                energy = 50;
+                return "Дабл понижение урона";
+            }
+            if(energy == 50)
+            {
+                damage = 100;
+                armor = 0.2;
+                energy = 0;
+                return "Дабл безысходности !";
+            }
+            if(energy == 0)
+            {
+                armor = 0;
+                damage = 0;
+                return "Дабл без сил !";
+            }
+            return "Ничего";
         }
     }
 }

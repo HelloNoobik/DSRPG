@@ -48,8 +48,8 @@ namespace DSRPG.Classes.Arena
             arena.runthought.Click += Runthought_Click;
             arena.Unloaded += Arena_Unloaded;
             arena.superdmg.Click += Superdmg_Click;
+            arena.def.Click += Def_Click;
 
-            arena.Log.TextChanged += Log_TextChanged;
 
             arena.Slot0.MouseLeftButtonDown += slot_click;
             arena.Slot1.MouseLeftButtonDown += slot_click;
@@ -58,14 +58,21 @@ namespace DSRPG.Classes.Arena
             arena.Slot4.MouseLeftButtonDown += slot_click;
         }
 
-        private void Log_TextChanged(object sender, TextChangedEventArgs e)
+        private void Def_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Superdmg_Click(object sender, EventArgs e)
         {
-
+            if(Hero.Energy.Current == 50)
+            {
+                (sender as Button).IsEnabled = true;
+                int damage = Hero.Damage.Current + 40;
+                Mob.Health -= damage;
+                arena.Log.Text += $"Супер удар нанёс урона {damage}\n";
+            }
+            Hero.Energy.Current = 0;
         }
 
         private void Arena_Loaded(object sender, RoutedEventArgs e)
@@ -112,24 +119,7 @@ namespace DSRPG.Classes.Arena
             if(item.Type == ItemType.Spell)
             {
                 if (Hero.Mana.Current < (item as Spell).Cost) return;
-                switch (item.Name)
-                {
-                    case "Стрела души":
-                        Mob.Health -= 25;
-                        break;
-                    case "Тяжелая стрела души":
-                        Mob.Health -= 45;
-                        break;
-                    case "Большая стрела души":
-                        Mob.Health -= 55;
-                        break;
-                    case "Большая тяжелая стрела души":
-                        Mob.Health -= 65;
-                        break;
-                    case "Копье души":
-                        Mob.Health -= 75;
-                        break;
-                }
+                Mob.Health -= (item as Spell).Cost;
                 Hero.Mana.Current -= (item as Spell).Cost;
             }
             else
@@ -207,6 +197,7 @@ namespace DSRPG.Classes.Arena
         }
         private void Dmg_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            Hero.Energy.Current += 10;
             Mobdmg();
             Herodmg();
         }
@@ -224,17 +215,19 @@ namespace DSRPG.Classes.Arena
         private void CheckResist()
         {
             int damage = Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
-
+            arena.Log.Text += Mob.UpMob();
             Hero.Health.Current -= damage;
-            Mob.UpThief();
             arena.Log.Text += $"Противник нанёс {damage} урона\n";
         }
         private void Mobresist()
         {
             int damage = Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
             Mob.Health -= damage;
-            Mob.CheckDieMob();
-            Hero.CheckDie();
+            if (Hero.CheckDie()) ;
+            else
+            {
+                Mob.CheckDieMob();
+            }
             arena.Log.Text += $"Вы нанесли {damage} урона\n";
         }
     }

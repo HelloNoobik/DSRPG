@@ -78,7 +78,7 @@ namespace DSRPG.Classes
 
         public bool CheckDieMob()
         {
-            if (Health == 0)
+            if (Health <= 0)
             {
                 Core.Settings.PositionInCompaign++;
                 Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
@@ -90,20 +90,9 @@ namespace DSRPG.Classes
             }
         }
 
-        public void UpThief()
+        public virtual string UpMob()
         {
-            Energy += 10;
-            if (Energy == 30)
-            {
-                MessageBox.Show("Повышает защиту и Энергию !");
-                Armor = 0.1;
-                Energy += 30;
-            }
-            if (Energy == 100)
-            {
-                MessageBox.Show("Ярость !");
-                Damage = 50;
-            }
+            return "";
         }
         public override string ToString() //Мож пойже пригодится s
         {

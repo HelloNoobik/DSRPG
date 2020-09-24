@@ -170,7 +170,7 @@ namespace DSRPG.Classes.Hero
         {
             health.Max =  100 + (stamina * 5);
             mana.Max = 50 + (intellect * 5);
-            if (agility % 3 == 0)
+            /*if (agility % 3 == 0)
             {
                 energy.Max = 40 +  (agility * 1);
             }
@@ -178,6 +178,7 @@ namespace DSRPG.Classes.Hero
             {
                 energy.Max = 40 + agility;
             }
+            */
             damage.Max = 10 + (strength / 4);
             armor.Max = 0.01 + (strength * 0.1) / 100;
             ResetStats();
@@ -185,7 +186,7 @@ namespace DSRPG.Classes.Hero
 
         public bool CheckDie()
         {
-            if (Health.Current == 0)
+            if (Health.Current <= 0)
             {
                 MessageBox.Show("Вы умерли");
                 Core.Settings.PageController.ChangeWindow(Pages.Lotrik);
