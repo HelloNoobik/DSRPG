@@ -305,6 +305,7 @@
     <Resource Include="Resources\img\World.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="SomeInfo\grad.txt" />
     <Resource Include="Resources\img\Items\AnotherHeal.png" />
     <Resource Include="Resources\img\Items\Armor\MageBody.png" />
     <Resource Include="Resources\img\Items\Armor\MageGloves.png" />
