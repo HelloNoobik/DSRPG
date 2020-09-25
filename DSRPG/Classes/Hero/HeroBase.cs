@@ -191,15 +191,7 @@ namespace DSRPG.Classes.Hero
         {
             health.Max =  100 + (stamina * 5);
             mana.Max = 50 + (intellect * 5);
-            /*if (agility % 3 == 0)
-            {
-                energy.Max = 40 +  (agility * 1);
-            }
-            else
-            {
-                energy.Max = 40 + agility;
-            }
-            */
+            energy.Max = 40 + agility;
             damage.Max = 10 + (strength / 4);
             armor.Max = 0.01 + (strength * 0.1) / 100;
             ResetStats();
