@@ -19,11 +19,11 @@ namespace DSRPG.Classes.Hero
             intellect = 12;
 
 
-            health = new Stat(60);
-            mana = new Stat(100);
+            health = new Stat(80);
+            mana = new Stat(50);
             energy = new Stat(50);
-            damage = new Stat(6);
-            armor = new StatDouble(0.03);
+            damage = new Stat(5);
+            armor = new StatDouble(0.05);
 
             CalcStats();
 

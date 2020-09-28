@@ -149,7 +149,8 @@ namespace DSRPG.Classes.Arena
                 switch (item.Name)
                 {
                     case "Эстус":
-                        Hero.Health.Current += 30;
+                        Hero.Health.Current += 70;
+                        Hero.Mana.Current += 40;
                         Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
                         break;
                     case "Человечность":
@@ -157,7 +158,7 @@ namespace DSRPG.Classes.Arena
                         Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
                         break;
                     case "Небесное благословение":
-                        Hero.Health.Current += 50;
+                        Hero.Health.Current += 100;
                         Core.Settings.Hero.Inv.RemoveItem(item.Name, 1);
                         break;
                     case "Черная огненная бомба":
@@ -173,6 +174,7 @@ namespace DSRPG.Classes.Arena
                 }
             }
             LoadSlots();
+            Mobdmg();
         }
         private void Arena_Unloaded(object sender, RoutedEventArgs e)
         {
@@ -223,9 +225,9 @@ namespace DSRPG.Classes.Arena
         {
             arena.Log.Clear();
             Hero.Armor.Current = Hero.Armor.Base;
-            Mobdmg();
-            Hero.Energy.Current += 10;
             Herodmg();
+            Hero.Energy.Current += 10;
+            Mobdmg();
         }
         private void Herodmg()
         {
@@ -241,6 +243,7 @@ namespace DSRPG.Classes.Arena
         }
         private void CheckResist()
         {
+            if (Mob.CheckDieMob()) return;
             arena.Log.Text += Mob.UpMob();
             int damage = Convert.ToInt32(Mob.Damage * (1 - Hero.Armor.Current));
             Hero.Health.Current -= damage;
@@ -248,13 +251,9 @@ namespace DSRPG.Classes.Arena
         }
         private void Mobresist()
         {
+            if (Hero.CheckDie()) return;
             int damage = Convert.ToInt32(Hero.Damage.Current * (1 - Mob.Armor));
             Mob.Health -= damage;
-            if (Hero.CheckDie());
-            else
-            {
-                Mob.CheckDieMob();
-            }
             arena.Log.Text += $"Вы нанесли {damage} урона\n";
         }
     }

@@ -38,7 +38,7 @@ namespace DSRPG.Classes.Hero
         protected Stat damage;
         public Inventory Inv;
         private int estusCount = 3;
-        private int souls = 10000000;
+        private int souls = 1000;
 
         public string Name
         {
@@ -189,11 +189,11 @@ namespace DSRPG.Classes.Hero
 
         public void UpdateStats()
         {
-            health.Max =  100 + (stamina * 5);
+            health.Max =  80 + (stamina * 5);
             mana.Max = 50 + (intellect * 5);
-            energy.Max = 40 + agility;
-            damage.Max = 10 + (strength / 4);
-            armor.Max = 0.01 + (strength * 0.1) / 100;
+            energy.Max =  50 + agility;
+            damage.Max = 5 + (strength / 2);
+            armor.Max = 0.05 + (strength * 0.1) / 40;
             ResetStats();
         }
 

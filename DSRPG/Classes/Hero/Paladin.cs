@@ -13,16 +13,16 @@ namespace DSRPG.Classes.Hero
             : base(name,gender,_class)
         {
 
-            strength = 15;
+            strength = 10;
             agility = 10;
             stamina = 10;
-            intellect = 10;
+            intellect = 5;
 
-            health = new Stat(100);
+            health = new Stat(80);
             mana = new Stat(50);
-            energy = new Stat(70);
-            damage = new Stat(10);
-            armor = new StatDouble(0.09);
+            energy = new Stat(50);
+            damage = new Stat(5);
+            armor = new StatDouble(0.05);
 
             CalcStats();
 
