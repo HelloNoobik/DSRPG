@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7bb6233a6fb4ba9b61e468035be0b40" Name="Diagram1">
+        <EntityTypeShape EntityType="DSRPGModel.Armors" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Items" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.ItemTypes" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Spells" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Weapons" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Armor" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Item" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Spell" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSRPGModel.Weapon" Width="1.5" PointX="7.875" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="DSRPGModel.FK_Armors_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="DSRPGModel.FK_Spells_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="DSRPGModel.FK_Weapons_Weapons" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DSRPGModel.Records" Width="1.5" PointX="7.75" PointY="6.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

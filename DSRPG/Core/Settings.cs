@@ -99,6 +99,7 @@ namespace DSRPG.Core
             {
                 if (value < 0 || value > 8) return;
                 positionInCompaign = value;
+                Stats.Progress = value;
                 PositionChanged?.Invoke();
             }
         }

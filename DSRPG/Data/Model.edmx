@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище DSRPGModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Armors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Defence" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Records">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kills" Type="int" Nullable="false" />
+          <Property Name="Deaths" Type="int" Nullable="false" />
+          <Property Name="SoulsRecieved" Type="int" Nullable="false" />
+          <Property Name="SoulsSpent" Type="int" Nullable="false" />
+          <Property Name="Progress" Type="int" Nullable="false" />
+          <Property Name="DamageGiven" Type="int" Nullable="false" />
+          <Property Name="DamageTaken" Type="int" Nullable="false" />
+          <Property Name="BossKills" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spells">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ManaCost" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Weapons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Damage" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DSRPG.dbo.Armor" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Armor">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Image" />
+            <PropertyRef Name="Defence" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Defence" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DSRPG.dbo.Item" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DSRPG.dbo.Spell" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Spell">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Image" />
+            <PropertyRef Name="ManaCost" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ManaCost" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DSRPG.dbo.Weapon" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Weapon">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Image" />
+            <PropertyRef Name="Damage" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Damage" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Armors_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Armors" Type="Self.Armors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Armors">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Spells_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Spells" Type="Self.Spells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Spells">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Weapons_Weapons">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Weapons" Type="Self.Weapons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Weapons">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DSRPGModelContainer">
+          <EntitySet Name="Armors" EntityType="Self.Armors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spells" EntityType="Self.Spells" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weapons" EntityType="Self.Weapons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Armor" EntityType="Self.Armor" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Armor].[Id] AS [Id], 
+    [Armor].[Name] AS [Name], 
+    [Armor].[Type] AS [Type], 
+    [Armor].[Image] AS [Image], 
+    [Armor].[Defence] AS [Defence]
+    FROM [dbo].[Armor] AS [Armor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Item" EntityType="Self.Item" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Item].[Id] AS [Id], 
+    [Item].[Name] AS [Name], 
+    [Item].[Type] AS [Type], 
+    [Item].[Image] AS [Image]
+    FROM [dbo].[Item] AS [Item]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Spell" EntityType="Self.Spell" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Spell].[Id] AS [Id], 
+    [Spell].[Name] AS [Name], 
+    [Spell].[Type] AS [Type], 
+    [Spell].[Image] AS [Image], 
+    [Spell].[ManaCost] AS [ManaCost]
+    FROM [dbo].[Spell] AS [Spell]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Weapon" EntityType="Self.Weapon" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Weapon].[Id] AS [Id], 
+    [Weapon].[Name] AS [Name], 
+    [Weapon].[Type] AS [Type], 
+    [Weapon].[Image] AS [Image], 
+    [Weapon].[Damage] AS [Damage]
+    FROM [dbo].[Weapon] AS [Weapon]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Armors_Items" Association="Self.FK_Armors_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Armors" EntitySet="Armors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spells_Items" Association="Self.FK_Spells_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Spells" EntitySet="Spells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Weapons_Weapons" Association="Self.FK_Weapons_Weapons">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Weapons" EntitySet="Weapons" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DSRPGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Armors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Defence" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Armors_Items" FromRole="Armors" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Armors" Relationship="Self.FK_Armors_Items" FromRole="Items" ToRole="Armors" />
+          <NavigationProperty Name="Spells" Relationship="Self.FK_Spells_Items" FromRole="Items" ToRole="Spells" />
+          <NavigationProperty Name="Weapons" Relationship="Self.FK_Weapons_Weapons" FromRole="Items" ToRole="Weapons" />
+        </EntityType>
+        <EntityType Name="ItemTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spells">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="ManaCost" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Spells_Items" FromRole="Spells" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Weapons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Damage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Weapons_Weapons" FromRole="Weapons" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Armor">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Defence" />
+            <PropertyRef Name="Image" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Defence" Type="Double" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Spell">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="ManaCost" />
+            <PropertyRef Name="Image" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManaCost" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Weapon">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Damage" />
+            <PropertyRef Name="Image" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Damage" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Armors_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Armors" Type="Self.Armors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Armors">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Spells_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Spells" Type="Self.Spells" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Spells">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Weapons_Weapons">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Weapons" Type="Self.Weapons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Weapons">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DSRPGEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Armors" EntityType="Self.Armors" />
+          <EntitySet Name="Items" EntityType="Self.Items" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemTypes" />
+          <EntitySet Name="Spells" EntityType="Self.Spells" />
+          <EntitySet Name="Weapons" EntityType="Self.Weapons" />
+          <EntitySet Name="Armor" EntityType="Self.Armor" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="Spell" EntityType="Self.Spell" />
+          <EntitySet Name="Weapon" EntityType="Self.Weapon" />
+          <AssociationSet Name="FK_Armors_Items" Association="Self.FK_Armors_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Armors" EntitySet="Armors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spells_Items" Association="Self.FK_Spells_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Spells" EntitySet="Spells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Weapons_Weapons" Association="Self.FK_Weapons_Weapons">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Weapons" EntitySet="Weapons" />
+          </AssociationSet>
+          <EntitySet Name="Records" EntityType="DSRPGModel.Records" />
+        </EntityContainer>
+        <EntityType Name="Records">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kills" Type="Int32" Nullable="false" />
+          <Property Name="Deaths" Type="Int32" Nullable="false" />
+          <Property Name="SoulsRecieved" Type="Int32" Nullable="false" />
+          <Property Name="SoulsSpent" Type="Int32" Nullable="false" />
+          <Property Name="Progress" Type="Int32" Nullable="false" />
+          <Property Name="DamageGiven" Type="Int32" Nullable="false" />
+          <Property Name="DamageTaken" Type="Int32" Nullable="false" />
+          <Property Name="BossKills" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DSRPGModelContainer" CdmEntityContainer="DSRPGEntities">
+          <EntitySetMapping Name="Armors">
+            <EntityTypeMapping TypeName="DSRPGModel.Armors">
+              <MappingFragment StoreEntitySet="Armors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Defence" ColumnName="Defence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="DSRPGModel.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes">
+            <EntityTypeMapping TypeName="DSRPGModel.ItemTypes">
+              <MappingFragment StoreEntitySet="ItemTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spells">
+            <EntityTypeMapping TypeName="DSRPGModel.Spells">
+              <MappingFragment StoreEntitySet="Spells">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ManaCost" ColumnName="ManaCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weapons">
+            <EntityTypeMapping TypeName="DSRPGModel.Weapons">
+              <MappingFragment StoreEntitySet="Weapons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Damage" ColumnName="Damage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Armor">
+            <EntityTypeMapping TypeName="DSRPGModel.Armor">
+              <MappingFragment StoreEntitySet="Armor">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Defence" ColumnName="Defence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="DSRPGModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spell">
+            <EntityTypeMapping TypeName="DSRPGModel.Spell">
+              <MappingFragment StoreEntitySet="Spell">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ManaCost" ColumnName="ManaCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weapon">
+            <EntityTypeMapping TypeName="DSRPGModel.Weapon">
+              <MappingFragment StoreEntitySet="Weapon">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Damage" ColumnName="Damage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Records">
+            <EntityTypeMapping TypeName="DSRPGModel.Records">
+              <MappingFragment StoreEntitySet="Records">
+                <ScalarProperty Name="BossKills" ColumnName="BossKills" />
+                <ScalarProperty Name="DamageTaken" ColumnName="DamageTaken" />
+                <ScalarProperty Name="DamageGiven" ColumnName="DamageGiven" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="SoulsSpent" ColumnName="SoulsSpent" />
+                <ScalarProperty Name="SoulsRecieved" ColumnName="SoulsRecieved" />
+                <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+                <ScalarProperty Name="Kills" ColumnName="Kills" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
