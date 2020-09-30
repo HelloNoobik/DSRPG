@@ -14,14 +14,9 @@ namespace DSRPG.Classes
         {
             get { return cost; }
         }
-        public int IntRequire 
-        {
-            get { return intRequire; }
-        }
-        public Spell(string name,int cost, int intRequire,string image, int count = 0) : base(name, image, count)
+        public Spell(string name,int cost,string image, int count = 0) : base(name, image, count)
         {
             this.cost = cost;
-            this.intRequire = intRequire;
             type = ItemType.Spell;
         }
         

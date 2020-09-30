@@ -1,10 +1,13 @@
-﻿using System;
+﻿using DSRPG.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Xml;
+using dbItem = DSRPG.Data.Item;
+using dbWeapon = DSRPG.Data.Weapon;
+using dbSpell = DSRPG.Data.Spell;
 
 namespace DSRPG.Classes
 {
@@ -109,68 +112,29 @@ namespace DSRPG.Classes
         }
         public static void Load()
         {
-            XmlDocument XMLdb = new XmlDocument();
-            XMLdb.Load("Data/db.xml");
-            XmlElement root = XMLdb.DocumentElement;
-            foreach (XmlNode node in root.ChildNodes)
+            using(DSRPGEntities db = new DSRPGEntities()) 
             {
-                string key = "";
-                int value = 0;
-                foreach (XmlAttribute atribute in node.Attributes)
-                {
-                    if (atribute.Name == "key") key = atribute.Value;
-                    else if (atribute.Name == "value") value = Convert.ToInt32(atribute.Value);
-                }
-                _db.Add(key, value);
-            }
+                IQueryable<dbItem> query = db.Item;
 
-            XMLdb = new XmlDocument();
-            XMLdb.Load("Data/items.xml");
-            root = XMLdb.DocumentElement;
-            foreach (XmlNode node in root.ChildNodes)
-            {
-                string name = "";
-                ItemType Type = ItemType.Other;
-                string image = "";
-                int damage = 0;
-                double defence = 0.1;
-                int cost = 0;
-                int intRequire = 0;
-                foreach (XmlAttribute atribute in node.Attributes)
+                foreach (dbItem item in query) 
                 {
-                    if (atribute.Name == "name") name = atribute.Value;
-                    else if (atribute.Name == "itemtype")
+                    _db.Add(item.Name, item.Id);
+
+                    if (item.Type == "Оружие")
                     {
-                        switch (atribute.Value)
-                        {
-                            case "item":
-                                Type = ItemType.Item;
-                                break;
-                            case "weapon":
-                                Type = ItemType.Weapon;
-                                break;
-                            case "armor":
-                                Type = ItemType.Armor;
-                                break;
-                            case "other":
-                                Type = ItemType.Other;
-                                break;
-                            case "spell":
-                                Type = ItemType.Spell;
-                                break;
-                        }
+                        dbWeapon weapon = db.Weapon.Where(c => c.Id == item.Id).First();
+                        _items.Add(new Weapon(weapon.Name,weapon.Image,weapon.Damage));
                     }
-                    else if (atribute.Name == "image") image = atribute.Value;
-                    else if (atribute.Name == "damage") damage = Convert.ToInt32(atribute.Value);
-                    else if (atribute.Name == "defence") defence = Convert.ToDouble(atribute.Value);
-                    else if (atribute.Name == "cost") cost = Convert.ToInt32(atribute.Value);
-                    else if (atribute.Name == "intRequire") intRequire = Convert.ToInt32(atribute.Value);
+                    else if (item.Type == "Заклинание") 
+                    {
+                        dbSpell spell = db.Spell.Where(c => c.Id == item.Id).First();
+                        _items.Add(new Spell(spell.Name, spell.ManaCost, spell.Image));
+                    }
+                    else 
+                    {
+                        _items.Add(new Item(item.Name, item.Image));
+                    }
                 }
-                if (Type == ItemType.Armor) _items.Add(new Armor(name, image, defence));
-                else if (Type == ItemType.Weapon) _items.Add(new Weapon(name, image, damage));
-                else if (Type == ItemType.Spell) _items.Add(new Spell(name, cost, intRequire, image));
-                else _items.Add(new Item(name, Type, image));
-
             }
         }
 
