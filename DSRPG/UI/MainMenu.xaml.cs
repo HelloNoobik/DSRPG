@@ -50,6 +50,7 @@ namespace DSRPG.UI
         private void LoadGameLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
              Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
+            Settings.PageController.ChangeWindow(Pages.LoadSave);
         }
 
         private void SettingsLb_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

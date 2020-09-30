@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using DSRPG.GameLogic.ViewModel;
 using DSRPG.Core;
 using DSRPG.Classes.Hero;
+using DSRPG.Data;
 
 namespace DSRPG.UI
 {
@@ -90,18 +91,36 @@ namespace DSRPG.UI
             }
         }
 
+        bool rewrite = false;
         private void Submit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Settings.MediaController.PlaySound(DSRPG.Resources.Links.Sound.Click);
-            HeroBase Hero = Model.Check();
-            if (Hero != null)
+            Settings.Hero = Model.Check();
+            if (Settings.Hero != null)
             {
-                Settings.Hero = Hero;
+                using (DSRPGEntities db = new DSRPGEntities())
+                {
+                    if (db.Players.Where(c => c.Name == Settings.Hero.Name).Count() > 0 && !rewrite)
+                    {
+                        MessageBox.Show("Данный герой уже существует!\nЕсли вы продолжите содание персонажа, то он будет перезаписан!\nВернитесь в меню для загрузки сохранения");
+                        rewrite = true;
+                        return;
+                    }
+                    if (rewrite) 
+                    {
+                        int id = db.Players.Where(c => c.Name == Settings.Hero.Name).First().Id;
+                        db.Players.Remove(db.Players.Where(c => c.Name == Settings.Hero.Name).First());
+                        db.ItemsList.RemoveRange(db.ItemsList.Where(c => c.PlayerId == id));
+                        db.SaveChanges();
+                    }
+                }
+
                 Settings.MediaController.MainMenuMusicPlaying = false;
                 Settings.MediaController.StopMusic();
                 Settings.PageController.ChangeWindow(Pages.Intro);
             }
             else MessageBox.Show("Не все заполнено");
+            rewrite = false;
         }
 
         private void Cancel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -112,7 +131,7 @@ namespace DSRPG.UI
 
         private void Submit_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Hero = new Archer("debug","debug","debug","debug");
+            Settings.Hero = new Archer("debug","debug", "Лучник", "debug");
             Settings.MediaController.MainMenuMusicPlaying = false;
             Settings.MediaController.StopMusic();
             Settings.PageController.ChangeWindow(Pages.Intro);

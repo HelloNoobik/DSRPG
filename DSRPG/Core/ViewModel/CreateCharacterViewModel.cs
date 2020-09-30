@@ -11,6 +11,7 @@ using DSRPG.UI.CreateHeroPageUI;
 using System.Threading;
 using System.Windows;
 using DSRPG.Classes.Hero;
+using DSRPG.Data;
 
 namespace DSRPG.GameLogic.ViewModel
 {
@@ -124,18 +125,26 @@ namespace DSRPG.GameLogic.ViewModel
                 string gender = Gender.GetResult();
                 string _class = Class.GetResult();
                 string gift = Gift.GetResult();
-                switch (Class.GetResult()) 
+
+                if (Core.Settings.Hero == null)
                 {
-                    case "Воин":
-                        return new Warrior(name,gender,_class, gift);
-                    case "Паладин":
-                        return new Paladin(name, gender, _class, gift);
-                    case "Лучник":
-                        return new Archer(name, gender, _class, gift);
-                    case "Маг":
-                        return new Mage(name, gender, _class, gift);
-                    default:
-                        return null;
+                    switch (Class.GetResult())
+                    {
+                        case "Воин":
+                            return new Warrior(name, gender, _class, gift);
+                        case "Паладин":
+                            return new Paladin(name, gender, _class, gift);
+                        case "Лучник":
+                            return new Archer(name, gender, _class, gift);
+                        case "Маг":
+                            return new Mage(name, gender, _class, gift);
+                        default:
+                            return null;
+                    }
+                }
+                else 
+                {
+                    return Core.Settings.Hero;
                 }
             }
             return null;

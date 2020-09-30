@@ -30,5 +30,10 @@ namespace DSRPG.Classes.Hero
             Inv.AddItem("Сет Вора", 1);
             Inv.AddItem("Кинжал", 1);
         }
+
+        public Archer() : base() 
+        { 
+        
+        }
     }
 }

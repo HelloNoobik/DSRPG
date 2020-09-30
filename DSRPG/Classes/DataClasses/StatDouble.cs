@@ -71,6 +71,11 @@ namespace DSRPG.Classes.DataClasses
             _base = current;
         }
 
+        public StatDouble()
+        {
+
+        }
+
         public delegate void Event();
         public event Event Empty;
 

@@ -13,6 +13,13 @@
           <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="Defence" Type="float" Nullable="false" />
         </EntityType>
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Items">
           <Key>
             <PropertyRef Name="Id" />
@@ -22,12 +29,37 @@
           <Property Name="TypeId" Type="int" Nullable="false" />
           <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="ItemsList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ItemTypes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="Strength" Type="int" Nullable="false" />
+          <Property Name="Agility" Type="int" Nullable="false" />
+          <Property Name="Stamina" Type="int" Nullable="false" />
+          <Property Name="Intellect" Type="int" Nullable="false" />
+          <Property Name="Souls" Type="int" Nullable="false" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="EstusCount" Type="int" Nullable="false" />
+          <Property Name="TraderCost" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Records">
           <Key>
@@ -90,6 +122,46 @@
           <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DSRPG.dbo.ItemList" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ItemList">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PlayerName" />
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PlayerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DSRPG.dbo.Player" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Class" />
+            <PropertyRef Name="Strength" />
+            <PropertyRef Name="Agility" />
+            <PropertyRef Name="Stamina" />
+            <PropertyRef Name="Intellect" />
+            <PropertyRef Name="Souls" />
+            <PropertyRef Name="Position" />
+            <PropertyRef Name="EstusCount" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Strength" Type="int" Nullable="false" />
+          <Property Name="Agility" Type="int" Nullable="false" />
+          <Property Name="Stamina" Type="int" Nullable="false" />
+          <Property Name="Intellect" Type="int" Nullable="false" />
+          <Property Name="Souls" Type="int" Nullable="false" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="EstusCount" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "DSRPG.dbo.Spell" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Spell">
           <Key>
@@ -133,6 +205,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ItemsList_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ItemsList" Type="Self.ItemsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemsList">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Players_Classes">
+          <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Spells_Items">
           <End Role="Items" Type="Self.Items" Multiplicity="1" />
           <End Role="Spells" Type="Self.Spells" Multiplicity="*" />
@@ -159,8 +255,11 @@
         </Association>
         <EntityContainer Name="Хранилище DSRPGModelContainer">
           <EntitySet Name="Armors" EntityType="Self.Armors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemsList" EntityType="Self.ItemsList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemTypes" EntityType="Self.ItemTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Spells" EntityType="Self.Spells" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Weapons" EntityType="Self.Weapons" Schema="dbo" store:Type="Tables" />
@@ -180,6 +279,28 @@
     [Item].[Type] AS [Type], 
     [Item].[Image] AS [Image]
     FROM [dbo].[Item] AS [Item]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ItemList" EntityType="Self.ItemList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ItemList].[Id] AS [Id], 
+    [ItemList].[PlayerName] AS [PlayerName], 
+    [ItemList].[ItemName] AS [ItemName], 
+    [ItemList].[Count] AS [Count]
+    FROM [dbo].[ItemList] AS [ItemList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Player" EntityType="Self.Player" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Player].[Id] AS [Id], 
+    [Player].[Name] AS [Name], 
+    [Player].[Class] AS [Class], 
+    [Player].[Strength] AS [Strength], 
+    [Player].[Agility] AS [Agility], 
+    [Player].[Stamina] AS [Stamina], 
+    [Player].[Intellect] AS [Intellect], 
+    [Player].[Souls] AS [Souls], 
+    [Player].[Position] AS [Position], 
+    [Player].[EstusCount] AS [EstusCount]
+    FROM [dbo].[Player] AS [Player]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Spell" EntityType="Self.Spell" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -202,6 +323,14 @@
           <AssociationSet Name="FK_Armors_Items" Association="Self.FK_Armors_Items">
             <End Role="Items" EntitySet="Items" />
             <End Role="Armors" EntitySet="Armors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsList_Items" Association="Self.FK_ItemsList_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemsList" EntitySet="ItemsList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Players_Classes" Association="Self.FK_Players_Classes">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Players" EntitySet="Players" />
           </AssociationSet>
           <AssociationSet Name="FK_Spells_Items" Association="Self.FK_Spells_Items">
             <End Role="Items" EntitySet="Items" />
@@ -236,6 +365,7 @@
           <NavigationProperty Name="Armors" Relationship="Self.FK_Armors_Items" FromRole="Items" ToRole="Armors" />
           <NavigationProperty Name="Spells" Relationship="Self.FK_Spells_Items" FromRole="Items" ToRole="Spells" />
           <NavigationProperty Name="Weapons" Relationship="Self.FK_Weapons_Weapons" FromRole="Items" ToRole="Weapons" />
+          <NavigationProperty Name="ItemsList" Relationship="DSRPGModel.FK_ItemsList_Items" FromRole="Items" ToRole="ItemsList" />
         </EntityType>
         <EntityType Name="ItemTypes">
           <Key>
@@ -374,6 +504,23 @@
             <End Role="Weapons" EntitySet="Weapons" />
           </AssociationSet>
           <EntitySet Name="Records" EntityType="DSRPGModel.Records" />
+          <EntitySet Name="ItemsList" EntityType="DSRPGModel.ItemsList" />
+          <EntitySet Name="Players" EntityType="DSRPGModel.Players" />
+          <EntitySet Name="ItemList" EntityType="DSRPGModel.ItemList" />
+          <AssociationSet Name="FK_ItemsList_Items" Association="DSRPGModel.FK_ItemsList_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemsList" EntitySet="ItemsList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsList_Players" Association="DSRPGModel.FK_ItemsList_Players">
+            <End Role="Players" EntitySet="Players" />
+            <End Role="ItemsList" EntitySet="ItemsList" />
+          </AssociationSet>
+          <EntitySet Name="Classes" EntityType="DSRPGModel.Classes" />
+          <EntitySet Name="Player" EntityType="DSRPGModel.Player" />
+          <AssociationSet Name="FK_Players_Classes" Association="DSRPGModel.FK_Players_Classes">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Records">
           <Key>
@@ -390,6 +537,115 @@
           <Property Name="DamageTaken" Type="Int32" Nullable="false" />
           <Property Name="BossKills" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="ItemsList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="DSRPGModel.FK_ItemsList_Items" FromRole="ItemsList" ToRole="Items" />
+          <NavigationProperty Name="Players" Relationship="DSRPGModel.FK_ItemsList_Players" FromRole="ItemsList" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Souls" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemsList" Relationship="DSRPGModel.FK_ItemsList_Players" FromRole="Players" ToRole="ItemsList" />
+          <Property Name="Strength" Type="Int32" Nullable="false" />
+          <Property Name="Agility" Type="Int32" Nullable="false" />
+          <Property Name="Stamina" Type="Int32" Nullable="false" />
+          <Property Name="Intellect" Type="Int32" Nullable="false" />
+          <Property Name="EstusCount" Type="Int32" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="DSRPGModel.FK_Players_Classes" FromRole="Players" ToRole="Classes" />
+          <Property Name="TraderCost" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemList">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PlayerName" />
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PlayerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ItemsList_Items">
+          <End Type="DSRPGModel.Items" Role="Items" Multiplicity="1" />
+          <End Type="DSRPGModel.ItemsList" Role="ItemsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemsList">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsList_Players">
+          <End Type="DSRPGModel.Players" Role="Players" Multiplicity="1" />
+          <End Type="DSRPGModel.ItemsList" Role="ItemsList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemsList">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Class" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Players" Relationship="DSRPGModel.FK_Players_Classes" FromRole="Classes" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Class" />
+            <PropertyRef Name="Strength" />
+            <PropertyRef Name="Agility" />
+            <PropertyRef Name="Stamina" />
+            <PropertyRef Name="Intellect" />
+            <PropertyRef Name="Souls" />
+            <PropertyRef Name="Position" />
+            <PropertyRef Name="EstusCount" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Strength" Type="Int32" Nullable="false" />
+          <Property Name="Agility" Type="Int32" Nullable="false" />
+          <Property Name="Stamina" Type="Int32" Nullable="false" />
+          <Property Name="Intellect" Type="Int32" Nullable="false" />
+          <Property Name="Souls" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="EstusCount" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Players_Classes">
+          <End Type="DSRPGModel.Classes" Role="Classes" Multiplicity="1" />
+          <End Type="DSRPGModel.Players" Role="Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -495,6 +751,67 @@
                 <ScalarProperty Name="SoulsRecieved" ColumnName="SoulsRecieved" />
                 <ScalarProperty Name="Deaths" ColumnName="Deaths" />
                 <ScalarProperty Name="Kills" ColumnName="Kills" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemsList">
+            <EntityTypeMapping TypeName="DSRPGModel.ItemsList">
+              <MappingFragment StoreEntitySet="ItemsList">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="DSRPGModel.Players">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="TraderCost" ColumnName="TraderCost" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="EstusCount" ColumnName="EstusCount" />
+                <ScalarProperty Name="Intellect" ColumnName="Intellect" />
+                <ScalarProperty Name="Stamina" ColumnName="Stamina" />
+                <ScalarProperty Name="Agility" ColumnName="Agility" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Souls" ColumnName="Souls" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemList">
+            <EntityTypeMapping TypeName="DSRPGModel.ItemList">
+              <MappingFragment StoreEntitySet="ItemList">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="DSRPGModel.Classes">
+              <MappingFragment StoreEntitySet="Classes">
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Player">
+            <EntityTypeMapping TypeName="DSRPGModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="EstusCount" ColumnName="EstusCount" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Souls" ColumnName="Souls" />
+                <ScalarProperty Name="Intellect" ColumnName="Intellect" />
+                <ScalarProperty Name="Stamina" ColumnName="Stamina" />
+                <ScalarProperty Name="Agility" ColumnName="Agility" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

@@ -1,0 +1,17 @@
+﻿<Page x:Class="DSRPG.UI.SaveLoad"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSRPG.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="419" d:DesignWidth="792"
+      Title="SaveLoad">
+
+    <Grid Background="Black">
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="327,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Имя персонажа" HorizontalAlignment="Left" Margin="327,137,0,0" VerticalAlignment="Top" Foreground="White" Width="120"/>
+        <Label Content="Загрузить" HorizontalAlignment="Left" Margin="353,196,0,0" VerticalAlignment="Top" Foreground="White" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
+
+    </Grid>
+</Page>

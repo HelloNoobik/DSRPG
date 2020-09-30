@@ -30,5 +30,9 @@ namespace DSRPG.Classes.Hero
             Inv.AddItem("Короткий меч", 1);
         }
 
+        public Warrior() : base() 
+        { 
+        
+        }
     }
 }

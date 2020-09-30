@@ -77,6 +77,12 @@ namespace DSRPG.Classes.DataClasses
             max = current;
             _base = current;
         }
+
+        public Stat()
+        {
+
+        }
+
         public delegate void EventInt(int damage);
         public delegate void Event();
         public event Event Empty;

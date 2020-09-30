@@ -18,7 +18,8 @@ namespace DSRPG
         Lotrik,
         WorldMap,
         BoneFire,
-    }
+        LoadSave,
+}
 }
 
 namespace DSRPG.Core
@@ -42,6 +43,7 @@ namespace DSRPG.Core
         private Page WorldMap;
         private Page Load;
         private Page Test;
+        private Page LoadSave;
         private Page BoneFire;
 
         private Page currentPage;
@@ -92,6 +94,7 @@ namespace DSRPG.Core
             Load = new UI.Load();
             Test = null;
             BoneFire = new UI.BoneFirePage();
+            LoadSave = new UI.SaveLoad();
 
             CurrentPage = Load;
 
@@ -148,6 +151,9 @@ namespace DSRPG.Core
                     break;
                 case Pages.BoneFire:
                     _page = BoneFire;
+                    break;
+                case Pages.LoadSave:
+                    _page = LoadSave;
                     break;
             }
             SlowOpacity(_page);

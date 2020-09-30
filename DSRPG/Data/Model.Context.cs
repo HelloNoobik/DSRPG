@@ -35,5 +35,10 @@ namespace DSRPG.Data
         public virtual DbSet<Spell> Spell { get; set; }
         public virtual DbSet<Weapon> Weapon { get; set; }
         public virtual DbSet<Records> Records { get; set; }
+        public virtual DbSet<ItemsList> ItemsList { get; set; }
+        public virtual DbSet<Players> Players { get; set; }
+        public virtual DbSet<ItemList> ItemList { get; set; }
+        public virtual DbSet<Classes> Classes { get; set; }
+        public virtual DbSet<Player> Player { get; set; }
     }
 }

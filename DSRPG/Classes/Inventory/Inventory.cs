@@ -186,6 +186,11 @@ namespace DSRPG.Classes
             }
         }
 
+        public List<Item> GetItems() 
+        {
+            return items;
+        }
+
         public int GetCountItems()
         {
             return items.Count();

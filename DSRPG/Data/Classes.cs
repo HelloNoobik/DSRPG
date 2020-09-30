@@ -12,29 +12,18 @@ namespace DSRPG.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Items
+    public partial class Classes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Items()
+        public Classes()
         {
-            this.Armors = new HashSet<Armors>();
-            this.Spells = new HashSet<Spells>();
-            this.Weapons = new HashSet<Weapons>();
-            this.ItemsList = new HashSet<ItemsList>();
+            this.Players = new HashSet<Players>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int TypeId { get; set; }
-        public string Image { get; set; }
+        public string Class { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Armors> Armors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Spells> Spells { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Weapons> Weapons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ItemsList> ItemsList { get; set; }
+        public virtual ICollection<Players> Players { get; set; }
     }
 }

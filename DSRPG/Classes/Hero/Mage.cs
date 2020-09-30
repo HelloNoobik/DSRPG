@@ -31,5 +31,10 @@ namespace DSRPG.Classes.Hero
             Inv.AddItem("Кинжал", 1);
             Inv.AddItem("Стрела души", 1);
         }
+
+        public Mage() : base() 
+        { 
+        
+        }
     }
 }

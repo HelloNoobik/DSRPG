@@ -111,6 +111,12 @@ namespace DSRPG.Classes.Hero
             set { damage = value; OnPropertyChanged(); }
         }
 
+        public int EstusCount 
+        {
+            get { return estusCount; }
+            set { estusCount = value; }
+        }
+
         public int Souls 
         {
             get { return souls; }
@@ -138,6 +144,18 @@ namespace DSRPG.Classes.Hero
             Class = _class;
             Gender = gender;
 
+            Inv.WeaponChanged += Inv_WeaponChanged;
+            Inv.ArmorChanged += Inv_ArmorChanged;
+        }
+
+        public HeroBase()
+        {
+            Inv = new Inventory();
+            Health = new Stat();
+            Mana = new Stat();
+            Energy = new Stat();
+            Damage = new Stat();
+            Armor = new StatDouble();
             Inv.WeaponChanged += Inv_WeaponChanged;
             Inv.ArmorChanged += Inv_ArmorChanged;
         }

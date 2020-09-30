@@ -12,29 +12,28 @@ namespace DSRPG.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Items
+    public partial class Players
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Items()
+        public Players()
         {
-            this.Armors = new HashSet<Armors>();
-            this.Spells = new HashSet<Spells>();
-            this.Weapons = new HashSet<Weapons>();
             this.ItemsList = new HashSet<ItemsList>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int TypeId { get; set; }
-        public string Image { get; set; }
+        public int Souls { get; set; }
+        public int Position { get; set; }
+        public int Strength { get; set; }
+        public int Agility { get; set; }
+        public int Stamina { get; set; }
+        public int Intellect { get; set; }
+        public int EstusCount { get; set; }
+        public int ClassId { get; set; }
+        public int TraderCost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Armors> Armors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Spells> Spells { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Weapons> Weapons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemsList> ItemsList { get; set; }
+        public virtual Classes Classes { get; set; }
     }
 }
