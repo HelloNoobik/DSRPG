@@ -33,10 +33,10 @@ namespace DSRPG.Classes.Company
             Height = 200;
             VerticalAlignment = VerticalAlignment.Center;
             HorizontalAlignment = HorizontalAlignment.Center;
-            Margin = new Thickness(400, 0, 0, 0);
+            Margin = new Thickness(600, 0, 0, 0);
 
             image = new Image();
-            image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/skewer.png",UriKind.Relative));
+            image.Source = new BitmapImage(new Uri("/DSRPG;component/Resources/img/bonefire.png",UriKind.Relative));
             image.HorizontalAlignment = HorizontalAlignment.Left;
             image.VerticalAlignment = VerticalAlignment.Top;
             image.Margin = new Thickness(0, 0, 0, 0);
