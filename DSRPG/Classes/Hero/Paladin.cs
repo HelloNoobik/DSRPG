@@ -9,14 +9,15 @@ namespace DSRPG.Classes.Hero
 {
     public class Paladin : HeroBase
     {
-        public Paladin(string name, string gender, string _class, string gift) 
-            : base(name,gender,_class)
+        public Paladin(string name, string gender, string gift) 
+            : base(name,gender, gift)
         {
 
             strength = 10;
             agility = 10;
             stamina = 10;
             intellect = 5;
+            Class = "Паладин";
 
             health = new Stat(80);
             mana = new Stat(50);
@@ -26,8 +27,8 @@ namespace DSRPG.Classes.Hero
 
             CalcStats();
 
-            Inv.AddItem("Сет Клирика", 1);
-            Inv.AddItem("Кинжал", 1);
+            Inv.SetItem("Сет Клирика", 1);
+            Inv.SetItem("Кинжал", 1);
         }
 
         public Paladin() : base() 

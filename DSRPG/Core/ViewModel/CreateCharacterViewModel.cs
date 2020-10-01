@@ -128,16 +128,16 @@ namespace DSRPG.GameLogic.ViewModel
 
                 if (Core.Settings.Hero == null)
                 {
-                    switch (Class.GetResult())
+                    switch (_class)
                     {
                         case "Воин":
-                            return new Warrior(name, gender, _class, gift);
+                            return new Warrior(name, gender, gift);
                         case "Паладин":
-                            return new Paladin(name, gender, _class, gift);
+                            return new Paladin(name, gender, gift);
                         case "Лучник":
-                            return new Archer(name, gender, _class, gift);
+                            return new Archer(name, gender, gift);
                         case "Маг":
-                            return new Mage(name, gender, _class, gift);
+                            return new Mage(name, gender, gift);
                         default:
                             return null;
                     }

@@ -9,14 +9,14 @@ namespace DSRPG.Classes.Hero
 {
     public class Warrior : HeroBase
     {
-        public Warrior(string name, string gender, string _class, string gift)
-            :base(name, gender, _class)
+        public Warrior(string name, string gender, string gift)
+            :base(name, gender, gift)
         {
             strength = 8;
             agility = 5;
             stamina = 8;
             intellect = 0;
-
+            Class = "Воин";
 
             health = new Stat(80);
             mana = new Stat(50);
@@ -26,8 +26,8 @@ namespace DSRPG.Classes.Hero
 
             CalcStats();
 
-            Inv.AddItem("Сет Воина", 1);
-            Inv.AddItem("Короткий меч", 1);
+            Inv.SetItem("Сет Воина", 1);
+            Inv.SetItem("Короткий меч", 1);
         }
 
         public Warrior() : base() 

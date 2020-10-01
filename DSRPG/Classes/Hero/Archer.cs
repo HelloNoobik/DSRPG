@@ -9,14 +9,14 @@ namespace DSRPG.Classes.Hero
 {
     public class Archer:HeroBase
     {
-        public Archer(string name,string gender, string _class, string gift) 
-            : base(name,gender,_class)
+        public Archer(string name,string gender, string gift) 
+            : base(name,gender, gift)
         {
             strength = 8;
             agility = 15;
             stamina = 8;
             intellect = 4;
-
+            Class = "Лучник";
 
             health = new Stat(80);
             mana = new Stat(50);
@@ -27,8 +27,8 @@ namespace DSRPG.Classes.Hero
             CalcStats();
 
 
-            Inv.AddItem("Сет Вора", 1);
-            Inv.AddItem("Кинжал", 1);
+            Inv.SetItem("Сет Вора", 1);
+            Inv.SetItem("Кинжал", 1);
         }
 
         public Archer() : base() 

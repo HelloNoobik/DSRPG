@@ -8,6 +8,7 @@ using System.Windows;
 using dbItem = DSRPG.Data.Item;
 using dbWeapon = DSRPG.Data.Weapon;
 using dbSpell = DSRPG.Data.Spell;
+using dbArmor = DSRPG.Data.Armor;
 
 namespace DSRPG.Classes
 {
@@ -110,27 +111,37 @@ namespace DSRPG.Classes
             db = _db;
             items = _items;
         }
+
         public static void Load()
         {
-            using(DSRPGEntities db = new DSRPGEntities()) 
+            using (DSRPGEntities db = new DSRPGEntities())
             {
                 IQueryable<dbItem> query = db.Item;
 
-                foreach (dbItem item in query) 
+                foreach (dbItem item in query)
                 {
                     _db.Add(item.Name, item.Id);
 
                     if (item.Type == "Оружие")
                     {
                         dbWeapon weapon = db.Weapon.Where(c => c.Id == item.Id).First();
-                        _items.Add(new Weapon(weapon.Name,weapon.Image,weapon.Damage));
+                        _items.Add(new Weapon(weapon.Name, weapon.Image, weapon.Damage));
                     }
-                    else if (item.Type == "Заклинание") 
+                    else if (item.Type == "Заклинание")
                     {
                         dbSpell spell = db.Spell.Where(c => c.Id == item.Id).First();
                         _items.Add(new Spell(spell.Name, spell.ManaCost, spell.Image));
                     }
-                    else 
+                    else if (item.Type == "Броня")
+                    {
+                        dbArmor armor = db.Armor.Where(c => c.Id == item.Id).First();
+                        _items.Add(new Armor(armor.Name, armor.Image, armor.Defence));
+                    }
+                    else if (item.Type == "Расходник") 
+                    {
+                        _items.Add(new Usable(item.Name,item.Image));
+                    }
+                    else
                     {
                         _items.Add(new Item(item.Name, item.Image));
                     }
@@ -150,6 +161,19 @@ namespace DSRPG.Classes
                 MessageBox.Show("error");
             }
 
+        }
+
+        public void SetItem(string item, int count = 1) 
+        {
+            int id = 0;
+            if (db.TryGetValue(item, out id))
+            {
+                items[id].Count = count;
+            }
+            else
+            {
+                MessageBox.Show("error");
+            }
         }
 
         public void WeaponUpgrade(Item item)

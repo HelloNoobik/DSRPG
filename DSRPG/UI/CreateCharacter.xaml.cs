@@ -104,6 +104,7 @@ namespace DSRPG.UI
                     {
                         MessageBox.Show("Данный герой уже существует!\nЕсли вы продолжите содание персонажа, то он будет перезаписан!\nВернитесь в меню для загрузки сохранения");
                         rewrite = true;
+                        Settings.Hero = null;
                         return;
                     }
                     if (rewrite) 
@@ -131,7 +132,7 @@ namespace DSRPG.UI
 
         private void Submit_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Settings.Hero = new Archer("debug","debug", "Лучник", "debug");
+            Settings.Hero = new Archer("debug","debug","debug");
             Settings.MediaController.MainMenuMusicPlaying = false;
             Settings.MediaController.StopMusic();
             Settings.PageController.ChangeWindow(Pages.Intro);

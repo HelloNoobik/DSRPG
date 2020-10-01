@@ -136,13 +136,31 @@ namespace DSRPG.Classes.Hero
             }
         }
 
-        public HeroBase(string name, string gender, string _class) 
+        public HeroBase(string name, string gender, string gift) 
         {
             Inv = new Inventory();
-            Inv.AddItem("Эстус", 3);
+            Inv.SetItem("Эстус", 3);
             Name = name;
-            Class = _class;
             Gender = gender;
+
+            switch (gift) 
+            {
+                case "Души":
+                    Inv.SetItem("Душа безымянного солдата", 2);
+                    break;
+                case "Человечность":
+                    Inv.SetItem("Человечность", 1);
+                    break;
+                case "Бомбы":
+                    Inv.SetItem("Черная огненная бомба", 2);
+                    Inv.SetItem("Огненная бомба", 2);
+                    break;
+                case "Небесное благославление":
+                    Inv.SetItem("Небесное благословение", 1);
+                    break;
+                default:
+                    break;
+            }
 
             Inv.WeaponChanged += Inv_WeaponChanged;
             Inv.ArmorChanged += Inv_ArmorChanged;
@@ -183,8 +201,6 @@ namespace DSRPG.Classes.Hero
             damage.Max = damage.Base;
             UpdateStats();
             FullResetStats();
-            Inv_ArmorChanged();
-            Inv_WeaponChanged();
         }
 
         private void FullResetStats()

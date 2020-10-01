@@ -9,15 +9,15 @@ namespace DSRPG.Classes.Hero
 {
     public class Mage:HeroBase
     {
-        public Mage(string name, string gender, string _class, string gift)
-            : base(name, gender, _class)
+        public Mage(string name, string gender, string gift)
+            : base(name, gender, gift)
         {
 
             strength = 4;
             agility = 4;
             stamina = 4;
             intellect = 12;
-
+            Class = "Маг";
 
             health = new Stat(80);
             mana = new Stat(50);
@@ -27,9 +27,9 @@ namespace DSRPG.Classes.Hero
 
             CalcStats();
 
-            Inv.AddItem("Сет Волшебника", 1);
-            Inv.AddItem("Кинжал", 1);
-            Inv.AddItem("Стрела души", 1);
+            Inv.SetItem("Сет Волшебника", 1);
+            Inv.SetItem("Кинжал", 1);
+            Inv.SetItem("Стрела души", 1);
         }
 
         public Mage() : base() 

@@ -165,6 +165,7 @@
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Inventory\Spell.cs" />
+    <Compile Include="Classes\Inventory\Usable.cs" />
     <Compile Include="Classes\Inventory\Weapon.cs" />
     <Compile Include="Classes\Mobs\Anatolii.cs" />
     <Compile Include="Classes\Mobs\FunnyKnight.cs" />

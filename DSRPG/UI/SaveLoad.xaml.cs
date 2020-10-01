@@ -76,10 +76,9 @@ namespace DSRPG.UI
             Core.Settings.TradeCost = player.TraderCost;
             Core.Settings.PositionInCompaign = player.Position;
 
-
             foreach(ItemList item in items) 
             {
-                Core.Settings.Hero.Inv.AddItem(item.ItemName, item.Count);
+                Core.Settings.Hero.Inv.SetItem(item.ItemName, item.Count);
             }
 
             Core.Settings.PageController.ChangeWindow(Pages.WorldMap);

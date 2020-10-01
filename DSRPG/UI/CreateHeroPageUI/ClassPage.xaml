@@ -14,7 +14,6 @@
         <Label x:Name="Paladin" Content="Паладин" HorizontalAlignment="Left" Margin="102,154,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Paladin_MouseLeftButtonDown"/>
         <Label x:Name="Archer" Content="Лучник" HorizontalAlignment="Left" Margin="102,193,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" RenderTransformOrigin="0.537,0.216" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Archer_MouseLeftButtonDown"/>
         <Label x:Name="Mage" Content="Маг" HorizontalAlignment="Left" Margin="102,232,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" RenderTransformOrigin="0.537,0.216" MouseEnter="MouseEnter" MouseLeave="MouseLeave" MouseLeftButtonDown="Mage_MouseLeftButtonDown"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,297,0,0" TextWrapping="Wrap" Text="Описание класса" VerticalAlignment="Top" Height="112" Width="151" Foreground="White"/>
 
     </Grid>
 </Page>

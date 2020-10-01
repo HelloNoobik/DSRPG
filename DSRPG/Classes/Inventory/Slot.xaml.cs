@@ -142,7 +142,11 @@ namespace DSRPG.Classes
 
         private void Use() 
         {
-            MessageBox.Show($"{item.Type.ToString()}");
+            if (Core.Settings.Hero.Inv.GetItem("Душа безымянного солдата").Count > 0) 
+            { 
+                Core.Settings.Hero.Inv.RemoveItem("Душа безымянного солдата", 1);
+                Core.Settings.Hero.Souls += 1000;   
+            }
         }
 
         private void Slot_ItemChanged()
