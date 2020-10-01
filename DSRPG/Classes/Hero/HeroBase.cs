@@ -176,10 +176,15 @@ namespace DSRPG.Classes.Hero
             damage.Reset();
         }
 
+
         public void CalcStats()
         {
+            armor.Max = armor.Base;
+            damage.Max = damage.Base;
             UpdateStats();
             FullResetStats();
+            Inv_ArmorChanged();
+            Inv_WeaponChanged();
         }
 
         private void FullResetStats()
